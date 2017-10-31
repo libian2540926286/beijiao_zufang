@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.ReplyDao">
+<!-- 查询回复 -->
+<select id="selectReply" parameterType="int" resultType="com.beijiao.model.Reply">
+     select * from reply where replyId=#{replyId}
+</select>
+
+
+<!-- 添加回复 -->
+<insert id="insertDiscuss" parameterType="com.beijiao.model.Reply" >
+    insert into reply(discussId,userId,replyContent,replyTime) 
+                        values(#{discussId},#{userId},#{replyContent},#{replyTime}) 
+</insert>
+<!-- 删除回复 -->
+<delete id="deleteReply" parameterType="int">
+     delete * from reply where replyId=#{replyId}
+</delete>
+</mapper>

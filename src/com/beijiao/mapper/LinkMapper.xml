@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.LinkMapper">
+
+<!-- 查询链接 -->
+<select id="selectLink" parameterType="int" resultType="com.beijiao.model.Link">
+ select * from link where linkId=#{linkId}
+</select>
+<!-- 查询所有链接 -->
+<resultMap type="com.beijiao.model.Link" id="linkList">
+        <id column="linkId" property="linkId" />
+		<result property="linkAddress" column="linkAddress" />
+		<result property="linkName" column="linkName" />
+</resultMap>
+
+<select id="selectLIstLink" resultMap="linkList">
+select * from link limit 5
+</select>
+
+<!-- 添加链接 -->
+<insert id="addLink" parameterType="com.beijiao.model.Link">
+ insert into link(linkAddress,linkName) values(#{linkAddress},#{linkName})
+</insert>
+<!-- 修改链接 -->
+<update id="changeLink" parameterType="com.beijiao.model.Link">
+update link set linkName=#{linkName},linkName=#{linkName} where linkId=#{linkId}
+</update>
+<!-- 删除链接 -->
+<delete id="deleteLink" parameterType="int">
+delete * from link where linkId=#{linkId}
+</delete>
+</mapper>

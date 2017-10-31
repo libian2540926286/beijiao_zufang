@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.PClassDao">
+
+<select id="selectPClassName" resultMap="pClassName">
+    select * from pclass
+</select>
+<resultMap type="com.beijiao.model.PClass" id="pClassName">
+   <id column="pClassId" property="pClassId" />
+   <result column="pClassName" property="pClassName"/>
+</resultMap>
+<select id="getPClassName" resultMap="pClassName">
+    select pClassName from pclass where pClassId=#{pClassId}
+</select>
+</mapper>

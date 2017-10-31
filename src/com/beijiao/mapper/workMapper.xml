@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.AffairDao">
+
+<select id="selectWork" parameterType="int" resultType="com.beijiao.model.AffairWork">
+   select * from work where affWorkId=#{affWorkId}
+</select>
+
+<select id="selectAllWork" parameterType="int" resultMap="selectAll">
+   select * from work,affair where work.affairId=affair.affairId
+</select>
+<resultMap type="com.beijiao.model.AffairWork" id="selectAll">
+   <id property="affWorkId" column="affWorkId"/>
+   <result property="affairId" column="affairId"/>
+   <result property="workName" column="workName"/>
+   <result property="depart" column="depart"/>
+   <result property="departRange" column="departRange"/>
+   <result property="legal" column="legal"/>
+   <result property="place" column="place"/>
+   <result property="timeRange" column="timeRange"/>
+   <result property="phone" column="phone"/>
+   <result property="reference" column="reference"/>
+   <result property="link" column="link"/>
+</resultMap>
+
+<insert id="insertWork" parameterType="com.beijiao.model.AffairWork" >
+
+</insert>
+<update id="updatetWork" parameterType="com.beijiao.model.AffairWork">
+
+</update>
+
+<delete id="deleteWork" parameterType="int">
+delete * from work where affWorkId=#{affWorkId}
+</delete>
+
+</mapper>
