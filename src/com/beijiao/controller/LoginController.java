@@ -100,9 +100,7 @@ public class LoginController {
 	
 	@RequestMapping("test")
 	public String test(){
-		List<Policy> areas=policyService.selectPolicyArea("朝阳区");
-		System.out.println(areas.get(6).getPolTime());
-	    return "";
+	    return "admin/main";
 	}
 
 	
