@@ -40,8 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form id="login">
 			<li>
 				<input type="text" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}"
-				minlength="2" maxlength="12" class="text" required
-				onkeyup="return /[\w\u4e00-\u9fa5]/.test(String.fromCharCode(window.event.keyCode))" >
+				minlength="2" maxlength="12" class="text" required>
 				<a href="#" class=" icon user"></a>
 			</li>
 			<br/>
