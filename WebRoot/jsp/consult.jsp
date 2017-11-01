@@ -126,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="enquire_information_1">
            <p>
               <span>咨询标题</span>
-              <input type="hidden" value="" name="uesrId">
+              <input type="hidden" value="1" name="uesrId">
               <input type="text" size="50px" style="height:20px" name="disTitle"
                 value="请输入问题标题" onFocus="if(this.value=='请输入问题标题'){this.value='';}"
                 onBlur="if(this.value==''){this.value='请输入问题标题';}">
@@ -156,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </p>
           </li>
         </ul>
-        <input id="submit" type="button" value="提交问题">
+        <input id="submit" type="submit" value="提交问题">
       </form>
       </div>
 
