@@ -3,12 +3,15 @@
  */
 package com.beijiao.serviceImpl;
 
+import org.springframework.stereotype.Service;
+
 import com.beijiao.service.AdminService;
 
 /**
  * @author cmy
- *ионГ11:24:22
+ *О©╫О©╫О©╫О©╫11:24:22
  */
+@Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
 }

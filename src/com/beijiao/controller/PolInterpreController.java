@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beijiao.model.PolInterpre;
-import com.beijiao.model.Product;
 import com.beijiao.service.PolInterpreService;
 
 /**

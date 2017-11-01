@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -97,14 +99,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <hr>
         <div id="firstPage" class="show">
           <ul>
+          <c:forEach items="${affairs1}" var="affairs1">
           <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="guide-detail.html" title="">农民专业合作社分支机构设立登记 </a>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="affair/toAffair?affWorkId=${affairs1.affWorkId}" title="">${affairs1.workName} </a>
+          </li>
+          </c:forEach>
+          <li>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="content2.html" title="">农民专业合作社设立登记</a>
           </li>
           <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">企业集团设立登记 </a>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="content.html" title="">企业集团设立登记 </a>
           </li>
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社分支机构设立登记</a>
@@ -112,52 +119,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">农民专业合作社设立登记</a>
           </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">企业集团设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">农民专业合作社分支机构设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">企业集团设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
+          
         </ul>
         </div>
         <div id="secondPage" class="hide">
           <ul>
+          <c:forEach items="${affairs2}"var="affairs2">
           <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发 </a>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="affair/toAffair?affWorkId=${affairs2.affWorkId}" title="">${affairs2.workName} </a>
           </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准  </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发</a>
-          </li>
-          <li>
-              <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
-          <li>
-              <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
+          </c:forEach>       
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准</a>
           </li>
@@ -165,20 +137,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="thirdPage" class="hide">
           <ul>
+          <c:forEach items="${affairs3}"var="affairs3">
+          <li>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="affair/toAffair?affWorkId=${affairs3.affWorkId}" title="">${affairs3.workName} </a>
+          </li>
+          </c:forEach> 
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">社会团体年度检查 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">民办非企业单位年度检查 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">年度投资计划初审 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">社会团体年度检查</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">民办非企业单位年度检查</a>
           </li>
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">年度投资计划初审</a>
@@ -193,6 +159,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="forthPage" class="hide">
           <ul>
+           <c:forEach items="${affairs4}"var="affairs4">
+          <li>
+            <img src="images/dian.png" width="5px" height="5px" alt="" />
+            <a href="affair/toAffair?affWorkId=${affairs4.affWorkId}" title="">${affairs4.workName} </a>
+          </li>
+          </c:forEach>
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">行政许可有效期延续 </a>
           </li>
@@ -201,18 +173,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </li>
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">《政府核准的投资项目目录》以外的企业投资项目备案 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">行政许可有效期延续</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">办理权限内国有建设用地使用权划拨</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">《政府核准的投资项目目录》以外的企业投资项目备案</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">办理权限内国有建设用地使用权划拨</a>
           </li>
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">《政府核准的投资项目目录》以外的企业投资项目备案</a>
