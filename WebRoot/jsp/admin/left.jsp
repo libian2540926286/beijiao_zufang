@@ -60,11 +60,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li class="active"><cite></cite><a href="jsp/admin/index.jsp" target="rightFrame">管理员首页</a><i></i></li>
         <li><cite></cite><a href="jsp/admin/right.jsp" target="rightFrame">浏览记录分析</a><i></i></li>
         <li><cite></cite><a href="jsp/admin/imgtable.jsp" target="rightFrame">操作记录</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/form.jsp" target="rightFrame">首页轮播</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/focus.jsp" target="rightFrame">热点关注</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/policy.jsp" target="rightFrame">行业政策</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦</a><i></i></li>
+        <li><cite></cite><a href="jsp/admin/form.jsp" target="rightFrame">首页轮播操作</a><i></i></li>
+        <li><cite></cite><a href="jsp/admin/focus.jsp" target="rightFrame">热点关注</a><i></i></li>      
         <li><cite></cite><a href="jsp/admin/interpretation.jsp" target="rightFrame">政策解读</a><i></i></li>
+        <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦</a><i></i></li>
         <li><cite></cite><a href="jsp/admin/file.jsp" target="rightFrame">文件发布</a><i></i></li>
         </ul>    
     </dd>

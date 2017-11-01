@@ -16,9 +16,9 @@ public class AffairServiceImpl implements AffairService {
 	@Resource
 	private AffairDao affairDao;
 	@Override
-	public List<AffairWork> selectAllWork() {
+	public List<AffairWork> selectAllWork(int affairId) {
 		// TODO Auto-generated method stub
-		return affairDao.selectAllWork();
+		return affairDao.selectAllWork(affairId);
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class AffairController {
 		
 		AffairWork affair=affairService.selectWork(affWorkId);
 		model.addAttribute("affair", affair);
-		return "success";
+		return "guide-detail";
 	}
 	
 	
@@ -34,10 +34,15 @@ public class AffairController {
 	@RequestMapping("toAllAffair")
 	public ModelAndView getAffairList(){
 		ModelAndView mac=new ModelAndView();
-		List<AffairWork> affairs=new ArrayList<AffairWork>();
-		affairs=affairService.selectAllWork();
-		mac.addObject("affairs",affairs);
-		mac.setViewName("success");
+		List<AffairWork> affairs1=affairService.selectAllWork(1);
+		mac.addObject("affairs1",affairs1);
+		List<AffairWork> affairs2=affairService.selectAllWork(2);
+		mac.addObject("affairs2",affairs2);
+		List<AffairWork> affairs3=affairService.selectAllWork(3);
+		mac.addObject("affairs3",affairs3);
+		List<AffairWork> affairs4=affairService.selectAllWork(4);
+		mac.addObject("affairs4",affairs4);
+		mac.setViewName("guide");
 		return mac;
 	}
 	

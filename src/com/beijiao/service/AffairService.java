@@ -6,7 +6,7 @@ import com.beijiao.model.AffairWork;
 
 public interface AffairService {
 
-	public List<AffairWork> selectAllWork();
+	public List<AffairWork> selectAllWork(int affairId);
 	public AffairWork selectWork(int affWorkId);
 	public int insertWork(AffairWork Work);
 	public int updateWork(AffairWork Work);

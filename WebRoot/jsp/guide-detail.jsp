@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,8 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <!-- <iframe style="width: 100%; height: 236px" scrolling="no" 
-  frameborder="0" src="header.html"></iframe> -->
   <div class="top">
 		<div class="wrap">
 			<span class="fl">欢迎您来到<a href="#" title="" target="_blank">新政策网</a></span>
@@ -81,20 +81,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
   <div id="content">
+  <c:if test="${not empty affair}">
     <div id="title">
-      <span>农民专业合作社分支机构设立登记</span>
+      <span>${affair.workName}</span>
       <table border="1">
         <tr>
-          <th>办理地点：</td>
-          <td>海淀区东北旺南路29号上地办公中心西侧（二层）</td>
-          <th>办理时间：</td>
-          <td>工作日 上午9：00-12：00 下午13：30-17：00 </td>
+          <th>办理地点：</th>
+          <td>${affair.place}</td>
+          <th>办理时间：</th>
+          <td>${affair.timeRange}</td>
         </tr>
         <tr>
-          <th>承诺期限：</td>
-          <td>4个工作日</td>
-          <th>咨询电话：</td>
-          <td>160315/52807859 </td>
+          <th>承诺期限：</th>
+          <td>${affair.timeRange}</td>
+          <th>咨询电话：</th>
+          <td>${affair.phone}</td>
         </tr>
       </table>
     </div>
@@ -102,19 +103,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="introduce">
       <span>事项介绍</span>
       <ul>
-        <li><span class="title">事项名称：</span><span class="content">农民专业合作社分支机构设立登记</span></li>
-        <li><span class="title">法定实施主体：</span><span class="content">北京市工商行政管理局海淀分局 </span></li>        
-        <li><span class="title">主体范围：</span><span class="content">农业合作社、可代理办理 </span></li>
-        <li><span class="title">办事依据：</span><span class="content">《中华人民共和国农民专业合作社法》第十三条；</span></li>
-        <li><span class="title">办理地点：</span><span class="content">海淀区东北旺南路29号上地办公中心西侧（二层） </span></li>
-        <li><span class="title">办公时间：</span><span class="content">工作日 上午9：00-12：00 下午13：30-17：00  </span></li>
-        <li><span class="title">咨询电话：</span><span class="content">160315/52807859</span></li>
-        <li><span class="title">投诉电话：</span><span class="content">010-82692065</span></li>
-        <li><span class="title">法定期限：</span><span class="content">10个工作日</span></li>
-        <li><span class="title">承诺期限：</span><span class="content">4个工作日</span></li>
-        <li><span class="title">收费依据和标准：</span><span class="content">不收费</span></li>
-        <li><span class="title">办理结果：</span><span class="content">营业执照</span></li>
-        <li><span class="title">有效期限：</span><span class="content">依上级单位经营期限 </span></li>
+        <li><span class="title">事项名称：</span><span class="content">${affair.workName}</span></li>
+        <li><span class="title">法定实施主体：</span><span class="content">${affair.depart}</span></li>        
+        <li><span class="title">主体范围：</span><span class="content">${affair.departRange} </span></li>
+        <li><span class="title">办事依据：</span><span class="content">${affair.legal}</span></li>
+        <li><span class="title">办理地点：</span><span class="content">${affair.place}</span></li>
+        <li><span class="title">办公时间：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">咨询电话：</span><span class="content">${affair.phone}</span></li>
+        <li><span class="title">法定期限：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">承诺期限：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">收费依据和标准：</span><span class="content">${affair.reference}</span></li>
+        <li><span class="title">有效期限：</span><span class="content">${affair.timeRange} </span></li>
       </ul>
       <br/>
     </div>
@@ -136,23 +135,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </ul>
         <br/>
       </div>
-
-    <br/>
-    <br/>
-    <br/>
+    </c:if>
 	</div>
 	
-	<!-- 左侧导航栏 -->
-	<!-- <div id="subnav">
-		<li id="title"><span>导航栏</span></li>
-		<ul id="subnav_tag">
-			<li><a href="gjzc.html">国家政策</a></li>
-			<li><a href="city.html">市级政策</a></li>
-			<li><a href="district.html">地方政策</a></li>
-			<li><a href="media.html" title="">媒体聚焦</a></li>
-			<li><a href="interpretation.html" title="">政策解读</a></li>			
-			<li><a href="file.html" title="">文件发布</a></li>		
-		</ul>
-	</div> -->
   </body>
 </html>
