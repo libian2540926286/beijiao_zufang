@@ -21,8 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
   </head>
   
   <body>
@@ -39,13 +39,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     <div class="welinfo">
-    <span><img src="images/sun.png" alt="天气" /></span>
+    <span><img src="jsp/admin/images/sun.png" alt="天气" /></span>
     <b>欢迎使用信息管理系统</b>
     <!-- <a href="#">帐号设置</a> -->
     </div>
     
     <div class="welinfo">
-    <span><img src="images/time.png" alt="时间" /></span>
+    <span><img src="jsp/admin/images/time.png" alt="时间" /></span>
     <i>您上次登录的时间：2013-10-09 15:22</i> 
     <!-- （不是您登录的？<a href="#">请点这里</a>） -->
     </div>
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     <div class="welinfo">
-    <span><img src="images/dp.png" alt="提醒" /></span>
+    <span><img src="jsp/admin/images/dp.png" alt="提醒" /></span>
     <b>信息管理系统使用指南</b>
     </div>
     

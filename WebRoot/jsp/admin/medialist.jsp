@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
+    <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
 	<script language="javascript">
 	$(function(){	
 		//导航切换
@@ -66,14 +66,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!-- <div class="tools">
     	<ul class="toolbar">
-        <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-        <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>统计</li>
+        <li class="click"><span><img src="jsp/admin/images/t01.png" /></span>添加</li>
+        <li class="click"><span><img src="jsp/admin/images/t02.png" /></span>修改</li>
+        <li><span><img src="jsp/admin/images/t03.png" /></span>删除</li>
+        <li><span><img src="jsp/admin/images/t04.png" /></span>统计</li>
       </ul>
         
       <ul class="toolbar1">
-        <li><span><img src="images/t05.png" /></span>设置</li>
+        <li><span><img src="jsp/admin/images/t05.png" /></span>设置</li>
       </ul>
     </div> -->
     
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tbody>
     
     <tr>
-    <td class="imgtd"><img src="images/img11.jpg" /></td>
+    <td class="imgtd"><img src="jsp/admin/images/img11.jpg" /></td>
     <td><a href="#">全国工商和市场监管工作座谈会举行</a><p>发布时间：2017-9-22 09:25:18</p></td>
     <td>首页轮播<p>ID: 82122</p></td>
     <td>开放浏览</td>
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     
     <tr>
-    <td class="imgtd"><img src="images/img12.jpg" /></td>
+    <td class="imgtd"><img src="jsp/admin/images/img12.jpg" /></td>
     <td><a href="#">张茅在世界地理标志大会上强调：推进地理标志工作助推“一带一路”建设</a><p>发布时间：2017-9-22 09:25:18</p></td>
     <td>首页轮播<p>ID: 82122</p></td>
     <td>开放浏览</td>
@@ -173,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
+        <span><img src="jsp/admin/images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
@@ -196,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
+        <span><img src="jsp/admin/images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>

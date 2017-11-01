@@ -21,11 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link href="css/select.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
-	<script type="text/javascript" src="js/select-ui.min.js"></script>
+    <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="jsp/admin/css/select.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/jquery.idTabs.min.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/select-ui.min.js"></script>
 	<script type="text/javascript" src="editor/kindeditor.js"></script>
 	
 	<script type="text/javascript">
@@ -195,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="images/px.gif" /></i></th>
+        <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
         <th>标题</th>
         <th>用户</th>
         <th>籍贯</th>

@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
+    <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
 	
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -58,14 +58,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="tools">
     	<ul class="toolbar">
-            <!-- <li class="click"><span><img src="images/t01.png" /></span>添加</li>
-            <li class="click"><span><img src="images/t02.png" /></span>修改</li>
-            <li><span><img src="images/t04.png" /></span>统计</li> -->
-            <li><span><img src="images/t03.png" /></span>删除</li>
+            <!-- <li class="click"><span><img src="jsp/admin/images/t01.png" /></span>添加</li>
+            <li class="click"><span><img src="jsp/admin/images/t02.png" /></span>修改</li>
+            <li><span><img src="jsp/admin/images/t04.png" /></span>统计</li> -->
+            <li><span><img src="jsp/admin/images/t03.png" /></span>删除</li>
         </ul>
         
         <!-- <ul class="toolbar1">
-            <li><span><img src="images/t05.png" /></span>设置</li>
+            <li><span><img src="jsp/admin/images/t05.png" /></span>设置</li>
         </ul> -->
     </div>
     
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <!-- <th>编号<i class="sort"><img src="images/px.gif" /></i></th> -->
+        <!-- <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th> -->
         <th>用户名</th>
         <th>最近登录时间</th>
         <!-- <th>籍贯</th> -->
@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="images/ticon.png" /></span>
+        <span><img src="jsp/admin/images/ticon.png" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
