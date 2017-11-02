@@ -208,70 +208,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
         <div id="secondPage" class="hide">
           <ul>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="guide-detail.html" title="">农民专业合作社分支机构设立登记 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">企业集团设立登记 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社分支机构设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">农民专业合作社设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">企业集团设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">农民专业合作社分支机构设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content.html" title="">企业集团设立登记</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">农民专业合作社设立登记</a>
-          </li>
-        </ul>
+            <li>
+              <span class="time">[2017-11-02]</span>
+            </li>
+            <li class="message">
+              <span>您关注的行业有以下最新信息。。。。。。</span>
+              <a class="more" href="#">点击查看更多>></a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span class="time">[2017-11-02]</span>
+            </li>
+            <li class="message">
+              <span>您关注的行业有以下最新信息。。。。。。</span>
+              <a class="more" href="#">点击查看更多>></a>
+            </li>
+          </ul>
         </div>
+        
         <div id="thirdPage" class="hide">
           <ul>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准  </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发</a>
-          </li>
-          <li>
-              <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
-          <li>
-              <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">烟花爆竹经营（零售）许可证核发</a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">医疗器械经营许可证核发 </a>
-          </li>
-          <li>
-            <img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">宣传、新闻和出版单位发表尚未公布的国民经济和社会发展统计资料核准</a>
-          </li>
+            <li class="answer">管理员回复了您的留言：</li>
+            <li class="answer-detail">您的留言已回复，请登陆查看。<span class="time">[2017-11-02]</span></li>
+          </ul>
+          <ul>
+            <li class="answer"><span>管理员回复了您的留言：</span></li>
+            <li class="answer-detail">您的留言已回复，请登陆查看。<span class="time">[2017-11-02]</span></li>
           </ul>
         </div>
       </div>
