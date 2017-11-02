@@ -20,12 +20,14 @@ import com.beijiao.dao.UserMapper;
 import com.beijiao.model.Discuss;
 import com.beijiao.model.News;
 import com.beijiao.model.PClass;
+import com.beijiao.model.PicPolicy;
 import com.beijiao.model.PolInterpre;
 import com.beijiao.model.Policy;
 import com.beijiao.model.User;
 import com.beijiao.service.DiscussService;
 import com.beijiao.service.NewsService;
 import com.beijiao.service.PClassService;
+import com.beijiao.service.PicPolicyService;
 import com.beijiao.service.PolInterpreService;
 import com.beijiao.service.PolicyService;
 import com.beijiao.service.UserService;
@@ -43,6 +45,8 @@ public class LoginController {
 	private UserService userService;
 	@Resource
 	private PolicyService policyService;
+	@Resource
+	private PicPolicyService picPolicyService;
 	@Resource
 	private PolInterpreService polInterpreService;
 	@Resource
@@ -66,6 +70,13 @@ public class LoginController {
 		model.addAttribute("policy2", policy2);
 		List<Policy> policy3=policyService.selectPolicyType("区");
 		model.addAttribute("policy3", policy3);
+		
+		/*
+		 * 图片滚动
+		 */
+		List<PicPolicy> picPols=picPolicyService.getFive();
+		model.addAttribute("picPols", picPols);
+		
 		//三级联动查询
 		List<Policy> areas=policyService.selectPolicyArea("朝阳区");
 		for(int i=0;i<areas.size();i++){
@@ -130,6 +141,12 @@ public class LoginController {
 				
 	}
 	
+	@RequestMapping("loginOut")
+	public String loginOut(){
+		
+		return "index/toindex";
+	}
+	
 	/*
 	 **register
 	 */
@@ -162,7 +179,7 @@ public class LoginController {
 	/**
 	 * changePawd
 	 */
-	@RequestMapping("changepawd")
+	@RequestMapping("changepswd")
 	public String changePassword(int userId,String password,Model model){
 		
 		String oldPassword=userService.selectPawd(userId);
@@ -181,9 +198,20 @@ public class LoginController {
         
 	}
 	
-	public static void main(String[] args){
-		LoginController policy=new LoginController();
-		policy.test();
-	}	
+	
+	@RequestMapping("allUser")
+	public String getAllUser(Model model){
+		List<User> users=userService.getAllUser();
+		model.addAttribute("users", users);
+		return "admin/user";
+	}
+	
+	@RequestMapping("touser")
+	public String getUser(Model model,int userId){
+		User user=userService.getUser(userId);
+		model.addAttribute("user", user);
+		return "";
+	}
+	
 	
 }

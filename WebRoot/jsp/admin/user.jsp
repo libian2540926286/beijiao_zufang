@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -74,9 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <!-- <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th> -->
         <th>用户名</th>
-        <th>最近登录时间</th>
+        <th>所属行业</th>
         <!-- <th>籍贯</th> -->
         <th>注册时间</th>
         <!-- <th>是否审核</th> -->
@@ -84,17 +85,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${users}" var="users">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <!-- <td>20130908</td> -->
-        <td>user1</td>
-        <td>2017-09-09 15:05</td>
+        <td>${users.usename}</td>
+        <td>${users.pClassName}</td>
         <!-- <td>江苏南京</td> -->
         <td>2017-09-09 15:05</td>
         <!-- <td>已审核</td> -->
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="" class="tablelink"> 删除</a></td>
         </tr> 
-        
+        </c:forEach>
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <!-- <td>20130907</td> -->

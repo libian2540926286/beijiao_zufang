@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beijiao.dao.PolicyMapper">
 <!-- 查询政策 -->
-<select id="selectPolicy" parameterType="int" resultType="com.beijiao.model.Policy">
+<select id="getFive" parameterType="int" resultType="com.beijiao.model.Policy">
 select * from policy where policyId=#{policyId}
 </select>
 <!-- 查询所有政策 -->

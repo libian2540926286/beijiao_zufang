@@ -35,15 +35,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-      <form method="post" action="">
+      <form method="post" action="index/changepswd">
 		<ul class="forminfo">
-			<li><label>原始密码</label><input name="" type="text"
-				class="dfinput" /><i>标题不能超过20个字符</i></li>
-			<li><label>新密码</label><input name="" type="text" class="dfinput" /><i>标题不能超过20个字符</i></li>
-			<li><label>确认新密码</label><input name="" type="text"
-				class="dfinput" /><i>标题不能超过20个字符</i></li>
-			<li><label>&nbsp;</label><input name="" type="button"
-				class="btn" value="提交" /></li>
+			<li><label>原始密码</label>
+			<input name="oldPassword" type="text"class="dfinput" /><i>标题不能超过20个字符</i></li>
+			<li><label>新密码</label>
+			<input name="password" type="text" class="dfinput" /><i>标题不能超过20个字符</i></li>
+			<li><label>确认新密码</label>
+			<input name="password" type="text"class="dfinput" /><i>标题不能超过20个字符</i></li>
+			<li><label>&nbsp;</label>
+			<input name="submit" type="submit" class="btn" value="确认修改" /></li>
 		</ul>
       </form>
 	</div>

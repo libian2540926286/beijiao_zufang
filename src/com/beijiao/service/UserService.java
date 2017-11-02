@@ -3,6 +3,7 @@
  */
 package com.beijiao.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.beijiao.model.User;
@@ -27,4 +28,6 @@ public interface UserService {
 	 */
 	public String selectPawd(int userId);
    public int changepswd(int userId,String password,String oldPassword);
+   public List<User> getAllUser();
+   public User getUser(int userId);
 }
