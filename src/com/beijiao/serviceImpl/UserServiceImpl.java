@@ -3,6 +3,7 @@
  */
 package com.beijiao.serviceImpl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -60,6 +61,16 @@ public class UserServiceImpl implements UserService {
 	public String selectPawd(int userId) {
 		// TODO Auto-generated method stub
 		return userMapper.selectPawd(userId);
+	}
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return userMapper.getAllUser();
+	}
+	@Override
+	public User getUser(int userId) {
+		// TODO Auto-generated method stub
+		return userMapper.getUser(userId);
 	}
 
 }

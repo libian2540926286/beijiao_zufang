@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -60,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 			 
-		<div class="nav">
+	<div class="nav">
         <div class="wrap"> 
           <ul class="nav_left">
             <li><a href="index.html" title="">首页</a></li>
@@ -77,15 +79,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><a href="#" title="">活动通知</a></li>
             <li><a href="enquire.html" title="">咨询答疑</a></li>
           </ul>
-        </div> 
       </div>
 	</div>  
 	<!--header end-->
-
+    </div>
   <div class="content">
     <div class="list">
 			<div class="location">
-				<li>位置 > 个人主页</li>
+			
+				<span>位置 > 个人主页</span>
 			</div>
 
       <div id="tab">
@@ -98,70 +100,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="firstPage" class="show">
             <ul>
               <li>
-                  <span>用户名：&nbsp;</span><span>用户123</span>
-                  <input id="changeUsername" type="submit" value="修改用户名">
+                  <span>用户名：&nbsp;</span>
+                  <span>用户123</span>
+                  <input id="changeUsername" type="submit" value="修改用户名" >
               </li>
-              <script type="text/javascript">
-                $("#changeUsername").click(function() {
-                  $('#passwordChange').hide();
-                  $('#industryChange').hide();
-                  $('#usernameChange').show();
-                })
-              </script>
-
               <li>
                   <span>密码：&nbsp;&nbsp;</span><span>******</span>
-                  <input id="changePassword" type="submit" value="修改密码">
-                  <script type="text/javascript">
+                  <input id="changePassword" type="submit" value="修改密码" >           
+              </li>
+              <li>
+                  <span>关注行业：</span><span>医疗业</span>
+                  <input id="changeIndustry" type="submit" value="修改行业">
+                  
+              </li>
+            </ul>
+            <script type="text/javascript">
                     $("#changePassword").click(function() {
                       $('#usernameChange').hide();
                       $('#industryChange').hide();
                       $('#passwordChange').show();
-                    })
+                    });
                   </script>
-              </li>
-
-              <li>
-                  <span>关注行业：</span><span>医疗业</span>
-                  <input id="changeIndustry" type="submit" value="修改行业">
-                  <script type="text/javascript">
+            <script type="text/javascript">
+                $("#changeUsername").click(function() {
+                  $('#passwordChange').hide();
+                  $('#industryChange').hide();
+                  $('#usernameChange').show();
+                });
+              </script>
+            <script type="text/javascript">
                     $("#changeIndustry").click(function() {
                       $('#usernameChange').hide();
                       $('#passwordChange').hide();
                       $('#industryChange').show();
-                    })
-                  </script>
-              </li>
-            </ul>
-
+                    });
+            </script>
             <form id="passwordChange">
+            <ul>
               <li>
                 <label>原始密码&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请输入原始密码" onFocus="if(this.value=='请输入原始密码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入原始密码';}"
-                minlength="6" maxlength="12" required>
+                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
+                name="oldPassword" minlength="6" maxlength="12" required>
               </li>
               <li>
                 <label>新密码&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请输入新密码" onFocus="if(this.value=='请输入新密码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入新密码';}"
-                minlength="6" maxlength="12" required>
+                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
+                       name="checkpassword" minlength="6" maxlength="12" required>
               </li>
               <li>
                 <label>确认新密码</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请重新输入新密码" onFocus="if(this.value=='请重新输入新密码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请重新输入新密码';}"
+                <input type="text" size="50px" style="height:25px" name="password"
                 minlength="6" maxlength="12" required>
               </li>
               <li>
-                <input class="submit" type="submit" value="登录" >
+                <input class="submit" type="submit" value="确认修改" >
               </li>
+              </ul>
             </form>
 
             <form id="usernameChange">
+            <ul>
               <li>
                 <label>新用户名&nbsp;</label>
                 <input type="text" size="50px" style="height:25px" 
@@ -178,21 +176,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </li>
               <li>
                 <label>密码&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请输入密码" onFocus="if(this.value=='请输入密码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入密码';}"
-                minlength="6" maxlength="12" required>
+                <input type="text" size="50px" style="height:25px"  value="请输入密码" onFocus="if(this.value=='请输入密码'){this.value='';}"
+                onBlur="if(this.value==''){this.value='请输入密码';}" minlength="6" maxlength="12" required>
               </li>
               <li>
                 <input class="submit" type="submit" value="登录" >
               </li>
+              </ul>
             </form>
 
             <form id="industryChange">
               <ul>
                 <li>
-                  <input type="checkbox" name="industry" value="industry1">农业
-                  <input type="checkbox" name="industry" value="industry2">金融业
+                  <input type="checkbox" name="industry" value="农业">农业
+                  <input type="checkbox" name="industry" value="金融业">金融业
                   <input type="checkbox" name="industry" value="industry2">服务业
                   <input type="checkbox" name="industry" value="industry2">医疗业业
                   <input type="checkbox" name="industry" value="industry1">农业
@@ -202,12 +199,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <input type="checkbox" name="industry" value="industry1">农业
                   <input type="checkbox" name="industry" value="industry2">金融业
                   <input type="checkbox" name="industry" value="industry2">服务业
-                  <input type="checkbox" name="industry" value="industry2">医疗业业
                 </li>
-              </ul>
-                <li>
-                  <input class="submit" type="submit" value="登录" >
-                </li>
+              </ul>               
+                  <input class="submit" type="submit" value="确认修改" >               
             </form>
 
 

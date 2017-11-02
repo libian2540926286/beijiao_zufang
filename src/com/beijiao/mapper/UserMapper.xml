@@ -9,14 +9,19 @@
             column：用户信息的唯 一标识 列  
             property：用户信息的唯 一标识 列所映射到Orders中哪个属性  
           -->  
-  <!--  <resultMap type="com.beijiao.model.User" id="RgetUser">
+   <resultMap type="com.beijiao.model.User" id="allUser">
         <id column="userId" property="userId" />
 		<result property="username" column="userId" />
 		<result property="password" column="password" />
+		<result property="pClassName" column="pClassName" />
    </resultMap>
-  <select id="checkUser" parameterType="java.util.Map" resultType="RgetUser">
-     select * from user where username=#{username} and password=#{password}
-  </select> -->
+  <select id="getAllUser" parameterType="java.util.Map" resultType="allUser">
+     select * from user
+  </select>
+  
+  <select id="getUser" parameterType="int" resultType="com.beijiao.model.User">
+     select * from user where userId=#{userId}
+  </select>
   
   <select id="checkUser" parameterType="java.util.Map" resultType="com.beijiao.model.User">
      select * from user where username=#{username1} and password=#{password}
