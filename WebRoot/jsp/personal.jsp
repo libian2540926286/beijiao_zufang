@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 minlength="6" maxlength="12" required>
               </li>
               <li>
-                <input class="submit" type="submit" value="确认修改" >
+                <input class="ensure" type="submit" value="确认修改" >
               </li>
               </ul>
             </form>
@@ -180,7 +180,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 onBlur="if(this.value==''){this.value='请输入密码';}" minlength="6" maxlength="12" required>
               </li>
               <li>
-                <input class="submit" type="submit" value="登录" >
+                <input class="ensure" type="submit" value="登录" >
               </li>
               </ul>
             </form>
@@ -188,20 +188,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form id="industryChange">
               <ul>
                 <li>
-                  <input type="checkbox" name="industry" value="农业">农业
-                  <input type="checkbox" name="industry" value="金融业">金融业
-                  <input type="checkbox" name="industry" value="industry2">服务业
-                  <input type="checkbox" name="industry" value="industry2">医疗业业
-                  <input type="checkbox" name="industry" value="industry1">农业
-                  <input type="checkbox" name="industry" value="industry2">金融业
-                  <input type="checkbox" name="industry" value="industry2">服务业
-                  <input type="checkbox" name="industry" value="industry2">医疗业业
-                  <input type="checkbox" name="industry" value="industry1">农业
-                  <input type="checkbox" name="industry" value="industry2">金融业
-                  <input type="checkbox" name="industry" value="industry2">服务业
+                  <input type="radio" name="industry" value="农业">农业
+                  <input type="radio" name="industry" value="金融业">金融业
+                  <input type="radio" name="industry" value="industry2">服务业
+                  <input type="radio" name="industry" value="industry2">医疗业业
+                  <input type="radio" name="industry" value="industry1">农业
+                  <input type="radio" name="industry" value="industry2">金融业
+                  <input type="radio" name="industry" value="industry2">服务业
+                  <input type="radio" name="industry" value="industry2">医疗业业
+                  <input type="radio" name="industry" value="industry1">农业
+                  <input type="radio" name="industry" value="industry2">金融业
+                  <input type="radio" name="industry" value="industry2">服务业
                 </li>
               </ul>               
-                  <input class="submit" type="submit" value="确认修改" >               
+                  <input class="ensure" type="submit" value="确认修改" >               
             </form>
 
 
