@@ -157,6 +157,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </li>
               </ul>
             </form>
+			<script type="text/javascript">
+             $("#confirm-newPassword").focusout(function(){
+                if($("#confirm-newPassword").val() != $("#newPassword").val()){
+                   alert("两次输入的密码不一致！请重新输入！");
+                   $("#confirm-newPassword").focus();
+                }
+             })
+             </script>
 
             <form id="usernameChange">
             <ul>
@@ -184,6 +192,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </li>
               </ul>
             </form>
+            <script type="text/javascript">
+               $("#confirm-newUsername").focusout(function(){
+                 if($("#confirm-newUsername").val() != $("#newUsername").val()){
+                   alert("两次输入的密码不一致！请重新输入！");
+                   $("#confirm-newUsername").focus();
+                 }
+               })
+            </script>
 
             <form id="industryChange">
               <ul>
