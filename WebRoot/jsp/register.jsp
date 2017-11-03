@@ -20,10 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
-	<script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
-	<script src="js/jquery-validation-1.17.0/lib/jquery.js"></script>
-	<script src="js/jquery-validation-1.17.0/dist/jquery.validate.min.js"></script>
-	<script src="js/jquery-validation-1.17.0/dist/localization/messages_zh.js"></script>
 	<script src="js/jquery-1.7.2.min.js"></script>
 
   </head>
@@ -39,14 +35,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<form id="login">
 			<li>
-				<input type="text" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}"
+				<input type="text" value="请输入用户名" placeholder="请输入用户名"
 				minlength="2" maxlength="12" class="text" required>
 				<a href="#" class=" icon user"></a>
 			</li>
 			<br/>
 
 			<li>
-				<input type="password" class="onlyNumAlpha" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"
+				<input type="password" class="onlyNumAlpha" placeholder="请输入密码"
 				minlength="6" maxlength="12" required> 
 				<a href="#" class="icon lock"></a>
 

@@ -21,9 +21,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
+	<script src="js/jquery-1.7.2.min.js"></script>
 	
   </head>
   
   <body>
+	<!-- contact-form -->	
+	<div class="message warning">
+		<div class="inset">
+	
+			<div class="login-head">
+				<h1>欢迎来到新政策网</h1>		
+			</div>
+	
+			<form id="login">
+				<li>
+					<input type="text" placeholder="请输入用户名"
+					minlength="2" maxlength="12" class="text" required>
+					<a href="#" class=" icon user"></a>
+				</li>
+				<br/>
+				<br/>
+	
+				<li>
+					<input type="password" placeholder="请输入密码"
+					minlength="6" maxlength="12" required> 
+					<a href="#" class="icon lock"></a>
+				</li>
+				<br/>
+	
+				<div class="submit">
+					<input type="submit" onclick="myFunction()" value="登录" >
+					<input id="exit"  value="取消" >
+					<h4><a href="#">忘记密码?</a></h4>
+					<div class="clear">  </div>	
+	
+				</div>
+			</form>
+		</div>					
+	</div>
+	
+	<!--- footer -->
+	<div class="footer">
+	
+	</div>
+	
+	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
   </body>
 </html>
