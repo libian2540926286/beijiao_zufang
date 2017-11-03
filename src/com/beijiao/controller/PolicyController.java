@@ -57,6 +57,15 @@ public class PolicyController {
 		
 	}
 	
+	/*toListPolicy*/
+	@RequestMapping("allPolicy")
+	public String selectAllPolicy(Model model){
+		List<Policy> policys=policyService.selectListPolicy();
+		model.addAttribute("policys", policys);		
+		return "admin/policy";
+		
+	}
+	
 	/*toPolicyType*/
 	@RequestMapping("toPolicyType")
 	public String selectPolicyType(Model model,String polDrade){

@@ -123,13 +123,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="left_top_zuo">
 				<div id="fader">
 					<ul>
-					  <c:forEach items="${picPols}" var="picPols">
+					  <%-- <c:forEach items="${picPols}" var="picPols">
 					  <li>
 						<a href="picPol/topicPol?picPolId=${picPols.picPolId}" title="">
 						<img src="images/${picPols.picPolFile}"width="640px" height="320px" alt="${picPols.picPolTitle}">
 						</a>
 						</li>
-					  </c:forEach>
+					  </c:forEach> --%>
 						<li>
 						<a href="content-img.html" title="">
 						<img src="images/01.jpg"width="640px" height="320px" alt="全国工商和市场监管工作座谈会举行">

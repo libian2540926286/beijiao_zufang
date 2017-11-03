@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:forEach items="${users}" var="users">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>${users.usename}</td>
+        <td>${users.username}</td>
         <td>${users.pClassName}</td>
         <!-- <td>江苏南京</td> -->
         <td>2017-09-09 15:05</td>

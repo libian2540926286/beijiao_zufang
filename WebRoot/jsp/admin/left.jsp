@@ -56,16 +56,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="title">
     <span><img src="jsp/admin/images/leftico01.png" /></span>信息管理
     </div>
-    	<ul class="menuson">
-        <li class="active"><cite></cite><a href="jsp/admin/index.jsp" target="rightFrame">管理员首页</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/right.jsp" target="rightFrame">浏览记录分析</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/imgtable.jsp" target="rightFrame">操作记录</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/form.jsp" target="rightFrame">首页轮播操作</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/focus.jsp" target="rightFrame">热点关注</a><i></i></li>      
-        <li><cite></cite><a href="jsp/admin/interpretation.jsp" target="rightFrame">政策解读</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/file.jsp" target="rightFrame">文件发布</a><i></i></li>
-        </ul>    
+   	<ul class="menuson">
+       <li class="active"><cite></cite><a href="jsp/admin/index.jsp" target="rightFrame">管理员首页</a><i></i></li>
+       <%-- <li><cite></cite><a href="jsp/admin/right.jsp" target="rightFrame">浏览记录分析</a><i></i></li> --%>
+       <li><cite></cite><a href="policy/allPolicy" target="rightFrame">政策管理</a><i></i></li>
+       <li><cite></cite><a href="polInterpre/allPolInterpre" target="rightFrame">政策解读管理</a><i></i></li>
+       <%-- <li><cite></cite><a href="jsp/admin/imgtable.jsp" target="rightFrame">操作记录</a><i></i></li> --%>
+       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">首页图片政策上传</a><i></i></li>
+       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">首页图片政策管理</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li>      
+       <li><cite></cite><a href="news/toallNews" target="rightFrame">媒体聚焦</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/file.jsp" target="rightFrame">文件发布</a><i></i></li>
+       </ul>    
     </dd>
         
     
@@ -74,8 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span><img src="jsp/admin/images/leftico02.png" /></span>用户管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="jsp/admin/user.jsp" target="rightFrame">用户账号管理</a><i></i></li>
-        <li><cite></cite><a href="jsp/admin/administrator.jsp" target="rightFrame">管理员账号管理</a><i></i></li>
+        <li><cite></cite><a href="index/allUser" target="rightFrame">用户账号管理</a><i></i></li>
+        <li><cite></cite><a href="jsp/admin/admin.jsp" target="rightFrame">管理员账号管理</a><i></i></li>
         <!-- <li><cite></cite><a href="#">档案列表显示</a><i></i></li> -->
         </ul>     
     </dd> 

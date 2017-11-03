@@ -15,7 +15,7 @@
 		<result property="password" column="password" />
 		<result property="pClassName" column="pClassName" />
    </resultMap>
-  <select id="getAllUser" parameterType="java.util.Map" resultType="allUser">
+  <select id="getAllUser"  resultMap="allUser">
      select * from user
   </select>
   

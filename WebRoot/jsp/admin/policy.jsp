@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
 	<script type="text/javascript" src="jsp/admin/js/jquery.idTabs.min.js"></script>
 	<script type="text/javascript" src="jsp/admin/js/select-ui.min.js"></script>
-	<script type="text/javascript" src="editor/kindeditor.js"></script>
+	<script type="text/javascript" src="jsp/admin/editor/kindeditor.js"></script>
 	
 	<script type="text/javascript">
 	    KE.show({
@@ -61,100 +61,76 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
+    <form method="post" action="">
     
-    
-    <div id="usual1" class="usual"> 
-    
+    <div id="usual1" class="usual">    
     <div class="itab">
   	<ul> 
     <li><a href="#tab1" class="selected">发布通知</a></li> 
     <li><a href="#tab2">自定义</a></li> 
   	</ul>
-    </div> 
-    
+    </div>
+    </div>
   	<div id="tab1" class="tabson">
-    
-    <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>
-    
+    <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>   
     <ul class="forminfo">
-    <li><label>招聘企业<b>*</b></label><input name="" type="text" class="dfinput" value="请填写单位名称"  style="width:518px;"/></li>
+    <li><label>政策标题<b>*</b></label>
+    <input name="polTitle" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    </li>
    
-    <li><label>职位名称<b>*</b></label>  
-    
+    <li><label>政策所属行业<b>*</b></label>  
+    <div class="vocation" >
+    <select class="select1" name="pClassName">
+    <option value="机械化工">机械化工</option>
+    <option value="交通汽车">交通汽车</option>
+    <option value="房产建材">房产建材</option>
+    <option value="服装纺织">服装纺织</option>
+    <option value="IT互联网">IT互联网</option>
+    <option value="文化传媒">文化传媒</option>
+    <option value="医药">医药</option>
+    <option value="食品">食品</option>
+    <option value="农林渔牧">农林渔牧</option>
+    </select>
+    </div>    
+    </li>
 
-    <div class="vocation">
-    <select class="select1">
-    <option>UI设计师</option>
-    <option>交互设计师</option>
-    <option>前端设计师</option>
-    <option>网页设计师</option>
-    <option>Flash动画</option>
-    <option>视觉设计师</option>
-    <option>插画设计师</option>
-    <option>美工</option>
-    <option>其他</option>
+    <li><label>政策发布等级<b>*</b></label>
+    <div class="vocation" >
+    <select class="select1" name="polDrade">
+    <option value="国家">国家</option>
+    <option value="市">北京市</option>
+    <option value="区">区</option>
     </select>
-    </div>
-    
-    </li>
-    
-    <li><label>薪资待遇<b>*</b></label>
-    
-    <div class="vocation">
-    <select class="select1">
-    <option>3000-5000</option>
-    <option>5000-8000</option>
-    <option>8000-10000</option>
-    <option>10000-15000</option>
-    </select>
-    </div>
-    
-    
-    
-    </li>
-    <li><label>工作地点<b>*</b></label>
-    
-    <div class="usercity">
-    
-    <div class="cityleft">
-    <select class="select2">
-    <option>江苏</option>
-    <option>湖南</option>
-    <option>广东</option>
-    <option>北京</option>
-    <option>湖北</option>
-    </select>
-    </div>
-    
-    <div class="cityright">
-    <select class="select2">
-    <option>南京</option>
-    <option>无锡</option>
-    <option>盐城</option>
-    <option>徐州</option>
-    <option>连云港</option>
-    </select>
-    </div>
-    
-    </div>
-    
-    
-    
-    </li>
-    <li><label>通知内容<b>*</b></label>
-    
-
-    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
-    
-    </li>
-    <li><label>&nbsp;</label><input name="" type="button" class="btn" value="马上发布"/></li>
-    </ul>
-    
     </div> 
+    </li>
     
-    
+    <li>
+    <label>政策所属区域<b>*</b></label>    
+    <input name="polArea" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    </li>
+    <li>
+    <label>政策来源<b>*</b></label>    
+    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/> 
+    </li>
+    <li>
+    <label>政策内容<b>*</b></label>
+    <textarea id="content7" name="polContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
+    </li>
+    <li>
+    <label>政策文件<b>*</b></label>    
+    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    <input class="btn"  type="file"  value="请上传政策文件" />  
+    </li>
+    <li>
+    <label>&nbsp;</label>
+    <input name="" type="submit" class="btn" value="马上发布"/>
+    </li>
+    </ul>   
+    </div> 
+    </form>
+   
   	<div id="tab2" class="tabson">
-    
+    </div>
     
     <ul class="seachform">
     
@@ -196,26 +172,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
         <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
-        <th>标题</th>
-        <th>用户</th>
-        <th>籍贯</th>
+        <th>政策标题</th>
+        <th>政策来源</th>
+        <th>政策所属行业</th>
+        <th>政策等级</th>
+        <th>政策所属区域</th>
         <th>发布时间</th>
-        <th>是否审核</th>
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
+     <c:forEach items="${policys}" var="policys">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>20130908</td>
-        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
-        <td>admin</td>
-        <td>江苏南京</td>
-        <td>2013-09-09 15:05</td>
-        <td>已审核</td>
+        <td>${policys.polTitle}</td>
+        <td>${policys.polSource}</td>
+        <td>${policys.pClassName}</td>
+        <td>${policys.polDrade}</td>
+        <td>${policys.polArea}</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
-        
+      </c:forEach>  
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>20130907</td>
@@ -268,7 +246,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </div>  
        
-	</div> 
  
 	<script type="text/javascript"> 
       $("#usual1 ul").idTabs(); 

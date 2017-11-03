@@ -37,22 +37,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-     <form action="" method="post">
+     <form action="news/addNews" method="post">
 		<ul class="forminfo">
-			<li><label>文章标题</label><input name="" type="text"
-				class="dfinput" /><i>标题不能超过30个字符</i></li>
-			<li><label>发布媒体</label><input name="" type="text"
-				class="dfinput" /><i>标题不能超过20个字符</i></li>
-			<li><label>发布时间</label><input name="" type="text"
-				class="dfinput" /></li>
-			<li><label>编辑人</label><input name="" type="text" 
-			    class="dfinput" /><i>标题不能超过10个字符</i></li>
-			<li><label>来源</label><input name="" type="text" class="dfinput"
-				value="" /></li>
-			<li><label>文章内容</label>
-			<textarea name="" cols="" rows="" class="textinput"></textarea></li>
-			<li><label>&nbsp;</label><input name="" type="button"
-				class="btn" value="提交" /></li>
+			<li><label>文章标题</label>
+			<input name="newsTitle" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
+			<li><label>发布时间</label><input name="newsTime" type="text" class="dfinput" /></li>
+			<li><label>编辑人</label><input name="newsAuthor" type="text" class="dfinput" /><i>标题不能超过10个字符</i></li>
+			<li><label>来源</label><input name="newsSource" type="text" class="dfinput" value="" /></li>
+			<li>
+			<label>文章内容</label>
+			<textarea name="newsContent" cols="" rows="" class="textinput"></textarea>
+			</li>
+			<li><label>&nbsp;</label><input name="" type="submit"class="btn" value="提交" /></li>
 		</ul>
     </form>
 	</div>

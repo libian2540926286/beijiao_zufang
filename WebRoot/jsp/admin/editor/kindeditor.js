@@ -72,7 +72,7 @@ KE.lang = {
 KE.scriptPath = (function() {
     var elements = document.getElementsByTagName('script');
     for (var i = 0, len = elements.length; i < len; i++) {
-        if (elements[i].src && elements[i].src.match(/kindeditor[\w\-\.]*\.jsp/admin/js/)) {
+    	if (elements[i].src && elements[i].src.match(/kindeditor[\w\-\.]*\.js/)) {
             return elements[i].src.substring(0, elements[i].src.lastIndexOf('/') + 1);
         }
     }

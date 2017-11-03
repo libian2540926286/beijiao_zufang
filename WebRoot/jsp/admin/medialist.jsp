@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -64,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="rightinfo">
     
-    <!-- <div class="tools">
+     <div class="tools">
     	<ul class="toolbar">
         <li class="click"><span><img src="jsp/admin/images/t01.png" /></span>添加</li>
         <li class="click"><span><img src="jsp/admin/images/t02.png" /></span>修改</li>
@@ -75,35 +77,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <ul class="toolbar1">
         <li><span><img src="jsp/admin/images/t05.png" /></span>设置</li>
       </ul>
-    </div> -->
+    </div>
     
     
     <table class="imgtable">
     
     <thead>
     <tr>
-    <th width="100px;">缩略图</th>
+    <th width="100px;">图片</th>
     <th>标题</th>
-    <th>栏目</th>
-    <th>权限</th>
-    <th>发布人</th>
-    <!-- <th>是否审核</th> -->
+    <th>发布时间</th>
+    <th>新闻来源</th>
     <th>点击</th>
     </tr>
     </thead>
     
     <tbody>
-    
+    <c:forEach items="${news1}" var="news1">
     <tr>
-    <td class="imgtd"><img src="jsp/admin/images/img11.jpg" /></td>
-    <td><a href="#">全国工商和市场监管工作座谈会举行</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>首页轮播<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>128</td>
+    <td class="imgtd">
+    <img src="upload/pic/${news1.newsLink}" /></td>
+    <td><a href="#">${news1.newsTitle}</a></td>
+    <td><p>发布时间：${news1.newsTime}</p></td>
+    <td>${news1.newsSource}</td>
+    <td><a href="">查看</a></td>
     </tr>
-    
+    </c:forEach>
     <tr>
     <td class="imgtd"><img src="jsp/admin/images/img12.jpg" /></td>
     <td><a href="#">张茅在世界地理标志大会上强调：推进地理标志工作助推“一带一路”建设</a><p>发布时间：2017-9-22 09:25:18</p></td>
