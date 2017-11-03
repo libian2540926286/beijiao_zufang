@@ -49,8 +49,16 @@ public class NewsController {
     	List<News> news1=newsService.selectListNews();
     	System.out.println(news1);
     	model.addAttribute("news1",news1);
-    	return "success";	
+    	return "medialist";	
     }
+    @RequestMapping("toallNews")
+    public String selectAllNews(Model model){
+       	
+       	List<News> news1=newsService.selectListNews();
+       	System.out.println(news1);
+       	model.addAttribute("news1",news1);
+       	return "admin/medialist";	
+       }
 	/*��������*/
     @RequestMapping("addNews")
     public String addNews(News news){

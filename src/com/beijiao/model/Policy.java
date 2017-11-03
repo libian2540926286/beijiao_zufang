@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Policy {
 
 	private int policyId;
-	private int pClassId;
+	private String pClassName;
 	private String polTitle;
 	private String polContent;
 	private String polSource;
@@ -110,23 +110,17 @@ public class Policy {
 	public void setPolDrade(String polDrade) {
 		this.polDrade = polDrade;
 	}
-	/**
-	 * @return the pClassId
-	 */
-	public int getpClassId() {
-		return pClassId;
-	}
-	/**
-	 * @param pClassId the pClassId to set
-	 */
-	public void setpClassId(int pClassId) {
-		this.pClassId = pClassId;
-	}
 	public String getPolArea() {
 		return polArea;
 	}
 	public void setPolArea(String polArea) {
 		this.polArea = polArea;
+	}
+	public String getpClassName() {
+		return pClassName;
+	}
+	public void setpClassName(String pClassName) {
+		this.pClassName = pClassName;
 	}
 
 

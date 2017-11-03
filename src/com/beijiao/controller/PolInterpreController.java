@@ -50,11 +50,11 @@ public class PolInterpreController {
 	}
 	
 	/*toAllPolInterpre*/
-	@RequestMapping("toAllPolInterpre")
+	@RequestMapping("allPolInterpre")
 	public String selectAllPolInterpre(Model model){
 		List<PolInterpre> polInterpres=polInterpreService.selectAllPolInterpre();
 		model.addAttribute("polInterpres", polInterpres);		
-		return "polinterprelist";
+		return "admin/polInterprete";
 		
 	}
 	/*addPolInterpre*/

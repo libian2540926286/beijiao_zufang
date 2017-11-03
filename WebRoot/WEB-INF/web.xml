@@ -35,17 +35,13 @@
 	</listener>
 
     <servlet-mapping>    
-       <servlet-name>default</servlet-name>    
-       <!-- <url-pattern>*.js</url-pattern>    
-       <url-pattern>*.css</url-pattern> 
-       <url-pattern>*.jpg</url-pattern>    
-       <url-pattern>*.png</url-pattern>
-       <url-pattern>*.JPG</url-pattern> -->
+       <servlet-name>default</servlet-name>
        <url-pattern>*.doc</url-pattern>
        <url-pattern>*.docx</url-pattern>
        <url-pattern>*.pdf</url-pattern>
        <url-pattern>/assets/*"</url-pattern>    
-       <url-pattern>/images/*</url-pattern>    
+       <url-pattern>/images/*</url-pattern>
+       <url-pattern>/admin/images/*</url-pattern>      
     </servlet-mapping>
 
 	<!-- Spring MVC servlet -->

@@ -17,7 +17,7 @@ public class AdminController {
 	
 	@RequestMapping("test")
 	public String test(){
-		return "admin/mian";
+		return "admin/main";
 	}
 	@RequestMapping("login")
 	public String Login(Admin admin){
