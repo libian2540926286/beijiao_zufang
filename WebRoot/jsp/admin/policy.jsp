@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post" action="">
+    <form method="post" action="policy/addPolicy">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>   
     <ul class="forminfo">
     <li><label>政策标题<b>*</b></label>
-    <input name="polTitle" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    <input name="polTitle" type="text" class="dfinput" value="" placeholder="请填写政策标题"  style="width:518px;"/>
     </li>
    
     <li><label>政策所属行业<b>*</b></label>  
@@ -104,13 +104,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div> 
     </li>
     
-    <li>
-    <label>政策所属区域<b>*</b></label>    
-    <input name="polArea" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    <li><label>政策发布等级<b>*</b></label>
+    <div class="vocation" >
+    <select class="select1" name="polArea">
+    <option value="朝阳区">朝阳区</option>
+    <option value="海淀区">海淀区</option>
+    <option value="昌平区">昌平区</option>
+    </select>
+    </div> 
     </li>
     <li>
     <label>政策来源<b>*</b></label>    
-    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/> 
+    <input name="polSource" type="text" class="dfinput" value="" placeholder="请填写政策来源"  style="width:518px;"/> 
     </li>
     <li>
     <label>政策内容<b>*</b></label>
@@ -118,8 +123,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </li>
     <li>
     <label>政策文件<b>*</b></label>    
-    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    <input name="polSource" type="text" class="dfinput" value=""  style="width:518px;"/>
     <input class="btn"  type="file"  value="请上传政策文件" />  
+    </li>
+     <li>
+    <label>发布时间<b>*</b></label>    
+    <input name="polInterpreTime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <li>
     <label>&nbsp;</label>
@@ -241,8 +250,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tbody>
     </table>
     
-   
-  
     
     </div>  
        
@@ -254,7 +261,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script> 
-    </div>
+    
 
 </body>
 </html>

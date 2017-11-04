@@ -8,7 +8,7 @@ select * from picpolicy where picPolId=#{picPolId}
 </select>
 <!-- 查询所有政策 -->
 <select id="getFive"  resultMap="PicPolicylist">
-select * from picpolicy limit 5 order by picPolId desc limit 10
+select * from picpolicy order by picPolId desc <!-- limit 10 -->
 </select>
 <select id="getAll"  resultMap="PicPolicylist">
 select * from picpolicy order by picPolId desc

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beijiao.dao.PolicyMapper">
 <!-- 查询政策 -->
-<select id="getFive" parameterType="int" resultType="com.beijiao.model.Policy">
+<select id="selectPolicy" parameterType="int" resultType="com.beijiao.model.Policy">
 select * from policy where policyId=#{policyId}
 </select>
 <!-- 查询所有政策 -->
@@ -11,7 +11,7 @@ select * from policy limit 7
 </select>
 <resultMap type="com.beijiao.model.Policy" id="policyList">
     <id property="policyId" column="policyId"/>
-    <result property="pClassId" column="pClassId"/>
+    <result property="pClassName" column="pClassName"/>
     <result property="polTitle" column="polTitle"/>
     <result property="polContent" column="polContent"/>
     <result property="polSource" column="polSource"/>
@@ -49,7 +49,7 @@ select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit
 select * from policy where pClassName=#{pClassName}
 </select> 
 
-<select id="searchPloicy" parameterType="String" resultMap="search">
+<select id="searchPloicy" parameterType="String" resultMap="policyList">
    <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
    select * from policy where 
              <if test="policyTitle != null">  
@@ -59,16 +59,6 @@ select * from policy where pClassName=#{pClassName}
                 AND polContent like CONCAT('%','${search}','%' )  
             </if>  
 </select>
-<resultMap type="com.beijiao.model.Policy" id="search">
-    <id property="policyId" column="policyId"/>
-    <result property="pClassId" column="pClassId"/>
-    <result property="polTitle" column="polTitle"/>
-    <result property="polContent" column="polContent"/>
-    <result property="polSource" column="polSource"/>
-    <result property="polTime" column="polTime"/>
-    <result property="polFile" column="polFile"/>
-    <result property="polDrade" column="polDrade"/>
-</resultMap>
 
 
 <select id="getAllFile" parameterType="String" resultMap="allFile">
@@ -95,13 +85,12 @@ select * from policy where policyId=#{policyId}
 
 <!-- 添加政策 -->
 <insert id="addPolicy" parameterType="com.beijiao.model.Policy">
-insert into policy(polTitle,polContent,polSource,polTime,polType,newsTime) values(
-                       #{polTitle},#{polContent},#{polSource},#{polTime},#{polType},#{polFile}) 
+insert into policy(polTitle,pClassName,polContent,polSource,polTime,polDrade,polFile,polArea) values(
+                 #{polTitle},#{pClassName},#{polContent},#{polSource},#{polTime},#{polDrade},#{polFile},#{polArea}) 
 </insert>
 <!-- 修改政策 -->
 <update id="changePolicy" parameterType="com.beijiao.model.Policy">
- update policy set polTitle=#{polTitle},polContent=#{polContent},polSource=#{polSource},
-                            polTime=#{polTime},polType=#{polType},polFile=#{polFile} where policyId=#{policyId}
+ update policy set polTitle=#{polTitle},polContent=#{polContent},polSource=#{polSource} where policyId=#{policyId}
 </update>
 <!-- 删除政策 -->
 <delete id="deletePolicy" parameterType="int">

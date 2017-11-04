@@ -15,7 +15,7 @@ public class Discuss {
 	private int userId;
 	private String disTitle;
 	private String disContent;
-	private Date disTime;
+	private String disTime;
 	private String phonenum;
 	private String email;
 	 
@@ -59,13 +59,13 @@ public class Discuss {
 	/**
 	 * @return the disTime
 	 */
-	public Date getDisTime() {
+	public String getDisTime() {
 		return disTime;
 	}
 	/**
 	 * @param disTime the disTime to set
 	 */
-	public void setDisTime(Date disTime) {
+	public void setDisTime(String disTime) {
 		this.disTime = disTime;
 	}
 	public String getDisTitle() {

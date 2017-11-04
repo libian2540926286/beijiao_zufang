@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post" action="">
+    <form method="post" action="polInterpre/addPolInterpre">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -74,52 +74,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div id="tab1" class="tabson">
     <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>   
     <ul class="forminfo">
-    <li><label>政策标题<b>*</b></label>
-    <input name="polTitle" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
-    </li>
-   
-    <li><label>政策所属行业<b>*</b></label>  
-    <div class="vocation" >
-    <select class="select1" name="pClassName">
-    <option value="机械化工">机械化工</option>
-    <option value="交通汽车">交通汽车</option>
-    <option value="房产建材">房产建材</option>
-    <option value="服装纺织">服装纺织</option>
-    <option value="IT互联网">IT互联网</option>
-    <option value="文化传媒">文化传媒</option>
-    <option value="医药">医药</option>
-    <option value="食品">食品</option>
-    <option value="农林渔牧">农林渔牧</option>
-    </select>
-    </div>    
-    </li>
-
-    <li><label>政策发布等级<b>*</b></label>
-    <div class="vocation" >
-    <select class="select1" name="polDrade">
-    <option value="国家">国家</option>
-    <option value="市">北京市</option>
-    <option value="区">区</option>
-    </select>
-    </div> 
-    </li>
-    
+    <li><label>政策解读标题<b>*</b></label>
+    <input name="polInterpreTitle" type="text" class="dfinput" value="" placeholder="请填写政策解读来源"  style="width:518px;"/>
+    </li>    
     <li>
-    <label>政策所属区域<b>*</b></label>    
-    <input name="polArea" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/>
+    <label>政策解读作者<b>*</b></label>    
+    <input name="polInterpreAuthor" type="text" class="dfinput" value="" placeholder="请填写政策解读作者"  style="width:518px;"/>
     </li>
     <li>
-    <label>政策来源<b>*</b></label>    
-    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/> 
+    <label>政策解读来源<b>*</b></label>    
+    <input name="polInterpreSource" type="text" class="dfinput" value="" placeholder="请填写政策解读来源"  style="width:518px;"/> 
     </li>
     <li>
-    <label>政策内容<b>*</b></label>
-    <textarea id="content7" name="polContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
+    <label>政策解读内容<b>*</b></label>
+    <textarea id="content7" name="polInterpreContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
     </li>
     <li>
-    <label>政策文件<b>*</b></label>    
-    <input name="polSource" type="text" class="dfinput" value="请填写政策标题"  style="width:518px;"/> 
+    <label>发布时间<b>*</b></label>    
+    <input name="polTime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
+    <!-- <li>
+    <label>政策解读文件<b>*</b></label>    
+    <input name="polSource" type="text" class="dfinput" value="" placeholder=="请填写政策解读文件"  style="width:518px;"/> 
+    </li> -->
     <li>
     <label>&nbsp;</label>
     <input name="" type="submit" class="btn" value="马上发布"/>

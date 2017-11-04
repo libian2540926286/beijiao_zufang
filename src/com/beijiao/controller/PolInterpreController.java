@@ -62,7 +62,7 @@ public class PolInterpreController {
 	public String addPolInterpre(PolInterpre polInterpre){
 		int n=polInterpreService.addPolInterpre(polInterpre);			
 		if(n!=0){
-		   return "forward:toListPolInterpre";
+		   return "forward:admin/polInterprete";
 		}else{
 		   return "login";
 		}

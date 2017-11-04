@@ -22,6 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
     <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="jsp/admin/css/select.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/jquery.idTabs.min.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/select-ui.min.js"></script>
+	<script type="text/javascript" src="jsp/admin/editor/kindeditor.js"></script>
+	
+	<script type="text/javascript">
+	    KE.show({
+	        id : 'content7',
+	        cssPath : './index.css'
+	    });
+	  </script>
   </head>
   
   <body>
@@ -40,14 +52,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <form action="news/addNews" method="post">
 		<ul class="forminfo">
 			<li><label>文章标题</label>
-			<input name="newsTitle" type="text" class="dfinput" /><i>标题不能超过30个字符</i></li>
-			<li><label>发布时间</label><input name="newsTime" type="text" class="dfinput" /></li>
-			<li><label>编辑人</label><input name="newsAuthor" type="text" class="dfinput" /><i>标题不能超过10个字符</i></li>
-			<li><label>来源</label><input name="newsSource" type="text" class="dfinput" value="" /></li>
+			<input name="newsTitle" type="text" class="dfinput" placeholder="请填写标题" /><i>标题不能超过30个字符</i></li>
+			<li><label>发布时间</label><input name="newsTime" type="date" class="dfinput" /></li>
+			<li><label>编辑人</label><input name="newsAuthor" type="text" class="dfinput" placeholder="请填写编辑人"/><i>标题不能超过10个字符</i></li>
+			<li><label>来源</label><input name="newsSource" type="text" class="dfinput" value="" placeholder="请填写来源"/></li>
 			<li>
-			<label>文章内容</label>
-			<textarea name="newsContent" cols="" rows="" class="textinput"></textarea>
-			</li>
+            <label>政策内容<b>*</b></label>
+            <textarea id="content7" name="newsContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
+            </li>
 			<li><label>&nbsp;</label><input name="" type="submit"class="btn" value="提交" /></li>
 		</ul>
     </form>
