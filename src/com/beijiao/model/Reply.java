@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * @author cmy
- *ÏÂÎç4:04:39
+ *ï¿½ï¿½ï¿½ï¿½4:04:39
  */
 public class Reply {
 
@@ -15,7 +15,7 @@ public class Reply {
 	private int discussId;
 	private int userId;
 	private String replyContent;
-	private Date replyTime;
+	private String replyTime;
 	private Discuss discuss;
 	
 	/**
@@ -81,13 +81,13 @@ public class Reply {
 	/**
 	 * @return the replyTime
 	 */
-	public Date getReplyTime() {
+	public String getReplyTime() {
 		return replyTime;
 	}
 	/**
 	 * @param replyTime the replyTime to set
 	 */
-	public void setReplyTime(Date replyTime) {
+	public void setReplyTime(String replyTime) {
 		this.replyTime = replyTime;
 	}
 	

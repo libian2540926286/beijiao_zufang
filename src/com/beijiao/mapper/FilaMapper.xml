@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.FileDao">
+
+<!-- <select id="adminLogin" parameterType="java.util.Map" resultType="com.beijiao.model.Admin">
+     select * from user where adminName=#{adminName} and adminPassword=#{adminPassword}
+  </select>
+
+  
+  <update id="changeAdminPswd" parameterType="com.beijiao.model.Admin">
+  update user adminPassword=#{adminPassword} where adminId=#{adminId}
+  </update>
+ -->
+</mapper>

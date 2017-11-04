@@ -37,9 +37,9 @@ public class PicPolicyController {
 	public String insertPicPol(PicPolicy picPol,Model model){
 		int  n=picPolicyService.insertPicPolicy(picPol);
 		if(n==0){
-		    return "";
+		    return "admin/picPolicylist";
 		}else{
-			return "";
+			return "admin/picPolicy";
 		}
 	}
 	

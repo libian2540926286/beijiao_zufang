@@ -21,7 +21,7 @@ public class Policy {
 	private String polContent;
 	private String polSource;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")  
-	private Date polTime;
+	private String polTime;
 	private String polFile;
 	private String polDrade;
 	private String polArea;
@@ -77,13 +77,13 @@ public class Policy {
 	/**
 	 * @return the polTime
 	 */
-	public Date getPolTime() {
+	public String getPolTime() {
 		return polTime;
 	}
 	/**
 	 * @param polTime the polTime to set
 	 */
-	public void setPolTime(Date polTime) {		
+	public void setPolTime(String polTime) {		
 		this.polTime = polTime;
 	}
 	/**

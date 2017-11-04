@@ -11,7 +11,7 @@ public class PicPolicy {
 	private String picPolContent;
 	private String picPolSource;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")  
-	private Date picPolTime;
+	private String picPolTime;
 	private String picPolFile;
 	public int getPicPolId() {
 		return picPolId;
@@ -37,10 +37,10 @@ public class PicPolicy {
 	public void setPicPolSource(String picPolSource) {
 		this.picPolSource = picPolSource;
 	}
-	public Date getPicPolTime() {
+	public String getPicPolTime() {
 		return picPolTime;
 	}
-	public void setPicPolTime(Date picPolTime) {
+	public void setPicPolTime(String picPolTime) {
 		this.picPolTime = picPolTime;
 	}
 	public String getPicPolFile() {

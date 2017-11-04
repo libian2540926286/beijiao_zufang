@@ -5,6 +5,7 @@ package com.beijiao.controller;
 
 
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -130,6 +131,8 @@ public class PolicyController {
 	/*addPolicy*/
 	@RequestMapping("addPolicy")
 	public String addPolicy(Policy policy){
+		
+		policy.setPolTime(String.valueOf(policy.getPolTime()));
 		int n=policyService.addPolicy(policy);				
 		if(n!=0){
 		   return "forward:toListPolicy";

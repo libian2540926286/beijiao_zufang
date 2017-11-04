@@ -21,7 +21,7 @@ public class PolInterpre {
 	private String polInterpreContent;
 	private String polInterpreSource;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")  
-	private Date polInterpreTime;
+	private String polInterpreTime;
 	/**
 	 * @return the polInterpreId
 	 */
@@ -85,13 +85,13 @@ public class PolInterpre {
 	/**
 	 * @return the polInterpreTime
 	 */
-	public Date getPolInterpreTime() {
+	public String getPolInterpreTime() {
 		return polInterpreTime;
 	}
 	/**
 	 * @param polInterpreTime the polInterpreTime to set
 	 */
-	public void setPolInterpreTime(Date polInterpreTime) {
+	public void setPolInterpreTime(String polInterpreTime) {
 		this.polInterpreTime = polInterpreTime;
 	}
 	
