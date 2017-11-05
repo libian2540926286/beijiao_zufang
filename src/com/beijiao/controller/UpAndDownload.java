@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,7 +28,7 @@ public class UpAndDownload {
 	 * 上传功能@RequestMapping("upPic")
 	 */
 	
-	public String doUploadPic(MultipartFile file,HttpServletRequest request,Model model){
+	public String doUploadPic(MultipartFile file,HttpServletRequest request){
 		 // 获取文件名
 		String fileName=file.getOriginalFilename();
 		//赋新文件名
@@ -60,8 +61,13 @@ public class UpAndDownload {
 	public String doUploadDoc(MultipartFile file,HttpServletRequest request){
 		 // 获取文件名
 		String fileName=file.getOriginalFilename();
-		//得到上传路径图片和文件		
-		String path=request.getSession().getServletContext().getRealPath("upload/doc");
+		System.out.println(fileName);
+		//保存路径	
+		ServletContext sc=request.getSession().getServletContext();
+		System.out.println(sc+"sc");
+		String path = sc.getRealPath("/upload/doc") + "/";
+		System.out.println(path+"path");
+		System.out.println(path);
 		File filepath = new File(path,fileName);
 		//判断路径是否存在，如果不存在则创建
 		if(!filepath.exists()){

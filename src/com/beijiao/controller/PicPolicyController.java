@@ -3,10 +3,12 @@ package com.beijiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.PicPolicy;
 import com.beijiao.service.PicPolicyService;
@@ -34,7 +36,10 @@ public class PicPolicyController {
 	}
 	
 	@RequestMapping("addpicPol")
-	public String insertPicPol(PicPolicy picPol,Model model){
+	public String insertPicPol(PicPolicy picPol,Model model,MultipartFile file,HttpServletRequest request){
+		UpAndDownload upFile=new UpAndDownload();
+		String filename=upFile.doUploadPic(file, request);
+		picPol.setPicPolFile(filename);
 		int  n=picPolicyService.insertPicPolicy(picPol);
 		if(n==0){
 		    return "admin/picPolicylist";

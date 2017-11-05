@@ -6,10 +6,12 @@ package com.beijiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.News;
 import com.beijiao.service.NewsService;
@@ -61,7 +63,10 @@ public class NewsController {
        }
 	/*��������*/
     @RequestMapping("addNews")
-    public String addNews(News news){
+    public String addNews(News news,MultipartFile file,HttpServletRequest request){
+    	UpAndDownload upFile=new UpAndDownload();
+		String filename=upFile.doUploadPic(file, request);
+		news.setNewsLink(filename);
     	int n=newsService.addNews(news);
     	if(n!=0){
     		return "forward:toListNews";

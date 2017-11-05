@@ -35,6 +35,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    });
 	  </script>
 	  
+	  <script language="javascript">  
+		function insertTitle(path){  
+		   var test1 = path.lastIndexOf("/");  //对路径进行截取
+		   var test2 = path.lastIndexOf("\\");  //对路径进行截取
+		   var test= Math.max(test1, test2)
+		   if(test<0){  
+		     document.getElementById("fileName").value = path;
+		   }else{
+		    document.getElementById("fileName").value = path.substring(test + 1); //赋值文件名
+		   }  
+		}  
+      </script>
+	  
+	  
 	<script type="text/javascript">
 	$(document).ready(function(e) {
 	    $(".select1").uedSelect({
@@ -61,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post" action="policy/addPolicy">
+    <form method="post" enctype="multipart/form-data" action="policy/addPolicy">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -123,8 +137,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </li>
     <li>
     <label>政策文件<b>*</b></label>    
-    <input name="polSource" type="text" class="dfinput" value=""  style="width:518px;"/>
-    <input class="btn"  type="file"  value="请上传政策文件" />  
+    <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
+    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传政策文件" />  
     </li>
      <li>
     <label>发布时间<b>*</b></label>    

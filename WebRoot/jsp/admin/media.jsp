@@ -57,6 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><label>编辑人</label><input name="newsAuthor" type="text" class="dfinput" placeholder="请填写编辑人"/><i>标题不能超过10个字符</i></li>
 			<li><label>来源</label><input name="newsSource" type="text" class="dfinput" value="" placeholder="请填写来源"/></li>
 			<li>
+			<label>图片文件<b>*</b></label>    
+		    <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
+		    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传政策文件" />  
+		    </li>
+			<li>
             <label>政策内容<b>*</b></label>
             <textarea id="content7" name="newsContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
             </li>
