@@ -6,6 +6,7 @@ package com.beijiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,7 +60,7 @@ public class PolInterpreController {
 	}
 	/*addPolInterpre*/
 	@RequestMapping("addPolInterpre")
-	public String addPolInterpre(PolInterpre polInterpre){
+	public String addPolInterpre(PolInterpre polInterpre,HttpServletRequest request){
 		int n=polInterpreService.addPolInterpre(polInterpre);			
 		if(n!=0){
 		   return "forward:admin/polInterprete";

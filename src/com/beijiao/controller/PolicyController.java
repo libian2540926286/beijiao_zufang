@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.PClass;
 import com.beijiao.model.Policy;
@@ -130,9 +131,12 @@ public class PolicyController {
 	
 	/*addPolicy*/
 	@RequestMapping("addPolicy")
-	public String addPolicy(Policy policy){
+	public String addPolicy(Policy policy,MultipartFile file,HttpServletRequest request){
 		
 		policy.setPolTime(String.valueOf(policy.getPolTime()));
+		UpAndDownload upFile=new UpAndDownload();
+		String filename=upFile.doUploadDoc(file, request);
+		policy.setPolFile(filename);
 		int n=policyService.addPolicy(policy);				
 		if(n!=0){
 		   return "forward:toListPolicy";
