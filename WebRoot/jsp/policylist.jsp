@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
     <link href="css/module_style.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="js/banner1.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
   </head>
   
   <body>
@@ -113,16 +114,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 
 			<div id="subnav">
-				<div class="subnav_group">
+				<div class="subnav_group" id="subnav_title1">
 					<span class="subnav_title">区域：</span>
 					<span class="subnav_item" tabindex = "0">全部</span>
 					<span class="subnav_item" tabindex = "1">国家政策</span>
 					<span class="subnav_item" tabindex = "2">北京政策</span>
 					<span class="subnav_item" tabindex = "3">地方政策</span>
 				</div>
+				<script type="text/javascript">
+					$("#subnav_title1 .subnav_item").click(function(){
+						$("#subnav_title1 .subnav_item").css("color","black");
+						$(this).css("color","#de3237");
+					})
+				</script>
 
 
-				<div class="subnav_group">
+				<div class="subnav_group" id="subnav_title2">
 					<span class="subnav_title">行业：</span>
 					<span class="subnav_item" tabindex = "4">全部</span>
 					<span class="subnav_item" tabindex = "5">农业</span>
@@ -132,7 +139,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="subnav_item" tabindex = "9">科技业</span>
 					<span class="subnav_item" tabindex = "10">服务业</span>
 				</div>
-				<div class="subnav_group">
+				<script type="text/javascript">
+					$("#subnav_title2 .subnav_item").click(function(){
+						$("#subnav_title1 .subnav_item").css("color","black");
+						$(this).css("color","#de3237");
+					})
+				</script>
+				
+				<div class="subnav_group" id="subnav_title3">
 					<span class="subnav_title">地区：</span>
 					<span class="subnav_item" tabindex = "11">全部</span>
 					<span class="subnav_item" tabindex = "12">东城区</span>
@@ -141,6 +155,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="subnav_item" tabindex = "15">丰台区</span>
 					<span class="subnav_item" tabindex = "16">海淀区</span>
 				</div>
+				<script type="text/javascript">
+					$("#subnav_title3 .subnav_item").click(function(){
+						$("#subnav_title1 .subnav_item").css("color","black");
+						$(this).css("color","#de3237");
+					})
+				</script>
 				<hr>
 			</div>
 
