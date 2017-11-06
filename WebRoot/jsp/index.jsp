@@ -97,8 +97,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="policy/toIndustryPolicy?pClassName=农林渔牧">农林渔牧</a>
 						</li>					
 					</ul>
-				</li>
-				<li><a href="polInterpre/toAllPolInterpre" title="">政策解读</a></li>
+				</li>                    
+				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
 				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
 				<li><a href="" title="">通知公告</a></li>
 				<li><a href="consult/getListDiscuss" title="">咨询答疑</a>

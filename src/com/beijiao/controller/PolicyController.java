@@ -169,7 +169,7 @@ public class PolicyController {
 	
 	/*
 	 * toAllFile
-	 */
+	 
 	@RequestMapping("toAllFile")
 	public String toAllFile(Model model){
 		List<Policy> files=policyService.getAllFile();
@@ -177,9 +177,9 @@ public class PolicyController {
 		return "";
 	}
 		
-	/*
+	
 	 * toFile
-	 */
+	 
 	@RequestMapping("toFile")
 	public void toLimitFile(Model model,int policyId,HttpServletRequest request,
 	         HttpServletResponse response){
@@ -187,5 +187,5 @@ public class PolicyController {
 		UpAndDownload down = new UpAndDownload();
 		down.doDownLadFile(file.getPolFile(), request, response);
 	}
-	
+	*/
 }

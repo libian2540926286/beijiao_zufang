@@ -18,6 +18,12 @@ public interface PolInterpreMapper {
 	 */
 	public PolInterpre selectPolInterpre(int polInterpreId);
 	public List<PolInterpre> selectListPolInterpre();
+	/**
+	 * 查看记录的的总数
+	 * @return
+	 */
+	public int getRecordCount();
+
 	public List<PolInterpre> selectAllPolInterpre();
 	public List<PolInterpre> searchPolInterpre(String search);
 

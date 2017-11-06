@@ -82,4 +82,10 @@ public class PolInterpreServiceImpl implements PolInterpreService {
 		return polInterpreMapper.selectAllPolInterpre();
 	}
 
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return polInterpreMapper.getRecordCount();
+	}
+
 }
