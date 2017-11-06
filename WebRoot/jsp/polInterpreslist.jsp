@@ -83,8 +83,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <div class="content">
     <div class="list">
-			<div class="location">
-				<li>位置 > 政策解读</li>
+			<div class="location">	
+				<span>位置 > 政策解读</span>
 			</div>
 
       <div class="file">

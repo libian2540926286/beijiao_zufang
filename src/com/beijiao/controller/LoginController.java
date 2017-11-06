@@ -65,7 +65,13 @@ public class LoginController {
 		
 		//to index ,getpolicys,getdifferentTypePolicy,get朝阳policy
 		List<Policy> policy1=policyService.selectPolicyType("国家");
-		model.addAttribute("policy1", policy1);
+		if(policy1.size()>8){
+			policy1.subList(0, 7);
+			model.addAttribute("policy1", policy1);
+		}else{
+			model.addAttribute("policy1", policy1);
+		}
+		
 		List<Policy> policy2=policyService.selectPolicyType("市");
 		model.addAttribute("policy2", policy2);
 		List<Policy> policy3=policyService.selectPolicyType("区");
@@ -84,7 +90,13 @@ public class LoginController {
 	     }
 		model.addAttribute("areas", areas);
 		//getPolInterpre
-		List<PolInterpre> polInterpres=polInterpreService.selectListPolInterpre();		
+		List<PolInterpre> polInterpre=polInterpreService.selectListPolInterpre();
+		List<PolInterpre> polInterpres=null;
+		if(polInterpre.size()>8){
+			polInterpres=polInterpre.subList(0, 7);
+		}else{
+			polInterpres=polInterpre;
+		}
 		model.addAttribute("polInterpres",polInterpres);
 		//getNews
 		List<News> hot=newsService.selectListNews();
@@ -99,13 +111,13 @@ public class LoginController {
 		List<Discuss> discussion=discussService.selectListDiscuss();
 		model.addAttribute("discussion", discussion);
 		//filedown
-		List<Policy> files=policyService.getLimitFile();		
+		/*List<Policy> files=policyService.getLimitFile();		
 		for(int i=0;i<files.size();i++){
 		  if(files.get(i).getPolTitle().length()>17){
 			files.get(i).setPolTitle(files.get(i).getPolTitle().substring(0, 16));
 		   }
 		}
-		model.addAttribute("files", files);
+		model.addAttribute("files", files);*/
 		return "index";
 	}
 	

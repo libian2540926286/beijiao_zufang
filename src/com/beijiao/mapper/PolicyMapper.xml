@@ -24,15 +24,9 @@ select * from policy limit 7
 select * from policy 
 </select>
           
-<select id="selectPolicyType" parameterType="String" resultMap="PolicyType">
-select policyId,polTitle,polDrade,polTime from policy where polDrade=#{type} limit 7
+<select id="selectPolicyType" parameterType="String" resultMap="policyList">
+select * from policy where polDrade=#{type} order by policyId desc 
 </select>
-
-<resultMap type="com.beijiao.model.Policy" id="PolicyType">
-    <id property="policyId" column="policyId"/>
-    <result property="polTitle" column="polTitle"/>
-    <result property="polDrade" column="polDrade"/>
-</resultMap> 
 
 <select id="selectPolicyArea" parameterType="String" resultMap="PolicyArea">
 select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit 7

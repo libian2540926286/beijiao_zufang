@@ -18,6 +18,7 @@ public interface PolInterpreService {
 	 */
 	public PolInterpre selectPolInterpre(int polInterpreId);
 	public List<PolInterpre> selectListPolInterpre();
+	public int getRecordCount();
 	public List<PolInterpre> selectAllPolInterpre();
 	public List<PolInterpre> searchPolInterpre(String search);
 /*

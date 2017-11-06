@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li>
        <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>     
        <li><cite></cite><a href="news/toallNews" target="rightFrame">媒体聚焦管理</a><i></i></li>
-       <li><cite></cite><a href="jsp/admin/file.jsp" target="rightFrame">文件发布</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/file.jsp" target="rightFrame">文件管理</a><i></i></li>
        </ul>    
     </dd>
         

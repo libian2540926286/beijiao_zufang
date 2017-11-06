@@ -7,8 +7,14 @@ select * from polInterpre where polInterpreId=#{polInterpreId}
 </select>
 <!-- 查询所有政策 -->
 <select id="selectListPolInterpre"  resultMap="polInterpreList">
-select * from polInterpre limit 7
+select * from polInterpre order by polInterpreId desc
 </select>
+
+<!-- 查询记录的条数 -->
+<select id="getImageCount1" resultType="int">
+ select  count(*) from polInterpre 
+</select>
+
 <resultMap type="com.beijiao.model.PolInterpre" id="polInterpreList">
     <id property="polInterpreId" column="polInterpreId"/>
     <result property="polInterpreTitle" column="polInterpreTitle"/>
@@ -19,7 +25,7 @@ select * from polInterpre limit 7
 </resultMap>
 
 <select id="selectAllPolInterpre"  resultMap="polInterpreList">
-select * from polInterpre 
+select * from polInterpre order by polInterpreId desc
 </select>
 <select id="searchPolInterpre" parameterType="String" resultMap="polInterpreList">
    select * from polInterpre where polInterpreTitle=#{polInterpreTitle} like '%"

@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beijiao.model.PolInterpre;
+import com.beijiao.page.Page;
 import com.beijiao.service.PolInterpreService;
 
 /**
@@ -42,12 +43,21 @@ public class PolInterpreController {
 		
 	}
 	/*toListPolInterpre*/
-	@RequestMapping("toListPolInterpre")
-	public String selectListPolInterpre(Model model){
-		List<PolInterpre> polInterpres=polInterpreService.selectListPolInterpre();
-		model.addAttribute("polInterpres", polInterpres);		
-		return "polinterprelist";
+	@RequestMapping("tolistPolInterpre")
+	public String selectListPolInterpre(String pageNow,Model model){
+		List<PolInterpre> polInterpres;
+		Page page=null;
+		int totalCount=polInterpreService.getRecordCount();
+		if(pageNow==null){
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			polInterpres=polInterpreService.selectListPolInterpre();
+		}else{
+			page=new Page(1, totalCount);
+			polInterpres=polInterpreService.selectListPolInterpre();
+		}
 		
+		model.addAttribute("polInterpres", polInterpres);		
+		return "polInterpreslist";		
 	}
 	
 	/*toAllPolInterpre*/

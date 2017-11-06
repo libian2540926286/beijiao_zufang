@@ -22,42 +22,211 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
     <link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="jsp/admin/css/select.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="jsp/admin/js/jquery.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/jquery.idTabs.min.js"></script>
+	<script type="text/javascript" src="jsp/admin/js/select-ui.min.js"></script>
+	<script type="text/javascript" src="jsp/admin/editor/kindeditor.js"></script>
+	
+	<script type="text/javascript">
+	    KE.show({
+	        id : 'content7',
+	        cssPath : './index.css'
+	    });
+	  </script>
+	  
+	  <script language="javascript">  
+		function insertTitle(path){  
+		   var test1 = path.lastIndexOf("/");  //对路径进行截取
+		   var test2 = path.lastIndexOf("\\");  //对路径进行截取
+		   var test= Math.max(test1, test2)
+		   if(test<0){  
+		     document.getElementById("fileName").value = path;
+		   }else{
+		    document.getElementById("fileName").value = path.substring(test + 1); //赋值文件名
+		   }  
+		}  
+      </script>
+	  
+	  
+	<script type="text/javascript">
+	$(document).ready(function(e) {
+	    $(".select1").uedSelect({
+			width : 345			  
+		});
+		$(".select2").uedSelect({
+			width : 167  
+		});
+		$(".select3").uedSelect({
+			width : 100
+		});
+	});
+	</script>
   </head>
   
-  <body>
+ <body>
 
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">信息管理</a></li>
-    <li><a href="#">文件发布</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">系统设置</a></li>
     </ul>
     </div>
+    
+    <div class="formbody">
+    <form method="post"  action="">
+    
+    <div id="usual1" class="usual">    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">发布通知</a></li> 
+    <li><a href="#tab2">自定义</a></li> 
+  	</ul>
+    </div>
+    </div>
+  	<div id="tab1" class="tabson">
+    <div class="formtext">Hi，<b>admin</b>，欢迎您试用文件上传功能！</div>   
+    <ul class="forminfo">
+    <li><label>文件标题<b>*</b></label>
+    <input name="" type="text" class="dfinput" value="" placeholder="请填写文件标题"  style="width:518px;"/>
+    </li>
+   
+    <li>
+    <label>文件来源<b>*</b></label>    
+    <input name="" type="text" class="dfinput" value="" placeholder="请填写政策来源"  style="width:518px;"/> 
+    </li>
+    <li>
+    <label>文件上传<b>*</b></label>    
+    <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
+    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传文件" />  
+    </li>
+    
+     <li>
+    <label>发布时间<b>*</b></label>    
+    <input name="polInterpreTime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    </li>
+    <li>
+    <label>&nbsp;</label>
+    <input name="" type="submit" class="btn" value="马上发布"/>
+    </li>
+    </ul>   
+    </div> 
+    </form>
+   
+  	<div id="tab2" class="tabson">
+    </div>
+    
+    <ul class="seachform">
+    
+    <li><label>综合查询</label><input name="" type="text" class="scinput" /></li>
+    <li><label>指派</label>  
+    <div class="vocation">
+    <select class="select3">
+    <option>全部</option>
+    <option>其他</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>重点客户</label>  
+    <div class="vocation">
+    <select class="select3">
+    <option>全部</option>
+    <option>其他</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>客户状态</label>  
+    <div class="vocation">
+    <select class="select3">
+    <option>全部</option>
+    <option>其他</option>
+    </select>
+    </div>
+    </li>
+    
+    <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
+    
+    </ul>
+    
+    
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+        <th><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
+        <th>政策标题</th>
+        <th>政策来源</th>
+        <th>政策所属行业</th>
+        <th>政策等级</th>
+        <th>政策所属区域</th>
+        <th>发布时间</th>
+        <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+   
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td>20130906</td>
+        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
+        <td>user</td>
+        <td>江苏无锡</td>
+        <td>2013-09-07 13:16</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td>20130905</td>
+        <td>江西&quot;局长违规建豪宅&quot;：局长检讨</td>
+        <td>admin</td>
+        <td>北京市</td>
+        <td>2013-09-06 10:36</td>
+        <td>已审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+        
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td>20130907</td>
+        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
+        <td></td>
+        <td>山东济南</td>
+        <td>2013-09-08 14:02</td>
+        <td>未审核</td>
+        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        </tr>
+    
+        </tbody>
+    </table>
+    
+    
+    </div>  
+       
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script> 
+    
 
-	<div class="formbody">
-
-		<div class="formtitle">
-			<span>基本信息</span>
-		</div>
-		<form method="post" action="">
-			<ul class="forminfo">
-				<li><label>文章标题</label><input name="" type="text"
-					class="dfinput" /><i>标题不能超过30个字符</i></li>
-				<li><label>选择文件</label><input name="" type="text"
-					class="dfinput" /><input name="" type="button" class="btn"
-					value="浏览上传" /></li>
-				<li><label>发布时间</label><input name="" type="text"
-					class="dfinput" /></li>
-				<li><label>编辑人</label><input name="" type="text"
-					class="dfinput" /><i>标题不能超过10个字符</i></li>
-				<li><label>来源</label><input name="" type="text" class="dfinput"
-					value="http://www..com/html/uidesign/" /></li>
-				<li><label>文章内容</label>
-				<textarea name="" cols="" rows="" class="textinput"></textarea></li>
-				<li><label>&nbsp;</label><input name="" type="button"
-					class="btn" value="提交" /></li>
-			</ul>
-		</form>
-	</div>
 </body>
 </html>
