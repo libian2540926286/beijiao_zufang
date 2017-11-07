@@ -23,6 +23,11 @@
  select * from news order by newsId desc limit #{startPos},#{pageSize}
 </select>
 
+<!-- 查询记录的条数 -->
+<select id="getRecordCount" resultType="int">
+ select  count(*) from news 
+</select>
+
 <!-- 插入新闻 -->
 <insert id="addNews" parameterType="com.beijiao.model.News">
 insert into news(newsTitle,newsAuthor,newsContent,newsSource,newsLink,newsTime) values(

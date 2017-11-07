@@ -21,6 +21,12 @@
   <select id="getAllFile"  resultMap="allFile">
      select * from file
   </select>
+  
+  <!-- 查询记录的条数 -->
+<select id="getRecordCount" resultType="int">
+ select  count(*) from file 
+</select>
+  
   <insert id="upFile" parameterType="com.beijiao.model.File">
 	insert into file(filename,filepath,filetime,filesource) values(
                        #{filename},#{filepath},#{filetime},#{filesource}) 
