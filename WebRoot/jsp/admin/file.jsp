@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post"  action="">
+    <form method="post"  action="file/upfile" enctype="multipart/form-data">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -89,12 +89,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtext">Hi，<b>admin</b>，欢迎您试用文件上传功能！</div>   
     <ul class="forminfo">
     <li><label>文件标题<b>*</b></label>
-    <input name="" type="text" class="dfinput" value="" placeholder="请填写文件标题"  style="width:518px;"/>
+    <input name="filename" type="text" class="dfinput" value="" placeholder="请填写文件标题"  style="width:518px;"/>
     </li>
    
     <li>
     <label>文件来源<b>*</b></label>    
-    <input name="" type="text" class="dfinput" value="" placeholder="请填写政策来源"  style="width:518px;"/> 
+    <input name="filesource" type="text" class="dfinput" value="" placeholder="请填写政策来源"  style="width:518px;"/> 
     </li>
     <li>
     <label>文件上传<b>*</b></label>    
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
      <li>
     <label>发布时间<b>*</b></label>    
-    <input name="polInterpreTime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    <input name="filetime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <li>
     <label>&nbsp;</label>
@@ -113,9 +113,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>   
     </div> 
     </form>
-   
+     </div>
   	<div id="tab2" class="tabson">
-    </div>
+  
     
     <ul class="seachform">
     
@@ -157,39 +157,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
         <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
-        <th>政策标题</th>
-        <th>政策来源</th>
-        <th>政策所属行业</th>
-        <th>政策等级</th>
-        <th>政策所属区域</th>
-        <th>发布时间</th>
+        <th>文件名字</th>
+        <th>文件路径</th>
+        <th>上传时间</th>
+        <th>文件来源</th>
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-   
+        <c:forEach items="${files}" var="files">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
+        <td>${files.fileId}</td>
+        <td>${files.filename}</td>
+        <td>${files.filepath}</td>
+        <td>${files.filetime}</td>
+         <td>${files.filesource}</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
+        </tr> 
+        </c:forEach>
         
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130906</td>
-        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
-        <td>user</td>
-        <td>江苏无锡</td>
-        <td>2013-09-07 13:16</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
+      <!--  
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>20130905</td>
@@ -197,20 +185,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>admin</td>
         <td>北京市</td>
         <td>2013-09-06 10:36</td>
-        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
         </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
+			-->  
     
         </tbody>
     </table>
