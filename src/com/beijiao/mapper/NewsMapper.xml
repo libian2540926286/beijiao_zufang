@@ -19,7 +19,7 @@
  select * from news
 </select>
 
-<select id="selectAllNews"  parameterType="java.util.Map" resultMap="newsList">
+<select id="selectAll"  parameterType="java.util.Map" resultMap="newsList">
  select * from news order by newsId desc limit #{startPos},#{pageSize}
 </select>
 

@@ -79,8 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="usual1" class="usual">    
     <div class="itab">
   	<ul> 
-    <li><a href="#tab1" class="selected">发布通知</a></li> 
-    <li><a href="#tab2">自定义</a></li> 
+    <li><a href="#tab1" >发布通知</a></li> 
+    <li><a href="#tab2" class="selected">自定义</a></li> 
   	</ul>
     </div>
     </div>

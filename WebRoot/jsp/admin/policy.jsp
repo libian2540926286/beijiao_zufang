@@ -80,8 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="usual1" class="usual">    
     <div class="itab">
   	<ul> 
-    <li><a href="#tab1" class="selected">发布通知</a></li> 
-    <li><a href="#tab2">自定义</a></li> 
+    <li><a href="#tab1" >发布通知</a></li> 
+    <li><a href="#tab2" class="selected">自定义</a></li> 
   	</ul>
     </div>
     </div>
@@ -270,6 +270,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<i class="blue">${page.pageTotalCount}&nbsp;</i>页，
     	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
     	</div>
+    	
         <ul class="paginList">
         <c:choose>
 	      <c:when test="${pageNow-1>0}">
@@ -285,10 +286,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
