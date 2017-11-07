@@ -4,6 +4,7 @@
 package com.beijiao.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.Policy;
 
@@ -25,7 +26,8 @@ public interface PolicyService {
 	public List<Policy> selectPolicyArea(String area);
 	public List<Policy> searchPlocy(String search);
 	public List<Policy> searchIndustryPlocy(String  pClassName);
-	public List<Policy> getAllFile();
+	public List<Policy> getAllFile(Map map);
+	public int getRecordCount();
 	public List<Policy> getLimitFile();
 	public Policy getFile(int policyId);
 	/*

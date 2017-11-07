@@ -4,6 +4,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -112,9 +113,9 @@ public class PolicyServiceImpl implements PolicyService {
 	}
 
 	@Override
-	public List<Policy> getAllFile() {
+	public List<Policy> getAllFile(Map map) {
 		// TODO Auto-generated method stub
-		return policyMapper.getAllFile();
+		return policyMapper.getAllFile(map);
 	}
 
 	@Override
@@ -127,6 +128,12 @@ public class PolicyServiceImpl implements PolicyService {
 	public Policy getFile(int policyId) {
 		// TODO Auto-generated method stub
 		return policyMapper.getFile(policyId);
+	}
+
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return policyMapper.getRecordCount();
 	}
 
 }

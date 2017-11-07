@@ -1,6 +1,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -23,12 +24,6 @@ public class PicPolicyServiceImpl implements PicPolicyService {
 	}
 
 	@Override
-	public List<PicPolicy> getAll() {
-		// TODO Auto-generated method stub
-		return picPolicyDao.getAll();
-	}
-
-	@Override
 	public PicPolicy getPicPolicy(int picPolId) {
 		// TODO Auto-generated method stub
 		return picPolicyDao.getPicPolicy(picPolId);
@@ -44,6 +39,18 @@ public class PicPolicyServiceImpl implements PicPolicyService {
 	public int deletePicPolicy(int picPolId) {
 		// TODO Auto-generated method stub
 		return picPolicyDao.deletePicPolicy(picPolId);
+	}
+
+	@Override
+	public List<PicPolicy> getAll(Map map) {
+		// TODO Auto-generated method stub
+		return picPolicyDao.getAll(map);
+	}
+
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return picPolicyDao.getRecordCount();
 	}
 
 }

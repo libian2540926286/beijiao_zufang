@@ -18,6 +18,11 @@
 <select id="selectListNews"  resultMap="newsList">
  select * from news
 </select>
+
+<select id="selectAllNews"  parameterType="java.util.Map" resultMap="newsList">
+ select * from news order by newsId desc limit #{startPos},#{pageSize}
+</select>
+
 <!-- 插入新闻 -->
 <insert id="addNews" parameterType="com.beijiao.model.News">
 insert into news(newsTitle,newsAuthor,newsContent,newsSource,newsLink,newsTime) values(

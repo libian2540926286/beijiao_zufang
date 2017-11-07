@@ -10,8 +10,8 @@ select * from picpolicy where picPolId=#{picPolId}
 <select id="getFive"  resultMap="PicPolicylist">
 select * from picpolicy order by picPolId desc <!-- limit 10 -->
 </select>
-<select id="getAll"  resultMap="PicPolicylist">
-select * from picpolicy order by picPolId desc
+<select id="getAll" parameterType="java.util.Map" resultMap="PicPolicylist">
+select * from picpolicy order by picPolId desc limit #{startPos},#{pageSize}
 </select>
 <resultMap type="com.beijiao.model.PicPolicy" id="PicPolicylist">
     <id property="picPolId" column="picPolId"/>

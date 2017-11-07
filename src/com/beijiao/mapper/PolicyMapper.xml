@@ -20,8 +20,8 @@ select * from policy limit 7
     <result property="polDrade" column="polDrade"/>
 </resultMap>
 
-<select id="selectAllPolicy"  resultMap="policyList">
-select * from policy 
+<select id="selectAllPolicy"  parameterType="java.util.Map" resultMap="policyList">
+select * from policy order by policyId desc limit #{startPos},#{pageSize}
 </select>
           
 <select id="selectPolicyType" parameterType="String" resultMap="policyList">

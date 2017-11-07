@@ -152,18 +152,79 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
    
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+     <div class="pagin">
+    	<div class="message">
+    	共<i class="blue">${page.pageNow}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageTotalCount}&nbsp;</i>页，
+    	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
+    	</div>
         <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
+        <c:choose>
+	      <c:when test="${pageNow-1>0}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      </c:when>
+	      <c:when test="${pageNow-1<=0}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
+	      <a href="">尾页</a>
+	      </c:when>
+	     </c:choose>
+        
+        <li class="paginItem current"><a href="">1</a></li>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<2}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<3}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<4}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<10}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>           
+	     <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	    </c:choose>               
+        <c:choose>
+	      <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      </c:otherwise>
+	     </c:choose>       
         </ul>
     </div>
     

@@ -4,6 +4,7 @@
 package com.beijiao.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.PolInterpre;
 
@@ -19,7 +20,7 @@ public interface PolInterpreService {
 	public PolInterpre selectPolInterpre(int polInterpreId);
 	public List<PolInterpre> selectListPolInterpre();
 	public int getRecordCount();
-	public List<PolInterpre> selectAllPolInterpre();
+	public List<PolInterpre> selectAllPolInterpre(Map map);
 	public List<PolInterpre> searchPolInterpre(String search);
 /*
  * ������߽��

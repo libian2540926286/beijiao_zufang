@@ -4,37 +4,39 @@
 package com.beijiao.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.News;
 
 /**
  * @author cmy
- *ионГ11:15:37
+ *О©╫О©╫О©╫О©╫11:15:37
  */
 public interface NewsService {
 
 	/*
-	 * ╡Ия╞пбнеа╢╫с
+	 * О©╫О©╫я╞О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public News selectNews(int newsId);
 	public List<News> selectListNews();
-	
-	/*
-	 * лМ╪спбне
+	public List<News> selectAllNews(Map map);
+	public int getRecordCount();
+	/*            
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int addNews(News news);
 	/*
-	 * и╬ЁЩпбне
+	 * и╬О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int deleteNews(int newsId);
 	
 	/*
-	 * пч╦дпбне
+	 * О©╫ч╦О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int changeNews(String newsContent);
 	
 	/**
-	 * иХжцЁийврЁмф╪Ж
+	 * О©╫О©╫О©╫цЁО©╫О©╫О©╫рЁО©╫ф╪О©╫
 	 */
 	public int setHot(int a);
 }

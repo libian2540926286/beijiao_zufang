@@ -4,6 +4,7 @@
 package com.beijiao.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.PolInterpre;
 
@@ -24,7 +25,7 @@ public interface PolInterpreMapper {
 	 */
 	public int getRecordCount();
 
-	public List<PolInterpre> selectAllPolInterpre();
+	public List<PolInterpre> selectAllPolInterpre(Map map);
 	public List<PolInterpre> searchPolInterpre(String search);
 
 /*

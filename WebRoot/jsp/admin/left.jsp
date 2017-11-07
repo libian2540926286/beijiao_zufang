@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span><img src="jsp/admin/images/leftico02.png" /></span>用户管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="index/allUser" target="rightFrame">用户账号管理</a><i></i></li>
+        <li><cite></cite><a href="admin/allUser" target="rightFrame">用户账号管理</a><i></i></li>
         <li><cite></cite><a href="jsp/admin/admin.jsp" target="rightFrame">管理员账号管理</a><i></i></li>
         <!-- <li><cite></cite><a href="#">档案列表显示</a><i></i></li> -->
         </ul>     

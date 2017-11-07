@@ -4,6 +4,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -15,7 +16,7 @@ import com.beijiao.service.NewsService;
 
 /**
  * @author cmy
- *ÉÏÎç11:27:55
+ *ï¿½ï¿½ï¿½ï¿½11:27:55
  */
 @Service("newsService")
 public class NewsServiceImpl implements NewsService {
@@ -74,6 +75,18 @@ public class NewsServiceImpl implements NewsService {
 	public int setHot(int a) {
 		// TODO Auto-generated method stub
 		return newsMapper.setHot(a);
+	}
+
+	@Override
+	public List<News> selectAllNews(Map map) {
+		// TODO Auto-generated method stub
+		return newsMapper.selectAll(map);
+	}
+
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return newsMapper.getRecordCount();
 	}
 
 }
