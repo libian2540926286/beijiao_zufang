@@ -182,23 +182,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 	</div>
 
-			<div class="box" id="box"></div>
-			<script src="js/jquery-1.7.2.min.js"></script>
-			<script src="js/paging.js"></script>
-			<script>
-					var setTotalCount = 301;
-					$('#box').paging({
-							initPageNo: 3, // 初始页码
-							totalPages: 30, //总页数
-							totalCount: '合计' + setTotalCount + '条数据', // 条目总数
-							slideSpeed: 600, // 缓动速度。单位毫秒
-							jump: true, //是否支持跳转
-							callback: function(page) { // 回调函数
-									console.log(page);
-							}
-					})
-			</script>
+		<div class="pagin">
+			<div class="message">
+				共<i class="blue">&nbsp;1256&nbsp;</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
+			</div>
+			<ul class="paginList">
+				<li class="paginItem" id="first"><a href="javascript:;">首页</a></li>
+				<li class="paginItem" id="pre"><a href="javascript:;">上页</a></li>
+				<li class="paginItem"><a href="javascript:;">1</a></li>
+				<li class="paginItem current"><a href="javascript:;">2</a></li>
+				<li class="paginItem"><a href="javascript:;">3</a></li>
+				<li class="paginItem"><a href="javascript:;">4</a></li>
+				<li class="paginItem"><a href="javascript:;">5</a></li>
+				<li class="paginItem more"><a href="javascript:;">...</a></li>
+				<li class="paginItem"><a href="javascript:;">10</a></li>
+				<li class="paginItem" id="next"><a href="javascript:;">下页</a></li>
+				<li class="paginItem" id="end"><a href="javascript:;">尾页</a></li>
+			</ul>
 		</div>
+	</div>
 		
 		<div class="footer">
 				<!-- <hr> -->
