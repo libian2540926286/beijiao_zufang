@@ -23,6 +23,10 @@ select * from policy limit 7
 <select id="selectAllPolicy"  parameterType="java.util.Map" resultMap="policyList">
 select * from policy order by policyId desc limit #{startPos},#{pageSize}
 </select>
+<!-- 查询记录的条数 -->
+<select id="getRecordCount" resultType="int">
+ select  count(*) from policy 
+</select>
           
 <select id="selectPolicyType" parameterType="String" resultMap="policyList">
 select * from policy where polDrade=#{type} order by policyId desc 

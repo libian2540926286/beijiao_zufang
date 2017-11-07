@@ -13,6 +13,12 @@ select * from picpolicy order by picPolId desc <!-- limit 10 -->
 <select id="getAll" parameterType="java.util.Map" resultMap="PicPolicylist">
 select * from picpolicy order by picPolId desc limit #{startPos},#{pageSize}
 </select>
+
+<!-- 查询记录的条数 -->
+<select id="getRecordCount" resultType="int">
+ select  count(*) from picpolicy 
+</select>
+
 <resultMap type="com.beijiao.model.PicPolicy" id="PicPolicylist">
     <id property="picPolId" column="picPolId"/>
     <result property="picPolTitle" column="picPolTitle"/>

@@ -11,7 +11,7 @@ select * from polInterpre order by polInterpreId desc
 </select>
 
 <!-- 查询记录的条数 -->
-<select id="getImageCount1" resultType="int">
+<select id="getRecordCount" resultType="int">
  select  count(*) from polInterpre 
 </select>
 

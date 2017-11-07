@@ -26,6 +26,10 @@
   <select id="checkUser" parameterType="java.util.Map" resultType="com.beijiao.model.User">
      select * from user where username=#{username1} and password=#{password}
   </select>
+  <!-- 查询记录的条数 -->
+  <select id="getRecordCount" resultType="int">
+      select  count(*) from user 
+  </select>
   
   <insert id="userResigster" parameterType="com.beijiao.model.User" >
   insert into user(username,password) values(#{username},#{password})
