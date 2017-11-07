@@ -316,10 +316,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:forEach items="${files}" var="files">
 			<li>
 				<img src="images/dian.png" width="5px" height="5px" alt="" />
-				<a href="policy/toFile?policyId=${files.policyId}">${files.polTitle}</a>
-				<span class="time">[${files.polTime}]</span>
+				<a href="file/toFile?fileId=${files.fileId}">${files.filename}</a>
+				<span class="time">[${files.filetime}]</span>
 			</li>
 		    </c:forEach>
+		    <!--  
 			<li>
 			<img src="images/dian.png" width="5px" height="5px" alt="" />
 			<a href="" title="">《企业名称禁限用规则》</a>
@@ -330,7 +331,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a href="" title="">《企业信用信息公示系统使用运行管理办法》</a>
 			<span class="time">[10-09]</span>
 			</li>
-			<a class="more" href="policy/toAllFilet">更多>></a>
+				-->
+			<a class="more" href="file/toAllFile">更多>></a>
 				</ul>
 		</div>
 		<!--cptg end-->

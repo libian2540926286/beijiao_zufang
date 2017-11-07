@@ -25,4 +25,12 @@
 	insert into file(filename,filepath,filetime,filesource) values(
                        #{filename},#{filepath},#{filetime},#{filesource}) 
 	</insert>
+	<select id="getLimitFile" parameterType="String" resultMap="LimitFile">
+		select fileId,filename,filetime from file  limit 8
+	</select>
+	<resultMap type="com.beijiao.model.File" id="LimitFile">
+    	<id property="fileId" column="fileId"/>
+   		 <result property="filename" column="filename"/>
+   		 <result property="filetime" column="filetime"/>
+	</resultMap> 
 </mapper>
