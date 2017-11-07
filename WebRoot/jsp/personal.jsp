@@ -138,12 +138,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form id="passwordChange">
             <ul>
               <li>
-                <label>原始密码&nbsp;</label>
+                <label>原始密码&nbsp;&nbsp;</label>
                 <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
                 name="oldPassword" minlength="6" maxlength="12" required>
               </li>
               <li>
-                <label>新密码&nbsp;&nbsp;</label>
+                <label>新密码&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
                        name="checkpassword" minlength="6" maxlength="12" required>
               </li>
@@ -169,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form id="usernameChange">
             <ul>
               <li>
-                <label>新用户名&nbsp;</label>
+                <label>新用户名&nbsp;&nbsp;</label>
                 <input type="text" size="50px" style="height:25px" 
                 value="请输入新用户名" onFocus="if(this.value=='请输入新用户名'){this.value='';}"
                 onBlur="if(this.value==''){this.value='请输入新用户名';}"
@@ -183,7 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 minlength="2" maxlength="12" class="text" required>
               </li>
               <li>
-                <label>密码&nbsp;&nbsp;&nbsp;</label>
+                <label>密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" size="50px" style="height:25px"  value="请输入密码" onFocus="if(this.value=='请输入密码'){this.value='';}"
                 onBlur="if(this.value==''){this.value='请输入密码';}" minlength="6" maxlength="12" required>
               </li>
