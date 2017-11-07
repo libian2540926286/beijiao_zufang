@@ -43,6 +43,5 @@ public String upFile(File files,MultipartFile file,HttpServletRequest request){
 		}else{
 		   return "admin/file";
 		}
-		
 	}
 }

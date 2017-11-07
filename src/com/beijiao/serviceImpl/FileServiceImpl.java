@@ -27,4 +27,10 @@ public class FileServiceImpl implements FileService {
 		// TODO Auto-generated method stub
 		return fileDao.upFile(file);
 	}
+
+	@Override
+	public List<File> getLimitFile() {
+		// TODO Auto-generated method stub
+		return fileDao.getLimitFile();
+	}
 }

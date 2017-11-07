@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.beijiao.dao.UserMapper;
 import com.beijiao.model.Discuss;
+import com.beijiao.model.File;
 import com.beijiao.model.News;
 import com.beijiao.model.PClass;
 import com.beijiao.model.PicPolicy;
@@ -25,6 +26,7 @@ import com.beijiao.model.PolInterpre;
 import com.beijiao.model.Policy;
 import com.beijiao.model.User;
 import com.beijiao.service.DiscussService;
+import com.beijiao.service.FileService;
 import com.beijiao.service.NewsService;
 import com.beijiao.service.PClassService;
 import com.beijiao.service.PicPolicyService;
@@ -56,6 +58,8 @@ public class LoginController {
 	private DiscussService discussService;
 	@Resource
 	private PClassService pclassService;
+	@Resource
+	private FileService fileService;
 	/*
 	 * test
 	 */
@@ -111,13 +115,13 @@ public class LoginController {
 		List<Discuss> discussion=discussService.selectListDiscuss();
 		model.addAttribute("discussion", discussion);
 		//filedown
-		/*List<Policy> files=policyService.getLimitFile();		
+		List<File> files=fileService.getLimitFile();		
 		for(int i=0;i<files.size();i++){
-		  if(files.get(i).getPolTitle().length()>17){
-			files.get(i).setPolTitle(files.get(i).getPolTitle().substring(0, 16));
+		  if(files.get(i).getFilename().length()>17){
+			files.get(i).setFilename(files.get(i).getFilename().substring(0, 16));
 		   }
 		}
-		model.addAttribute("files", files);*/
+		model.addAttribute("files", files);
 		return "index";
 	}
 	
