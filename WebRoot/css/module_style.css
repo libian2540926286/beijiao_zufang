@@ -151,6 +151,94 @@ img{border:none;}
 .pagin .paginList #end{width:50px; height:28px;}
 .pagin .paginList #end a{width:50px; height:28px;}
 
+/* *******************************翻页框2****************************** */
+
+.box {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  float: center;
+  text-align: center;
+  margin-top: 820px;
+  margin-left: 85px;
+  padding: 0;
+  list-style: none;
+  
+}
+.box button {
+  padding: 0 10px;
+  margin: 0 10px;
+  height: 40px;
+  float: left;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  background-color: #ffffff;
+}
+.box .first-page,
+.box .last-page {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box .pageWrap {
+  height: 40px;
+  float: left;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box .pageWrap ul {
+  width: 1004px;
+  height: 40px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box .pageWrap ul li {
+  width: 60px;
+  height: 40px;
+  border: 1px solid #ebebeb;
+  line-height: 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box .pageWrap ul .sel-page {
+  background-color: #de3237;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box .jump-text {
+  width: 60px;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 5px;
+  float: left;
+  padding: 0;
+  list-style: none;
+}
+.box .jump-button {
+  margin: 0;
+  float: left;
+  padding: 0;
+  list-style: none;
+}
+.box .total-pages,
+.box .total-count {
+  float: left;
+  font-size: 14px;
+  margin: 0 10px;
+  padding: 0;
+  list-style: none;
+}
 
 
 
