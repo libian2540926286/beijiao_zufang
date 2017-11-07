@@ -121,7 +121,7 @@ public class UpAndDownload {
 		 * 将文件保存路径上传到数据库或者将路径传到另外的model，让其接收
 		 * 路径为upload/newFileName
 		 */		
-		return "upload/doc/"+fileName;
+		return "upload/"+fileName;
 	}
 	
 	/*

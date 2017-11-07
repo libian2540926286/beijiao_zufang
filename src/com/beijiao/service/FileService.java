@@ -1,5 +1,11 @@
 package com.beijiao.service;
 
-public interface FileService {
+import java.util.List;
 
+
+import com.beijiao.model.File;
+
+public interface FileService {
+	public List<File> getAllFile();
+	public int upFile(File file);
 }
