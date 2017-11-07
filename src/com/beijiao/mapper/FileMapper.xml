@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijiao.dao.FileDao">
+
+<!-- <select id="adminLogin" parameterType="java.util.Map" resultType="com.beijiao.model.Admin">
+     select * from user where adminName=#{adminName} and adminPassword=#{adminPassword}
+  </select>
+
+  
+  <update id="changeAdminPswd" parameterType="com.beijiao.model.Admin">
+  update user adminPassword=#{adminPassword} where adminId=#{adminId}
+  </update>
+ -->
+    <resultMap type="com.beijiao.model.File" id="allFile">
+        <id column="fileId" property="fileId" />
+		<result property="filename" column="filename" />
+		<result property="filepath" column="filepath" />
+		<result property="filetime" column="filetime" />
+		<result property="filesource" column="filesource" />
+   </resultMap>
+  <select id="getAllFile"  resultMap="allFile">
+     select * from file
+  </select>
+  <insert id="upFile" parameterType="com.beijiao.model.File">
+	insert into file(filename,filepath,filetime,filesource) values(
+                       #{filename},#{filepath},#{filetime},#{filesource}) 
+	</insert>
+</mapper>
