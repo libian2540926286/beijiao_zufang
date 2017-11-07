@@ -12,7 +12,7 @@ public class Page {
 	//当前页数  
 	private int pageNow=1;
 	//每页显示的记录的条数
-	private int pageSize;
+	private int pageSize=10;
 	//总的记录数
 	private int totalCount;
 	//总页数

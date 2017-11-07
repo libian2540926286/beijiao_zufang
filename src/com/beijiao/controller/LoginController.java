@@ -215,12 +215,6 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping("allUser")
-	public String getAllUser(Model model){
-		List<User> users=userService.getAllUser();
-		model.addAttribute("users", users);
-		return "admin/user";
-	}
 	
 	@RequestMapping("touser")
 	public String getUser(Model model,int userId){

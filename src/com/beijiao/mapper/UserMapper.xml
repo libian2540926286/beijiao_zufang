@@ -15,8 +15,8 @@
 		<result property="password" column="password" />
 		<result property="pClassName" column="pClassName" />
    </resultMap>
-  <select id="getAllUser"  resultMap="allUser">
-     select * from user
+  <select id="getAllUser"  parameterType="java.util.Map" resultMap="allUser">
+     select * from user order by userId desc limit #{startPos},#{pageSize}
   </select>
   
   <select id="getUser" parameterType="int" resultType="com.beijiao.model.User">

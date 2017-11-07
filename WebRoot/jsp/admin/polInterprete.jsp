@@ -229,7 +229,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
         </tr>   
         </tbody>
-    </table>   
+    </table>  
+     <div class="pagin">
+    	<div class="message">
+    	共<i class="blue">${page.pageNow}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageTotalCount}&nbsp;</i>页，
+    	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
+    	</div>
+        <ul class="paginList">
+        <c:choose>
+	      <c:when test="${pageNow-1>0}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      </c:when>
+	      <c:when test="${pageNow-1<=0}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
+	      <a href="">尾页</a>
+	      </c:when>
+	     </c:choose>
+        
+        <li class="paginItem current"><a href="">1</a></li>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<2}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<3}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<4}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<10}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>           
+	     <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	    </c:choose>
+        
+        
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        </ul>
+    </div>
+    
+     
     </div>  
 	<script type="text/javascript"> 
       $("#usual1 ul").idTabs(); 

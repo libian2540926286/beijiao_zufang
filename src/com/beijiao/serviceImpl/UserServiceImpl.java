@@ -63,14 +63,19 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectPawd(userId);
 	}
 	@Override
-	public List<User> getAllUser() {
+	public List<User> getAllUser(Map map) {
 		// TODO Auto-generated method stub
-		return userMapper.getAllUser();
+		return userMapper.getAllUser(map);
 	}
 	@Override
 	public User getUser(int userId) {
 		// TODO Auto-generated method stub
 		return userMapper.getUser(userId);
+	}
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return userMapper.getRecordCount();
 	}
 
 }

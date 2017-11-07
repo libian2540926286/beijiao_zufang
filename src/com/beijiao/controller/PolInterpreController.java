@@ -3,7 +3,9 @@
  */
 package com.beijiao.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -62,8 +64,23 @@ public class PolInterpreController {
 	
 	/*toAllPolInterpre*/
 	@RequestMapping("allPolInterpre")
-	public String selectAllPolInterpre(Model model){
-		List<PolInterpre> polInterpres=polInterpreService.selectAllPolInterpre();
+	public String selectAllPolInterpre(Model model,String pageNow){
+		List<PolInterpre> polInterpres;
+		Page page=null;
+		int totalCount=polInterpreService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+			polInterpres=polInterpreService.selectListPolInterpre();
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+			polInterpres=polInterpreService.selectListPolInterpre();
+		}
+		model.addAttribute("page", page);	
 		model.addAttribute("polInterpres", polInterpres);		
 		return "admin/polInterprete";
 		

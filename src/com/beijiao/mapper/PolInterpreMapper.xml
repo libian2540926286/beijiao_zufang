@@ -24,8 +24,8 @@ select * from polInterpre order by polInterpreId desc
     <result property="polInterpreTime" column="polInterpreTime"/>
 </resultMap>
 
-<select id="selectAllPolInterpre"  resultMap="polInterpreList">
-select * from polInterpre order by polInterpreId desc
+<select id="selectAllPolInterpre"  parameterType="java.util.Map" resultMap="polInterpreList">
+   select * from polInterpre order by polInterpreId desc limit #{startPos},#{pageSize}
 </select>
 <select id="searchPolInterpre" parameterType="String" resultMap="polInterpreList">
    select * from polInterpre where polInterpreTitle=#{polInterpreTitle} like '%"

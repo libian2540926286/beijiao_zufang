@@ -4,6 +4,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -77,9 +78,9 @@ public class PolInterpreServiceImpl implements PolInterpreService {
 	}
 
 	@Override
-	public List<PolInterpre> selectAllPolInterpre() {
+	public List<PolInterpre> selectAllPolInterpre(Map map) {
 		// TODO Auto-generated method stub
-		return polInterpreMapper.selectAllPolInterpre();
+		return polInterpreMapper.selectAllPolInterpre(map);
 	}
 
 	@Override

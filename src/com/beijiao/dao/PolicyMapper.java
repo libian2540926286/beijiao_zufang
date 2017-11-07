@@ -4,6 +4,7 @@
 package com.beijiao.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.Policy;
 
@@ -19,11 +20,12 @@ public interface PolicyMapper {
 	public Policy selectPolicy(int policyId);
 	public List<Policy> selectListPolicy();
 	public List<Policy> selectAllPolicy();
+	public int getRecordCount();
 	public List<Policy> selectPolicyType(String type);
 	public List<Policy> selectPolicyArea(String area);
 	public List<Policy> searchPlocy(String search);
 	public List<Policy> searchIndustryPlocy(String pClassName);
-	public List<Policy> getAllFile();
+	public List<Policy> getAllFile(Map map);	
 	public List<Policy> getLimitFile();
 	public Policy getFile(int policyId);
 	/*

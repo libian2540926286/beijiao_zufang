@@ -4,36 +4,39 @@
 package com.beijiao.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.News;
 
 /**
  * @author cmy
- *ионГ11:11:38
+ *О©╫О©╫О©╫О©╫11:11:38
  */
 public interface NewsMapper {
 
 	/*
-	 * ╡Ия╞пбнеа╢╫с
+	 * О©╫О©╫я╞О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public News selectNews(int newsId);
 	public List<News> selectListNews();
 	
+	public List<News> selectAll(Map map);
+	public int getRecordCount();
 	/*
-	 * лМ╪спбне
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int addNews(News news);
 	/*
-	 * и╬ЁЩпбне
+	 * и╬О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int deleteNews(int newsId);
 	/*
-	 * пч╦дпбне
+	 * О©╫ч╦О©╫О©╫О©╫О©╫О©╫
 	 */
 	public int changeNews(String newsContent);
 	
 	/**
-	 * иХжцЁийврЁмф╪Ж
+	 * О©╫О©╫О©╫цЁО©╫О©╫О©╫рЁО©╫ф╪О©╫
 	 */
 	public int setHot(int a);
 	

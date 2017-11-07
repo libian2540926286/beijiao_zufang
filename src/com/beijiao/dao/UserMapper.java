@@ -24,12 +24,14 @@ public interface UserMapper {
 	 * �û�ע��
 	 */
 	public int userResigster(User user);
+	
 	/*
 	 * �����޸�
 	 */
    public String selectPawd(int userId);
    public int changepswd(int userId,String password,String oldPassword);
-   public List<User> getAllUser();
+   public List<User> getAllUser(Map map);
+   public int getRecordCount();
    public User getUser(int userId);
 
 }
