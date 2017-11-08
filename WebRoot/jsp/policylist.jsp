@@ -184,7 +184,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	<div class="pagin">
-    	<div class="message">
+    	<div id="message">
     	共<i class="blue">${page.pageTotalCount}</i>页，当前显示第&nbsp; 
     	<i class="blue">${page.pageNow}&nbsp;</i>页，
     	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
