@@ -9,6 +9,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.beijiao.model.Admin;
 import com.beijiao.model.PolInterpre;
@@ -19,6 +21,7 @@ import com.beijiao.service.UserService;
 
 @Controller
 @RequestMapping("/admin")
+@SessionAttributes("session")
 public class AdminController {
 
 	@Resource
@@ -30,11 +33,28 @@ public class AdminController {
 	public String test(){
 		return "admin/main";
 	}
+	
 	@RequestMapping("login")
-	public String Login(Admin admin){
-		
-		return "admin/top";
+	public String Login(String adminName,String adminPassword,Model model){
+		HashMap<String, String> map=new HashMap<String,String>();
+		map.put("adminName", adminName);
+		map.put("adminPassword", adminPassword);
+		Admin n=adminService.adminLogin(map);
+		if(n!=null){
+			model.addAttribute("session",n);
+			return "admin/main";
+		}else{
+			
+		   return "admin/login";
+		}
 	}
+	
+	@RequestMapping("logout")
+	public String loginOut(SessionStatus status){	
+		status.setComplete();
+		return "admin/login";
+	}
+	
 	
 	@RequestMapping("updatePswd")
 	public String changPswd(String password){
@@ -42,11 +62,7 @@ public class AdminController {
 		return "admin/admin";
 	}
 	
-	@RequestMapping("loginOut")
-	public String loginOut(){
-		
-		return "";
-	}
+
 	
 	@RequestMapping("allUser")
 	public String getAllUser(Model model,String pageNow){

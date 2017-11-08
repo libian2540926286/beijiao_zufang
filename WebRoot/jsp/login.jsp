@@ -35,28 +35,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h1>欢迎来到新政策网</h1>		
 			</div>
 	
-			<form id="login">
+			<form id="login" action="index/login" method="post">
+			  <ul>
 				<li>
-					<input type="text" placeholder="请输入用户名"
-					minlength="2" maxlength="12" class="text" required>
+					<input type="text" placeholder="请输入用户名" name="username" minlength="2" maxlength="12" class="text" required>
 					<a href="#" class=" icon user"></a>
 				</li>
-				<br/>
-				<br/>
-	
+				<br/>	
 				<li>
-					<input type="password" placeholder="请输入密码"
-					minlength="6" maxlength="12" required> 
+					<input type="password" placeholder="请输入密码" name="password" minlength="6" maxlength="12" required> 
 					<a href="#" class="icon lock"></a>
 				</li>
 				<br/>
-	
+	         </ul>
 				<div class="submit">
-					<input type="submit" onclick="myFunction()" value="登录" >
-					<input id="exit"  value="取消" >
+					<input type="submit" value="登录" >
+					<input id="exit" type="button" onclick="javascript:window.location.href='index/toindex'" value="取消" >
 					<h4><a href="#">忘记密码?</a></h4>
 					<div class="clear">  </div>	
-	
 				</div>
 			</form>
 		</div>					
