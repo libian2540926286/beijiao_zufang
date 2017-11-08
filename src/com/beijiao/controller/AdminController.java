@@ -36,9 +36,12 @@ public class AdminController {
 	
 	@RequestMapping("login")
 	public String Login(String adminName,String adminPassword,Model model){
+		
+		System.out.println(adminName+adminPassword);
 		HashMap<String, String> map=new HashMap<String,String>();
 		map.put("adminName", adminName);
 		map.put("adminPassword", adminPassword);
+		System.out.println(map);
 		Admin n=adminService.adminLogin(map);
 		if(n!=null){
 			model.addAttribute("session",n);
