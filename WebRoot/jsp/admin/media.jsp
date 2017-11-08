@@ -34,6 +34,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        cssPath : './index.css'
 	    });
 	  </script>
+	  
+	  <script language="javascript">  
+		function insertTitle(path){  
+		   var test1 = path.lastIndexOf("/");  //对路径进行截取
+		   var test2 = path.lastIndexOf("\\");  //对路径进行截取
+		   var test= Math.max(test1, test2)
+		   if(test<0){  
+		     document.getElementById("fileName").value = path;
+		   }else{
+		    document.getElementById("fileName").value = path.substring(test + 1); //赋值文件名
+		   }  
+		}  
+      </script>
   </head>
   
   <body>
@@ -58,8 +71,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li><label>来源</label><input name="newsSource" type="text" class="dfinput" value="" placeholder="请填写来源"/></li>
 			<li>
 			<label>图片文件<b>*</b></label>    
-		    <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
-		    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传政策文件" />  
+		   <!--  <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
+		    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传政策文件" />   -->
+		    <div class="file-box">         
+            <input type='text' name='fileName' id='fileName' class='txt' placeholder="图片大小不超过400K"/>  
+            <input type='button' class='btn' value='浏览上传...' />
+            <input type="file" name="pic" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
+            <i></i>  
+            </div>	
 		    </li>
 			<li>
             <label>政策内容<b>*</b></label>
