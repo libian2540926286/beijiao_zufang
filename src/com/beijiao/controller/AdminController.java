@@ -21,7 +21,7 @@ import com.beijiao.service.UserService;
 
 @Controller
 @RequestMapping("/admin")
-@SessionAttributes("session")
+@SessionAttributes("sessionAdmin")
 public class AdminController {
 
 	@Resource
@@ -44,7 +44,7 @@ public class AdminController {
 		System.out.println(map);
 		Admin n=adminService.adminLogin(map);
 		if(n!=null){
-			model.addAttribute("session",n);
+			model.addAttribute("sessionAdmin",n);
 			return "admin/main";
 		}else{
 			
