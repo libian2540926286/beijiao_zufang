@@ -98,8 +98,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </li>
     <li>
     <label>文件上传<b>*</b></label>    
-    <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
-    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传文件" />  
+   <!--  <input type="text" class="dfinput" id="fileName" value=""  style="width:518px;"/>
+    <input class="btn"  type="file" name="file" onChange="if(this.value)insertTitle(this.value);" value="请上传文件" />   -->
+    
+     <div class="file-box">         
+     <input type='text' name='fileName' id="fileName" value="" class='dfinput' placeholder="请上传文件" />  
+     <input type='button' class='btn' value="浏览上传..." />
+     <input type="file" name="file" class="file" id="file" size="28" onChange="if(this.value)insertTitle(this.value);" />      
+     <i></i>  
+    </div>	
     </li>
     
      <li>
