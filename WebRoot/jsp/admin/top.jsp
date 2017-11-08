@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -55,14 +57,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<li><a href="#">关于</a></li>
 		<li><a href="admin/logout" target="_parent">退出</a></li>
 	</ul>
-     
+	
+   <c:if test="${not empty session}"> 
     <div class="user">
-    
-    <span>admin</span>
+    <span>${session.adminName}</span>
     <i>消息</i>
     <b>5</b>
     </div>    
-    
+    </c:if>
     </div>
 </body>
 </html>
