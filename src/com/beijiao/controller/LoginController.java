@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.beijiao.dao.UserMapper;
@@ -40,7 +41,7 @@ import com.beijiao.service.UserService;
  */
 
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/index") 
 public class LoginController {
 
 	@Resource
@@ -90,7 +91,9 @@ public class LoginController {
 		//三级联动查询
 		List<Policy> areas=policyService.selectPolicyArea("朝阳区");
 		for(int i=0;i<areas.size();i++){
-			areas.get(i).setPolTitle(areas.get(i).getPolTitle().substring(0, 16));
+			if(areas.get(i).getPolTitle().length()>17){
+			    areas.get(i).setPolTitle(areas.get(i).getPolTitle().substring(0, 16));
+			}
 	     }
 		model.addAttribute("areas", areas);
 		//getPolInterpre
@@ -127,7 +130,7 @@ public class LoginController {
 	
 	@RequestMapping("test")
 	public String test(){
-	    return "admin/main";
+	    return "login";
 	}
 
 	
@@ -146,9 +149,10 @@ public class LoginController {
 		//System.out.println(user+"user");
 		if(user!=null){	
 			//getUser
-			model.addAttribute("user", user);
-			session.setAttribute("user", user);
-			return "forward:toIndex";
+			//model.addAttribute("user", user);
+			session.setAttribute("session", user);
+			/*return "forward:toindex";*/
+			return "redirect:/index/toindex";
 		}else{
 			/*mav.setViewName("test");
 			return mav;*/
@@ -157,10 +161,12 @@ public class LoginController {
 				
 	}
 	
-	@RequestMapping("loginOut")
-	public String loginOut(){
+	@RequestMapping("logout")
+	public String loginOut(HttpSession session){
 		
-		return "index/toindex";
+		//清除session
+		session.invalidate();
+		return "forward:toindex";
 	}
 	
 	/*
