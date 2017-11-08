@@ -174,20 +174,104 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <span id="time">[${policys.polTime}]</span>
 		  </li>
 	  	</c:forEach>
-	  	  <li>
+	  	 <!--  <li>
 		    <img src="images/dian.png" width="5px" height="5px"alt="" />
 		    <a href="" title="">办好热线事，搭起民心桥——国务院第四次大督查热线督查综述</a>
 		    <span id="time">[2017-10-09]</span>
-		  </li>
+		  </li>  -->
 		</ul>
 	</div>
-
+	
+	
+	<div class="pagin">
+    	<div class="message">
+    	共<i class="blue">${page.pageTotalCount}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageNow}&nbsp;</i>页，
+    	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
+    	</div>
+        <ul class="paginList">
+        <c:choose>
+	      <c:when test="${page.pageNow - 1 > 0}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      </c:when>
+	      <c:when test="${page.pageNow - 1 <= 0}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageNow}"></a></li>
+	      </c:when>
+	     </c:choose>
+        
+        <li class="paginItem current"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=1">1</a></li>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount < 2}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=1">2</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=2">2</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<3}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=1">3</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=3">3</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<4}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=1">4</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=4">4</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<10}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=1">10</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=10">10</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>           
+	     <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	    </c:choose>
+        
+        
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="policy/toIndustryPolicy?pClassName=${hint.pClassName}&pageNow=${page.pageTotalCount}">尾页</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        </ul>
+    </div>
+    
+    </div>  
+	
+	
+    <!--  
 		<div class="pagin">
 			<div class="message">
-				共<i class="blue">&nbsp;1256&nbsp;</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
+				共<i class="blue">&nbsp;${page.totalCount}&nbsp;</i>条记录，当前显示第&nbsp;<i class="blue">${page.pageNow}&nbsp;</i>页
 			</div>
 			<ul class="paginList">
-				<li class="paginItem" id="first"><a href="javascript:;">首页</a></li>
+				<li class="paginItem" id="first"><a href="policy/toIndustryPolicy?pageNow=1">首页</a></li>
 				<li class="paginItem" id="pre"><a href="javascript:;">上页</a></li>
 				<li class="paginItem"><a href="javascript:;">1</a></li>
 				<li class="paginItem current"><a href="javascript:;">2</a></li>
@@ -201,7 +285,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 	</div>
-		
+		-->
 		<div class="footer">
 				<!-- <hr> -->
 				<ul>
