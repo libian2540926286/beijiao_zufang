@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:otherwise>  
             <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
         </c:otherwise>  
-    </c:choose>
+        </c:choose>
 	</div>
 </div>
 <!--top end-->
@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li><a href="consult/getListDiscuss" title="">咨询答疑</a>
 				  <ul class="second_nav">
 				  <li>
-					<a href="consult/getListDiscuss">咨询答疑</a>
+					<a href="getallconsult">咨询答疑</a>
 					</li>
 					<li>
 					<a href="jsp/consult.jsp">我要咨询</a>

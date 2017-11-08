@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<li><a href="admin/logout" target="_parent">退出</a></li>
 	</ul>
 	
-   <c:if test="${not empty session}"> 
+   <c:if test="${not empty sessionAdmin}"> 
     <div class="user">
     <span>${session.adminName}</span>
     <i>消息</i>
