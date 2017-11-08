@@ -32,6 +32,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        cssPath : './index.css'
 	    });
 	  </script>
+	    <script language="javascript">  
+		function insertTitle(path){  
+		   var test1 = path.lastIndexOf("/");  //对路径进行截取
+		   var test2 = path.lastIndexOf("\\");  //对路径进行截取
+		   var test= Math.max(test1, test2)
+		   if(test<0){  
+		     document.getElementById("pic").value = path;
+		   }else{
+		    document.getElementById("textfield").value = path.substring(test + 1); //赋值文件名
+		   }  
+		}  
+      </script>
   </head>
   
   <body>
@@ -56,9 +68,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li>
 			<label>图片</label>
-			<input name="picPolFile" type="text" class="dfinput" />
-			<input name="pic" type="file" class="btn" value="浏览上传" />
-			<i>图片大小不超过400K</i></li>
+			<div class="file-box">         
+            <input type='text' name='textfield' id='textfield' class='txt' placeholder="图片大小不超过400K"/>  
+            <input type='button' class='btn' value='浏览上传...' />
+            <input type="file" name="pic" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
+            <i></i>  
+            </div>		
+			</li>
 			<li>
 			<label>发布时间</label>
 			<input name="picPolTime" type="date"class="dfinput" />
