@@ -1,7 +1,9 @@
 package com.beijiao.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.File;
 import com.beijiao.model.Policy;
+import com.beijiao.page.Page;
 import com.beijiao.service.FileService;
 
 @Controller
@@ -23,8 +26,23 @@ public class FileController {
 	private FileService fileService;
 	
 	@RequestMapping("allFile")
-	public String getAllFile(Model model){
-		List<File> files=fileService.getAllFile();
+	public String getAllFile(Model model,String pageNow){
+		List<File> files;
+		Page page=null;
+		int totalCount=fileService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		files=fileService.getAllFile(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		files=fileService.getAllFile(map);
+		}
+		model.addAttribute("page", page);
 		model.addAttribute("files", files);
 		return "admin/file";
 	}

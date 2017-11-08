@@ -1,6 +1,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -17,12 +18,6 @@ public class FileServiceImpl implements FileService {
 	private FileDao fileDao;
 
 	@Override
-	public List<File> getAllFile() {
-		
-		return fileDao.getAllFile();
-	}
-
-	@Override
 	public int upFile(File file) {
 		// TODO Auto-generated method stub
 		return fileDao.upFile(file);
@@ -32,5 +27,17 @@ public class FileServiceImpl implements FileService {
 	public List<File> getLimitFile() {
 		// TODO Auto-generated method stub
 		return fileDao.getLimitFile();
+	}
+
+	@Override
+	public List<File> getAllFile(Map map) {
+		// TODO Auto-generated method stub
+		return fileDao.getAllFile(map);
+	}
+
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return fileDao.getRecordCount();
 	}
 }

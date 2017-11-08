@@ -43,9 +43,12 @@ select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit
     <result property="polTime" column="polTime"/>
 </resultMap>  
 
-<select id="searchIndustryPlocy" parameterType="String" resultMap="policyList">
-select * from policy where pClassName=#{pClassName}
+<select id="searchIndustryPlocy" parameterType="java.util.Map" resultMap="policyList">
+select * from policy where pClassName=#{pClassName} order by policyId desc limit #{startPos},#{pageSize}
 </select> 
+<select id="getRecordCountIndustryPlocy" resultType="int">
+ select  count(*) from policy where pClassName=#{pClassName}
+</select>
 
 <select id="searchPloicy" parameterType="String" resultMap="policyList">
    <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->

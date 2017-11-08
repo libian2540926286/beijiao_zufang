@@ -101,9 +101,9 @@ public class PolicyServiceImpl implements PolicyService {
 	 * @see com.beijiao.service.PolicyService#searchIndustryPlocy(int)
 	 */
 	@Override
-	public List<Policy> searchIndustryPlocy(String  pClassName) {
+	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize) {
 		// TODO Auto-generated method stub
-		return policyMapper.searchIndustryPlocy(pClassName);
+		return policyMapper.searchIndustryPlocy(pClassName,startPos,pageSize);
 	}
 
 	@Override
@@ -135,5 +135,13 @@ public class PolicyServiceImpl implements PolicyService {
 		// TODO Auto-generated method stub
 		return policyMapper.getRecordCount();
 	}
+
+	@Override
+	public int getRecordCountIndustryPlocy(String pClassName) {
+		// TODO Auto-generated method stub
+		return policyMapper.getRecordCountIndustryPlocy(pClassName);
+	}
+
+
 
 }

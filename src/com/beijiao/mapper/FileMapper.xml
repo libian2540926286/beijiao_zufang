@@ -18,8 +18,8 @@
 		<result property="filetime" column="filetime" />
 		<result property="filesource" column="filesource" />
    </resultMap>
-  <select id="getAllFile"  resultMap="allFile">
-     select * from file
+  <select id="getAllFile" parameterType="java.util.Map" resultMap="allFile">
+  	select * from file order by fileId desc limit #{startPos},#{pageSize}
   </select>
   
   <!-- 查询记录的条数 -->

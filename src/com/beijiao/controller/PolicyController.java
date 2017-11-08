@@ -6,7 +6,9 @@ package com.beijiao.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.beijiao.model.File;
 import com.beijiao.model.PClass;
 import com.beijiao.model.Policy;
+import com.beijiao.page.Page;
 import com.beijiao.service.PClassService;
 import com.beijiao.service.PolicyService;
 
@@ -101,9 +105,10 @@ public class PolicyController {
 	
 	/*toIndustryPolicy*/
 	@RequestMapping("toIndustryPolicy")
-	public String selectIndustryPolicy(Model model,String  pClassName){
-		System.out.println(pClassName);
-		String pClassName1=null;
+	public String selectIndustryPolicy(Model model,String  pClassName,String pageNow){
+		//System.out.println(pClassName);
+	/* 	
+	  String pClassName1=null;
 		try {
 			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -116,7 +121,36 @@ public class PolicyController {
 		model.addAttribute("hint", hint);
 		List<Policy> policys=policyService.searchIndustryPlocy(pClassName1);		
 		model.addAttribute("policys", policys);		
-		return "policylist";		
+		return "policylist";	
+		*/
+		String pClassName1=null;
+		try {
+			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(pClassName1);
+		PClass hint=new PClass();
+		hint.setpClassName(pClassName1);
+		model.addAttribute("hint", hint);
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCountIndustryPlocy(pClassName1);
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchIndustryPlocy(pClassName1, startPos,pageSize);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchIndustryPlocy(pClassName1, startPos,pageSize);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);
+		return "policylist";
 	}
 	
 	@RequestMapping("getArea")

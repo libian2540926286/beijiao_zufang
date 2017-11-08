@@ -6,6 +6,8 @@ package com.beijiao.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.beijiao.model.Policy;
 
 /**
@@ -24,7 +26,8 @@ public interface PolicyMapper {
 	public List<Policy> selectPolicyType(String type);
 	public List<Policy> selectPolicyArea(String area);
 	public List<Policy> searchPlocy(String search);
-	public List<Policy> searchIndustryPlocy(String pClassName);
+	public List<Policy> searchIndustryPlocy(@Param("pClassName") String pClassName,@Param("startPos") Integer startPos,@Param("pageSize") Integer pageSize);
+	public int getRecordCountIndustryPlocy(String pClassName);
 	public List<Policy> getAllFile(Map map);	
 	public List<Policy> getLimitFile();
 	public Policy getFile(int policyId);
