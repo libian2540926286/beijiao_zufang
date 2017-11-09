@@ -27,7 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<div class="wrap">
+	<div class="top">
+		<div class="wrap">
 		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
 		<c:choose>  
         <c:when test="${not empty sessionScope.get('session')}">
