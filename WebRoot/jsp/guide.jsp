@@ -30,9 +30,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    	<div class="top">
 		<div class="wrap">
-			<span class="fl">欢迎您来到<a href="#" title="" target="_blank">新政策网</a></span>
-			<span class="fr"><a href="#" title="" target="_blank">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>
-		</div>
+		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
+		<c:choose>  
+        <c:when test="${not empty sessionScope.get('session')}">
+        <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+        </c:when>  
+        <c:otherwise>  
+            <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
+        </c:otherwise>  
+        </c:choose>
+	</div>
 	</div>
 	<!--top end-->
 
@@ -124,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="secondPage" class="hide">
           <ul>
-          <c:forEach items="${affairs2}"var="affairs2">
+          <c:forEach items="${affairs2}" var="affairs2">
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" />
             <a href="affair/toAffair?affWorkId=${affairs2.affWorkId}" title="">${affairs2.workName} </a>
@@ -137,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="thirdPage" class="hide">
           <ul>
-          <c:forEach items="${affairs3}"var="affairs3">
+          <c:forEach items="${affairs3}" var="affairs3">
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" />
             <a href="affair/toAffair?affWorkId=${affairs3.affWorkId}" title="">${affairs3.workName} </a>
@@ -159,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id="forthPage" class="hide">
           <ul>
-           <c:forEach items="${affairs4}"var="affairs4">
+           <c:forEach items="${affairs4}" var="affairs4">
           <li>
             <img src="images/dian.png" width="5px" height="5px" alt="" />
             <a href="affair/toAffair?affWorkId=${affairs4.affWorkId}" title="">${affairs4.workName} </a>
