@@ -30,9 +30,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   frameborder="0" src="header.html"></iframe> -->
   <div class="top">
 		<div class="wrap">
-			<span class="fl">欢迎您来到<a href="index.html" title="" target="_blank">新政策网</a></span>
-			<span class="fr"><a href="#" title="" target="_blank">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>
-		</div>
+		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
+		<c:choose>  
+        <c:when test="${not empty sessionScope.get('session')}">
+        <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+        </c:when>  
+        <c:otherwise>  
+            <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
+        </c:otherwise>  
+        </c:choose>
+	</div>
 	</div>
 	<!--top end-->
 

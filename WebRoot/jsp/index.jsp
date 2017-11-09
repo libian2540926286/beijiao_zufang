@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
 				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
 				<li><a href="" title="">通知公告</a></li>
-				<li><a href="consult/getListDiscuss" title="">咨询答疑</a>
+				<li><a href="consult/getallconsult" title="">咨询答疑</a>
 				  <ul class="second_nav">
 				  <li>
 					<a href="getallconsult">咨询答疑</a>
