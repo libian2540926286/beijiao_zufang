@@ -90,13 +90,97 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="file">
 			<ul>
 			<c:forEach items="${polInterpres}" var="polInterpres">
-		  	<li><img src="images/dian.png" width="5px" height="5px"alt="" />
-		  	<a href="polInterpre/toPolInterpre?polInterpreId=${polInterpres.polInterpreId}" title="">${polInterpres.polInterpreTitle}</a>
-		  	<span id="time">[${polInterpres.polInterpreTime}]</span>
-		  	</li>
+		  		<li>
+		  			<img src="images/dian.png" width="5px" height="5px"alt="" />
+		  			<a href="polInterpre/toPolInterpre?polInterpreId=${polInterpres.polInterpreId}" title="">${polInterpres.polInterpreTitle}</a>
+		  			<span id="time">[${polInterpres.polInterpreTime}]</span>
+		  		</li>
 		  	</c:forEach>
 			</ul>
-
+		</div>
+			
+	<div class="pagin">
+    	<div id="message">
+    	共<i class="blue">${page.pageTotalCount}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageNow}&nbsp;</i>页，
+    	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
+    	</div>
+        <ul class="paginList">
+        <c:choose>
+	      <c:when test="${page.pageNow - 1 > 0}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      </c:when>
+	      <c:when test="${page.pageNow - 1 <= 0}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageNow}"></a></li>
+	      </c:when>
+	     </c:choose>
+        
+        <li class="paginItem current"><a href="polInterpre/tolistPolInterpre?pageNow=1">1</a></li>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount < 2}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=1">2</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=2">2</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<3}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=1">3</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=3">3</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<4}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=1">4</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=4">4</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <c:choose>
+	      <c:when test="${page.pageTotalCount<10}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=1">10</a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=10">10</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        <c:choose>           
+	     <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	     </c:when>
+	    </c:choose>
+        
+        
+        
+        <c:choose>
+	      <c:when test="${page.pageTotalCount==0}">
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      </c:when>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="polInterpre/tolistPolInterpre?pageNow=${page.pageTotalCount}">尾页</a></li>
+	      </c:otherwise>
+	     </c:choose>
+        
+        </ul>
+    </div>
+    </div>  
+			
+			
+			<!--  
 			<div class="pagin">
 				<div class="message">
 					共<i class="blue">&nbsp;1256&nbsp;</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
@@ -117,9 +201,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
+		-->
 
-
-		</div>
+		
 		
 		<div class="footer">
 				<!-- <hr> -->
