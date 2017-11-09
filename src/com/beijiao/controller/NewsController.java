@@ -49,10 +49,24 @@ public class NewsController {
 	
 	/*��ѯ��������*/
     @RequestMapping("tolistNews")
- public String selectListNews(Model model){
+ public String selectListNews(String pageNow,Model model){
     	
-    	List<News> news=newsService.selectListNews();
-    	System.out.println(news);
+    	List<News> news;
+       	Page page=null;
+		int totalCount=newsService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		news=newsService.selectAllNews(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		news=newsService.selectAllNews(map);
+		}
+		model.addAttribute("page", page);
     	model.addAttribute("news",news);
     	return "newslist";	
     }
@@ -80,6 +94,9 @@ public class NewsController {
 		model.addAttribute("page", page);
        	return "admin/medialist";	
        }
+    
+    
+    
 	/*��������*/
     @RequestMapping("addNews")
     public String addNews(News news,MultipartFile file,HttpServletRequest request){
