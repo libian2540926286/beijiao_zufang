@@ -43,7 +43,7 @@ public class NewsController {
     	//news.setNewsContent(news.getNewsContent().replace(" ", "<br />"+"&nbsp;&nbsp;"));
     	System.out.println(news.getNewsContent());
     	model.addAttribute("news",news);
-    	return "success";
+    	return "news";
 	
     }
 	
@@ -51,11 +51,13 @@ public class NewsController {
     @RequestMapping("tolistNews")
  public String selectListNews(Model model){
     	
-    	List<News> news1=newsService.selectListNews();
-    	System.out.println(news1);
-    	model.addAttribute("news1",news1);
-    	return "medialist";	
+    	List<News> news=newsService.selectListNews();
+    	System.out.println(news);
+    	model.addAttribute("news",news);
+    	return "newslist";	
     }
+    
+    
     @RequestMapping("toallNews")
     public String selectAllNews(Model model,String pageNow){
        	
