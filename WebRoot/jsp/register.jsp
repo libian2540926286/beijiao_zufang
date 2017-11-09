@@ -30,20 +30,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="inset">
 
 		<div class="login-head">
-			<h1>欢迎来到新政策网</h1>		
+			<h1>欢迎来到新政策网，请注册</h1>		
 		</div>
 
-		<form id="login">
+		<form id="login" method="get" action="index/reg" >
+		<ul>
+		
 			<li>
-				<input type="text" value="请输入用户名" placeholder="请输入用户名"
-				minlength="2" maxlength="12" class="text" required>
+				<input type="text" name="username" value="" placeholder="请输入用户名" minlength="2" maxlength="12" class="text" required>
 				<a href="#" class=" icon user"></a>
 			</li>
 			<br/>
 
 			<li>
-				<input type="password" class="onlyNumAlpha" placeholder="请输入密码"
-				minlength="6" maxlength="12" required> 
+				<input type="password" name="password" class="onlyNumAlpha" placeholder="请输入密码" minlength="6" maxlength="12" required> 
 				<a href="#" class="icon lock"></a>
 
 				<script type="text/javascript">
@@ -70,20 +70,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<br/>
 
 			<li>
-				<select class="list_content" minlength="6" maxlength="12" required>
-				<option value="0">123</option>
-				<option value="1">455</option>
+				<select name="pClassName" class="list_content" minlength="6" maxlength="12" required>
+				<option value="机械化工">机械化工</option>
+				<option value="交通汽车">交通汽车</option>
+				<option value="房产建材">房产建材</option>				
+				<option value="服装纺织">服装纺织</option>
+				<option value="IT互联网">IT互联网</option>
+				<option value="文化传媒">文化传媒</option>
+				<option value="医药">医药</option>
+				<option value="食品">食品</option>
+				<option value="农林渔牧">农林渔牧</option>
+				
 				</select>
 			</li>
-      <br/>
+           <br/>
 
+          </ul>	
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="确定" >
-				<input id="exit"  value="取消" >
-				<div class="clear">  </div>	
-			</div>
-		</form>
-	</div>					
+				<input type="submit" value="确定注册" >
+				<input type="button" id="exit" onclick="javascript:window.location.href='index/toindex'" value="取消" >
+				<div class="clear"> 
+		       </div>	
+		   </div>
+			
+		</form>		
+	    </div>	
+				
 </div>
 
 <!--- footer -->

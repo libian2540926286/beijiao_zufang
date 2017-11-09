@@ -32,7 +32,7 @@
   </select>
   
   <insert id="userResigster" parameterType="com.beijiao.model.User" >
-  insert into user(username,password) values(#{username},#{password})
+  insert into user(username,password,pClassName) values(#{username},#{password},#{pClassName})
   </insert>
   
   <select id="selectPawd" parameterType="int" resultType="String">
