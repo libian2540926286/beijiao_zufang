@@ -29,7 +29,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="top">
 		<div class="wrap">
 			<span class="fl">欢迎您来到<a href="#" title="" target="_blank">新政策网</a></span>
-			<span class="fr"><a href="#" title="" target="_blank">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>
+			<c:choose>  
+	        <c:when test="${not empty sessionScope.get('session')}">
+	           <span class="fr"><a href="#" title="">${sessionScope.get('session').username}${sessionScope.get('session').userId}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+	        </c:when>  
+	        <c:otherwise>  
+	            <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
+	        </c:otherwise>  
+	        </c:choose>
 		</div>
 	</div>
 	<!--top end-->
@@ -126,7 +133,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="enquire_information_1">
            <p>
               <span>咨询标题</span>
-              <input type="hidden" value="1" name="uesrId">
+              <c:if test="${not empty sessionScope.get('session')}">
+              <input type="hidden" value="${sessionScope.get('session').userId}" name="userId">
+              </c:if>
               <input type="text" size="50px" style="height:20px" name="disTitle"
                 value="请输入问题标题" onFocus="if(this.value=='请输入问题标题'){this.value='';}"
                 onBlur="if(this.value==''){this.value='请输入问题标题';}">
@@ -134,16 +143,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </li>
           <li class="enquire_information_1">
             <p>
-              <span>手机号码</span>
-              <input type="text" size="50px" style="height:20px" name="phonenum"
-                value="请输入手机号码" onFocus="if(this.value=='请输入手机号码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入手机号码';}">
-            </p>
-          </li>
-          <li class="enquire_information_1">
-            <p>
               <span>电子邮箱</span>
-              <input type="text" size="50px" style="height:20px" name="email"
+              <input type="email" size="50px" style="height:20px" name="email"
                 value="请输入电子邮箱地址" onFocus="if(this.value=='请输入电子邮箱地址'){this.value='';}"
                 onBlur="if(this.value==''){this.value='请输入电子邮箱地址';}">
             </p>
@@ -155,8 +156,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <textarea rows="17" cols="131"  name="disContent" ></textarea>
             </p>
           </li>
+           <input id="submit" type="submit" value="提交问题">
         </ul>
-        <input id="submit" type="submit" value="提交问题">
+       
       </form>
       </div>
 

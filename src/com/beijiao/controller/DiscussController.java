@@ -6,12 +6,14 @@ package com.beijiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beijiao.model.Discuss;
+import com.beijiao.model.User;
 import com.beijiao.service.DiscussService;
 
 @Controller
@@ -28,19 +30,19 @@ public class DiscussController {
 		return "success";
 	}
 	
-	@RequestMapping("getListDiscuss")
+	@RequestMapping("getallconsult")
 	public String getListDiscuss(Model model){
 		List<Discuss> dis=discussService.selectListDiscuss();
 		model.addAttribute("dis", dis);
-		return "success";
+		return "consult-list";
 	}
 	
 	@RequestMapping("addConsult")
 	public String addDiscuss(Discuss discuss){
-		System.out.println(discuss.getUserId());
+				
 		int n=discussService.insertDiscuss(discuss);
 		if(n!=0){
-			return "forward:getListDiscuss";
+			return "redirect:/consult/getallconsult";
 		}else{
 			return "login";
 		}	

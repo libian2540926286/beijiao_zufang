@@ -55,15 +55,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="loginbody">
     
     <span class="systemlogo"></span> 
-       
-    <div class="loginbox"> 
-    <form action="admin/login" method="post">
+      <form action="admin/login" method="post"> 
+    <div class="loginbox">     
 	    <ul>
 		    <li>
-		    <input name="adminName" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/>
+		    <input name="adminName" type="text" class="loginuser" value="" />
 		    </li>
 		    <li>
-		    <input name="adminPassword" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/>
+		    <input name="adminPassword" type="text" class="loginpwd" value=""/>
 		    </li>
 		    <li>
 		    <input  type="submit" class="loginbtn" value="登录"  />
@@ -71,9 +70,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <input name="" type="checkbox" value="" checked="checked" />记住密码</label>
 		    <label><a href="#">忘记密码？</a></label>
 		    </li>
-	    </ul>
-	 </form>
+	    </ul>	 
     </div>
+    </form>
     </div>
     
     <div class="loginbm">版权所有  北焦科创</div>
