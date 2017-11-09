@@ -156,7 +156,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <textarea rows="17" cols="131"  name="disContent" ></textarea>
             </p>
           </li>
+          <li>
            <input id="submit" type="submit" value="提交问题">
+           </li>
         </ul>
        
       </form>

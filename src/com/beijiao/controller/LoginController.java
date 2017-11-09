@@ -4,6 +4,7 @@
 package com.beijiao.controller;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -172,17 +173,30 @@ public class LoginController {
 	/*
 	 **register
 	 */
-	@RequestMapping("register1")
+	@RequestMapping("reg")
 	public String SignIn(User user){
+		System.out.println(user.getpClassName());
+		String test;
+		try {
+			test = new String(user.getpClassName().getBytes("iso-8859-1"),"utf-8");
+			user.setpClassName(test);
+			System.out.println(test);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		int success=userService.userResigster(user);
 		if(success!=0){
 			
-			return "success";
+			return "login";
 		}else{
 			
-			return "";
+			return "register";
 		}
 	}
+	
+	/*
 	@RequestMapping("register2")
 	public ModelAndView register(User user){
 		
@@ -197,7 +211,7 @@ public class LoginController {
 			return mac;
 		}
 		
-	}
+	}*/
 	/**
 	 * changePawd
 	 */
