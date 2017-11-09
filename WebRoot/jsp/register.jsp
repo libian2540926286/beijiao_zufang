@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="inset">
 
 		<div class="login-head">
-			<h1>欢迎来到新政策网</h1>		
+			<h1>欢迎来到新政策网，请注册</h1>		
 		</div>
 
 		<form id="login" method="get" action="index/reg" >
