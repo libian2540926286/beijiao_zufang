@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.beijiao.model.File;
 import com.beijiao.model.PolInterpre;
 import com.beijiao.page.Page;
 import com.beijiao.service.PolInterpreService;
@@ -50,15 +51,20 @@ public class PolInterpreController {
 		List<PolInterpre> polInterpres;
 		Page page=null;
 		int totalCount=polInterpreService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
 		if(pageNow==null){
-			page=new Page(Integer.parseInt(pageNow), totalCount);
-			polInterpres=polInterpreService.selectListPolInterpre();
-		}else{
 			page=new Page(1, totalCount);
-			polInterpres=polInterpreService.selectListPolInterpre();
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		polInterpres=polInterpreService.selectAllPolInterpre(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		polInterpres=polInterpreService.selectAllPolInterpre(map);
 		}
-		
-		model.addAttribute("polInterpres", polInterpres);		
+		model.addAttribute("page", page);
+		model.addAttribute("polInterpres", polInterpres);	
 		return "polInterpreslist";		
 	}
 	
