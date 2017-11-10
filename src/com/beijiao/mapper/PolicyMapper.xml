@@ -31,7 +31,13 @@ select * from policy order by policyId desc limit #{startPos},#{pageSize}
 <select id="selectPolicyType" parameterType="String" resultMap="policyList">
 select * from policy where polDrade=#{type} order by policyId desc 
 </select>
-
+<!-- 政策等级分页 -->
+<select id="selectPolicyType1" parameterType="java.util.Map" resultMap="policyList">
+select * from policy where polDrade=#{type} order by policyId desc limit #{startPos},#{pageSize}
+</select>
+<select id="getRecordCountPlocyDrade" resultType="int">
+ select  count(*) from policy where polDrade=#{type}
+</select>
 <select id="selectPolicyArea" parameterType="String" resultMap="PolicyArea">
 select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit 7
 </select>

@@ -92,8 +92,6 @@ public class PolicyServiceImpl implements PolicyService {
 	@Override
 	public List<Policy> selectPolicyType(String type) {
 		// TODO Auto-generated method stub
-		/*System.out.println("测试");
-		System.out.println("测试"+type);*/
 		return policyMapper.selectPolicyType(type);
 	}
 
@@ -141,6 +139,21 @@ public class PolicyServiceImpl implements PolicyService {
 		// TODO Auto-generated method stub
 		return policyMapper.getRecordCountIndustryPlocy(pClassName);
 	}
+
+	@Override
+	public int getRecordCountPlocyDrade(String type) {
+		// TODO Auto-generated method stub
+		return policyMapper.getRecordCountPlocyDrade(type);
+	}
+
+	@Override
+	public List<Policy> selectPolicyType1(String type, Integer startPos,
+			Integer pageSize) {
+		// TODO Auto-generated method stub
+		return policyMapper.selectPolicyType1(type, startPos, pageSize);
+	}
+
+
 
 
 

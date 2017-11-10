@@ -74,7 +74,7 @@ public class PolicyController {
 	
 	/*toPolicyType*/
 	@RequestMapping("toPolicyType")
-	public String selectPolicyType(Model model,String polDrade){
+	public String selectPolicyType1(Model model,String polDrade,String pageNow){
 		
 		String polDrade1=null;
 		try {
@@ -83,12 +83,27 @@ public class PolicyController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Policy hint=new Policy();
-		hint.setPolDrade(polDrade1);
+		System.out.println(polDrade1);
+		PClass hint=new PClass();
+		hint.setpClassName(polDrade1);
 		model.addAttribute("hint", hint);
-		List<Policy> policys=policyService.selectPolicyType(polDrade1);		
-		model.addAttribute("policys", policys);		
-		return "policylist";		
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCountPlocyDrade(polDrade1);
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.selectPolicyType1(polDrade1, startPos, pageSize);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.selectPolicyType1(polDrade1, startPos, pageSize);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);
+		return "policydradelist";
 	}
 	
 	/*toPolicyArea*/
@@ -106,23 +121,6 @@ public class PolicyController {
 	/*toIndustryPolicy*/
 	@RequestMapping("toIndustryPolicy")
 	public String selectIndustryPolicy(Model model,String  pClassName,String pageNow){
-		//System.out.println(pClassName);
-	/* 	
-	  String pClassName1=null;
-		try {
-			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(pClassName1);
-		PClass hint=new PClass();
-		hint.setpClassName(pClassName1);
-		model.addAttribute("hint", hint);
-		List<Policy> policys=policyService.searchIndustryPlocy(pClassName1);		
-		model.addAttribute("policys", policys);		
-		return "policylist";	
-		*/
 		String pClassName1=null;
 		try {
 			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");

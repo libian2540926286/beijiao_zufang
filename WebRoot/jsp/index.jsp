@@ -176,7 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>													
 					
 					</ul>                                                            
-						<a class="more" href="policy/toPolicyType?polDrade='国家'">更多>></a>
+						<a class="more" href="policy/toPolicyType?polDrade=国家政策">更多>></a>
 					</div>
 					<div id="thirdPage" class="hide">
 						<ul>
@@ -191,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">北京市工商局多措并举，扎实推进控烟工作</a>
 						</li>			
 						</ul>
-						<a class="more" href="policy/toPolicyType?polDrade='市'">更多>></a>
+						<a class="more" href="policy/toPolicyType?polDrade=市级政策">更多>></a>
 					</div>
 					<div id="forthPage" class="hide">
 						<ul>
@@ -209,7 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">北京市朝阳区烟草专卖局关于印发暂停烟草专卖业务进行整顿的通知</a>
 						</li>													
 						</ul>
-						<a class="more" href="policy/toPolicyType?polDrade='区'">更多>></a>
+						<a class="more" href="policy/toPolicyType?polDrade=地方政策">更多>></a>
 					</div>
 				</div>
 
