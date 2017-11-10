@@ -26,7 +26,7 @@ public interface PolicyService {
 	public List<Policy> selectPolicyType1(String type,Integer startPos,Integer pageSize);
 	public int getRecordCountPlocyDrade(String type);
 	public List<Policy> selectPolicyArea(String area);
-	public List<Policy> searchPlocy(String search);
+	public List<Policy> searchPloicy(String search);
 	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize);
 	public int getRecordCountIndustryPlocy(String pClassName);
 	public List<Policy> getAllFile(Map map);

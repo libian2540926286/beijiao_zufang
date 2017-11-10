@@ -59,11 +59,11 @@ select * from policy where pClassName=#{pClassName} order by policyId desc limit
 <select id="searchPloicy" parameterType="String" resultMap="policyList">
    <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
    select * from policy where 
-             <if test="policyTitle != null">  
-                policyTitle like CONCAT('%','${search}','%' )  
+             <if test="_parameter != null">  
+                polTitle like CONCAT('%','${_parameter}','%')  
             </if>  
-            <if test="polContent != null">  
-                AND polContent like CONCAT('%','${search}','%' )  
+            <if test="_parameter != null">  
+                OR polContent like CONCAT('%','${_parameter}','%')  
             </if>  
 </select>
 

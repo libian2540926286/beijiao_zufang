@@ -198,6 +198,14 @@ public class PolicyController {
 			   return "login";
 			}
 	}
+	@RequestMapping("toSearch")
+	public String searchPlocy(Model model,String search){
+		System.out.println("ËÑË÷ÄÚÈÝÎª"+search);
+		List<Policy> policys=policyService.searchPloicy(search);
+		model.addAttribute("policys", policys);		
+		return "searchpolicy";
+		
+	}
 	
 	/*
 	 * toAllFile
