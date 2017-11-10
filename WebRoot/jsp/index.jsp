@@ -51,21 +51,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- <a href="#" title="" target="_blank"><img src="images/ad1.jpg" width="1004" height="40" /></a> -->
 			<div class="search_box">
 				<a href="#" title="" target="_blank"><img src="images/logo.jpg" width="389" height="53"  alt="" class="fl"/></a>  
-				<div class="search">
+				<div class="search" >
 					<div id="lenu1">
 						<ul>
 							<li class="hover" onmousemove="setTab(1,0)">政策<span>|</span></li>
 							<!-- (<li onmousemove="setTab(1,1)">用户<span>|</span></li>) -->
 						</ul>
 					</div>
+					<form action="policy/toSearch" method="post"> 
 				<div class="lain1_box" id="lain1">
 					<ul class="block">
-						<li><input type="text"  value="请输入政策名称" onFocus="if(this.value=='请输入政策名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入政策名称';}" class="sertxt" /><a href="search.html"><input type="button" value="搜索" name=""  class="serbtn"/></a></li>
+						<li><input type="text"  value="请输入政策名称" name="search" onFocus="if(this.value=='请输入政策名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入政策名称';}" class="sertxt" /><input type="submit" value="搜索" name=""  class="serbtn"/></a></li>
 					</ul>
 					<ul>
 					  <li><input type="text"  value="请输入用户名称" onFocus="if(this.value=='请输入用户名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入用户名称';}" class="sertxt" /><input type="button" value="搜索" name=""  class="serbtn"/></li>
 					</ul>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -72,9 +72,9 @@ public class PolicyServiceImpl implements PolicyService {
 	 * @see com.beijiao.service.PolicyService#searchPlocy(java.lang.String)
 	 */
 	@Override
-	public List<Policy> searchPlocy(String search) {
+	public List<Policy> searchPloicy(String search) {
 		// TODO Auto-generated method stub
-		return policyMapper.searchPlocy(search);
+		return policyMapper.searchPloicy(search);
 	}
 
 	/* (non-Javadoc)
