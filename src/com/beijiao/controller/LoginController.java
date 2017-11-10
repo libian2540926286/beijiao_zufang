@@ -5,6 +5,8 @@ package com.beijiao.controller;
 
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -237,10 +239,21 @@ public class LoginController {
 	
 	
 	@RequestMapping("touser")
-	public String getUser(Model model,int userId){
-		User user=userService.getUser(userId);
+	public String getUser(Model model,HttpSession session){
+		User user=null;
+		user=(User) session.getAttribute("session");
+		System.out.println(user.getpClassName()+"获取所在行业");
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String polTime = dateFormat.format(date); 
+		System.out.println(polTime+"当前时间"); 
+		
+		/*
+		 * 获取我的咨询回复的内容
+		 */
+		/*=userService.getUser(userId);*/
 		model.addAttribute("user", user);
-		return "";
+		return "personal";
 	}
 	
 	

@@ -3,43 +3,34 @@
 <mapper namespace="com.beijiao.dao.DiscussDao">
 <!-- 查询讨论 -->
 <select id="selectDiscuss" parameterType="int" resultMap="Discusslist">
-     select * from discuss,reply where discussId=#{discussId}
+     select * from discuss where discussId=#{discussId}
 </select>
 
 <select id="selectListDiscuss" parameterType="int" resultMap="Discusslist">
-     select * from discuss limit 7
+     select * from discuss order by discussId desc limit 7
 </select>
 
-<select id="selectAllDiscuss" parameterType="int" resultMap="Discusslist1">
-     select * from discuss,reply where discuss.discussId=reply.discussId limit 5
+<select id="selectAllDiscuss" parameterType="int" resultMap="Discusslist">
+     select * from discuss order by discussId desc
 </select>
 <resultMap type="com.beijiao.model.Discuss" id="Discusslist">
         <id column="discussId" property="discussId"/>
         <result column="userId" property="userId"/>
+        <result column="disTitle" property="disTitle"/>
         <result column="disContent" property="disContent"/>
+        <result column="reply" property="reply"/>
         <result column="disTime" property="disTime"/>
 </resultMap>
 <!-- 添加讨论 -->
 <insert id="insertDiscuss" parameterType="com.beijiao.model.Discuss">
-       insert into discuss(userId,disContent,disTime) values(#{userId},#{disContent},#{disTime})
+       insert into discuss(userId,disTitle,disContent,disTime) values(#{userId},#{disTitle},#{disContent},#{disTime})
+</insert>
+<!-- 添加回复 -->
+<insert id="insertReply" parameterType="com.beijiao.model.Discuss">
+       insert into discuss(reply) values(#{reply}) where discussId=#{discussId}
 </insert>
 <!-- 删除讨论 -->
 <delete id="deleteDiscuss" parameterType="int">
        delete * from discuss where discussId=#{discussId}
 </delete>
-<resultMap type="com.beijiao.model.Discuss" id="Discusslist1">
-        <id column="discussId" property="discussId"/>
-        <result column="userId" property="userId"/>
-        <result column="disContent" property="disContent"/>
-        <result column="disTime" property="disTime"/>
-        <association property="reply" javaType="com.beijiao.model.Reply">
-            <id property="replyId" column="replyId"/>             
-            <result property="discussId" column="discussId"/>  
-            <result property="userId" column="userId"/>  
-            <result property="replyContent" column="replyContent"/>   
-            <result property="replyTime" column="replyTime"/>       
-        </association>
-</resultMap>
-
-
 </mapper>

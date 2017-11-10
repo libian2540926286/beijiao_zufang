@@ -15,6 +15,7 @@ public class Discuss {
 	private int userId;
 	private String disTitle;
 	private String disContent;
+	private String reply;
 	private String disTime;
 	private String phonenum;
 	private String email;
@@ -85,6 +86,12 @@ public class Discuss {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
 
 	

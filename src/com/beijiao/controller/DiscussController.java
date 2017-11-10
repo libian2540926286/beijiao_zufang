@@ -26,8 +26,8 @@ public class DiscussController {
 	@RequestMapping("getDiscuss")
 	public String getDiscuss(Model model,int discussId){
 		Discuss discuss=discussService.selectDiscuss(discussId);
-		model.addAttribute("discus",discuss);
-		return "success";
+		model.addAttribute("discuss",discuss);
+		return "consult";
 	}
 	
 	@RequestMapping("getallconsult")

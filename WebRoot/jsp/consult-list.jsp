@@ -98,29 +98,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
       <div class="file">
+          <c:forEach items="${dis}" var="dis">
 				<ul>
-			        <li class="consult-title"><span>用户一：</span>三证合一错误</li>
-			        <li class="consult-detail">企业三证合一后营业执照号变更为91130602MA07K4B2X2其中的组织机构代码号错误应变更为911306027698079622如何更正。</li>
-			        <li class="answer"><span>管理员回复：</span>您的留言已回复，请登陆查看。<span class="time">[2017-11-1]</span></li>
+			        <li class="consult-title"><span>用户咨询</span>三证合一错误</li>
+			        <li class="consult-detail">${dis.disContent}</li>
+			        <li class="answer"><span>管理员回复：</span><a href="">查看咨询回复。</a><span class="time">[2017-11-1]</span></li>
 				</ul>
-				
-
-        <div class="box" id="box"></div>
-        <script src="js/jquery-1.7.2.min.js"></script>
-        <script src="js/paging.js"></script>
-        <script>
-            var setTotalCount = 301;
-            $('#box').paging({
-                initPageNo: 3, // 初始页码
-                totalPages: 30, //总页数
-                totalCount: '合计' + setTotalCount + '条数据', // 条目总数
-                slideSpeed: 600, // 缓动速度。单位毫秒
-                jump: true, //是否支持跳转
-                callback: function(page) { // 回调函数
-                    console.log(page);
-                }
-            })
-        </script>
+		  </c:forEach>
+		  <ul>
+		        <li class="consult-title"><span>用户一：</span>三证合一错误</li>
+		        <li class="consult-detail">企业三证合一后营业执照号变更为91130602MA07K4B2X2其中的组织机构代码号错误应变更为911306027698079622如何更正。</li>
+		        <li class="answer"><span>管理员回复：</span>您的留言已回复，请登陆查看。<span class="time">[2017-11-1]</span></li>
+		 </ul>
       </div>
       
 		</div>

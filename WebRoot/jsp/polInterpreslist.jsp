@@ -182,30 +182,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </div>  
 			
-			
-			<!--  
-			<div class="pagin">
-				<div class="message">
-					共<i class="blue">&nbsp;1256&nbsp;</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
-				</div>
-				<ul class="paginList">
-					<li class="paginItem" id="first"><a href="policy/toIndustryPolicy?pageNow=1">首页</a></li>
-					<li class="paginItem" id="pre"><a href="javascript:;">上页</a></li>
-					<li class="paginItem"><a href="javascript:;">1</a></li>
-					<li class="paginItem current"><a href="javascript:;">2</a></li>
-					<li class="paginItem"><a href="javascript:;">3</a></li>
-					<li class="paginItem"><a href="javascript:;">4</a></li>
-					<li class="paginItem"><a href="javascript:;">5</a></li>
-					<li class="paginItem more"><a href="javascript:;">...</a></li>
-					<li class="paginItem"><a href="javascript:;">10</a></li>
-					<li class="paginItem" id="next"><a href="javascript:;">下页</a></li>
-					<li class="paginItem" id="end"><a href="javascript:;">尾页</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-		-->
-
 		
 		
 		<div class="footer">
