@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
 		<c:choose>  
         <c:when test="${not empty sessionScope.get('session')}">
-        <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+        <span class="fr"><a href="index/touser" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
         </c:when>  
         <c:otherwise>  
             <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="jsp/register.jsp" title="" target="_blank">立即注册</a></span>  
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>					
 					</ul>
 				</li>                    
-				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
+				<li><a href="polInterpre/allPolInterpre" title="">政策解读</a></li>
 				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
 				<li><a href="" title="">通知公告</a></li>
 				<li><a href="consult/getallconsult" title="">咨询答疑</a>

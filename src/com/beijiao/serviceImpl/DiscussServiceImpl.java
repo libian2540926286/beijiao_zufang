@@ -15,7 +15,7 @@ import com.beijiao.service.DiscussService;
 
 /**
  * @author cmy
- *обнГ4:33:31
+ *О©╫О©╫О©╫О©╫4:33:31
  */
 @Service("discussService")
 public class DiscussServiceImpl implements DiscussService {
@@ -57,6 +57,12 @@ public class DiscussServiceImpl implements DiscussService {
 	public int deleteDiscuss(int discussId) {
 		// TODO Auto-generated method stub
 		return discussDao.deleteDiscuss(discussId);
+	}
+
+	@Override
+	public int insertReply(int discussId, String reply) {
+		// TODO Auto-generated method stub
+		return discussDao.insertReply(discussId, reply);
 	}
 
 }

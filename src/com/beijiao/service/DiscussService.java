@@ -9,21 +9,22 @@ import com.beijiao.model.Discuss;
 
 /**
  * @author cmy
- *ÏÂÎç4:31:46
+ *ï¿½ï¿½ï¿½ï¿½4:31:46
  */
 public interface DiscussService {
 
 	/*
-	 * ²éÑ¯ÌÖÂÛ
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	 */
 	public Discuss selectDiscuss(int discussId);
 	public List<Discuss> selectListDiscuss();
 	/*
-	 * Ìí¼ÓÌÖÂÛ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
+	public int insertReply(int discussId,String reply);
 	public int insertDiscuss(Discuss discuss);
 	/*
-	 * É¾³ıÌÖÂÛ
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public int deleteDiscuss(int discussId);
 }
