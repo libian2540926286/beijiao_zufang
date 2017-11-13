@@ -56,17 +56,26 @@ select * from policy where pClassName=#{pClassName} order by policyId desc limit
  select  count(*) from policy where pClassName=#{pClassName}
 </select>
 
-<select id="searchPloicy" parameterType="String" resultMap="policyList">
+<select id="searchPolicy" parameterType="java.util.Map" resultMap="policyList">
    <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
-   select * from policy where 
-             <if test="_parameter != null">  
+   select * from policy where
+             <if test="search != null">  
+                polTitle like CONCAT('%','${search}','%')  
+            </if>  
+            <if test="search != null">  
+                OR polContent like CONCAT('%','${search}','%') 
+            </if> 
+            order by policyId desc limit #{startPos},#{pageSize}	
+</select>
+<select id="getRecordCountSearch" resultType="int">
+ select  count(*) from policy where
+			 <if test="_parameter != null">  
                 polTitle like CONCAT('%','${_parameter}','%')  
             </if>  
             <if test="_parameter != null">  
                 OR polContent like CONCAT('%','${_parameter}','%')  
             </if>  
 </select>
-
 
 <select id="getAllFile" parameterType="String" resultMap="allFile">
 select policyId,polTitle,polTime from policy 

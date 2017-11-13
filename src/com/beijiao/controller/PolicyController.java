@@ -199,12 +199,28 @@ public class PolicyController {
 			}
 	}
 	@RequestMapping("toSearch")
-	public String searchPlocy(Model model,String search){
-		System.out.println("ËÑË÷ÄÚÈÝÎª"+search);
-		List<Policy> policys=policyService.searchPloicy(search);
-		model.addAttribute("policys", policys);		
+	public String searchPolicy(Model model,String search,String pageNow){
+		System.out.println("ËÑË÷ÄÚÈÝÎª"+search);	
+		PClass hint=new PClass();
+		hint.setpClassName(search);
+		model.addAttribute("hint", hint);
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCountSearch(search);
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchPolicy(search, startPos, pageSize);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchPolicy(search, startPos, pageSize);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);
 		return "searchpolicy";
-		
 	}
 	
 	/*
