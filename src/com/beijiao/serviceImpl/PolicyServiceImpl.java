@@ -72,9 +72,14 @@ public class PolicyServiceImpl implements PolicyService {
 	 * @see com.beijiao.service.PolicyService#searchPlocy(java.lang.String)
 	 */
 	@Override
-	public List<Policy> searchPloicy(String search) {
+	public List<Policy> searchPolicy(String search,Integer startPos,Integer pageSize) {
 		// TODO Auto-generated method stub
-		return policyMapper.searchPloicy(search);
+		return policyMapper.searchPolicy(search,startPos,pageSize);
+	}
+	@Override
+	public int getRecordCountSearch(String search) {
+		// TODO Auto-generated method stub
+		return policyMapper.getRecordCountSearch(search);
 	}
 
 	/* (non-Javadoc)
@@ -152,6 +157,8 @@ public class PolicyServiceImpl implements PolicyService {
 		// TODO Auto-generated method stub
 		return policyMapper.selectPolicyType1(type, startPos, pageSize);
 	}
+
+
 
 
 
