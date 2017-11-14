@@ -68,6 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>     
        <li><cite></cite><a href="news/toallNews" target="rightFrame">媒体聚焦管理</a><i></i></li>
        <li><cite></cite><a href="file/allFile" target="rightFrame">文件管理</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/consultAnswer.jsp" target="rightFrame">咨询答疑</a><i></i></li>
        </ul>    
     </dd>
         
