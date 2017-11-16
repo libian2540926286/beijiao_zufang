@@ -9,22 +9,26 @@ import com.beijiao.model.Discuss;
 
 /**
  * @author cmy
- *����4:31:46
+ *锟斤拷锟斤拷4:31:46
  */
 public interface DiscussService {
 
 	/*
-	 * ��ѯ����
+	 * 锟斤拷询锟斤拷锟斤拷
 	 */
 	public Discuss selectDiscuss(int discussId);
 	public List<Discuss> selectListDiscuss();
 	/*
-	 * �������
+	 * 锟斤拷锟斤拷锟斤拷锟�
 	 */
 	public int insertReply(int discussId,String reply);
 	public int insertDiscuss(Discuss discuss);
 	/*
-	 * ɾ������
+	 * 删锟斤拷锟斤拷锟斤拷
 	 */
 	public int deleteDiscuss(int discussId);
+	public List<Discuss> selectReplied();
+	public List<Discuss> selectUnReply();
+	public boolean updateReplyContent(Discuss dicuss);
+	public List<Discuss> selectunRepliedById(int dicussId);
 }

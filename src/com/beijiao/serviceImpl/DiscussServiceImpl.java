@@ -65,4 +65,28 @@ public class DiscussServiceImpl implements DiscussService {
 		return discussDao.insertReply(discussId, reply);
 	}
 
+	@Override
+	public List<Discuss> selectReplied() {
+		// TODO Auto-generated method stub
+		return discussDao.selectReplied();
+	}
+
+	@Override
+	public List<Discuss> selectUnReply() {
+		// TODO Auto-generated method stub
+		return discussDao.selectUnReply();
+	}
+
+	@Override
+	public boolean updateReplyContent(Discuss dicuss) {
+		// TODO Auto-generated method stub
+		return discussDao.updateReplyContent(dicuss);
+	}
+
+	@Override
+	public List<Discuss> selectunRepliedById(int dicussId) {
+		// TODO Auto-generated method stub
+		return discussDao.selectunRepliedById(dicussId);
+	}
+
 }

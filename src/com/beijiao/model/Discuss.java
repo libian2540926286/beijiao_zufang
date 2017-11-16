@@ -4,6 +4,7 @@
 package com.beijiao.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author cmy
@@ -19,8 +20,8 @@ public class Discuss {
 	private String disTime;
 	private String phonenum;
 	private String email;
-	 
-	 
+	
+
 	/**
 	 * @return the discussId
 	 */

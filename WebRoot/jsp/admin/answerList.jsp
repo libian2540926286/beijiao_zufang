@@ -57,20 +57,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         </thead>
         <tbody>
-      <c:forEach items="${polInterpres}" var="polInterpres">
+      <c:forEach items="${replied}" var="replied">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>已回复标题</td>
-        <td>${polInterpres.polInterpreTitle}</td>
-        <td>${polInterpres.polInterpreAuthor}</td>
-        <td>${polInterpres.polInterpreSource}</td>
-        <td>${polInterpres.polInterpreTime}</td>
+        <td>${replied.disTitle}</td>
+        <td>${replied.userId}</td>
+        <td>${replied.reply}</td>
+        <td>${replied.email}</td>
+        <td>${replied.disTime}</td>
         <td>
-        <a href="#" class="tablelink">查看</a>     
-        <a href="#" class="tablelink"> 删除</a>
+        <a href="<%=basePath%>consult/getRepliedAnswer?discussId=${replied.discussId}" class="tablelink">查看</a>     
+        <a href="<%=basePath%>consult/deleteConsult?discussId=${replied.discussId}" class="tablelink"> 删除</a>
         </td>
         </tr> 
       </c:forEach>  
+      <!-- 
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>已回复标题1</td>
@@ -78,114 +79,91 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>回复内容2</td>
         <td>2540937687@qq.com</td>
         <td>2013-09-08 14:02</td>
-        <td>未审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
         </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>已回复标题2</td>
-        <td>李四</td>
-        <td>回复内容3</td>
-        <td>2540937687@qq.com</td>
-        <td>2013-09-07 13:16</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>已回复标题3</td>
-        <td>江西</td>
-        <td>回复内容4</td>
-        <td>2540937687@qq.com</td>
-        <td>2013-09-06 10:36</td>
-        <td>已审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-      
         </tbody>
+         -->
     </table>  
     
-     <div class="pagin">
+      <div class="pagin">
     	<div class="message">
-    	共<i class="blue">${page.pageNow}</i>页，当前显示第&nbsp; 
-    	<i class="blue">${page.pageTotalCount}&nbsp;</i>页，
+    	共<i class="blue">${page.pageTotalCount}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageNow}&nbsp;</i>页，
     	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
     	</div>
         <ul class="paginList">
         <c:choose>
-	      <c:when test="${pageNow-1>0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      <c:when test="${page.pageNow - 1 > 0}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
 	      </c:when>
-	      <c:when test="${pageNow-1<=0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
+	      <c:when test="${page.pageNow - 1 <= 0}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"></a></li>
 	      </c:when>
 	     </c:choose>
         
-        <li class="paginItem current"><a href="">1</a></li>
+        <li class="paginItem current"><a href="file/allFile?pageNow=1">1</a></li>
         
         <c:choose>
-	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <c:when test="${page.pageTotalCount < 2}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>           
 	     <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>
         
-               
+        
+        
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         </ul>
-    </div>      
+    </div>
+    
     </div>    
  
     <div id="tab2" class="">
@@ -203,132 +181,111 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         </thead>
         <tbody>
-      <c:forEach items="${Replys}" var="polInterpres">
+      <c:forEach items="${unreply}" var="unreply">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>未回复标题</td>
-        <td>${polInterpres.polInterpreTitle}</td>
-        <td>${polInterpres.polInterpreAuthor}</td>
-        <td>${polInterpres.polInterpreSource}</td>
-        <td>${polInterpres.polInterpreTime}</td>
+        <td>${unreply.disTitle}</td>
+        <td>${unreply.userId}</td>
+        <td>${unreply.reply}</td>
+        <td>${unreply.email}</td>
+        <td>${unreply.disTime}</td>
         <td>
-        <a href="#" class="tablelink">查看</a>     
-        <a href="#" class="tablelink"> 删除</a>
+        <a href="<%=basePath%>consult/getRepliedAnswer?discussId=${unreply.discussId}" class="tablelink">查看</a>     
+        <a href="<%=basePath%>consult/deleteConsult?discussId=${unreply.discussId}" class="tablelink"> 删除</a>
         </td>
         </tr> 
       </c:forEach>  
-        <tr>
+      <!--   <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>未回复标题1</td>
         <td></td>
         <td></td>
         <td>2540937687@qq.com</td>
         <td></td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>未回复标题2</td>
-        <td></td>
-        <td></td>
-        <td>2540937687@qq.com</td>
-        <td></td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>未回复标题3</td>
-        <td></td>
-        <td></td>
-        <td>2540937687@qq.com</td>
-        <td></td>
-        <td>已审核</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
         </tr>
         </tbody>
+        --> 
     </table>    
-     <div class="pagin">
+      <div class="pagin">
     	<div class="message">
-    	共<i class="blue">${page.pageNow}</i>页，当前显示第&nbsp; 
-    	<i class="blue">${page.pageTotalCount}&nbsp;</i>页，
+    	共<i class="blue">${page.pageTotalCount}</i>页，当前显示第&nbsp; 
+    	<i class="blue">${page.pageNow}&nbsp;</i>页，
     	共<i class="blue">${page.totalCount}</i>条记录&nbsp;   	
     	</div>
         <ul class="paginList">
         <c:choose>
-	      <c:when test="${pageNow-1>0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      <c:when test="${page.pageNow - 1 > 0}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
 	      </c:when>
-	      <c:when test="${pageNow-1<=0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
+	      <c:when test="${page.pageNow - 1 <= 0}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"></a></li>
 	      </c:when>
 	     </c:choose>
         
-        <li class="paginItem current"><a href="">1</a></li>
+        <li class="paginItem current"><a href="file/allFile?pageNow=1">1</a></li>
         
         <c:choose>
-	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <c:when test="${page.pageTotalCount < 2}">
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=2"><span class="pagenxt">2</span></a></li>
-	      </c:otherwise> 
+	      <li class="paginItem"><a href="file/allFile?pageNow=2">2</a></li>
+	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=3">3</a></li>
 	      </c:otherwise>
-	     </c:choose> 
+	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">4</a></li>
 	      </c:when>
-	       <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <c:otherwise>
+	      <li class="paginItem"><a href="file/allFile?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=1">10</a></li>
 	      </c:when>
-	     <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=10"><span class="pagenxt">10</span></a></li>
-	      </c:otherwise> 
+	      <c:otherwise>
+	      <li class="paginItem"><a href="file/allFile?pageNow=10">10</a></li>
+	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>           
 	     <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>
         
-             
+        
+        
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
-	      </c:otherwise> 
+	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}">尾页</a></li>
+	      </c:otherwise>
 	     </c:choose>
         
         </ul>
     </div>
+    
     </div>    
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
