@@ -218,8 +218,16 @@ public class LoginController {
 	 * changePawd
 	 */
 	@RequestMapping("changepswd")
-	public String changePassword(int userId,String password,Model model){
+	public String changePassword(String userId1,String password,Model model){
 		
+		String userId2 = null;
+		try {
+			userId2 = new String(userId1.getBytes("iso-8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int userId=Integer.parseInt(userId2);
 		String oldPassword=userService.selectPawd(userId);
 		if(password!=oldPassword){
 		     int success=userService.changepswd(userId, password,oldPassword);
@@ -246,12 +254,13 @@ public class LoginController {
 		Date date = new Date(); 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String polTime = dateFormat.format(date); 
-		System.out.println(polTime+"当前时间"); 
-		
-		/*
-		 * 获取我的咨询回复的内容
-		 */
-		/*=userService.getUser(userId);*/
+		System.out.println(polTime+"当前时间");
+	
+		List<Policy> policys=policyService.getLatestPolicy(polTime);
+		model.addAttribute("policys", policys);
+		List<Discuss> consults=discussService.selectUnReply();
+		model.addAttribute("consults", consults);
+		//List<Discuss> discuss=discussService.
 		model.addAttribute("user", user);
 		return "personal";
 	}
