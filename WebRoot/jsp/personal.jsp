@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </li>
               <li>
                   <span>关注行业：</span><span>${sessionScope.get('session').pClassName}</span>
-                  <input id="changeIndustry" type="submit" value="修改行业">
+                  <!-- <input id="changeIndustry" type="submit" value="修改行业"> -->
                   
               </li>
             </ul>
@@ -167,28 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   })
                 }
               })
-            </script>
-
-
-            <form id="industryChange">
-              <ul>
-                <li>
-                  <input type="radio" name="industry" value="农业">农业
-                  <input type="radio" name="industry" value="金融业">金融业
-                  <input type="radio" name="industry" value="industry2">服务业
-                  <input type="radio" name="industry" value="industry2">医疗业业
-                  <input type="radio" name="industry" value="industry1">农业
-                  <input type="radio" name="industry" value="industry2">金融业
-                  <input type="radio" name="industry" value="industry2">服务业
-                  <input type="radio" name="industry" value="industry2">医疗业业
-                  <input type="radio" name="industry" value="industry1">农业
-                  <input type="radio" name="industry" value="industry2">金融业
-                  <input type="radio" name="industry" value="industry2">服务业
-                </li>
-              </ul>               
-                  <input class="ensure" type="submit" value="确认修改" >               
-            </form>
-
+            </script>       
 
           </div>
         <div id="secondPage" class="hide">
