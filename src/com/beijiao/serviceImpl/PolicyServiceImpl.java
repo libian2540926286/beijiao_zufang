@@ -103,34 +103,18 @@ public class PolicyServiceImpl implements PolicyService {
 	/* (non-Javadoc)
 	 * @see com.beijiao.service.PolicyService#searchIndustryPlocy(int)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize) {
 		// TODO Auto-generated method stub
 		return policyMapper.searchIndustryPlocy(pClassName,startPos,pageSize);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Policy> selectPolicyArea(String area) {
 		// TODO Auto-generated method stub
 		return policyMapper.selectPolicyArea(area);
-	}
-
-	@Override
-	public List<Policy> getAllFile(Map map) {
-		// TODO Auto-generated method stub
-		return policyMapper.getAllFile(map);
-	}
-
-	@Override
-	public List<Policy> getLimitFile() {
-		// TODO Auto-generated method stub
-		return policyMapper.getLimitFile();
-	}
-
-	@Override
-	public Policy getFile(int policyId) {
-		// TODO Auto-generated method stub
-		return policyMapper.getFile(policyId);
 	}
 
 	@Override
@@ -156,6 +140,12 @@ public class PolicyServiceImpl implements PolicyService {
 			Integer pageSize) {
 		// TODO Auto-generated method stub
 		return policyMapper.selectPolicyType1(type, startPos, pageSize);
+	}
+
+	@Override
+	public List<Policy> getLatestPolicy(String polTime) {
+		// TODO Auto-generated method stub
+		return policyMapper.getLatestPolicy(polTime);
 	}
 
 

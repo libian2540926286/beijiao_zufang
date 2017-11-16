@@ -107,16 +107,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div id="firstPage" class="show">
             <ul>
               <li>
-                  <span>用户名：&nbsp;</span>
-                  <span>用户123</span>
-                  <input id="changeUsername" type="submit" value="修改用户名" >
-              </li>
-              <li>
-                  <span>密码：&nbsp;&nbsp;</span><span>******</span>
                   <input id="changePassword" type="submit" value="修改密码" >           
               </li>
               <li>
-                  <span>关注行业：</span><span>医疗业</span>
+                  <span>关注行业：</span><span>${sessionScope.get('session').pClassName}</span>
                   <input id="changeIndustry" type="submit" value="修改行业">
                   
               </li>
@@ -142,23 +136,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       $('#industryChange').show();
                     });
             </script>
-            <form id="passwordChange">
+            <form id="passwordChange" method="post" action="index/changepswd">
             <ul>
+            <li>
+                <label>原始密码&nbsp;&nbsp;</label>
+                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码" name="oldPassword" minlength="6" maxlength="12" required>
+                <input type="hidden"  name="userId1" value=${sessionScope.get('session').userId}>
+              </li>
               <li>
                 <label>新密码&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
-                       name="checkpassword" minlength="6" maxlength="12" required>
+                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码" name="checkpassword" minlength="6" maxlength="12" required>
               </li>
               <li>
                 <label>确认新密码</label>
-                <input type="text" size="50px" style="height:25px" name="password"
-                minlength="6" maxlength="12" required>
-              </li>
-              <li>
-                <label>原始密码&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码"
-                name="oldPassword" minlength="6" maxlength="12" required>
-              </li>
+                <input type="text" size="50px" style="height:25px" name="password" minlength="6" maxlength="12" required>
+              </li>    
               <li>
                 <input class="ensure" type="submit" value="确认修改" >
               </li>
@@ -177,45 +169,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               })
             </script>
 
-            <form id="usernameChange">
-            <ul>
-              <li>
-                <label>新用户名&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请输入新用户名" onFocus="if(this.value=='请输入新用户名'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入新用户名';}"
-                minlength="2" maxlength="12" class="text" required>
-              </li>
-              <li>
-                <label>确认用户名</label>
-                <input type="text" size="50px" style="height:25px" 
-                value="请重新输入新用户名" onFocus="if(this.value=='请重新输入新用户名'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请重新输入新用户名';}"
-                minlength="2" maxlength="12" class="text" required>
-              </li>
-              <li>
-                <label>密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px"  value="请输入密码" onFocus="if(this.value=='请输入密码'){this.value='';}"
-                onBlur="if(this.value==''){this.value='请输入密码';}" minlength="6" maxlength="12" required>
-              </li>
-              <li>
-                <input class="ensure" type="submit" value="登录" >
-              </li>
-              </ul>
-            </form>
-            <script type="text/javascript">
-              $("#confirm-newUsername").focusout(function(){
-                if($("#confirm-newUsername").val() != $("#newUsername").val()){
-                  // alert("两次输入的密码不一致！请重新输入！");
-                  $("#confirm-newUsername").val("两次输入的用户名不一致");
-                  $("#confirm-newUsername").css("color", "red");
-                  $("#confirm-newUsername").focus();
-                  $("#confirm-newUsername").click(function(){
-                    $("#confirm-newUsername").val("");
-                  })
-                }
-              })
-            </script>
 
             <form id="industryChange">
               <ul>
@@ -239,15 +192,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
           </div>
         <div id="secondPage" class="hide">
+        <c:forEach items="${policys}" var="policys">
           <ul>
             <li>
-              <span class="time">[2017-11-02]</span>
+              <span class="time">${policys.polTime}</span>
             </li>
             <li class="message">
-              <span>您关注的行业有以下最新信息。。。。。。</span>
-              <a class="more" href="#">点击查看更多>></a>
+              <span>您关注的行业有最新信息----${policys.polTitle}</span>
+              <a class="more" href="policy/toPolicy?policyId=${policys.policyId}">点击查看更多>></a>
             </li>
           </ul>
+         </c:forEach>
           <ul>
             <li>
               <span class="time">[2017-11-02]</span>
@@ -260,17 +215,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         
         <div id="thirdPage" class="hide">
+        <c:forEach items="${consults}" var="consults">
           <ul>
-            <li class="consult-title"><span>用户一：</span>三证合一错误</li>
-            <li class="consult-detail">企业三证合一后营业执照号变更为91130602MA07K4B2X2其中的组织机构代码号错误应变更为911306027698079622如何更正。</li>
+            <li class="consult-title"><span>咨询标题：</span>${consults.disTitle}</li>
+            <li class="consult-detail">${consults.disContent}</li>
             <li class="answer">
-              <span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
+              <span class="time">${consults.disTime}</span><input class="switch_answer" type="button" value="查看回复">
               <br>
               <div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-              <div class="answer_detail">&nbsp;&nbsp;&nbsp;&nbsp;您好，让您久等了，五证合一在海淀区综合行政服务大厅和北京市海淀区倒座庙9号两个地点均可办理，到海淀区综合行政服务大厅需要在网上预约后，到大厅办理；到海淀区倒座庙9号的大厅办理，无需预约，只需要带上相关证件到大厅即可办理。</div>
+              <div class="answer_detail">&nbsp;&nbsp;&nbsp;&nbsp;${consults.reply}</div>
             </li>
           </ul>
-
+          </c:forEach>
           <script type="text/javascript">
             $(".switch_answer").click(function(){
               if($(this).val() == "查看回复"){

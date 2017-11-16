@@ -30,10 +30,8 @@ public interface PolicyService {
 	public int getRecordCountSearch(String search);
 	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize);
 	public int getRecordCountIndustryPlocy(String pClassName);
-	public List<Policy> getAllFile(Map map);
 	public int getRecordCount();
-	public List<Policy> getLimitFile();
-	public Policy getFile(int policyId);
+	public List<Policy> getLatestPolicy(String polTime);
 	/*
 	 * addPolicy
 	 */

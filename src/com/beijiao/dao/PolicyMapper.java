@@ -31,9 +31,7 @@ public interface PolicyMapper {
 	public int getRecordCountSearch(String search);
 	public List<Policy> searchIndustryPlocy(@Param("pClassName") String pClassName,@Param("startPos") Integer startPos,@Param("pageSize") Integer pageSize);
 	public int getRecordCountIndustryPlocy(String pClassName);
-	public List<Policy> getAllFile(Map map);	
-	public List<Policy> getLimitFile();
-	public Policy getFile(int policyId);
+	public List<Policy> getLatestPolicy(String polTime);
 	/*
 	 * addPolicy
 	 */

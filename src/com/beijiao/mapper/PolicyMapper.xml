@@ -77,26 +77,8 @@ select * from policy where pClassName=#{pClassName} order by policyId desc limit
             </if>  
 </select>
 
-<select id="getAllFile" parameterType="String" resultMap="allFile">
-select policyId,polTitle,polTime from policy 
-</select>
-<resultMap type="com.beijiao.model.Policy" id="allFile">
-    <id property="policyId" column="policyId"/>
-    <result property="polTitle" column="polTitle"/>
-    <result property="polTime" column="polTime"/>
-</resultMap> 
-
-<select id="getLimitFile" parameterType="String" resultMap="LimitFile">
-select policyId,polTitle,polTime from policy  limit 10
-</select>
-<resultMap type="com.beijiao.model.Policy" id="LimitFile">
-    <id property="policyId" column="policyId"/>
-    <result property="polTitle" column="polTitle"/>
-    <result property="polTime" column="polTime"/>
-</resultMap> 
-
-<select id="getFile" parameterType="int" resultType="com.beijiao.model.Policy">
-select * from policy where policyId=#{policyId}
+<select id="getLatestPolicy" parameterType="String" resultMap="policyList">
+    select * from policy where polTime=#{polTime}
 </select>
 
 <!-- 添加政策 -->
