@@ -245,7 +245,7 @@ public class LoginController {
 	}
 	
 	
-	
+		
 	@RequestMapping("touser")
 	public String getUser(Model model,HttpSession session){
 		User user=null;
