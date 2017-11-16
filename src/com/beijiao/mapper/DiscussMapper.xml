@@ -31,6 +31,23 @@
 </insert>
 <!-- 删除讨论 -->
 <delete id="deleteDiscuss" parameterType="int">
-       delete * from discuss where discussId=#{discussId}
+       delete from discuss where discussId=#{discussId}
 </delete>
+<!-- 根据id查询未回复 -->
+	<select id="selectunRepliedById" parameterType="java.util.Map" resultMap="Discusslist">
+	     select * from discuss where discussId=#{discussId}
+	</select>
+	<!-- 添加回复内容 -->
+	<insert id="updateReplyContent" parameterType="com.beijiao.model.Discuss" >
+	    update discuss set reply=#{reply},disTime=#{disTime} where discussId=#{discussId}
+	</insert>
+	<!-- 查询已回复 -->
+	<select id="selectReplied" parameterType="java.util.Map" resultMap="Discusslist">
+	     select * from discuss where reply is not null 
+	</select>
+	<!-- 查询未回复 -->
+	<select id="selectUnReply" parameterType="java.util.Map" resultMap="Discusslist">
+	     select * from discuss where reply is null 
+	</select>
+
 </mapper>
