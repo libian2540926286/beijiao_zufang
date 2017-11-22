@@ -40,4 +40,17 @@ public class FileServiceImpl implements FileService {
 		// TODO Auto-generated method stub
 		return fileDao.getRecordCount();
 	}
+
+	@Override
+	public List<File> getAllFile_app() {
+		// TODO Auto-generated method stub
+		return fileDao.getAllFile_app();
+	}
+
+	@Override
+	public File getFile(int fileId) {
+		// TODO Auto-generated method stub
+		return fileDao.getFile(fileId);
+	}
+
 }

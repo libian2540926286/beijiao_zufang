@@ -25,7 +25,7 @@ public class AffairController {
 		
 		AffairWork affair=affairService.selectWork(affWorkId);
 		model.addAttribute("affair", affair);
-		return "guide-detail";
+		return "Webapp/";
 	}
 	
 	
@@ -76,4 +76,33 @@ public class AffairController {
 			return "login";
 		}	
 	}	
+	
+	
+	/*
+	 * WebApp
+	 */
+	@RequestMapping("getAffair")
+	public String toAffair(int affWorkId,Model model){
+		
+		AffairWork affair=affairService.selectWork(affWorkId);
+		model.addAttribute("affair", affair);
+		return "Webapp/";
+	}
+	
+	
+	
+	@RequestMapping("getAllAffair")
+	public ModelAndView toAllAffair(){
+		ModelAndView mac=new ModelAndView();
+		List<AffairWork> affairs1=affairService.selectAllWork(1);
+		mac.addObject("affairs1",affairs1);
+		List<AffairWork> affairs2=affairService.selectAllWork(2);
+		mac.addObject("affairs2",affairs2);
+		List<AffairWork> affairs3=affairService.selectAllWork(3);
+		mac.addObject("affairs3",affairs3);
+		List<AffairWork> affairs4=affairService.selectAllWork(4);
+		mac.addObject("affairs4",affairs4);
+		mac.setViewName("Webapp/");
+		return mac;
+	}
 }

@@ -53,4 +53,10 @@ public class PicPolicyServiceImpl implements PicPolicyService {
 		return picPolicyDao.getRecordCount();
 	}
 
+	@Override
+	public List<PicPolicy> getpicPolIndex_app() {
+		// TODO Auto-generated method stub
+		return picPolicyDao.getpicPolIndex_app();
+	}
+
 }

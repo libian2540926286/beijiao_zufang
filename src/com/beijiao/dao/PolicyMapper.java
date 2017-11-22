@@ -32,16 +32,17 @@ public interface PolicyMapper {
 	public List<Policy> searchIndustryPlocy(@Param("pClassName") String pClassName,@Param("startPos") Integer startPos,@Param("pageSize") Integer pageSize);
 	public int getRecordCountIndustryPlocy(String pClassName);
 	public List<Policy> getLatestPolicy(String polTime);
-	/*
-	 * addPolicy
-	 */
 	public int addPolicy(Policy policy);
-	/*
-	 * deletePolicy
-	 */
 	public int deletePolicy(int policyId);
-	/*
-	 * changePolicy
-	 */
 	public int changePolicy(String policyContent);
+	
+	/*
+	 * webapp
+	 */
+	public List<Policy> selectAllPolicy_app();
+	public List<Policy> selectPolicyType_app(String type);
+	public List<Policy> selectPolicyArea_app(String area);
+	public List<Policy> searchIndustryPlocy_app(String pClassName);
+	public List<Policy> searchPolicy_app(String search);
+	public List<Policy> getLatestPolicy_app(String polTime);
 }

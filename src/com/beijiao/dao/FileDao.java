@@ -9,7 +9,12 @@ import com.beijiao.model.Policy;
 
 public interface FileDao {
 	public List<File> getAllFile(Map map);
+	public File getFile(int fileId);
 	public int upFile(File file);
 	public List<File> getLimitFile();
 	public int getRecordCount();
+	/*
+	 * WebApp
+	 */
+	public List<File> getAllFile_app();
 }

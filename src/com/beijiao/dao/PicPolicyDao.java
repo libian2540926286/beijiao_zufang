@@ -13,5 +13,8 @@ public interface PicPolicyDao {
 	public PicPolicy getPicPolicy(int picPolId);
 	public int insertPicPolicy(PicPolicy picPolicy);
 	public int deletePicPolicy(int picPolId);
-	
+	/*
+	 * Webapp
+	 */
+	public List<PicPolicy> getpicPolIndex_app();
 }
