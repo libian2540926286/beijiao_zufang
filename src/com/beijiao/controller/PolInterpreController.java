@@ -124,4 +124,13 @@ public class PolInterpreController {
 		}
 		
 	}
+	
+	@RequestMapping("allPolInterpreApp")
+	public String selectAllPolInterpreApp(Model model){
+		List<PolInterpre> polInterpres;
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		polInterpres=polInterpreService.selectListPolInterpre();
+		model.addAttribute("polInterpres", polInterpres);		
+		return "Webapp/test2";
+	}
 }
