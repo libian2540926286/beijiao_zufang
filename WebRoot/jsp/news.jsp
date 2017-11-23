@@ -114,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <div class="content">
     <div class="detail">
-    <c:forEach items="${news}" var="news">
+    <c:if test="${not empty news}">
       <div class="title">
 		<p>${news.newsTitle}</p>
 		<span id="source">发布时间：${news.newsTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${news.newsSource}</span>
@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<img src="upload/pic/${news.newsLink}" width="1004px" height="480px">
 		<hr>
 		<p>${news.newsContent}</p>
-	 </c:forEach>
+	 </c:if>
 	 </div>
 		<div class="footer">
 			<ul>

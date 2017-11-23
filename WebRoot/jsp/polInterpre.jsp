@@ -111,12 +111,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="detail">
     <c:if test="${not empty polInterpre}">
       <div class="title">   
-		<p>${polInterpres.polInterpreTitle}</p>
-		<span id="source">发布时间：<!-- 2017年10月9日 -->${${polInterpres.polInterpreTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${policy.polInterpreSource}</span>
+		<p>${polInterpre.polInterpreTitle}</p>
+		<span id="source">发布时间：<!-- 2017年10月9日 -->${polInterpre.polInterpreTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${polInterpre.polInterpreSource}</span>
 		<hr>
       </div>
       <div>
-      <p>${polInterpres.polInterpreContent}</p>
+      <p>${polInterpre.polInterpreContent}</p>
       </div>
 	<br/><br/>
       </c:if>
