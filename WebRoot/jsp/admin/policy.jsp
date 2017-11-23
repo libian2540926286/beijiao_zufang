@@ -222,53 +222,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${policys.pClassName}</td>
         <td>${policys.polDrade}</td>
         <td>${policys.polArea}</td>
+        <td>${policys.polTime}</td>
         <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
       </c:forEach>  
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130906</td>
-        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
-        <td>user</td>
-        <td>江苏无锡</td>
-        <td>2013-09-07 13:16</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130905</td>
-        <td>江西&quot;局长违规建豪宅&quot;：局长检讨</td>
-        <td>admin</td>
-        <td>北京市</td>
-        <td>2013-09-06 10:36</td>
-        <td>已审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-    
+     
         </tbody>
     </table>
     

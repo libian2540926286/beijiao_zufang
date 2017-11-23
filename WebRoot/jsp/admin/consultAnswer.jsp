@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtitle"><span>基本信息</span></div>
        <form  action="">
 		<ul class="forminfo">	
-		<c:forEach items="${unreply}" var="unreply">
+		<c:if test="${not empty unreply}">
 			<li>
 			<input type="hidden" name="discussId" value="${unreply.discussId }"/>
 			<label>咨询标题<b>*</b></label>
@@ -81,13 +81,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li>
             <label>答疑回复内容<b>*</b></label>
-            <textarea  name="reply" class="textinput" value="${unreply.reply}" ></textarea>   
+            <textarea  name="reply" class="textinput">${unreply.reply}</textarea>   
             </li>
             <li>
 			<label>&nbsp;</label>
 			<input  type="button"class="btn" value="提交" onclick="updateReply()"/>
 			</li>	
-			</c:forEach>		
+			</c:if>		
 		</ul>
         </form>
 	</div>

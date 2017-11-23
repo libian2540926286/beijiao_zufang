@@ -30,7 +30,7 @@ public interface DiscussDao {
 	public List<Discuss> selectReplied();
 	public List<Discuss> selectUnReply();
 	public boolean updateReplyContent(Discuss dicuss);
-	public List<Discuss> selectunRepliedById(int dicussId);
+	public Discuss selectunRepliedById(int dicussId);
 	
 	/*
 	 * WebApp
