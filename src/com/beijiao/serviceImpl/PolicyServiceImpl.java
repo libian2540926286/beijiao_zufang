@@ -103,14 +103,12 @@ public class PolicyServiceImpl implements PolicyService {
 	/* (non-Javadoc)
 	 * @see com.beijiao.service.PolicyService#searchIndustryPlocy(int)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize) {
 		// TODO Auto-generated method stub
 		return policyMapper.searchIndustryPlocy(pClassName,startPos,pageSize);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Policy> selectPolicyArea(String area) {
 		// TODO Auto-generated method stub
@@ -148,8 +146,46 @@ public class PolicyServiceImpl implements PolicyService {
 		return policyMapper.getLatestPolicy(polTime);
 	}
 
+	
+	/*
+	 * webapp
+	 */
+	@Override
+	public List<Policy> selectAllPolicy_app() {
+		// TODO Auto-generated method stub
+		return policyMapper.selectAllPolicy_app();
+	}
+
+	@Override
+	public List<Policy> selectPolicyType_app(String type) {
+		// TODO Auto-generated method stub
+		return policyMapper.selectPolicyType_app(type);
+	}
 
 
+	@Override
+	public List<Policy> selectPolicyArea_app(String area) {
+		// TODO Auto-generated method stub
+		return policyMapper.selectPolicyArea_app(area);
+	}
+
+	@Override
+	public List<Policy> searchIndustryPlocy_app(String pClassName) {
+		// TODO Auto-generated method stub
+		return policyMapper.searchIndustryPlocy_app(pClassName);
+	}
+
+	@Override
+	public List<Policy> searchPolicy_app(String search) {
+		// TODO Auto-generated method stub
+		return policyMapper.searchPolicy_app(search);
+	}
+
+	@Override
+	public List<Policy> getLatestPolicy_app(String polTime) {
+		// TODO Auto-generated method stub
+		return policyMapper.getLatestPolicy_app(polTime);
+	}
 
 
 

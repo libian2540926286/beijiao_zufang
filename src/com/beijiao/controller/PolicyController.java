@@ -5,10 +5,11 @@ package com.beijiao.controller;
 
 
 import java.io.UnsupportedEncodingException;
-import java.sql.Date;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
+
+
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -198,9 +199,11 @@ public class PolicyController {
 			   return "login";
 			}
 	}
+	
+	
 	@RequestMapping("toSearch")
 	public String searchPolicy(Model model,String search,String pageNow){
-		System.out.println("��������Ϊ"+search);	
+		System.out.println("山东师范"+search);	
 		PClass hint=new PClass();
 		hint.setpClassName(search);
 		model.addAttribute("hint", hint);
@@ -223,25 +226,91 @@ public class PolicyController {
 		return "searchpolicy";
 	}
 	
-	/*
-	 * toAllFile
-	 
-	@RequestMapping("toAllFile")
-	public String toAllFile(Model model){
-		List<Policy> files=policyService.getAllFile();
-		model.addAttribute("files", files);
-		return "";
-	}
-		
 	
-	 * toFile
-	 
-	@RequestMapping("toFile")
-	public void toLimitFile(Model model,int policyId,HttpServletRequest request,
-	         HttpServletResponse response){
-		Policy file=policyService.getFile(policyId);
-		UpAndDownload down = new UpAndDownload();
-		down.doDownLadFile(file.getPolFile(), request, response);
+	
+	/*
+	 * 
+	 * WebApp
+	 * 政策
+	 * 
+	 */
+	
+	/*
+	 * 所有政策
+	 */
+	@RequestMapping("app_allPolicy")
+	public String app_allPolicy(Model model){
+		
+		List<Policy> policys=policyService.selectAllPolicy_app();
+		model.addAttribute("policys", policys);
+		return "webapp/";
 	}
-	*/
+	
+	/*
+	 * 所有等级政策
+	 */
+	@RequestMapping("app_dradePolicy")
+	public String app_dradePolicy(Model model,String polDrade){
+		String polDrade1=null;
+		try {
+			polDrade1 = new String(polDrade.getBytes("iso-8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Policy> policys=policyService.selectPolicyType_app(polDrade1);
+		model.addAttribute("policys", policys);
+		return "webapp/";
+	}
+	
+	/*
+	 * 所有行业政策
+	 */
+	@RequestMapping("app_IndustryPolicy")
+	public String app_IndustryPolicy(Model model,String pClassName){
+		String pClassName1=null;
+		try {
+			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Policy> policys=policyService.searchIndustryPlocy_app(pClassName1);
+		model.addAttribute("policys", policys);
+		return "webapp/";
+	}
+	
+	/*
+	 * 政策查询
+	 */
+	@RequestMapping("app_searchPolicy")
+	public String app_searchPolicy(Model model,String search){	
+		List<Policy> policys=policyService.searchPolicy_app(search);
+		model.addAttribute("policys", policys);
+		return "webapp/";
+	}
+	
+	/*
+	 * 最新政策
+	 */
+	@RequestMapping("app_LatestPolicy")
+	public String app_LatestPolicy(Model model){
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String polTime = dateFormat.format(date);
+		List<Policy> policys=policyService.getLatestPolicy_app(polTime);
+		model.addAttribute("policys", policys);
+		return "webapp/";
+	}
+	
+	/*
+	 * 政策查询
+	 */
+	@RequestMapping("app_toPolicy")
+	public String app_searchPolicy(Model model,int policyId){	
+		Policy policy=policyService.selectPolicy(policyId);
+		model.addAttribute("policy", policy);
+		return "webapp/";
+	}
+	
 }

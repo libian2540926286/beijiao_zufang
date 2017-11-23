@@ -47,7 +47,7 @@ public class FileController {
 		return "admin/file";
 	}
 	@RequestMapping("upfile")
-public String upFile(File files,MultipartFile file,HttpServletRequest request){
+    public String upFile(File files,MultipartFile file,HttpServletRequest request){
 		
 		files.setFiletime(String.valueOf(files.getFiletime()));
 		UpAndDownload upFile=new UpAndDownload();
@@ -62,4 +62,53 @@ public String upFile(File files,MultipartFile file,HttpServletRequest request){
 		   return "admin/file";
 		}
 	}
+	
+	
+	@RequestMapping("getAllfile")
+	public String getAllfile(Model model,String pageNow){
+		List<File> files;
+		Page page=null;
+		int totalCount=fileService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		files=fileService.getAllFile(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		files=fileService.getAllFile(map);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("files", files);
+		return "filelist";
+	}
+	
+	
+	@RequestMapping("tofile")
+	public String toFile(Model model,int fileId){
+		File file=fileService.getFile(fileId);
+		model.addAttribute("file", file);
+		return "file";
+	}
+	
+	/*
+	 * webApp
+	 */
+	@RequestMapping("toallFile")
+	public String toAllFile(Model model){
+		List<File> files=fileService.getAllFile_app();
+		model.addAttribute("files", files);
+		return "Webapp/";
+	}
+	
+	@RequestMapping("tofile_app")
+	public String tofile_app(Model model,int fileId){
+		File file=fileService.getFile(fileId);
+		model.addAttribute("file", file);
+		return "Webapp/";
+	}
+	
 }
