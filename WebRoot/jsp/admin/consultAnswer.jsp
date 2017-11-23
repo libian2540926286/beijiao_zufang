@@ -60,6 +60,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<i>标题不能超过30个字符</i>
 			</li>
 			<li>
+            <label>咨询内容</label>
+            <textarea  name="disContent" class="textinput" value="${unreply.disContent}" ></textarea>   
+            </li>
+			<li>
 			<label>咨询用户</label>
 			<input name="disUser" type="text" class="dfinput" value="${unreply.userId}"/>
 			<i></i>
