@@ -95,8 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tbody>
     <c:forEach items="${picPols}" var="picPols">
     <tr>
-    <td class="imgtd">
-    <img src="upload/pic/${picPols.picPolFile}" /></td>
+    <td class="imgtd"><img src="${picPols.picPolFile}" /></td>
     <td><a href="#">${picPols.picPolTitle}</a></td>
     <td><p>发布时间：${picPols.picPolTime}</p></td>
     <td>${picPols.picPolSource}</td>
@@ -110,7 +109,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td>开放浏览</td>
     <td>admin</td>
     <!-- <td><i>未审核</i></td> -->
-    <td>235</td>
     </tr>
     
     <tr>
@@ -120,27 +118,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td>开放浏览</td>
     <td>admin</td>
     <!-- <td>已审核</td> -->
-    <td>100</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="" /></td>
-    <td><a href="#">李克强主持召开国务院常务会议</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>热点关注<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>96</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="" /></td>
-    <td><a href="#">国务院关于修改《建设项目环境保护管理条例》的决定</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>热点关注<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>45</td>
     </tr>
     
     </tbody>
@@ -173,36 +150,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
@@ -219,10 +196,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </c:choose>               
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>       
         </ul>

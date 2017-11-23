@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
    
   	<div id="tab2" class="tabson">
-    </div>
+    
     
     <ul class="seachform">
     
@@ -185,49 +185,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </td>
         </tr> 
       </c:forEach>  
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130906</td>
-        <td>社科院:电子商务促进了农村经济结构和社会转型</td>
-        <td>user</td>
-        <td>江苏无锡</td>
-        <td>2013-09-07 13:16</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130905</td>
-        <td>江西&quot;局长违规建豪宅&quot;：局长检讨</td>
-        <td>admin</td>
-        <td>北京市</td>
-        <td>2013-09-06 10:36</td>
-        <td>已审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130907</td>
-        <td>温州19名小学生中毒流鼻血续：周边部分企业关停</td>
-        <td></td>
-        <td>山东济南</td>
-        <td>2013-09-08 14:02</td>
-        <td>未审核</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>   
         </tbody>
     </table>  
      <div class="pagin">
@@ -243,7 +200,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
 	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
 	      </c:when>
 	     </c:choose>
         
@@ -251,36 +207,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
@@ -300,16 +256,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="polInterpre/allPolInterpre?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         </ul>
     </div>
-    
+    </div>
      
     </div>  
 	<script type="text/javascript"> 

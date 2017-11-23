@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-     <form action="news/addNews" method="post">
+     <form action="news/addNews" method="post" enctype="multipart/form-data">
 		<ul class="forminfo">
 			<li><label>文章标题</label>
 			<input name="newsTitle" type="text" class="dfinput" placeholder="请填写标题" /><i>标题不能超过30个字符</i></li>

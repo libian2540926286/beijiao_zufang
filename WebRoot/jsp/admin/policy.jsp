@@ -149,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </li>
      <li>
     <label>发布时间<b>*</b></label>    
-    <input name="polInterpreTime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    <input name="polTime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <li>
     <label>&nbsp;</label>
@@ -158,9 +158,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>   
     </div> 
     </form>
+    </div>
    
   	<div id="tab2" class="tabson">
-    </div>
+    
     
     <ul class="seachform">
     
@@ -285,7 +286,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
 	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
 	      </c:when>
 	     </c:choose>
         
@@ -302,27 +302,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="policy/allPolicye?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicye?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
@@ -337,22 +337,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>
-        
-        
-        
+         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="policy/allPolicy?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         </ul>
     </div>
-    
-    </div>  
+    </div>
        
  
 	<script type="text/javascript"> 
