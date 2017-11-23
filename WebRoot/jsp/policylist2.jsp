@@ -67,42 +67,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li><a href="#" title="">行业政策</a>
 					<ul class="second_nav">
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=机械化工">机械化工</a>
+						<a href="policy/toIndustryPolicy?pClassName=机械化工">机械化工</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=交通汽车">交通汽车</a>
+						<a href="policy/toIndustryPolicy?pClassName=交通汽车">交通汽车</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=房产建材">房产建材</a>
+						<a href="policy/toIndustryPolicy?pClassName=房产建材">房产建材</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=服装纺织">服装纺织</a>
+						<a href="policy/toIndustryPolicy?pClassName=服装纺织">服装纺织</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=IT互联网">IT互联网</a>
+						<a href="policy/toIndustryPolicy?pClassName=IT互联网">IT互联网</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=文化传媒">文化传媒</a>
+						<a href="policy/toIndustryPolicy?pClassName=文化传媒">文化传媒</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=医药">医药</a>
+						<a href="policy/toIndustryPolicy?pClassName=医药">医药</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=食品">食品</a>
+						<a href="policy/toIndustryPolicy?pClassName=食品">食品</a>
 						</li>
 						<li>
-						<a href="policy/toIndustryPolicy?pClassId=农林渔牧">农林渔牧</a>
+						<a href="policy/toIndustryPolicy?pClassName=农林渔牧">农林渔牧</a>
 						</li>					
 					</ul>
+				</li>                    
+				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
+				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
+				<li><a href="" title="">通知公告</a></li>
+				<li><a href="consult/getallconsult" title="">咨询答疑</a>
+				  <ul class="second_nav">
+				  <li>
+					<a href="consult/getallconsult">咨询答疑</a>
+					</li>
+					<li>
+					<a href="jsp/consult.jsp">我要咨询</a>
+					</li>
+				   </ul>
 				</li>
-				<li><a href="polInterpre/toAllPolInterpre" title="">政策解读</a></li>
-				<li><a href="guide.html" title="">申报指南</a></li>
-				<li><a href="#" title="">通知公告</a></li>
-				<li><a href="consult/getListDiscuss" title="">咨询答疑</a></li>
 			</ul>
 		</div> 
 	</div>
- </div>
+    </div>
 	<!--header end-->
 
 

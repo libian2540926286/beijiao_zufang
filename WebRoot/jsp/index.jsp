@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li><a href="consult/getallconsult" title="">咨询答疑</a>
 				  <ul class="second_nav">
 				  <li>
-					<a href="getallconsult">咨询答疑</a>
+					<a href="consult/getallconsult">咨询答疑</a>
 					</li>
 					<li>
 					<a href="jsp/consult.jsp">我要咨询</a>
@@ -172,11 +172,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="time">[${policy1.polTime}]</span>
 						</li>
 						</c:forEach>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content2.html" title="">李克强主持召开国务院常务会议 部署推进央企深化改革降低杠杆工作等</a>
-							<span class="time">[10-09]</span>
-						</li>													
-					
 					</ul>                                                            
 						<a class="more" href="policy/toPolicyType?polDrade=国家政策">更多>></a>
 					</div>
@@ -188,10 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="policy/toPolicy?policyId=${policy2.policyId}" title="">${policy2.polTitle}</a>
 							<span class="time">[${policy2.polTime}]</span>
 						</li>
-						</c:forEach>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">北京市工商局多措并举，扎实推进控烟工作</a>
-						</li>			
+						</c:forEach>			
 						</ul>
 						<a class="more" href="policy/toPolicyType?polDrade=市级政策">更多>></a>
 					</div>
@@ -203,13 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="policy/toPolicy?policyId=${policy3.policyId}" title="">${policy3.polTitle}</a>
 							<span class="time">[${policy3.polTime}]</span>
 						</li>
-						</c:forEach>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">朝阳区19个项目纳入2017年市第一批绿色审批通道</a>
-						</li>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" /><a href="#" title="">北京市朝阳区烟草专卖局关于印发暂停烟草专卖业务进行整顿的通知</a>
-						</li>													
+						</c:forEach>													
 						</ul>
 						<a class="more" href="policy/toPolicyType?polDrade=地方政策">更多>></a>
 					</div>
@@ -257,7 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</li>
 						
 					</ul>
-						<a class="more" href="polInterpre/toAllPolInterpre">更多>></a>
+						<a class="more" href="polInterpre/tolistPolInterpre">更多>></a>
 					</div>
 				</div>
 			</div>
@@ -329,19 +315,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="time">[${files.filetime}]</span>
 			</li>
 		    </c:forEach>
-		    <!--  
-			<li>
-			<img src="images/dian.png" width="5px" height="5px" alt="" />
-			<a href="" title="">《企业名称禁限用规则》</a>
-			<span class="time">[10-09]</span>
-			</li>		
-			<li>
-			<img src="images/dian.png" width="5px" height="5px" alt="" />
-			<a href="" title="">《企业信用信息公示系统使用运行管理办法》</a>
-			<span class="time">[10-09]</span>
-			</li>
-				-->
-			<a class="more" href="file/toAllFile">更多>></a>
+			<a class="more" href="file/getAllfile">更多>></a>
 				</ul>
 		</div>
 		<!--cptg end-->
