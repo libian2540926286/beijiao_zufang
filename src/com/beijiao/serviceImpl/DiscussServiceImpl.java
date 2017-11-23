@@ -84,7 +84,7 @@ public class DiscussServiceImpl implements DiscussService {
 	}
 
 	@Override
-	public List<Discuss> selectunRepliedById(int dicussId) {
+	public Discuss selectunRepliedById(int dicussId) {
 		// TODO Auto-generated method stub
 		return discussDao.selectunRepliedById(dicussId);
 	}
