@@ -287,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		
-		<div class="qyfc">
+		<!-- <div class="qyfc">
 			<h1>政策检索</h1>
 
 			<div id="city">
@@ -314,12 +314,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">陕西“多证合一、一照一码”改革启动</a><span class="time">[10-09]</span></li>
 				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">青岛营造优质环境全力激发民企活力</a><span class="time">[10-09]</span></li>
 				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">东北三省简政放权增强市场活力</a><span class="time">[10-09]</span></li>
-				<!-- <a class="more" href="search2.html">更多>></a> -->
+				<a class="more" href="search2.html">更多>></a>
 			</ul>
 		</div>
-		<!--qyfc end-->
+		qyfc end -->
 		
 		<div class="cptg">
+			<h1>政策讨论</h1>
+			<ul>
+            <c:forEach items="${discussion}" var="discussion">
+			<li>
+				<img src="images/dian.png" width="5px" height="5px" alt="" />
+				<a href="consult/toDiscuss?discussId=${discussion.discussId}">${discussion.disContent}</a>
+				<span class="time">[${discussion.disTime}]</span>
+			</li>
+		    </c:forEach>		   
+			<a class="more" href="consult/togetallconsult">更多>></a>
+			</ul>
+		</div>
+		
+	   <div class="cptg">
        <h1>文件发布</h1>
          <ul>
             <c:forEach items="${files}" var="files">
@@ -342,7 +356,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 				-->
 			<a class="more" href="file/toAllFile">更多>></a>
-				</ul>
+			</ul>
 		</div>
 		<!--cptg end-->
 	</div>
