@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div> 
 	</div>
-		
+	
     <div class="content">
     <div class="detail">
     <c:if test="${not empty policy}">

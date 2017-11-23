@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><a href="#">咨询答疑</a></li>
     </ul>
     </div>
-    
+   
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>

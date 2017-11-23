@@ -96,7 +96,6 @@ img{border:none;}
 .download{
 	text-align:center;font-size:16px;
 }
-
 .download ul li{width:1004px;  }
 .download a:link,a:visited{ color:#333; text-decoration:none;}
 .download a:hover{ color:#de3237; text-decoration:underline}
