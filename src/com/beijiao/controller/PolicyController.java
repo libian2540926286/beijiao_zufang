@@ -283,7 +283,7 @@ public class PolicyController {
 	/*
 	 * 政策查询
 	 */
-	@RequestMapping("app_IndustryPolicy")
+	@RequestMapping("app_searchPolicy")
 	public String app_searchPolicy(Model model,String search){	
 		List<Policy> policys=policyService.searchPolicy_app(search);
 		model.addAttribute("policys", policys);
