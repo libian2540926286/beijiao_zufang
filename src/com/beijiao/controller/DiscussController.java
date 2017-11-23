@@ -59,7 +59,7 @@ public class DiscussController {
 			return "login";
 		}	
 	}
-	/*²éÑ¯»ØÌû*/
+	/*ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping("getReplied")
 	public String getReplied(Model model){
 		List<Discuss> replied=discussService.selectReplied();
@@ -68,7 +68,7 @@ public class DiscussController {
 		model.addAttribute("unreply", unreply);
 		return "admin/answerList";
 	}
-	/*Ìí¼Ó»Ø¸´ÄÚÈÝ*/
+	/*ï¿½ï¿½Ó»Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	@RequestMapping("getRepliedAnswer")
 	public String getRepliedAnswer(Model model,int discussId){
 		List<Discuss> unreply=discussService.selectunRepliedById(discussId);
@@ -82,13 +82,34 @@ public class DiscussController {
 		} else {
 			return "/error";
 		}
-		/**
-		reply = replyService.selectReply(reply.getReplyId());
-		int unreply=replyService.updateReplyContent(reply);
-		model.addAttribute("unreply", unreply);
-		return "admin/consultAnswer";
-		*/
 	}
 	
 	
+	/*
+	 * WebApp
+	 */
+	@RequestMapping("toDiscuss")
+	public String toDiscuss(Model model,int discussId){
+		Discuss discuss=discussService.selectDiscuss(discussId);
+		model.addAttribute("discuss",discuss);
+		return "Webapp/";
+	}
+	
+	@RequestMapping("alldiscuss")
+	public String getAllDiscult(Model model){
+		List<Discuss> dis=discussService.selectListDiscuss_app();
+		model.addAttribute("dis", dis);
+		return "Webapp/";
+	}
+	
+	@RequestMapping("addDis")
+	public String addDiscult(Discuss discuss){
+				
+		int n=discussService.insertDiscuss(discuss);
+		if(n!=0){
+			return "redirect:/consult/alldiscuss";
+		}else{
+			return "login";
+		}	
+	}
 }

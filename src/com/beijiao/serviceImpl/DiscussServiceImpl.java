@@ -89,4 +89,10 @@ public class DiscussServiceImpl implements DiscussService {
 		return discussDao.selectunRepliedById(dicussId);
 	}
 
+	@Override
+	public List<Discuss> selectListDiscuss_app() {
+		// TODO Auto-generated method stub
+		return discussDao.selectListDiscuss_app();
+	}
+
 }

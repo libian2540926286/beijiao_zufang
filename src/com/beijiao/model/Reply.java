@@ -4,6 +4,7 @@
 package com.beijiao.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author cmy
@@ -18,15 +19,11 @@ public class Reply {
 	private String replyTime;
 	private Discuss discuss;
 	
-	/**
-	 * @return the discuss
-	 */
+
+	
 	public Discuss getDiscuss() {
 		return discuss;
 	}
-	/**
-	 * @param discuss the discuss to set
-	 */
 	public void setDiscuss(Discuss discuss) {
 		this.discuss = discuss;
 	}

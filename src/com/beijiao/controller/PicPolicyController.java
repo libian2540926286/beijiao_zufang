@@ -31,6 +31,8 @@ public class PicPolicyController {
 		return "success";
 	}
 	
+	
+	
 	@RequestMapping("allpicPol")
 	public String getAllPicPol(Model model,String pageNow){
 		List<PicPolicy> picPols;
@@ -74,6 +76,16 @@ public class PicPolicyController {
 		}else{
 			return "";
 		}
+	}
+	
+	/*
+	 * WebApp
+	 */	
+	@RequestMapping("getPicPol_app")
+	public String getPicPol_app(int picPolId,Model model){
+		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
+		model.addAttribute("picPol", picPol);
+		return "Webapp/";
 	}
 	
 }

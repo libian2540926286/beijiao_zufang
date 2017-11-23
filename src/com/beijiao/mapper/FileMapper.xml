@@ -2,15 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.beijiao.dao.FileDao">
 
-<!-- <select id="adminLogin" parameterType="java.util.Map" resultType="com.beijiao.model.Admin">
-     select * from user where adminName=#{adminName} and adminPassword=#{adminPassword}
-  </select>
-
-  
-  <update id="changeAdminPswd" parameterType="com.beijiao.model.Admin">
-  update user adminPassword=#{adminPassword} where adminId=#{adminId}
-  </update>
- -->
     <resultMap type="com.beijiao.model.File" id="allFile">
         <id column="fileId" property="fileId" />
 		<result property="filename" column="filename" />
@@ -20,6 +11,14 @@
    </resultMap>
   <select id="getAllFile" parameterType="java.util.Map" resultMap="allFile">
   	select * from file order by fileId desc limit #{startPos},#{pageSize}
+  </select>
+  
+  <select id="getAllFile_app" resultType="com.beijiao.model.File">
+  	select * from file order by fileId desc 
+  </select>
+  
+   <select id="getFile" resultMap="allFile">
+  	select * from file order by fileId desc where fileId=#{fileId}
   </select>
   
   <!-- 查询记录的条数 -->

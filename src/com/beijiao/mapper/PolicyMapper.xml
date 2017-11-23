@@ -94,4 +94,40 @@ insert into policy(polTitle,pClassName,polContent,polSource,polTime,polDrade,pol
 <delete id="deletePolicy" parameterType="int">
 delete * from policy where policyId=#{policyId}
 </delete>
+
+
+<!--  ............................................webApp.................................................-->
+<select id="selectAllPolicy_app"  parameterType="java.util.Map" resultMap="policyList">
+select * from policy order by policyId desc 
+</select>
+          
+<select id="selectPolicyType_app" parameterType="String" resultMap="policyList">
+select * from policy where polDrade=#{type} order by policyId desc 
+</select>
+
+<select id="selectPolicyArea_app" parameterType="String" resultMap="PolicyArea">
+select policyId,polTitle,polArea,polTime from policy where polArea=#{area} limit 7
+</select> 
+
+<select id="searchIndustryPlocy_app" parameterType="java.util.Map" resultMap="policyList">
+select * from policy where pClassName=#{pClassName} order by policyId desc 
+</select> 
+
+
+<select id="searchPolicy_app" parameterType="java.util.Map" resultMap="policyList">
+   <!-- select * from policy where policyTitle,polContent like CONCAT(CONCAT('%', #{search}), '%') -->
+   select * from policy where
+             <if test="search != null">  
+                polTitle like CONCAT('%','${search}','%')  
+            </if>  
+            <if test="search != null">  
+                OR polContent like CONCAT('%','${search}','%') 
+            </if> 
+            order by policyId desc 
+</select>
+
+<select id="getLatestPolicy_app" parameterType="String" resultMap="policyList">
+    select * from policy where polTime=#{polTime}
+</select>
+
 </mapper>
