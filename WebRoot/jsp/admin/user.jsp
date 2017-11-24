@@ -95,50 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!-- <td>已审核</td> -->
         <td><a href="" class="tablelink"> 删除</a></td>
         </tr> 
-        </c:forEach>
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <!-- <td>20130907</td> -->
-        <td>user2</td>
-        <td>2017-09-08 14:02</td>
-        <!-- <td>山东济南</td> -->
-        <td>2017-09-08 14:02</td>
-        <!-- <td>未审核</td> -->
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <!-- <td>20130906</td> -->
-        <td>user3</td>
-        <td>2017-09-07 13:16</td>
-        <!-- <td>江苏无锡</td> -->
-        <td>2017-09-07 13:16</td>
-        <!-- <td>未审核</td> -->
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <!-- <td>20130905</td> -->
-        <td>user4</td>
-        <td>2017-10-06 10:36</td>
-        <!-- <td>北京市</td> -->
-        <td>2017-10-06 10:36</td>
-        <!-- <td>已审核</td> -->
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <!-- <td>20130904</td> -->
-        <td>user5</td>
-        <td>2017-10-05 13:25</td>
-        <!-- <td>江苏南京</td> -->
-        <td>2017-10-05 13:25</td>
-        <!-- <td>已审核</td> -->
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>       
+        </c:forEach> 
         </tbody>
     </table>
     
@@ -156,7 +113,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
 	      <li class="paginItem"><a href="admin/allUser?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
 	      </c:when>
 	     </c:choose>
         
@@ -164,36 +120,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="admin/allUser?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="admin/allUser?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="admin/allUser?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="admin/allUser?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="admin/allUser?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="admin/allUser?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="admin/allUser?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="admin/allUser?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
@@ -213,10 +169,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="admin/allUser?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="admin/allUser?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="admin/allUser?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         

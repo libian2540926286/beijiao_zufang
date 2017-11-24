@@ -55,13 +55,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">信息管理</a></li>
-    <li><a href="#">媒体聚焦</a></li>
+    <li><a href="#">媒体聚焦上传</a></li>
     </ul>
     </div>
     
     <div class="formbody">
     
-    <div class="formtitle"><span>基本信息</span></div>
+    <div class="formtitle"><span>发布媒体新闻聚焦</span></div>
      <form action="news/addNews" method="post" enctype="multipart/form-data">
 		<ul class="forminfo">
 			<li><label>文章标题</label>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <div class="file-box">         
             <input type='text' name='fileName' id='fileName' class='txt' placeholder="图片大小不超过400K"/>  
             <input type='button' class='btn' value='浏览上传...' />
-            <input type="file" name="pic" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
+            <input type="file" name="file" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
             <i></i>  
             </div>	
 		    </li>

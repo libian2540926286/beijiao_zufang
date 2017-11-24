@@ -105,7 +105,7 @@ public class NewsController {
 		news.setNewsLink(filename);
     	int n=newsService.addNews(news);
     	if(n!=0){
-    		return "forward:toListNews";
+    		return "forward:toallNews";
     	}else{
     		return "login";
     	}
