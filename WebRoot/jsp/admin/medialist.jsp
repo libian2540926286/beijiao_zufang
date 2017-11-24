@@ -59,8 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">信息管理</a></li>
-    <li><a href="#">浏览记录分析</a></li>
+    <li><a href="#">媒体新闻管理</a></li>
+    <li><a href="#">所有新闻</a></li>
     </ul>
     </div>
     
@@ -96,25 +96,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <c:forEach items="${news}" var="news">
     <tr>
     <td class="imgtd">
-    <img style="width: 160px ; height: 90px;" src="upload/pic/${news.newsLink}" /></td>
+    <img style="width: 160px ; height: 90px;" src="${news.newsLink}" /></td>
     <td><a href="#">${news.newsTitle}</a></td>
     <td><p>发布时间：${news.newsTime}</p></td>
     <td>${news.newsSource}</td>
     <td><a href="">查看</a></td>
     </tr>
-    </c:forEach>
-  
-    
-    <tr>
-    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="" /></td>
-    <td><a href="#">国务院关于修改《建设项目环境保护管理条例》的决定</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>热点关注<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>45</td>
-    </tr>
-    
+    </c:forEach>  
     </tbody>
     
     </table>
@@ -137,7 +125,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
 	      <li class="paginItem"><a href="news/toallNews?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
 	      </c:when>
 	     </c:choose>
         
@@ -145,36 +132,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="news/toallNews?pageNow=1"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="news/toallNews?pageNow=2"><span class="pagenxt">2</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="news/toallNews?pageNow=1"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="news/toallNews?pageNow=3"><span class="pagenxt">3</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="news/toallNews?pageNow=1"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="news/toallNews?pageNow=4"><span class="pagenxt">4</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="news/toallNews?pageNow=1"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="news/toallNews?pageNow=10"><span class="pagenxt">10</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
@@ -194,10 +181,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="news/toallNews?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="news/toallNews?pageNow=${page.pageTotalCount}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="news/toallNews?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         

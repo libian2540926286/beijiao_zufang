@@ -59,8 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">信息管理</a></li>
-    <li><a href="#">浏览记录分析</a></li>
+    <li><a href="#">首页图片政策管理</a></li>
+    <li><a href="#">所有首页图片政策</a></li>
     </ul>
     </div>
     
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <c:forEach items="${picPols}" var="picPols">
     <tr>
     <td class="imgtd"><img style="width: 160px ; height: 90px;" src="${picPols.picPolFile}" /></td>
-    <td><a href="#">${picPols.picPolTitle}</a></td>
+    <td><a href="#">${picPols.picPolTitle}</a><p>发布时间：${picPols.picPolTime}</p></td>
     <td><p>发布时间：${picPols.picPolTime}</p></td>
     <td>${picPols.picPolSource}</td>
     <td><a href="">查看</a></td>
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     
     <tr>
-    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="" /></td>
+    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="jsp/admin/images/img12.jpg" /></td>
     <td><a href="#">国务院关于修改《建设项目环境保护管理条例》的决定</a><p>发布时间：2017-9-22 09:25:18</p></td>
     <td>热点关注<p>ID: 82122</p></td>
     <td>开放浏览</td>

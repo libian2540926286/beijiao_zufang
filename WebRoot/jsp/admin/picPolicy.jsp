@@ -51,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">信息管理</a></li>
-    <li><a href="#">首页轮播</a></li>
+    <li><a href="#">首页图片政策管理</a></li>
+    <li><a href="#">首页图片政策上传</a></li>
     </ul>
     </div>
     

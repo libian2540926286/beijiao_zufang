@@ -54,24 +54,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
     <dd>
     <div class="title">
-    <span><img src="jsp/admin/images/leftico01.png" /></span>信息管理
+    <span><img src="jsp/admin/images/leftico01.png" /></span>政策和政策解读管理
     </div>
    	<ul class="menuson">
        <li class="active"><cite></cite><a href="jsp/admin/index.jsp" target="rightFrame">管理员首页</a><i></i></li>
-       <%-- <li><cite></cite><a href="jsp/admin/right.jsp" target="rightFrame">浏览记录分析</a><i></i></li> --%>
        <li><cite></cite><a href="policy/allPolicy" target="rightFrame">政策管理</a><i></i></li>
        <li><cite></cite><a href="polInterpre/allPolInterpre" target="rightFrame">政策解读管理</a><i></i></li>
-       <%-- <li><cite></cite><a href="jsp/admin/imgtable.jsp" target="rightFrame">操作记录</a><i></i></li> --%>
-       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">首页图片政策上传</a><i></i></li>
-       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">首页图片政策管理</a><i></i></li>
-       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li>
-       <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>     
-       <li><cite></cite><a href="news/toallNews" target="rightFrame">媒体聚焦管理</a><i></i></li>
-       <li><cite></cite><a href="file/allFile" target="rightFrame">文件管理</a><i></i></li>
-       <li><cite></cite><a href="consult/getReplied" target="rightFrame">咨询答疑</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li> 
        </ul>    
     </dd>
-        
+     
+     <dd>
+    <div class="title">
+    <span><img src="jsp/admin/images/leftico01.png" /></span>首页图片政策管理
+    </div>
+   	<ul class="menuson">      
+       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">首页图片政策上传</a><i></i></li>
+       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">所有首页图片政策</a><i></i></li>
+    </ul>    
+    </dd>   
+    
+    <dd>
+    <div class="title">
+    <span><img src="jsp/admin/images/leftico01.png" /></span>媒体聚焦管理
+    </div>
+   	<ul class="menuson">      
+       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>
+       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">所有新闻</a><i></i></li>
+    </ul>    
+    </dd>
+    
+    <dd>
+    <div class="title">
+    <span><img src="jsp/admin/images/leftico01.png" /></span>文件和咨询管理
+    </div>
+   	<ul class="menuson">      
+       <li><cite></cite><a href="file/allFile" target="rightFrame">文件管理</a><i></i></li>
+       <li><cite></cite><a href="consult/getReplied" target="rightFrame">咨询答疑</a><i></i></li>
+    </ul>    
+    </dd>   
     
     <dd>
     <div class="title">
@@ -82,19 +103,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li><cite></cite><a href="jsp/admin/admin.jsp" target="rightFrame">管理员账号管理</a><i></i></li>
         <!-- <li><cite></cite><a href="#">档案列表显示</a><i></i></li> -->
         </ul>     
-    </dd> 
+    </dd>     
     
-    
-    <dd><div class="title"><span><img src="jsp/admin/images/leftico03.png" /></span>系统设置</div>
+    <%-- <dd><div class="title"><span><img src="jsp/admin/images/leftico03.png" /></span>系统设置</div>
     <ul class="menuson">
         <li><cite></cite><a href="#">自定义</a><i></i></li>
         <li><cite></cite><a href="#">常用资料</a><i></i></li>
         <li><cite></cite><a href="#">信息列表</a><i></i></li>
         <li><cite></cite><a href="#">其他</a><i></i></li>
     </ul>    
-    </dd>  
-    
-    
+    </dd>   --%>
     </dl>
 </body>
 </html>
