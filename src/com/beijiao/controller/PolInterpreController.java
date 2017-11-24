@@ -96,7 +96,7 @@ public class PolInterpreController {
 	public String addPolInterpre(PolInterpre polInterpre,HttpServletRequest request){
 		int n=polInterpreService.addPolInterpre(polInterpre);			
 		if(n!=0){
-		   return "forward:admin/polInterprete";
+		   return "forward:allPolInterpre";
 		}else{
 		   return "login";
 		}
@@ -107,7 +107,7 @@ public class PolInterpreController {
 	public String deletePolInterpre(int polInterpreId){
 		int n=polInterpreService.deletePolInterpre(polInterpreId);		
 		if(n!=0){
-		   return "forward:toListPolInterpre";
+		   return "forward:allPolInterpre";
 		}else{
 		   return "login";
 		}

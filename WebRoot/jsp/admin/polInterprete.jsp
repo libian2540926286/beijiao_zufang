@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </li>
     <li>
     <label>发布时间<b>*</b></label>    
-    <input name="polTime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    <input name="polInterpreTime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <!-- <li>
     <label>政策解读文件<b>*</b></label>

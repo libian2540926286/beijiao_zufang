@@ -61,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <c:if test="${not empty sessionAdmin}"> 
     <div class="user">
     <span>${session.adminName}</span>
-    <i>消息</i>
-    <b>5</b>
+    <!-- <i>消息</i>
+    <b>5</b> -->
     </div>    
     </c:if>
     </div>
