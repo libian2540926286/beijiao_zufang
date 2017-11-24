@@ -4,12 +4,14 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.beijiao.dao.ReplyDao;
+import com.beijiao.model.Discuss;
 import com.beijiao.model.Reply;
 import com.beijiao.service.ReplyService;
 
@@ -26,7 +28,7 @@ public class ReplyServiceImpl implements ReplyService {
 	 * @see com.beijiao.service.ReplyService#selectReply(int)
 	 */
 	@Override
-	public Reply selectReply(int replyId) {
+	public Reply selectReply(Integer replyId) {
 		// TODO Auto-generated method stub
 		return replyDao.selectReply(replyId);
 	}
@@ -57,5 +59,30 @@ public class ReplyServiceImpl implements ReplyService {
 		// TODO Auto-generated method stub
 		return replyDao.deleteReply(replyId);
 	}
+
+	@Override
+	public List<Discuss> selectReplied() {
+		// TODO Auto-generated method stub
+		return replyDao.selectReplied();
+	}
+
+	@Override
+	public List<Discuss> selectUnReply() {
+		// TODO Auto-generated method stub
+		return replyDao.selectUnReply();
+	}
+
+	@Override
+	public boolean updateReplyContent(Discuss dicuss) {
+		// TODO Auto-generated method stub
+		return replyDao.updateReplyContent(dicuss);
+	}
+
+	@Override
+	public List<Discuss> selectunRepliedById(int dicussId) {
+		// TODO Auto-generated method stub
+		return replyDao.selectunRepliedById(dicussId);
+	}
+
 
 }

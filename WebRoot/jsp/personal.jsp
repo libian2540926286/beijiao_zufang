@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/banner1.js"></script>
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 
-  </head>
+ </head>
   
   <body>
     	<div class="top">
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
 		<c:choose>  
         <c:when test="${not empty sessionScope.get('session')}">
-        <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+        <span class="fr"><a href="jsp/personal.jsp" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
         </c:when>  
         <c:otherwise>  
             <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
@@ -70,24 +70,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 			 
 	<div class="nav">
-        <div class="wrap"> 
-          <ul class="nav_left">
-            <li><a href="index.html" title="">首页</a></li>
-            <li><a href="#" title="">行业政策</a>
-              <ul class="second_nav">
-                <li><a href="industry.html">农业</a></li>
-                <li><a href="industry2.html">金融业</a></li>
-                <li><a href="#">服务业</a></li>
-                <li><a href="#">医疗业</a></li>
-              </ul>
-            </li>
-            <li><a href="interpretation.html" title="">政策解读</a></li>
-            <li><a href="guide.html" title="">申报指南</a></li>
-            <li><a href="#" title="">活动通知</a></li>
-            <li><a href="enquire.html" title="">咨询答疑</a></li>
-          </ul>
-      </div>
-	</div>  
+		<div class="wrap"> 
+			<ul class="nav_left">
+				<li><a href="index/toindex" title="">首页</a></li>
+				<li><a href="#" title="">行业政策</a>
+					<ul class="second_nav">
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=机械化工">机械化工</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=交通汽车">交通汽车</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=房产建材">房产建材</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=服装纺织">服装纺织</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=IT互联网">IT互联网</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=文化传媒">文化传媒</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=医药">医药</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=食品">食品</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=农林渔牧">农林渔牧</a>
+						</li>					
+					</ul>
+				</li>                    
+				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
+				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
+				<li><a href="" title="">通知公告</a></li>
+				<li><a href="consult/getallconsult" title="">咨询答疑</a>
+				  <ul class="second_nav">
+				  <li>
+					<a href="consult/getallconsult">咨询答疑</a>
+					</li>
+					<li>
+					<a href="jsp/consult.jsp">我要咨询</a>
+					</li>
+				   </ul>
+				</li>
+			</ul>
+		</div> 
+	</div>
+    </div>
 	<!--header end-->
     </div>
   <div class="content">

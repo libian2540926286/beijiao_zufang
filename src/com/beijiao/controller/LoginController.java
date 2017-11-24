@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.beijiao.controller;
 
 
@@ -72,7 +70,7 @@ public class LoginController {
 		
 		
 		//to index ,getpolicys,getdifferentTypePolicy,get朝阳policy
-		List<Policy> policy1=policyService.selectPolicyType("国家");
+		List<Policy> policy1=policyService.selectPolicyType("国家政策");
 		if(policy1.size()>8){
 			policy1.subList(0, 7);
 			model.addAttribute("policy1", policy1);
@@ -80,9 +78,9 @@ public class LoginController {
 			model.addAttribute("policy1", policy1);
 		}
 		
-		List<Policy> policy2=policyService.selectPolicyType("市");
+		List<Policy> policy2=policyService.selectPolicyType("市级政策");
 		model.addAttribute("policy2", policy2);
-		List<Policy> policy3=policyService.selectPolicyType("区");
+		List<Policy> policy3=policyService.selectPolicyType("地方政策");
 		model.addAttribute("policy3", policy3);
 		
 		/*
