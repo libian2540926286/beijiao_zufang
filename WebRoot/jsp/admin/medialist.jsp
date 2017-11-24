@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <c:forEach items="${news}" var="news">
     <tr>
     <td class="imgtd">
-    <img src="upload/pic/${news.newsLink}" /></td>
+    <img style="width: 160px ; height: 90px;" src="upload/pic/${news.newsLink}" /></td>
     <td><a href="#">${news.newsTitle}</a></td>
     <td><p>发布时间：${news.newsTime}</p></td>
     <td>${news.newsSource}</td>
