@@ -103,35 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="">查看</a></td>
     </tr>
     </c:forEach>
-    <tr>
-    <td class="imgtd"><img src="jsp/admin/images/img12.jpg" /></td>
-    <td><a href="#">张茅在世界地理标志大会上强调：推进地理标志工作助推“一带一路”建设</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>首页轮播<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td><i>未审核</i></td> -->
-    <td>235</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="" /></td>
-    <td><a href="#">国务院关于修改《建设项目环境保护管理条例》的决定</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>热点关注<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>100</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="" /></td>
-    <td><a href="#">李克强主持召开国务院常务会议</a><p>发布时间：2017-9-22 09:25:18</p></td>
-    <td>热点关注<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    <!-- <td>已审核</td> -->
-    <td>96</td>
-    </tr>
+  
     
     <tr>
     <td class="imgtd"><img src="" /></td>

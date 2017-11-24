@@ -73,6 +73,9 @@ public class FileController {
 		if(pageNow==null){
 			page=new Page(1, totalCount);
 			map.put("startPos", page.getStartPos());
+			
+			
+			
     		map.put("pageSize", page.getPageSize());
     		files=fileService.getAllFile(map);
 		}else{
