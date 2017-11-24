@@ -16,4 +16,31 @@
 	<delete id="deleteReply" parameterType="int">
 	     delete * from reply where replyId=#{replyId}
 	</delete>
+	<!-- 根据id查询未回复 -->
+	<select id="selectunRepliedById" parameterType="java.util.Map" resultMap="allDiscuss">
+	     select * from discuss where discussId=#{discussId}
+	</select>
+	<!-- 添加回复内容 -->
+	<insert id="updateReplyContent" parameterType="com.beijiao.model.Discuss" >
+	    update discuss set reply=#{reply} where discussId=#{discussId}
+	</insert>
+	<!-- 查询已回复 -->
+	<select id="selectReplied" parameterType="java.util.Map" resultMap="allDiscuss">
+	     select * from discuss where reply is not null
+	</select>
+	<!-- 查询未回复 -->
+	<select id="selectUnReply" parameterType="java.util.Map" resultMap="allDiscuss">
+	     select * from discuss where reply is null
+	</select>
+	  <resultMap type="com.beijiao.model.Discuss" id="allDiscuss">
+        <id column="discussId" property="discussId"/>
+		<result property="userId" column="userId"/>
+		<result property="disTitle" column="disTitle"/>
+		<result property="disContent" column="disContent"/>
+		<result property="reply" column="reply"/>
+		<result property="disTime" column="disTime"/>
+		<result property="phonenum" column="phonenum"/>
+		<result property="email" column="email"/>
+   </resultMap>
+	
 </mapper>

@@ -70,25 +70,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 			 
 		<div class="nav">
-				<div class="wrap"> 
-					<ul class="nav_left">
-						<li><a href="index.html" title="">首页</a></li>
-						<li><a href="#" title="">行业政策</a>
-							<ul class="second_nav">
-								<li><a href="industry.html">农业</a></li>
-								<li><a href="industry2.html">金融业</a></li>
-								<li><a href="#">服务业</a></li>
-								<li><a href="#">医疗业</a></li>
-							</ul>
+		<div class="wrap"> 
+			<ul class="nav_left">
+				<li><a href="index/toindex" title="">首页</a></li>
+				<li><a href="#" title="">行业政策</a>
+					<ul class="second_nav">
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=机械化工">机械化工</a>
 						</li>
-						<li><a href="interpretation.html" title="">政策解读</a></li>
-						<li><a href="guide.html" title="">申报指南</a></li>
-						<li><a href="#" title="">活动通知</a></li>
-						<li><a href="enquire.html" title="">咨询答疑</a></li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=交通汽车">交通汽车</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=房产建材">房产建材</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=服装纺织">服装纺织</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=IT互联网">IT互联网</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=文化传媒">文化传媒</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=医药">医药</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=食品">食品</a>
+						</li>
+						<li>
+						<a href="policy/toIndustryPolicy?pClassName=农林渔牧">农林渔牧</a>
+						</li>					
 					</ul>
-				</div> 
-			</div>
-	</div>  
+				</li>                    
+				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
+				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
+				<li><a href="" title="">通知公告</a></li>
+				<li><a href="consult/getallconsult" title="">咨询答疑</a>
+				  <ul class="second_nav">
+				  <li>
+					<a href="consult/getallconsult">咨询答疑</a>
+					</li>
+					<li>
+					<a href="jsp/consult.jsp">我要咨询</a>
+					</li>
+				   </ul>
+				</li>
+			</ul>
+		</div> 
+	</div>
+    </div> 
 	<!--header end-->
 
   <div class="content">

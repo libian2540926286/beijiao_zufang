@@ -7,9 +7,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.beijiao.model.File;
 import com.beijiao.model.Reply;
 import com.beijiao.service.ReplyService;
 
@@ -19,6 +21,8 @@ import com.beijiao.service.ReplyService;
  * @author cmy
  *обнГ2:10:51
  */
+@Controller
+@RequestMapping("/reply")
 public class ReplyController {
 
 	@Resource
@@ -57,4 +61,5 @@ public class ReplyController {
 			return "";
 		}	
 	}
+	
 }

@@ -4,8 +4,10 @@
 package com.beijiao.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.beijiao.model.Discuss;
+import com.beijiao.model.File;
 import com.beijiao.model.Reply;
 
 /**
@@ -17,7 +19,7 @@ public interface ReplyDao {
 	/*
 	 * 查询回复
 	 */
-	public Reply selectReply(int replyId);
+	public Reply selectReply(Integer replyId);
 	public List<Reply> selectListReply();
 	/*
 	 * 添加回复
@@ -27,4 +29,8 @@ public interface ReplyDao {
 	 * 删除回复
 	 */
 	public int deleteReply(int replyId);
+	public List<Discuss> selectReplied();
+	public List<Discuss> selectUnReply();
+	public boolean updateReplyContent(Discuss dicuss);
+	public List<Discuss> selectunRepliedById(int dicussId);
 }
