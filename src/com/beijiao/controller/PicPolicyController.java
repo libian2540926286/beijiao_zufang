@@ -64,7 +64,7 @@ public class PicPolicyController {
 		picPol.setPicPolFile(filename);
 		int  n=picPolicyService.insertPicPolicy(picPol);
 		if(n==0){
-		    return "admin/picPolicylist";
+		    return "forward:allpicPol";
 		}else{
 			return "admin/picPolicy";
 		}
@@ -74,9 +74,9 @@ public class PicPolicyController {
 	public String deletePicPol(int picPolId,Model model){
 		int  n=picPolicyService.deletePicPolicy(picPolId);
 		if(n==0){
-		    return "";
+		    return "forward:allpicPol";
 		}else{
-			return "";
+			return "forward:allpicPol";
 		}
 	}
 	

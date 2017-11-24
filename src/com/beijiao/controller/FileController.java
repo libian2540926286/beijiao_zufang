@@ -57,9 +57,9 @@ public class FileController {
 		files.setFilepath(filepath);
 		int n=fileService.upFile(files);				
 		if(n!=0){
-		   return "admin/file";
+		   return "forward:allFile";
 		}else{
-		   return "admin/file";
+		   return "forward:allFile";
 		}
 	}
 	

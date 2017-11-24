@@ -211,7 +211,7 @@ public class PolicyController {
 		if(n!=0){
 		   return "forward:allPolicy";
 		}else{
-		   return "login";
+		   return "forward:allPolicy";
 		}
 		
 	}
@@ -220,9 +220,9 @@ public class PolicyController {
 	public String deletePolicy(int policyId){
 		int n=policyService.deletePolicy(policyId);				
 		if(n!=0){
-		   return "forward:toListPolicy";
+		   return "forward:allPolicy";
 		}else{
-		   return "login";
+		   return "forward:allPolicy";
 		}
 		
 	}
