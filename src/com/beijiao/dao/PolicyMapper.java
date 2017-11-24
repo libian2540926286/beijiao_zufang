@@ -21,7 +21,7 @@ public interface PolicyMapper {
 	 */
 	public Policy selectPolicy(int policyId);
 	public List<Policy> selectListPolicy();
-	public List<Policy> selectAllPolicy();
+	public List<Policy> selectAllPolicy(Map map);
 	public int getRecordCount();
 	public List<Policy> selectPolicyType(String type);
 	public List<Policy> selectPolicyType1(@Param("type") String type,@Param("startPos") Integer startPos,@Param("pageSize") Integer pageSize);
