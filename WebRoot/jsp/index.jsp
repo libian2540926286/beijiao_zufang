@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
@@ -216,11 +216,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="time">[${hots.newsTime}]</span>
 						</li>
 						</c:forEach>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="#" title="">中国经济网：第三批自贸区争当改革“试验田”</a>
-							<span class="time">[10-09]</span>
-						</li>
 					</ul>
 						<a class="more" href="news/tolistNews">更多>></a>
 					</div>
@@ -233,15 +228,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="time">[${polInterpres.polInterpreTime}]</span>
 						</li>
 						</c:forEach>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="#" title="">商标评审委员会就实施《商标评审案件口头审理办法》答记者问</a>
-						</li>
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="#" title="">国家工商总局企业注册局有关负责人就“多证合一”改革中的有关问题回答记者提问</a>
-						</li>
-						
 					</ul>
 						<a class="more" href="polInterpre/tolistPolInterpre">更多>></a>
 					</div>
@@ -315,7 +301,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="time">[${discussion.disTime}]</span>
 			</li>
 		    </c:forEach>		   
-			<a class="more" href="consult/togetallconsult">更多>></a>
+			<a class="more" href="consult/getallconsult">更多>></a>
 			</ul>
 		</div>
 		
@@ -329,7 +315,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="time">[${files.filetime}]</span>
 			</li>
 		    </c:forEach>
-
+			<a class="more" href="file/getAllfile">更多>></a>
 		</div>
 		<!--cptg end-->
 	</div>

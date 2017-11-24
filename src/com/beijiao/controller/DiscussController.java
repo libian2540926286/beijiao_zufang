@@ -92,7 +92,7 @@ public class DiscussController {
 	public String toDiscuss(Model model,int discussId){
 		Discuss discuss=discussService.selectDiscuss(discussId);
 		model.addAttribute("discuss",discuss);
-		return "Webapp/";
+		return "consult-list";
 	}
 	
 	@RequestMapping("alldiscuss")
