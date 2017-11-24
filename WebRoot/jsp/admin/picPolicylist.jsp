@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tbody>
     <c:forEach items="${picPols}" var="picPols">
     <tr>
-    <td class="imgtd"><img src="${picPols.picPolFile}" /></td>
+    <td class="imgtd" style="height: 10px; width: 80px;"><img src="${picPols.picPolFile}" /></td>
     <td><a href="#">${picPols.picPolTitle}</a></td>
     <td><p>发布时间：${picPols.picPolTime}</p></td>
     <td>${picPols.picPolSource}</td>
@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     </c:forEach>
     <tr>
-    <td class="imgtd"><img src="jsp/admin/images/img12.jpg" /></td>
+    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="jsp/admin/images/img12.jpg" /></td>
     <td><a href="#">张茅在世界地理标志大会上强调：推进地理标志工作助推“一带一路”建设</a><p>发布时间：2017-9-22 09:25:18</p></td>
     <td>首页轮播<p>ID: 82122</p></td>
     <td>开放浏览</td>
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     
     <tr>
-    <td class="imgtd"><img src="" /></td>
+    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="" /></td>
     <td><a href="#">国务院关于修改《建设项目环境保护管理条例》的决定</a><p>发布时间：2017-9-22 09:25:18</p></td>
     <td>热点关注<p>ID: 82122</p></td>
     <td>开放浏览</td>
