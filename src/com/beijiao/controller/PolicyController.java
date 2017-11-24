@@ -7,10 +7,13 @@ package com.beijiao.controller;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
 
+
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -59,57 +62,94 @@ public class PolicyController {
 	}
 	/*toListPolicy*/
 	@RequestMapping("toListPolicy")
-	public String selectListPolicy(Model model){
-		List<Policy> policys=policyService.selectListPolicy();
+	public String selectListPolicy(Model model,String pageNow){
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);	
 		model.addAttribute("policys", policys);		
 		return "policylist";
 		
 	}
 	
-	/*toListPolicy*/
+	/*allPolicy*/
 	@RequestMapping("allPolicy")
-	public String selectAllPolicy(Model model){
-		List<Policy> policys=policyService.selectListPolicy();
+	public String selectAllPolicy(Model model, String pageNow){
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}
+		model.addAttribute("page", page);
 		model.addAttribute("policys", policys);		
 		return "admin/policy";
 		
 	}
 	
-	/*toPolicyType*/
+	/*
+	 * toPolicyType，to different policyDrade(dengji)
+	 * */
 	@RequestMapping("toPolicyType")
 	public String selectPolicyType1(Model model,String polDrade,String pageNow){
 		
-		String polDrade1=null;
+		/*String polDrade1=null;
 		try {
 			polDrade1 = new String(polDrade.getBytes("iso-8859-1"),"utf-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		System.out.println(polDrade1);
+		}*/
+		System.out.println(polDrade+"等级分类");
 		PClass hint=new PClass();
-		hint.setpClassName(polDrade1);
+		hint.setpClassName(polDrade);
 		model.addAttribute("hint", hint);
 		List<Policy> policys;
 		Page page=null;
-		int totalCount=policyService.getRecordCountPlocyDrade(polDrade1);
+		int totalCount=policyService.getRecordCountPlocyDrade(polDrade);
 		if(pageNow==null){
 			page=new Page(1, totalCount);
 			Integer startPos =page.getStartPos();
 			Integer pageSize =page.getPageSize();
-    		policys=policyService.selectPolicyType1(polDrade1, startPos, pageSize);
+    		policys=policyService.selectPolicyType1(polDrade, startPos, pageSize);
 		}else{
 			page=new Page(Integer.parseInt(pageNow), totalCount);
 			Integer startPos =page.getStartPos();
 			Integer pageSize =page.getPageSize();
-    		policys=policyService.selectPolicyType1(polDrade1, startPos, pageSize);
+    		policys=policyService.selectPolicyType1(polDrade, startPos, pageSize);
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("policys", policys);
 		return "policydradelist";
 	}
 	
-	/*toPolicyArea*/
+	/*
+	 * 
+	 * toPolicyArea,to different policyArea(quyu,diqu)
+	 * 
+	 * */
 	@RequestMapping("toPolicyArea")
 	public String selectPolicyArea(Model model,String area){
 		
@@ -121,48 +161,43 @@ public class PolicyController {
 		return "policylist";		
 	}
 	
-	/*toIndustryPolicy*/
+	/*
+	 * toIndustryPolicy,to different policyIndustry(hangye)
+	 * 
+	 * */
 	@RequestMapping("toIndustryPolicy")
-	public String selectIndustryPolicy(Model model,String  pClassName,String pageNow){
-		String pClassName1=null;
+	public String selectIndustryPolicy(Model model,String pClassName,String pageNow){
+		/*String pClassName1=null;
 		try {
 			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		System.out.println(pClassName1);
+		}*/
+		System.out.println(pClassName+"行业分类");
 		PClass hint=new PClass();
-		hint.setpClassName(pClassName1);
+		hint.setpClassName(pClassName);
 		model.addAttribute("hint", hint);
 		List<Policy> policys;
 		Page page=null;
-		int totalCount=policyService.getRecordCountIndustryPlocy(pClassName1);
+		int totalCount=policyService.getRecordCountIndustryPlocy(pClassName);
 		if(pageNow==null){
 			page=new Page(1, totalCount);
 			Integer startPos =page.getStartPos();
 			Integer pageSize =page.getPageSize();
-    		policys=policyService.searchIndustryPlocy(pClassName1, startPos,pageSize);
+    		policys=policyService.searchIndustryPlocy(pClassName, startPos,pageSize);
 		}else{
 			page=new Page(Integer.parseInt(pageNow), totalCount);
 			Integer startPos =page.getStartPos();
 			Integer pageSize =page.getPageSize();
-    		policys=policyService.searchIndustryPlocy(pClassName1, startPos,pageSize);
+    		policys=policyService.searchIndustryPlocy(pClassName, startPos,pageSize);
 		}
 		model.addAttribute("page", page);
 		model.addAttribute("policys", policys);
 		return "policylist";
 	}
 	
-	@RequestMapping("getArea")
-	public @ResponseBody List<Policy> getArea(Policy area){
-		
-		//System.out.println(area);
-		System.out.println(area.getPolArea());
-		List<Policy> areas=policyService.selectPolicyArea(area.getPolArea());
-		//System.out.println(areas.get().getPolTime());
-		return areas;
-	}
+	
 	
 	/*addPolicy*/
 	@RequestMapping("addPolicy")
@@ -205,6 +240,7 @@ public class PolicyController {
 	
 	@RequestMapping("toSearch")
 	public String searchPolicy(Model model,String search,String pageNow){
+		
 		System.out.println("山东师范"+search);	
 		PClass hint=new PClass();
 		hint.setpClassName(search);

@@ -21,7 +21,7 @@ public interface PolicyService {
 	
 	public Policy selectPolicy(int policyId);
 	public List<Policy> selectListPolicy();
-	public List<Policy> selectAllPolicy();
+	public List<Policy> selectAllPolicy(Map map);
 	public List<Policy> selectPolicyType(String type);
 	public List<Policy> selectPolicyType1(String type,Integer startPos,Integer pageSize);
 	public int getRecordCountPlocyDrade(String type);

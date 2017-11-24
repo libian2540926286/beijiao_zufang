@@ -86,9 +86,9 @@ public class PolicyServiceImpl implements PolicyService {
 	 * @see com.beijiao.service.PolicyService#selectAllPolicy()
 	 */
 	@Override
-	public List<Policy> selectAllPolicy() {
+	public List<Policy> selectAllPolicy(Map map) {
 		// TODO Auto-generated method stub
-		return policyMapper.selectAllPolicy();
+		return policyMapper.selectAllPolicy(map);
 	}
 
 	/* (non-Javadoc)
