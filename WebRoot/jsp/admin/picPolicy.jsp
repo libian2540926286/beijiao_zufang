@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   var test2 = path.lastIndexOf("\\");  //对路径进行截取
 		   var test= Math.max(test1, test2)
 		   if(test<0){  
-		     document.getElementById("pic").value = path;
+		     document.getElementById("file").value = path;
 		   }else{
 		    document.getElementById("textfield").value = path.substring(test + 1); //赋值文件名
 		   }  
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-       <form method="post" action="picpol/addpicPol">
+       <form method="post" action="picpol/addpicPol" enctype="multipart/form-data">
 		<ul class="forminfo">		  
 			<li>
 			<label>文章标题</label>
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="file-box">         
             <input type='text' name='textfield' id='textfield' class='txt' placeholder="图片大小不超过400K"/>  
             <input type='button' class='btn' value='浏览上传...' />
-            <input type="file" name="pic" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
+            <input type="file" name="file" class="file" id="pic" size="28" onchange="if(this.value)insertTitle(this.value);" accept = "image/*"/>      
             <i></i>  
             </div>		
 			</li>

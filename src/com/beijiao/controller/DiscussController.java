@@ -71,7 +71,7 @@ public class DiscussController {
 	/*��ӻظ�����*/
 	@RequestMapping("getRepliedAnswer")
 	public String getRepliedAnswer(Model model,int discussId){
-		List<Discuss> unreply=discussService.selectunRepliedById(discussId);
+		Discuss unreply=discussService.selectunRepliedById(discussId);
 		model.addAttribute("unreply", unreply);
 		return "admin/consultAnswer";
 	}

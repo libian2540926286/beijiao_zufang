@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.PicPolicy;
@@ -56,7 +57,8 @@ public class PicPolicyController {
 	}
 	
 	@RequestMapping("addpicPol")
-	public String insertPicPol(PicPolicy picPol,Model model,MultipartFile file,HttpServletRequest request){
+	public String insertPicPol(@RequestParam MultipartFile file,PicPolicy picPol,Model model,HttpServletRequest request){
+		System.out.println(file);
 		UpAndDownload upFile=new UpAndDownload();
 		String filename=upFile.doUploadPic(file, request);
 		picPol.setPicPolFile(filename);

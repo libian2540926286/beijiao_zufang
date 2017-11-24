@@ -65,7 +65,7 @@ public class UpAndDownload {
 		//保存路径	
 		ServletContext sc=request.getSession().getServletContext();
 		System.out.println(sc+"sc");
-		String path = sc.getRealPath("/upload/doc") + "/";
+		String path = sc.getRealPath("upload/doc");
 		System.out.println(path+"path");
 		System.out.println(path);
 		File filepath = new File(path,fileName);
@@ -96,11 +96,11 @@ public class UpAndDownload {
 	public String doUploadFile(MultipartFile file,HttpServletRequest request){
 		 // 获取文件名
 		String fileName=file.getOriginalFilename();
-		System.out.println(fileName);
+		System.out.println(fileName+"测试文件下载");
 		//保存路径	
 		ServletContext sc=request.getSession().getServletContext();
 		System.out.println(sc+"sc");
-		String path = sc.getRealPath("/upload/file") + "/";
+		String path = sc.getRealPath("upload/file");
 		System.out.println(path+"path");
 		System.out.println(path);
 		File filepath = new File(path,fileName);
@@ -121,7 +121,7 @@ public class UpAndDownload {
 		 * 将文件保存路径上传到数据库或者将路径传到另外的model，让其接收
 		 * 路径为upload/newFileName
 		 */		
-		return "upload/"+fileName;
+		return "upload/file/"+fileName;
 	}
 	
 	/*
