@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li>
             <label>答疑回复内容<b>*</b></label>
-            <textarea  name="reply" class="textinput">${unreply.reply}</textarea>   
+            <textarea  name="reply" class="textinput"></textarea>   
             </li>
             <li>
 			<label>&nbsp;</label>

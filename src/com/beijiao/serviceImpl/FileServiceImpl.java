@@ -53,4 +53,10 @@ public class FileServiceImpl implements FileService {
 		return fileDao.getFile(fileId);
 	}
 
+	@Override
+	public int deleteFile(int fileId) {
+		// TODO Auto-generated method stub
+		return fileDao.deleteFile(fileId);
+	}
+
 }

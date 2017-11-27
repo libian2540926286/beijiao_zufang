@@ -66,23 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${replied.email}</td>
         <td>${replied.disTime}</td>
         <td>
-        <a href="<%=basePath%>consult/getRepliedAnswer?discussId=${replied.discussId}" class="tablelink">查看</a>     
-        <a href="<%=basePath%>consult/deleteConsult?discussId=${replied.discussId}" class="tablelink"> 删除</a>
+        <a href="consult/getRepliedAnswer?discussId=${replied.discussId}" class="tablelink">查看</a>     
+        <a href="consult/deleteConsult?discussId=${replied.discussId}" class="tablelink"> 删除</a>
         </td>
         </tr> 
       </c:forEach>  
-      <!-- 
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>已回复标题1</td>
-        <td>张三</td>
-        <td>回复内容2</td>
-        <td>2540937687@qq.com</td>
-        <td>2013-09-08 14:02</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        </tbody>
-         -->
     </table>  
     
       <div class="pagin">
@@ -190,22 +178,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${unreply.email}</td>
         <td>${unreply.disTime}</td>
         <td>
-        <a href="<%=basePath%>consult/getRepliedAnswer?discussId=${unreply.discussId}" class="tablelink">查看</a>     
-        <a href="<%=basePath%>consult/deleteConsult?discussId=${unreply.discussId}" class="tablelink"> 删除</a>
+        <a href="consult/addReplyAnswer" class="tablelink">点击回复</a>     
+        <a href="consult/deleteConsult?discussId=${unreply.discussId}" class="tablelink"> 删除</a>
         </td>
         </tr> 
       </c:forEach>  
-      <!--   <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>未回复标题1</td>
-        <td></td>
-        <td></td>
-        <td>2540937687@qq.com</td>
-        <td></td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-        </tbody>
-        --> 
     </table>    
       <div class="pagin">
     	<div class="message">

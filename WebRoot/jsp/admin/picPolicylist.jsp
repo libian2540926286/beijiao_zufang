@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <th>标题</th>
     <th>发布时间</th>
     <th>政策来源</th>
-    <th>点击</th>
+    <th>操作</th>
     </tr>
     </thead>
     
@@ -99,18 +99,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="#">${picPols.picPolTitle}</a><p>发布时间：${picPols.picPolTime}</p></td>
     <td><p>发布时间：${picPols.picPolTime}</p></td>
     <td>${picPols.picPolSource}</td>
-    <td><a href="picpol/toAdminpicPol?picPolId=${picPols.picPolId}">查看</a></td>
-    <td><a href="picpol/deletepicPol?picPolId=${picPols.picPolId}">删除</a></td>
+    <td>
+    <a href="picpol/toAdminpicPol?picPolId=${picPols.picPolId}">查看</a>
+    <a href="picpol/deletepicPol?picPolId=${picPols.picPolId}">删除</a>
+    </td>
     </tr>
     </c:forEach>
     </tbody>
     
     </table>
-    
-    
-    
-    
-    
    
      <div class="pagin">
     	<div class="message">
@@ -125,7 +122,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
 	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
-	      <a href="">尾页</a>
 	      </c:when>
 	     </c:choose>
         

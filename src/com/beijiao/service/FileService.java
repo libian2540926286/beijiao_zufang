@@ -13,6 +13,7 @@ public interface FileService {
 	public int upFile(File file);
 	public List<File> getLimitFile();
 	public int getRecordCount();
+	public int deleteFile(int fileId);
 	
 	/*
 	 * WebApp
