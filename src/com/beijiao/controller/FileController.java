@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -121,10 +122,12 @@ public class FileController {
 	
 	@RequestMapping("downfile")
 	public void downFile(String filename,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		/*filename = new String(filename.getBytes("iso8859-1"), "UTF-8");*/
 		String fileName = request.getSession().getServletContext().getRealPath("upload")+"/file/"+filename;
 		InputStream bis = new BufferedInputStream(new FileInputStream(fileName));
-		response.addHeader("Content-Dispostion", "attachment;filename="+filename);
-		response.setContentType("multipart/form-data");
+		String realname = fileName.substring(fileName.indexOf("_") + 1);  
+		response.setHeader("content-disposition", "attachment;filename="  
+                + URLEncoder.encode(realname, "UTF-8"));  
 		BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
 		int len = 0;
 		while((len = bis.read()) != -1){
