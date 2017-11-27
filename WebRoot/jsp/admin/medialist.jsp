@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="#">${news.newsTitle}</a></td>
     <td><p>发布时间：${news.newsTime}</p></td>
     <td>${news.newsSource}</td>
-    <td><a href="">查看</a></td>
+    <td><a href="news/toAdminNews?newsId=${news.newsId}">查看</a></td>
     </tr>
     </c:forEach>  
     </tbody>

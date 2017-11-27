@@ -38,14 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="detail">
-     <c:if test="${not empty policys}">
+     <c:if test="${not empty policy}">
      <div class="title">   
-		<p>${policys.polTitle}</p>
-		<span id="source">发布时间： ${policys.polTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${policys.polSource}</span>
+		<p>${policy.polTitle}</p>
+		<span id="source">发布时间： ${policy.polTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${policy.polSource}</span>
 		<hr>
       </div>
       <div class="content">
-      <p >${policys.polContent}</p>      
+      <p >${policy.polContent}</p>      
       </div>
 	<br/><br/>
     </c:if>

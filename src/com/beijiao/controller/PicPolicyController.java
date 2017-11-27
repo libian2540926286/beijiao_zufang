@@ -44,6 +44,13 @@ public class PicPolicyController {
 	 * 
 	 */
 	
+	@RequestMapping("toAdminpicPol")
+	public String getAdminPicPol(int picPolId,Model model){
+		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
+		model.addAttribute("picPol", picPol);
+		return "admin/picPolicy_detail";
+	}
+	
 	
 	@RequestMapping("allpicPol")
 	public String getAllPicPol(Model model,String pageNow){

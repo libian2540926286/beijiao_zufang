@@ -180,7 +180,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${polInterpres.polInterpreSource}</td>
         <td>${polInterpres.polInterpreTime}</td>
         <td>
-        <a href="#" class="tablelink">查看</a>     
+        <a href="polInterpre/adminPolInterpre?polInterpreId=${polInterpres.polInterpreId}" class="tablelink">查看</a>     
         <a href="#" class="tablelink"> 删除</a>
         </td>
         </tr> 
