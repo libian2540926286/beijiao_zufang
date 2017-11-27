@@ -24,6 +24,10 @@ public class DiscussController {
 	@Resource
 	private DiscussService discussService;
 	
+	/*
+	 * all for user
+	 * 
+	 */
 	@RequestMapping("getDiscuss")
 	public String getDiscuss(Model model,int discussId){
 		Discuss discuss=discussService.selectDiscuss(discussId);
@@ -37,6 +41,12 @@ public class DiscussController {
 		model.addAttribute("dis", dis);
 		return "consult-list";
 	}
+	
+	/*
+	 * all for admin
+	 * 
+	 */
+	
 	
 	@RequestMapping("addConsult")
 	public String addDiscuss(Discuss discuss){

@@ -52,6 +52,12 @@ public class PolicyController {
 		return "test";
 	}
 	
+	
+	/*
+	 * all for user
+	 * 
+	 */
+	
 	/*topolicy*/
 	@RequestMapping("toPolicy")
 	public String selectPolicy(int policyId,Model model){
@@ -85,29 +91,7 @@ public class PolicyController {
 		
 	}
 	
-	/*allPolicy*/
-	@RequestMapping("allPolicy")
-	public String selectAllPolicy(Model model, String pageNow){
-		List<Policy> policys;
-		Page page=null;
-		int totalCount=policyService.getRecordCount();
-		Map<String, Integer> map=new HashMap<String, Integer>();
-		if(pageNow==null){
-			page=new Page(1, totalCount);
-			map.put("startPos", page.getStartPos());
-    		map.put("pageSize", page.getPageSize());
-    		policys=policyService.selectAllPolicy(map);
-		}else{
-			page=new Page(Integer.parseInt(pageNow), totalCount);
-			map.put("startPos", page.getStartPos());
-    		map.put("pageSize", page.getPageSize());
-    		policys=policyService.selectAllPolicy(map);
-		}
-		model.addAttribute("page", page);
-		model.addAttribute("policys", policys);		
-		return "admin/policy";
-		
-	}
+	
 	
 	/*
 	 * toPolicyType，to different policyDrade(dengji)
@@ -197,7 +181,73 @@ public class PolicyController {
 		return "policylist";
 	}
 	
+	@RequestMapping("toSearch")
+	public String searchPolicy(Model model,String search,String pageNow){
+		
+		System.out.println("山东师范"+search);	
+		PClass hint=new PClass();
+		hint.setpClassName(search);
+		model.addAttribute("hint", hint);
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCountSearch(search);
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchPolicy(search, startPos, pageSize);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			Integer startPos =page.getStartPos();
+			Integer pageSize =page.getPageSize();
+    		policys=policyService.searchPolicy(search, startPos, pageSize);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);
+		return "searchpolicy";
+	}
 	
+	
+	/*
+	 * all for admin
+	 * 
+	 */
+	
+	
+	/*
+	 * to see policy for admin
+	 * */
+	@RequestMapping("adminPolicy")
+	public String selectAdminPolicy(int policyId,Model model){
+		Policy policy=policyService.selectPolicy(policyId);
+		model.addAttribute("policy", policy);		
+		return "admin/policy_detail";
+		
+	}
+	
+	/*allPolicy*/
+	@RequestMapping("allPolicy")
+	public String selectAllPolicy(Model model, String pageNow){
+		List<Policy> policys;
+		Page page=null;
+		int totalCount=policyService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		policys=policyService.selectAllPolicy(map);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("policys", policys);		
+		return "admin/policy";
+		
+	}
 	
 	/*addPolicy*/
 	@RequestMapping("addPolicy")
@@ -238,38 +288,13 @@ public class PolicyController {
 	}
 	
 	
-	@RequestMapping("toSearch")
-	public String searchPolicy(Model model,String search,String pageNow){
-		
-		System.out.println("山东师范"+search);	
-		PClass hint=new PClass();
-		hint.setpClassName(search);
-		model.addAttribute("hint", hint);
-		List<Policy> policys;
-		Page page=null;
-		int totalCount=policyService.getRecordCountSearch(search);
-		if(pageNow==null){
-			page=new Page(1, totalCount);
-			Integer startPos =page.getStartPos();
-			Integer pageSize =page.getPageSize();
-    		policys=policyService.searchPolicy(search, startPos, pageSize);
-		}else{
-			page=new Page(Integer.parseInt(pageNow), totalCount);
-			Integer startPos =page.getStartPos();
-			Integer pageSize =page.getPageSize();
-    		policys=policyService.searchPolicy(search, startPos, pageSize);
-		}
-		model.addAttribute("page", page);
-		model.addAttribute("policys", policys);
-		return "searchpolicy";
-	}
+	
 	
 	
 	
 	/*
 	 * 
-	 * WebApp
-	 * 政策
+	 * WebApp policy
 	 * 
 	 */
 	
