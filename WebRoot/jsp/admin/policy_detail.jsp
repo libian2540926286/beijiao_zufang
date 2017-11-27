@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%-- <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%> --%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -39,20 +39,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="detail">
      <c:if test="${not empty policys}">
-     <%-- <div class="title">   
+     <div class="title">   
 		<p>${policys.polTitle}</p>
 		<span id="source">发布时间： ${policys.polTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${policys.polSource}</span>
 		<hr>
-      </div> --%>
-      <div class="title">   
-		<p>安徽省印发《关于做好2017年化解钢铁煤炭行业过剩产能中职工安置工作的通知》${policys.polTitle}</p>
-		<span id="source">发布时间： 2017年10月9日${policys.polTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：  国务院${policys.polSource}</span>
-		<hr>
       </div>
       <div class="content">
-      <p >${policys.polContent}为贯彻落实《人力资源社会保障部等五部门关于做好2017年化解钢铁煤炭行业过剩产能中职工安置工作的通知》（人社部发〔2017〕24号）精神，我厅会同省发展改革委、
-                                      省经济和信息化委、省财政局、省国资委联合印发《关于做好2017年化解钢铁煤炭行业过剩产能中职工安置工作的通知》（皖人社发〔2017〕22号）。 
-           </p>      
+      <p >${policys.polContent}</p>      
       </div>
 	<br/><br/>
     </c:if>

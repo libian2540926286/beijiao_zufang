@@ -25,6 +25,12 @@ public class PicPolicyController {
 	private PicPolicyService picPolicyService;
 	
 	
+
+	/*
+	 * all for user
+	 * 
+	 */
+	
 	@RequestMapping("topicPol")
 	public String getPicPol(int picPolId,Model model){
 		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
@@ -32,6 +38,11 @@ public class PicPolicyController {
 		return "success";
 	}
 	
+
+	/*
+	 * all for admin
+	 * 
+	 */
 	
 	
 	@RequestMapping("allpicPol")

@@ -30,10 +30,11 @@ public class PolInterpreController {
 	@Resource
 	private PolInterpreService polInterpreService;
 	
-	@RequestMapping("totest")
-	private String test(){
-		return "test";
-	}
+	
+	/*
+	 * all for user
+	 * 
+	 */
 	
 	/*toPolInterpre*/
 	@RequestMapping("toPolInterpre")
@@ -68,6 +69,13 @@ public class PolInterpreController {
 		return "polInterpreslist";		
 	}
 	
+	
+	/*
+	 * all for admin
+	 * 
+	 */
+	
+	
 	/*toAllPolInterpre*/
 	@RequestMapping("allPolInterpre")
 	public String selectAllPolInterpre(Model model,String pageNow){
@@ -91,6 +99,7 @@ public class PolInterpreController {
 		return "admin/polInterprete";
 		
 	}
+	
 	/*addPolInterpre*/
 	@RequestMapping("addPolInterpre")
 	public String addPolInterpre(PolInterpre polInterpre,HttpServletRequest request){
@@ -102,7 +111,10 @@ public class PolInterpreController {
 		}
 		
 	}
-	/*ɾ�����߽��*/
+	
+	/*
+	 * delete
+	 * */
 	@RequestMapping("deletePolInterpre")
 	public String deletePolInterpre(int polInterpreId){
 		int n=polInterpreService.deletePolInterpre(polInterpreId);		
@@ -113,17 +125,24 @@ public class PolInterpreController {
 		}
 		
 	}
-	/*�޸����߽��*/
+	
+	/*
+	 * update
+	 * */
 	@RequestMapping("updatePolInterpre")
 	public String updatePolInterpre(String polInterpreContent){
 		int n=polInterpreService.changePolInterpre(polInterpreContent);
 		if(n!=0){
-		   return "forward:toListPolInterpre";
+		   return "forward:allPolInterpre";
 		}else{
 		   return "login";
 		}
 		
 	}
+	
+	/*
+	 * WebApp
+	 */	
 	
 	@RequestMapping("allPolInterpreApp")
 	public String selectAllPolInterpreApp(Model model){

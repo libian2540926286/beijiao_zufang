@@ -31,11 +31,11 @@ public class NewsController {
 	private NewsService newsService;
 	
 	
-	@RequestMapping("totest")
-	private String test(){
-		return "test";
-	}
-	/*��ѯ����*/
+
+	/*
+	 * all for user
+	 * 
+	 */
     @RequestMapping("toNews")
     public String selectNews(int newsId,Model model){
     	
@@ -71,6 +71,12 @@ public class NewsController {
     	return "newslist";	
     }
     
+    
+
+	/*
+	 * all for admin
+	 * 
+	 */
     
     @RequestMapping("toallNews")
     public String selectAllNews(Model model,String pageNow){
