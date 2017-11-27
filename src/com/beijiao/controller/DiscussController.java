@@ -42,12 +42,6 @@ public class DiscussController {
 		return "consult-list";
 	}
 	
-	/*
-	 * all for admin
-	 * 
-	 */
-	
-	
 	@RequestMapping("addConsult")
 	public String addDiscuss(Discuss discuss){
 				
@@ -59,6 +53,12 @@ public class DiscussController {
 		}	
 	}
 	
+	
+	/*
+	 * all for admin
+	 * 
+	 */
+
 	@RequestMapping("deleteConsult")
 	public String deleteDiscuss(int discussId){
 		int n=discussService.deleteDiscuss(discussId);
@@ -86,9 +86,16 @@ public class DiscussController {
 	 * */
 	@RequestMapping("getRepliedAnswer")
 	public String getRepliedAnswer(Model model,int discussId){
-		Discuss unreply=discussService.selectunRepliedById(discussId);
-		model.addAttribute("unreply", unreply);
+		Discuss replied=discussService.selectDiscuss(discussId);
+		model.addAttribute("replied", replied);
 		return "admin/consult_detail";
+	}
+	
+	@RequestMapping("addReply")
+	public String getReplied(Model model,int discussId){
+		Discuss replied=discussService.selectunRepliedById(discussId);
+		model.addAttribute("unreply", replied);
+		return "admin/consultAnswer";
 	}
 	
 	@RequestMapping("addReplyAnswer")
@@ -96,7 +103,7 @@ public class DiscussController {
 		if (discussService.updateReplyContent(discuss)) {
 			return "redirect:/consult/getReplied";
 		} else {
-			return "/error";
+			return "error";
 		}
 	}
 	

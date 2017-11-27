@@ -38,11 +38,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="detail">
      <c:if test="${not empty replied}">
       <div class="title">   
-		<p>回复标题${replied.disTitle}</p>
+		<p>${replied.disTitle}</p>
 		<span id="source">回复时间：<!-- 2017年10月9日 -->${replied.disTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp回复人：${replied.userId}</span>
 		<hr>
       </div>
       <div class="content">
+      <p>咨询内容：${replied.disContent}</p> 
       <p>回复内容：${replied.reply}</p>      
       </div>
 	<br/><br/>

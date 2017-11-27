@@ -180,21 +180,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${files.filepath}</td>
         <td>${files.filetime}</td>
          <td>${files.filesource}</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
+        <td><a href="file/toAdminfile?fileId=${files.fileId}" class="tablelink">查看</a>  
+           <a href="file/deletefile?fileId=${files.fileId}" class="tablelink">删除</a></td>
         </tr> 
         </c:forEach>
-        
-      <!--  
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>20130905</td>
-        <td>江西&quot;局长违规建豪宅&quot;：局长检讨</td>
-        <td>admin</td>
-        <td>北京市</td>
-        <td>2013-09-06 10:36</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink">删除</a></td>
-        </tr>
-			-->  
     
         </tbody>
     </table>

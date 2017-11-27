@@ -38,4 +38,9 @@
    		 <result property="filename" column="filename"/>
    		 <result property="filetime" column="filetime"/>
 	</resultMap> 
+	
+	<delete id="deleteFile" parameterType="int">
+	    delete * from file where fileId=#{fileId}
+	</delete>
+	
 </mapper>

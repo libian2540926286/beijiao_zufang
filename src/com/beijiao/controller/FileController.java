@@ -113,6 +113,15 @@ public class FileController {
 		}
 	}
 	
+	@RequestMapping("deletefile")
+	public String deleteFile(int fileId){
+		int n=fileService.deleteFile(fileId);
+		if(n!=0){
+			   return "forward:allFile";
+			}else{
+			   return "forward:allFile";
+			}
+	}
 	/*
 	 * webApp
 	 */
