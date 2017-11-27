@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><a href="#">咨询答疑</a></li>
     </ul>
     </div>
-    
+   
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
@@ -59,6 +59,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input name="disTitle" type="text" class="dfinput" value="${unreply.disTitle}" />
 			<i>标题不能超过30个字符</i>
 			</li>
+			<li>
+            <label>咨询内容</label>
+            <textarea  name="disContent" class="textinput" value="${unreply.disContent}" ></textarea>   
+            </li>
 			<li>
 			<label>咨询用户</label>
 			<input name="disUser" type="text" class="dfinput" value="${unreply.userId}"/>
