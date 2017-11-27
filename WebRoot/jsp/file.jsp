@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -108,18 +110,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
     <div class="content">
     <div class="detail">
-    <c:if test="${not empty policy}">
+    <c:if test="${not empty file}">
       <div class="title">   
-		<p>下载文件通知${policy.polTitle}</p>
-		<span id="source">发布时间：<!-- 2017年10月9日 -->${policy.polTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${policy.polSource}</span>
+		<p>下载文件通知:${file.filename}</p>
+		<span id="source">发布时间：<!-- 2017年10月9日 -->${file.filetime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${file.filesource}</span>
 		<hr>
       </div>
       <div class="download">
       <p class="file-font">相关附件：</p>      
       <ul >
-      <li><a href="#">下载文件一</a></li>
-      <li><a href="#">下载文件二</a></li>
-      <li><a href="#">下载文件三</a></li>
+      <li><a href="file/downfile?filename=${file.filename}">下载文件一</a></li>
+      <li><a href="file/downfile?filename=${file.filename}">下载文件二</a></li>
+      <li><a href="file/downfile?filename=${file.filename}">下载文件三</a></li>
       </ul>
       </div>
 	<br/><br/>

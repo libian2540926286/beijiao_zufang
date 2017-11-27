@@ -311,11 +311,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:forEach items="${files}" var="files">
 			<li>
 				<img src="images/dian.png" width="5px" height="5px" alt="" />
-				<a href="file/toFile?fileId=${files.fileId}">${files.filename}</a>
+				<a href="file/tofile?fileId=${files.fileId}">${files.filename}</a>
 				<span class="time">[${files.filetime}]</span>
 			</li>
 		    </c:forEach>
 			<a class="more" href="file/getAllfile">更多>></a>
+			</ul>
 		</div>
 		<!--cptg end-->
 	</div>

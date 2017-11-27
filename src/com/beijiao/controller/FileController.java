@@ -1,6 +1,10 @@
 package com.beijiao.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +12,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,6 +117,21 @@ public class FileController {
 		}else{
 		   return "forward:allFile";
 		}
+	}
+	
+	@RequestMapping("downfile")
+	public void downFile(String filename,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		String fileName = request.getSession().getServletContext().getRealPath("upload")+"/file/"+filename;
+		InputStream bis = new BufferedInputStream(new FileInputStream(fileName));
+		response.addHeader("Content-Dispostion", "attachment;filename="+filename);
+		response.setContentType("multipart/form-data");
+		BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+		int len = 0;
+		while((len = bis.read()) != -1){
+			out.write(len);
+			out.flush();
+		}
+		out.close();
 	}
 	
 	@RequestMapping("deletefile")
