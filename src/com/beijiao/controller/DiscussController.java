@@ -69,7 +69,9 @@ public class DiscussController {
 			return "login";
 		}	
 	}
-	/*��ѯ����*/
+	/*
+	 * get reply and unreply
+	 * \*/
 	@RequestMapping("getReplied")
 	public String getReplied(Model model){
 		List<Discuss> replied=discussService.selectReplied();
@@ -78,13 +80,17 @@ public class DiscussController {
 		model.addAttribute("unreply", unreply);
 		return "admin/answerList";
 	}
-	/*��ӻظ�����*/
+	
+	/*
+	 * see reply
+	 * */
 	@RequestMapping("getRepliedAnswer")
 	public String getRepliedAnswer(Model model,int discussId){
 		Discuss unreply=discussService.selectunRepliedById(discussId);
 		model.addAttribute("unreply", unreply);
-		return "admin/consultAnswer";
+		return "admin/consult_detail";
 	}
+	
 	@RequestMapping("addReplyAnswer")
 	public String addReplyAnswer(Model model,Discuss discuss){
 		if (discussService.updateReplyContent(discuss)) {

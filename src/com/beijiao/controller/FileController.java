@@ -25,13 +25,12 @@ public class FileController {
 	@Resource
 	private FileService fileService;
 	
+	
+	
 	/*
 	 * all for user
 	 * 
-	 */
-	
-	
-	
+	 */	
 	
 	@RequestMapping("getAllfile")
 	public String getAllfile(Model model,String pageNow){
@@ -67,6 +66,13 @@ public class FileController {
 	 * all for admin
 	 * 
 	 */
+	
+	@RequestMapping("toAdminfile")
+	public String toAdminFile(Model model,int fileId){
+		File file=fileService.getFile(fileId);
+		model.addAttribute("file", file);
+		return "admin/file_detail";
+	}
 	
 	@RequestMapping("allFile")
 	public String getAllFile(Model model,String pageNow){

@@ -40,7 +40,6 @@ public class NewsController {
     public String selectNews(int newsId,Model model){
     	
     	News news=newsService.selectNews(newsId);
-    	//news.setNewsContent(news.getNewsContent().replace(" ", "<br />"+"&nbsp;&nbsp;"));
     	System.out.println(news.getNewsContent());
     	model.addAttribute("news",news);
     	return "news";
@@ -77,6 +76,15 @@ public class NewsController {
 	 * all for admin
 	 * 
 	 */
+    
+    @RequestMapping("toAdminNews")
+    public String selecAdmintNews(int newsId,Model model){
+    	
+    	News news=newsService.selectNews(newsId);
+    	model.addAttribute("news",news);
+    	return "admin/news_detail";
+	
+    }
     
     @RequestMapping("toallNews")
     public String selectAllNews(Model model,String pageNow){

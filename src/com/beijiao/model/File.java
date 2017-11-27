@@ -1,6 +1,5 @@
 package com.beijiao.model;
 
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -40,8 +40,6 @@ public class PolInterpreController {
 	@RequestMapping("toPolInterpre")
 	public String selectPolInterpre(int polInterpreId,Model model){
 		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);
-		polInterpre.getPolInterpreContent().replace(" ", "<br>");
-		polInterpre.getPolInterpreContent().replace("   ", "<br>");
 		model.addAttribute("polInterpre", polInterpre);		
 		return "polInterpre";
 		
@@ -75,6 +73,17 @@ public class PolInterpreController {
 	 * 
 	 */
 	
+	
+	/*
+	 * toAdminPolInterpre
+	 * */
+	@RequestMapping("adminPolInterpre")
+	public String selectAdminPolInterpre(int polInterpreId,Model model){
+		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);
+		model.addAttribute("polInterpre", polInterpre);		
+		return "admin/polInterprete_detail";
+		
+	}
 	
 	/*toAllPolInterpre*/
 	@RequestMapping("allPolInterpre")

@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -34,14 +36,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="detail">
-     <c:if test="${not empty files}">
+     <c:if test="${not empty file}">
       <div class="title">   
-		<p>下载文件标题${files.filename}</p>
-		<span id="source">发布时间：<!-- 2017年10月9日 -->${files.filetime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp文件来源：${files.filesource}</span>
+		<p>下载文件标题${file.filename}</p>
+		<span id="source">发布时间：<!-- 2017年10月9日 -->${file.filetime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp文件来源：${file.filesource}</span>
 		<hr>
       </div>
       <div class="content">
-      <p>下载路径：下载文件一${files.filepath}</p>      
+      <p>下载路径：下载文件一${file.filepath}</p>      
       </div>
 	<br/><br/>
     </c:if>       
