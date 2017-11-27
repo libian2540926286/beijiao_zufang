@@ -18,7 +18,7 @@
   </select>
   
    <select id="getFile" resultMap="allFile">
-  	select * from file order by fileId desc where fileId=#{fileId}
+  	select * from file where fileId=#{fileId}
   </select>
   
   <!-- 查询记录的条数 -->
