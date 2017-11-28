@@ -297,7 +297,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <c:forEach items="${discussion}" var="discussion">
 			<li>
 				<img src="images/dian.png" width="5px" height="5px" alt="" />
-				<a href="consult/toDiscuss?discussId=${discussion.discussId}">${discussion.disContent}</a>
+				<a href="consult/toDiscuss?discussId=${discussion.discussId}">${discussion.disTitle}</a>
 				<span class="time">[${discussion.disTime}]</span>
 			</li>
 		    </c:forEach>		   
