@@ -80,8 +80,8 @@ img{border:none;}
 }
 
 .content{
-  position: relative; width:994px;margin:0 auto;
-  border:1px solid #dfdfdf;
+  position: relative; width:1004px;margin:0 auto;
+  /* border-top:1px solid #dfdfdf; */
   /* height:700px; */
   float: center;
 }
@@ -89,7 +89,9 @@ img{border:none;}
   position: absolute;width:1004px;margin:0 auto;
   font-size:15px;line-height:200%;text-indent:2em;
   margin:0px 0px 0px 10px;
+ 
 }
+.detail img{margin:0 auto;width:945px; height:452px}
 .file-font{
 	color:red;	
 }

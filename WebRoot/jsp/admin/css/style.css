@@ -196,7 +196,7 @@ h2{font-weight:normal;}
 
 /* detail */
 .detail{padding:10px 18px;position: relative; width:994px;margin:0 auto; float: center;line-height:200%;text-indent:2em;}
-.title {text-align:center}
+.detail .title {text-align:center}
 .title p{font-weight:bold;font-size:18px;margin-top:10px;margin-bottom:10px}
 .title span{font-size:14px;}
 .content{text-align:left;width:994px;margin-top:10px;margin-bottom:10px; padding-top:10px;float: center;border-top:solid 1px #a7b5bc;}
@@ -286,6 +286,7 @@ h2{font-weight:normal;}
 .itab ul li a{font-size:14px; color:#000; padding-left:25px; padding-right:25px;}
 .itab ul li a.selected{ height:37px; display:block; background:url(../images/itabbg1.png) repeat-x; font-weight:bold;}
 .tabson{margin:18px 0px;}
+.tabson2{margin-left:18px;}
 .formtext{height:45px; padding-left:25px; line-height:20px; color:#848383;}
 .formtext b{color:#d70101;}
 .forminfo b{color:#ea2020; padding-left:3px;}
