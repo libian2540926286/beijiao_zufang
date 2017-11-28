@@ -134,26 +134,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="file">
           <c:forEach items="${dis}" var="dis">
 				<ul>
-			        <li class="consult-title"><span>用户咨询</span>三证合一错误</li>
+			        <li class="consult-title"><span>用户咨询</span>${dis.disTitle }</li>
 			        <li class="consult-detail">${dis.disContent}</li>
 			        <li class="answer">
 						<span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
 						<br>
 						<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-						<div class="answer_detail">您好，让您久等了，五证合一在海淀区综合行政服务大厅和北京市海淀区倒座庙9号两个地点均可办理，到海淀区综合行政服务大厅需要在网上预约后，到大厅办理；到海淀区倒座庙9号的大厅办理，无需预约，只需要带上相关证件到大厅即可办理。</div>
+						<div class="answer_detail"><c:out value="${dis.reply}" default="暂无回复"/></div>
 					</li>
 				</ul>
 		  </c:forEach>
-		  <ul>
-		        <li class="consult-title"><span>用户一：</span>三证合一错误</li>
-		        <li class="consult-detail">企业三证合一后营业执照号变更为91130602MA07K4B2X2其中的组织机构代码号错误应变更为911306027698079622如何更正。</li>
-		        <li class="answer">
-					<span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
-					<br>
-					<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-					<div class="answer_detail">您好，让您久等了，五证合一在海淀区综合行政服务大厅和北京市海淀区倒座庙9号两个地点均可办理，到海淀区综合行政服务大厅需要在网上预约后，到大厅办理；到海淀区倒座庙9号的大厅办理，无需预约，只需要带上相关证件到大厅即可办理。</div>
-				</li>
-		 </ul>
+		  
+		   <c:if test="${not empty discuss}">
+		   		<ul>
+			        <li class="consult-title"><span>用户咨询</span>${discuss.disTitle }</li>
+			        <li class="consult-detail">${discuss.disContent}</li>
+			        <li class="answer">
+						<span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
+						<br>
+						<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
+						<div class="answer_detail"><c:out value="${discuss.reply}" default="暂无回复"/></div>
+					</li>
+				</ul>
+		   </c:if>
 		 
  		<script type="text/javascript">
 			$(".switch_answer").click(function(){
