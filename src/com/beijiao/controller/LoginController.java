@@ -117,6 +117,11 @@ public class LoginController {
 		model.addAttribute("hots", hots);		
 		//getDiscuss
 		List<Discuss> discussion=discussService.selectListDiscuss();
+		for(int i=0;i<discussion.size();i++){
+			  if(discussion.get(i).getDisTitle().length()>17){
+				  discussion.get(i).setDisTitle(discussion.get(i).getDisTitle().substring(0, 16)+"...");
+			   }
+			}
 		model.addAttribute("discussion", discussion);
 		//filedown
 		List<File> files=fileService.getLimitFile();		
