@@ -129,11 +129,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span id="source">发布时间：${news.newsTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${news.newsSource}</span>
 		<hr>
       </div>
-		<img src="upload/pic/${news.newsLink}" width="1004px" height="480px">
+		<img src="upload/pic/${news.newsLink}" >
 		<hr>
 		<p>${news.newsContent}</p>
 	 </c:if>
-	 </div>
+	<!--  </div> -->
 		<div class="footer">
 			<ul>
 				<li class="li_left">
@@ -154,6 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 				<!--footer end-->
+	</div>
 </div>
 
 	
