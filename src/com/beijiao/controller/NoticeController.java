@@ -4,13 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beijiao.model.Notice;
 import com.beijiao.service.NoticeService;
 
-
+@Controller
 @RequestMapping("/notice")
 public class NoticeController {
 
@@ -22,7 +23,7 @@ public class NoticeController {
 		Notice notice=noticeService.selectNotice(noticeId);
 		if(notice!=null){
 		model.addAttribute("notice", notice);
-			return "";
+			return "notice";
 		}else{
 			return "";
 		}
@@ -32,7 +33,7 @@ public class NoticeController {
 	public String toNotices(Model model){
 		List<Notice> notices=noticeService.selectListNotice();
 		model.addAttribute("notices", notices);
-		return "";
+		return "notice-list";
 	}
 	
 	@RequestMapping("addNotice")

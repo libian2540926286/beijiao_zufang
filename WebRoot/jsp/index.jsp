@@ -203,21 +203,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<div id="tab2">
 					<ul id="options">
-						<li class="on">媒体聚焦</li>
+						<li class="on">通知公告</li>
 						<li class="off">政策解读</li>
 						<!-- <li class="off">文件发布</li> -->
 					</ul>
 					<div id="firstPage" class="show">
 						<ul>
-						<c:forEach items="${hots}" var="hots">
+						<c:forEach items="${notices}" var="notices">
 						<li>
 							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="news/toNews?newsId=${hots.newsId}" title="">${hots.newsTitle}</a>
-							<span class="time">[${hots.newsTime}]</span>
+							<a href="notice/toNotice?noticeId=${notices.noticeId}" title="">${notices.noticeTitle}</a>
+							<span class="time">[${notices.noticeTime}]</span>
 						</li>
 						</c:forEach>
 					</ul>
-						<a class="more" href="news/tolistNews">更多>></a>
+						<a class="more" href="notice/toNotices">更多>></a>
 					</div>
 					<div id="secondPage" class="hide">
 						<ul>
@@ -241,6 +241,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<h1>热点关注</h1>
 			<div class="scroll1">
 				<ul>
+					<c:forEach items="${hots}" var="hots">
+						<li>
+							<img src="images/dian.png" width="5px" height="5px" alt="" />
+							<a href="news/toNews?newsId=${hots.newsId}" title="">${hots.newsTitle}</a>
+						</li>
+						</c:forEach>
+					<!--  
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz.html" title="">中共中央政治局会议建议党的十九大10月18日召开</a></li>
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
@@ -254,6 +261,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
 					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
+					-->
 				</ul>
 			</div>
 		</div>
@@ -292,7 +300,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		qyfc end -->
 		
 		<div class="cptg">
-			<h1>政策讨论</h1>
+			<h1>咨询答疑</h1>
 			<ul>
             <c:forEach items="${discussion}" var="discussion">
 			<li>
