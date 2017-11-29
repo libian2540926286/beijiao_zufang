@@ -22,6 +22,7 @@ import com.beijiao.dao.UserMapper;
 import com.beijiao.model.Discuss;
 import com.beijiao.model.File;
 import com.beijiao.model.News;
+import com.beijiao.model.Notice;
 import com.beijiao.model.PClass;
 import com.beijiao.model.PicPolicy;
 import com.beijiao.model.PolInterpre;
@@ -30,6 +31,7 @@ import com.beijiao.model.User;
 import com.beijiao.service.DiscussService;
 import com.beijiao.service.FileService;
 import com.beijiao.service.NewsService;
+import com.beijiao.service.NoticeService;
 import com.beijiao.service.PClassService;
 import com.beijiao.service.PicPolicyService;
 import com.beijiao.service.PolInterpreService;
@@ -62,6 +64,8 @@ public class LoginController {
 	private PClassService pclassService;
 	@Resource
 	private FileService fileService;
+	@Resource
+	private NoticeService noticeService; 
 	/*
 	 * test
 	 */
@@ -108,6 +112,11 @@ public class LoginController {
 		model.addAttribute("polInterpres",polInterpres);
 		//getNews
 		List<News> hot=newsService.selectListNews();
+		for(int i=0;i<hot.size();i++){
+			  if(hot.get(i).getNewsTitle().length()>17){
+				  hot.get(i).setNewsTitle(hot.get(i).getNewsTitle().substring(0, 20)+"...");
+			   }
+			}
 		List<News> hots=null;
 		if(hot.size()>10){
 		    hots=hot.subList(0, 9);
@@ -131,6 +140,9 @@ public class LoginController {
 		   }
 		}
 		model.addAttribute("files", files);
+		//notice
+		List<Notice> notices = noticeService.selectListNotice();
+		model.addAttribute("notices", notices);
 		return "index";
 	}
 	

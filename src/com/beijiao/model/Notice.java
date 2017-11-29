@@ -1,13 +1,15 @@
 package com.beijiao.model;
 
-import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Notice {
 
 	private int noticeId;
 	private String noticeTitle;
 	private String noticeContent;
-	private Date noticeTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String noticeTime;
 	public int getNoticeId() {
 		return noticeId;
 	}
@@ -26,10 +28,10 @@ public class Notice {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
-	public Date getNoticeTime() {
+	public String getNoticeTime() {
 		return noticeTime;
 	}
-	public void setNoticeTime(Date noticeTime) {
+	public void setNoticeTime(String noticeTime) {
 		this.noticeTime = noticeTime;
 	}
 	
