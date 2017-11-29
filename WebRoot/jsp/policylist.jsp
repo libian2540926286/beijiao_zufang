@@ -190,11 +190,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <span id="time">[${policys.polTime}]</span>
 		  </li>
 	  	</c:forEach>
-	  	 <!--  <li>
-		    <img src="images/dian.png" width="5px" height="5px"alt="" />
-		    <a href="" title="">办好热线事，搭起民心桥——国务院第四次大督查热线督查综述</a>
-		    <span id="time">[2017-10-09]</span>
-		  </li>  -->
 		</ul>
 	</div>
 	

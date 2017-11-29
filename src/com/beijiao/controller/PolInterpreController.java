@@ -153,6 +153,14 @@ public class PolInterpreController {
 	 * WebApp
 	 */	
 	
+	@RequestMapping("toAppPolInterpre")
+	public String selectAppPolInterpre(int polInterpreId,Model model){
+		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);
+		model.addAttribute("polInterpre", polInterpre);		
+		return "Webapp/";
+		
+	}
+	
 	@RequestMapping("allPolInterpreApp")
 	public String selectAllPolInterpreApp(Model model){
 		List<PolInterpre> polInterpres;

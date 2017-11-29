@@ -149,12 +149,14 @@ public class FileController {
 	/*
 	 * webApp
 	 */
-	@RequestMapping("toallFile")
+	@RequestMapping("toallFile_app")
 	public String toAllFile(Model model){
 		List<File> files=fileService.getAllFile_app();
 		model.addAttribute("files", files);
 		return "Webapp/";
 	}
+	
+
 	
 	@RequestMapping("tofile_app")
 	public String tofile_app(Model model,int fileId){

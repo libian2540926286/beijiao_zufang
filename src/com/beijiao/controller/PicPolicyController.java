@@ -108,4 +108,12 @@ public class PicPolicyController {
 		return "Webapp/";
 	}
 	
+	@RequestMapping("allpicPol_app")
+	public String getAllPicPol_app(Model model){
+		List<PicPolicy> picPols=picPolicyService.getFive();
+		model.addAttribute("picPols", picPols);
+		return "Webapp/";
+	}
+	
+	
 }

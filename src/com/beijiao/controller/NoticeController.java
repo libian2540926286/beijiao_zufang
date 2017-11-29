@@ -65,5 +65,25 @@ public class NoticeController {
 	         }
 	}
 	
-	  
+	/*
+	 * webApp  
+	 */
+	@RequestMapping("toNotice_app")
+	public String toNotice_app(int noticeId,Model model){
+		Notice notice=noticeService.selectNotice(noticeId);
+		if(notice!=null){
+		model.addAttribute("notice", notice);
+			return "";
+		}else{
+			return "";
+		}
+	}
+	
+	@RequestMapping("toNotices_app")
+	public String toNotices_app(Model model){
+		List<Notice> notices=noticeService.selectListNotice();
+		model.addAttribute("notices", notices);
+		return "";
+	}
+	
 }

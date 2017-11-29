@@ -111,21 +111,21 @@ public class DiscussController {
 	/*
 	 * WebApp
 	 */
-	@RequestMapping("toDiscuss")
+	@RequestMapping("toDiscuss_app")
 	public String toDiscuss(Model model,int discussId){
 		Discuss discuss=discussService.selectDiscuss(discussId);
 		model.addAttribute("discuss",discuss);
-		return "consult-list";
+		return "Webapp/-list";
 	}
 	
-	@RequestMapping("alldiscuss")
+	@RequestMapping("alldiscuss_app")
 	public String getAllDiscult(Model model){
 		List<Discuss> dis=discussService.selectListDiscuss_app();
 		model.addAttribute("dis", dis);
 		return "Webapp/";
 	}
 	
-	@RequestMapping("addDis")
+	@RequestMapping("addDis_app")
 	public String addDiscult(Discuss discuss){
 				
 		int n=discussService.insertDiscuss(discuss);

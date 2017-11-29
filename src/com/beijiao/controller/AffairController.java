@@ -65,7 +65,7 @@ public class AffairController {
 		}	
 	}
 	/** 
-	 * ɾ��˾
+	 * delete
 	 * */
 	@RequestMapping("deleteAffair")
 	public String deleteAffair(int affWorkId,Model model){
@@ -81,7 +81,7 @@ public class AffairController {
 	/*
 	 * WebApp
 	 */
-	@RequestMapping("getAffair")
+	@RequestMapping("getAffair_app")
 	public String toAffair(int affWorkId,Model model){
 		
 		AffairWork affair=affairService.selectWork(affWorkId);
@@ -91,7 +91,7 @@ public class AffairController {
 	
 	
 	
-	@RequestMapping("getAllAffair")
+	@RequestMapping("getAllAffair_app")
 	public ModelAndView toAllAffair(){
 		ModelAndView mac=new ModelAndView();
 		List<AffairWork> affairs1=affairService.selectAllWork(1);
