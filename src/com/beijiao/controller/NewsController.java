@@ -46,7 +46,9 @@ public class NewsController {
 	
     }
 	
-	/*��ѯ��������*/
+	/*
+	 * all news for Users
+	 * */
     @RequestMapping("tolistNews")
  public String selectListNews(String pageNow,Model model){
     	
@@ -110,8 +112,7 @@ public class NewsController {
        }
     
     
-    
-	/*��������*/
+  
     @RequestMapping("addNews")
     public String addNews(News news,MultipartFile file,HttpServletRequest request){
     	UpAndDownload upFile=new UpAndDownload();
@@ -124,7 +125,8 @@ public class NewsController {
     		return "login";
     	}
     }
-	/*ɾ������*/
+
+    
     @RequestMapping("deleteNews")
     public String deleteNews(int newsId){
     	int n=newsService.deleteNews(newsId);
@@ -134,7 +136,9 @@ public class NewsController {
     		return "login";
     	}
     }
-	/*�޸�����*/
+
+
+    
     @RequestMapping("updateNews")
     public String updateNews(String newsContent){
     	int n=newsService.changeNews(newsContent);
@@ -144,7 +148,8 @@ public class NewsController {
     		return "login";
     	}
     }
-    /*�����ȵ�����*/
+
+
     @RequestMapping("setHotNews")
     public String setHotNews(int a){
     	int n=newsService.setHot(a);
@@ -154,4 +159,23 @@ public class NewsController {
     		return "login";
     	}
     }
+    
+    /*
+     * WebApp
+     */
+    @RequestMapping("toAdminNews_app")
+    public String selecAppNews(int newsId,Model model){
+    	
+    	News news=newsService.selectNews(newsId);
+    	model.addAttribute("news",news);
+    	return "Webapp/";
+	
+    }
+    
+    @RequestMapping("appNews_app")
+    public String selectAppNews(Model model){
+       	List<News> news=newsService.selectListNews();	
+		model.addAttribute("news", news);
+       	return "Webapp/";	
+       }
 }
