@@ -160,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </form>
     </div>
    
-  	<div id="tab2" class="tabson">
+  	<div id="tab2" class="tabson2">
     
     
     <ul class="seachform">
