@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><a href="#">回复列表</a></li>
     </ul>
     </div>
-    <div id="tab1" class="">
+    <div id="tab1" class="tabson2">
       
     <span class="listStyle">已回复标题列表</span>    
     <table  class="tablelist">
@@ -154,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     </div>    
  
-    <div id="tab2" class="">
+    <div id="tab2" class="tabson2">
     <span class="listStyle">未回复标题列表</span>
     <table id="tab1" class="tablelist">
     	<thead>
