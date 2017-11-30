@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="content">
     <div class="list">
 			<div class="location">	
-				<span>位置 > 政策解读</span>
+				<span>位置 > 通知公告</span>
 			</div>
 
       <div class="file">
