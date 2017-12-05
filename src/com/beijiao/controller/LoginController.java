@@ -77,14 +77,34 @@ public class LoginController {
 		List<Policy> policy1=policyService.selectPolicyType("国家政策");
 		if(policy1.size()>8){
 			policy1.subList(0, 7);
+			for(int i=0;i<policy1.size();i++){
+				if(policy1.get(i).getPolTitle().length()>40){
+					policy1.get(i).setPolTitle(policy1.get(i).getPolTitle().substring(0, 39));
+				}
+		     }
 			model.addAttribute("policy1", policy1);
 		}else{
+			for(int i=0;i<policy1.size();i++){
+				if(policy1.get(i).getPolTitle().length()>40){
+					policy1.get(i).setPolTitle(policy1.get(i).getPolTitle().substring(0, 39));
+				}
+		     }
 			model.addAttribute("policy1", policy1);
 		}
 		
 		List<Policy> policy2=policyService.selectPolicyType("市级政策");
+		for(int i=0;i<policy2.size();i++){
+			if(policy2.get(i).getPolTitle().length()>40){
+				policy2.get(i).setPolTitle(policy2.get(i).getPolTitle().substring(0, 39));
+			}
+	     }
 		model.addAttribute("policy2", policy2);
 		List<Policy> policy3=policyService.selectPolicyType("地方政策");
+		for(int i=0;i<policy3.size();i++){
+			if(policy3.get(i).getPolTitle().length()>40){
+				policy3.get(i).setPolTitle(policy3.get(i).getPolTitle().substring(0, 39));
+			}
+	     }
 		model.addAttribute("policy3", policy3);
 		
 		/*
@@ -109,6 +129,11 @@ public class LoginController {
 		}else{
 			polInterpres=polInterpre;
 		}
+		for(int i=0;i<polInterpres.size();i++){
+			if(polInterpres.get(i).getPolInterpreTitle().length()>38){
+				polInterpres.get(i).setPolInterpreTitle(polInterpres.get(i).getPolInterpreTitle().substring(0, 37));
+			}
+	     }
 		model.addAttribute("polInterpres",polInterpres);
 		//getNews
 		List<News> hot=newsService.selectListNews();

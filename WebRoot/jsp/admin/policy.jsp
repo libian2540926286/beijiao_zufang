@@ -205,9 +205,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
         <th>政策标题</th>
         <th>政策来源</th>
-        <th>政策所属行业</th>
+        <!-- <th>政策所属行业</th>
         <th>政策等级</th>
-        <th>政策所属区域</th>
+        <th>政策所属区域</th> -->
         <th>发布时间</th>
         <th>操作</th>
         </tr>
@@ -219,11 +219,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>20130908</td>
         <td>${policys.polTitle}</td>
         <td>${policys.polSource}</td>
-        <td>${policys.pClassName}</td>
+        <%-- <td>${policys.pClassName}</td>
         <td>${policys.polDrade}</td>
-        <td>${policys.polArea}</td>
+        <td>${policys.polArea}</td> --%>
         <td>${policys.polTime}</td>
-        <td><a href="policy/adminPolicy?policyId=${policys.policyId}" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="policy/deletePolicy?policyId=${policys.policyId}" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr> 
       </c:forEach>  
      

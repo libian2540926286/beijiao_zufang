@@ -52,7 +52,7 @@ insert into polInterpre(polInterpreTitle,polInterpreAuthor,polInterpreContent,po
 </update>
 <!-- 删除政策 -->
 <delete id="deletePolInterpre" parameterType="int">
-delete * from polInterpre where polInterpreId=#{polInterpreId}
+delete from polInterpre where polInterpreId=#{polInterpreId}
 </delete>
 
 </mapper>

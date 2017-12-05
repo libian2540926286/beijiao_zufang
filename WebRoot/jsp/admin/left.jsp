@@ -80,8 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span><img src="jsp/admin/images/leftico01.png" /></span>媒体聚焦管理
     </div>
    	<ul class="menuson">      
-       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>
-       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">所有新闻</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/media.jsp" target="rightFrame">媒体聚焦上传</a><i></i></li>
+       <li><cite></cite><a href="news/toallNews" target="rightFrame">所有新闻</a><i></i></li>
     </ul>    
     </dd>
     
