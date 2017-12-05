@@ -131,7 +131,7 @@ public class NewsController {
     public String deleteNews(int newsId){
     	int n=newsService.deleteNews(newsId);
     	if(n!=0){
-    		return "forward:toListNews";
+    		return "forward:toallNews";
     	}else{
     		return "login";
     	}

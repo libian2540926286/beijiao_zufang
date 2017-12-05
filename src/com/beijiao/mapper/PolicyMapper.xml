@@ -92,7 +92,7 @@ insert into policy(polTitle,pClassName,polContent,polSource,polTime,polDrade,pol
 </update>
 <!-- 删除政策 -->
 <delete id="deletePolicy" parameterType="int">
-delete * from policy where policyId=#{policyId}
+delete from policy where policyId=#{policyId}
 </delete>
 
 

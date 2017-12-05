@@ -8,7 +8,7 @@ select * from picpolicy where picPolId=#{picPolId}
 </select>
 <!-- 查询所有政策 -->
 <select id="getFive"  resultMap="PicPolicylist">
-select * from picpolicy order by picPolId desc <!-- limit 10 -->
+select * from picpolicy order by picPolId desc limit 5
 </select>
 <select id="getAll" parameterType="java.util.Map" resultMap="PicPolicylist">
 select * from picpolicy order by picPolId desc limit #{startPos},#{pageSize}
@@ -39,7 +39,7 @@ insert into picpolicy(picPolTitle,picPolContent,picPolSource,picPolTime,picPolFi
 
 <!-- 删除政策 -->
 <delete id="deletePicPolicy" parameterType="int">
-delete * from picpolicy where picPolId=#{picPolId}
+delete from picpolicy where picPolId=#{picPolId}
 </delete>
 
 </mapper>

@@ -28,7 +28,7 @@ update notice set noticeTitle=#{noticeTitle},noticeContent=#{noticeContent} wher
 </update>
 <!-- 删除-->
 <delete id="deleteNotice" parameterType="int">
-delete * from notice where noticeId=#{noticeId}
+delete from notice where noticeId=#{noticeId}
 </delete>
 
 </mapper>

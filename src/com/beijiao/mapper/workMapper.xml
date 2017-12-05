@@ -30,7 +30,7 @@
 </update>
 
 <delete id="deleteWork" parameterType="int">
-delete * from work where affWorkId=#{affWorkId}
+delete from work where affWorkId=#{affWorkId}
 </delete>
 
 </mapper>

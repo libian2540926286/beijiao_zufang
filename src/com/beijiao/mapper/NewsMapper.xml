@@ -40,6 +40,6 @@ insert into news(newsTitle,newsAuthor,newsContent,newsSource,newsLink,newsTime) 
 </update>
 <!-- 删除新闻 -->
 <delete id="deleteNews" parameterType="int">
-delete * from news where newsId=#{newsId}
+delete from news where newsId=#{newsId}
 </delete>
 </mapper>

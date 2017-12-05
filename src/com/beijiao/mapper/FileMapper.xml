@@ -40,7 +40,7 @@
 	</resultMap> 
 	
 	<delete id="deleteFile" parameterType="int">
-	    delete * from file where fileId=#{fileId}
+	    delete from file where fileId=#{fileId}
 	</delete>
 	
 </mapper>
