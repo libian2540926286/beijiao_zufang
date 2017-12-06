@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%-- <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%> --%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="detail">
-    <c:if test="<%-- ${notices no empty} --%>">
+    <c:if test="${notices no empty}">
       <div class="title">
 		<p>${notices.noticeTitle}</p>
 		<span id="source">通知时间：${notices.noticeTime}</span>
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <div class="content">
 		<p>${notices.noticeContent}</p>
-		</div>
+	  </div>
 	  <br/><br/>
 	 </c:if>
 	 </div>

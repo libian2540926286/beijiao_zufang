@@ -213,7 +213,6 @@ public class PolicyController {
 	 * 
 	 */
 	
-	
 	/*
 	 * to see policy for admin
 	 * */
@@ -243,6 +242,11 @@ public class PolicyController {
     		map.put("pageSize", page.getPageSize());
     		policys=policyService.selectAllPolicy(map);
 		}
+		for(int i=0;i<policys.size();i++){
+			if(policys.get(i).getPolTitle().length()>40){
+				policys.get(i).setPolTitle(policys.get(i).getPolTitle().substring(0, 39));
+			}
+	     }
 		model.addAttribute("page", page);
 		model.addAttribute("policys", policys);		
 		return "admin/policy";
