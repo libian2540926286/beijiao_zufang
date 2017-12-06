@@ -223,7 +223,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${policys.polDrade}</td>
         <td>${policys.polArea}</td> --%>
         <td>${policys.polTime}</td>
-        <td><a href="policy/deletePolicy?policyId=${policys.policyId}" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="policy/adminPolicy?policyId=${policys.policyId}" class="tablelink">查看</a>     <a href="policy/deletePolicy?policyId=${policys.policyId}" class="tablelink"> 删除</a></td>
         </tr> 
       </c:forEach>  
      
