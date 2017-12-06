@@ -1,0 +1,102 @@
+/**************侧滑菜单*******************/
+.mui-off-canvas-left {
+	background: #DDDDDD;
+	width: 50%;
+}
+#sideBar #sideBar_title {
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	padding-top: 12px;
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	color: #007AFF;
+}
+#sideBar #sideBar_list {
+
+}
+#sideBar_list .mui-table-view-cell{
+	height: 60px;
+}
+#sideBar_list .mui-navigate-right{
+	margin: auto;
+}
+#sideBar_list .mui-table-view-cell .mui-active{
+	background-color: #007AFF;
+}
+
+
+/************主页框架**************/
+
+
+/**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
+#head #head_title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+/***********区域选择的下拉菜单*********/
+#nav_wrap {
+	width: 100%;
+}
+#nav_left_wrap {
+	width: 50%;
+	float: left;
+	color: #007AFF;
+	
+}
+#nav_left {
+	text-align: center;
+	font-size: 18px;
+	height: 35px;
+}
+#openPopover {
+	line-height: 2px;
+}
+#popover {
+	width: 250px;
+}
+#popover li{
+	text-align: center;
+	width: 230px;
+}
+
+/*********搜索框**********/
+#nav_wrap #search {
+	width: 50%;
+	float: right;
+	height: 35px;
+}
+
+/************图片政策轮播**********/
+#img_policy {
+	height: 200px;
+}
+
+/*************政策列表************/
+#policy_list {
+	/*height: 1000px;*/	/*不限制高度,根据列表数量自动调整高度*/
+}
+#policy_list .mui-media-body {
+/*	height: 100px;*/	/*不限制高度,根据列表信息量自动调整高度*/
+}
+#policy_list .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#policy_list .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+#policy_list .mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
+}
