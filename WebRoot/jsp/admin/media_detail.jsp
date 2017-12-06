@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="detail">
-    <c:if test="${news no empty}">
+    <c:if test="${news not empty}">
       <div class="title">
 		<p>${news.newsTitle}</p>
 		<span id="source">发布时间：${news.newsTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${news.newsSource}</span>

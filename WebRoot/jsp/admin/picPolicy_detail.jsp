@@ -45,14 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<hr>
       </div>
       <div class="content">
-      <img src="upload/pic/${picPol.picPolFile}" width="1004px" height="480px">
-      <p >${picPol.picPolContent}</p>      
+      <img src="${picPol.picPolFile}" width="1004px" height="480px">
+      <p>${picPol.picPolContent}</p>      
       </div>
 	<br/><br/>
     </c:if>
-       
-   
     </div>
-    
   </body>
 </html>

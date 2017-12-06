@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post"  action="file/upfile" enctype="multipart/form-data">
+    <form method="post"  action="notice/addNotice">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -74,15 +74,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtext">Hi，<b>admin</b>，欢迎您试用添加通知功能！</div>   
     <ul class="forminfo">
     <li><label>通知标题<b>*</b></label>
-    <input name="filename" type="text" class="dfinput" value="" placeholder="请填写文件标题"  style="width:518px;"/>
+    <input name="noticeTitle" type="text" class="dfinput" value="" placeholder="请填写公告标题"  style="width:518px;"/>
     </li>
     <li>
     <label>通知时间<b>*</b></label>    
-    <input name="filetime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    <input name="noticeTime" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <li>
      <label>公告内容<b>*</b></label>
-     <textarea id="content7" name="picPolContent" style="width:700px;height:250px;visibility:hidden;"></textarea>    
+     <textarea id="content7" name="noticeContent" style="width:700px;height:250px;visibility:hidden;"></textarea>    
      </li>
     <li>
     <label>&nbsp;</label>
@@ -115,10 +115,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="jsp/admin/images/px.gif" /></i></th>
         <th>通知标题</th>      
         <th>通知时间</th>
-        <th>公告内容</th>
         <th>操作</th>
         </tr>
         </thead>
@@ -126,12 +124,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <c:forEach items="${notices}" var="notices">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>${notices.noticeId}</td>
         <td>${notices.noticeTitle}</td>
-        <td>${notices.noticeTime}</td>
-        <td>${notices.noticeContent}</td>        
-        <td><a href="notice/toNotices?fileId=${notices.noticeId}" class="tablelink">查看</a>  
-           <a href="notice/deleteNotice?fileId=${notices.noticeId}" class="tablelink">删除</a></td>
+        <td>${notices.noticeTime}</td>       
+        <td><a href="notice/toAdminno?noticeId=${notices.noticeId}" class="tablelink">查看</a>  
+           <a href="notice/deleteNotice?noticeId=${notices.noticeId}" class="tablelink">删除</a></td>
         </tr> 
         </c:forEach>
     

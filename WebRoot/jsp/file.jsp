@@ -129,9 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="download">
       <p class="file-font">相关附件：</p>      
       <ul >
-      <li><a href="file/downfile?filename=${file.filename}">下载文件一</a></li>
-      <li><a href="file/downfile?filename=${file.filename}">下载文件二</a></li>
-      <li><a href="file/downfile?filename=${file.filename}">下载文件三</a></li>
+      <li><a href="file/downfile?filename=${file.filename}">文件下载：${file.filename}</a></li>
       </ul>
       </div>
 	<br/><br/>

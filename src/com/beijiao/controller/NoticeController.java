@@ -36,13 +36,32 @@ public class NoticeController {
 		return "notice-list";
 	}
 	
+	/*
+	 * for admin
+	 */
+	
+	
+	@RequestMapping("toadminNotice")
+	public String toadminNotice(Model model){
+		List<Notice> notices=noticeService.selectListNotice();
+		model.addAttribute("notices", notices);
+		return "admin/Notice";
+	}
+	
+	@RequestMapping("toAdminno")
+	public String toAdminno(int noticeId,Model model){
+		Notice notice=noticeService.selectNotice(noticeId);
+		model.addAttribute("notice", notice);
+			return "admin/Notice_detail";
+	}
+	
 	@RequestMapping("addNotice")
 	public String addNotice(Notice notice,Model model){
 		int n=noticeService.insertNotice(notice);
 		if(n!=0){
-		    return "";	 
+		    return "forward:toadminNotice";	 
 	    }else{
-	    	return "forward:";
+	    	return "forward:toadminNotice:";
 	         }
 	}	
 	
@@ -50,9 +69,9 @@ public class NoticeController {
 	public String changeNotice(Notice notice,Model model){
 		int n=noticeService.updateNotice(notice);
 		if(n!=0){
-		    return "";	 
+		    return "forward:toadminNotice";	 
 	    }else{
-	    	return "forward:";
+	    	return "forward:toadminNotice:";
 	         }
 	}
 	
@@ -60,9 +79,9 @@ public class NoticeController {
 	public String deleteNotice(int noticeId,Model model){
 		int n=noticeService.deleteNotice(noticeId);
 		if(n!=0){
-		    return "";	 
+		    return "forward:toadminNotice";	 
 	    }else{
-	    	return "forward:";
+	    	return "forward:toadminNotice:";
 	         }
 	}
 	
