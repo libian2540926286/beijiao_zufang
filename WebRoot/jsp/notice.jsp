@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'news.jsp' starting page</title>
+    <title>My JSP 'notice.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -128,8 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p>${notice.noticeTitle}</p>
 		<span id="source">发布时间：${notice.noticeTime}</span>
 		<hr>
-      </div>
-		<hr>
+      </div>		
 		<p>${notice.noticeContent}</p>
 	 </c:if>
 		<div class="footer">
