@@ -84,7 +84,7 @@ public class NewsController {
     	
     	News news=newsService.selectNews(newsId);
     	model.addAttribute("news",news);
-    	return "admin/news_detail";
+    	return "admin/media_detail";
 	
     }
     

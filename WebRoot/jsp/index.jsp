@@ -241,21 +241,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="news/toNews?newsId=${hots.newsId}" title="">${hots.newsTitle}</a>
 						</li>
 						</c:forEach>
-					<!--  
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz.html" title="">中共中央政治局会议建议党的十九大10月18日召开</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz.html" title="">中共中央政治局会议建议党的十九大10月18日召开</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz.html" title="">中共中央政治局会议建议党的十九大10月18日召开</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz.html" title="">中共中央政治局会议建议党的十九大10月18日召开</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz3.html" title="">李克强主持召开国务院常务会议</a></li>
-					<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-rdgz2.html" title="">工商总局明确国家法人库建设三年阶段性目标</a></li>
-					-->
 				</ul>
 			</div>
 		</div>
