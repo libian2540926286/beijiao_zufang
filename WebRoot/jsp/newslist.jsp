@@ -21,7 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-    <link href="css/module_style2.css" type="text/css" rel="stylesheet" />
+	<link href="css/module_style.css" type="text/css" rel="stylesheet" />
+   <!--  <link href="css/module_style2.css" type="text/css" rel="stylesheet" /> -->
     <script type="text/javascript" src="js/banner1.js"></script>
   </head>
   
@@ -123,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="content">
     <div class="list">
 			<div class="location">	
-				<span>位置 > 政策解读</span>
+				<span>位置 > 媒体聚焦</span>
 			</div>
 
       <div class="file">
