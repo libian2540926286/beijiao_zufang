@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li>
             <label>咨询内容</label>
-            <textarea  name="disContent" class="textinput" value="${unreply.disContent}" ></textarea>   
+            <textarea  name="disContent" class="textinput"  >${unreply.disContent}</textarea>   
             </li>
 			<li>
 			<label>咨询用户</label>
@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li> -->
 			<li>
 			<label>回复邮箱地址<b>*</b></label>
-			<input id="consultEmail" name="email" type="email" class="dfinput" value="${unreply.email}" />
+			<input id="consultEmail" name="email" type="text" class="dfinput" value="${unreply.email}" />
 			<i></i>
 			</li>
 			<li>
