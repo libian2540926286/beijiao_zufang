@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li> -->
 			<li>
 			<label>回复邮箱地址<b>*</b></label>
-			<input id="consultEmail" name="email" type="text" class="dfinput" value="${unreply.email}" />
+			<input id="consultEmail" name="email" type="email" class="dfinput" value="${unreply.email}" />
 			<i></i>
 			</li>
 			<li>
