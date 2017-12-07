@@ -178,7 +178,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${unreply.email}</td>
         <td>${unreply.disTime}</td>
         <td>
-        <a href="consult/addReplyAnswer" class="tablelink">点击回复</a>     
+        <a href="consult/addReply?discussId=${unreply.discussId}" class="tablelink">点击回复</a>     
         <a href="consult/deleteConsult?discussId=${unreply.discussId}" class="tablelink"> 删除</a>
         </td>
         </tr> 
