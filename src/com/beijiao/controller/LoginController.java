@@ -298,7 +298,7 @@ public class LoginController {
 	
 		List<Policy> policys=policyService.getLatestPolicy(polTime);
 		model.addAttribute("policys", policys);
-		List<Discuss> consults=discussService.selectUnReply();
+		List<Discuss> consults=discussService.selectListDiscussByUserId(user.getUserId());
 		model.addAttribute("consults", consults);
 		//List<Discuss> discuss=discussService.
 		model.addAttribute("user", user);

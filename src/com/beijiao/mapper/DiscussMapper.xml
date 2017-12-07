@@ -13,6 +13,11 @@
 <select id="selectAllDiscuss"  resultMap="Discusslist">
      select * from discuss order by discussId desc
 </select>
+
+<!-- userId查询回复 -->
+<select id="selectListDiscussByUserId" resultMap = "Discusslist">
+	select * from discuss where userId = #{userId}
+</select>
 <resultMap type="com.beijiao.model.Discuss" id="Discusslist">
         <id column="discussId" property="discussId"/>
         <result column="userId" property="userId"/>

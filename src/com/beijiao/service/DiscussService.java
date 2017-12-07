@@ -31,7 +31,7 @@ public interface DiscussService {
 	public List<Discuss> selectUnReply();
 	public boolean updateReplyContent(Discuss dicuss);
 	public Discuss selectunRepliedById(int dicussId);
-	
+	public List<Discuss> selectListDiscussByUserId(int userId);
 	/*
 	 * WebApp
 	 */
