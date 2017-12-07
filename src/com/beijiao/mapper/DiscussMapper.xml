@@ -13,6 +13,11 @@
 <select id="selectAllDiscuss"  resultMap="Discusslist">
      select * from discuss order by discussId desc
 </select>
+
+<!-- userId查询回复 -->
+<select id="selectListDiscussByUserId" resultMap = "Discusslist">
+	select * from discuss where userId = #{userId}
+</select>
 <resultMap type="com.beijiao.model.Discuss" id="Discusslist">
         <id column="discussId" property="discussId"/>
         <result column="userId" property="userId"/>
@@ -23,7 +28,7 @@
 </resultMap>
 <!-- 添加讨论 -->
 <insert id="insertDiscuss" parameterType="com.beijiao.model.Discuss">
-       insert into discuss(userId,disTitle,disContent,disTime) values(#{userId},#{disTitle},#{disContent},#{disTime})
+       insert into discuss(userId,disTitle,disContent,disTime,email) values(#{userId},#{disTitle},#{disContent},#{disTime},#{email})
 </insert>
 <!-- 添加回复 -->
 <insert id="insertReply" parameterType="com.beijiao.model.Discuss">

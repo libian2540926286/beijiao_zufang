@@ -95,4 +95,10 @@ public class DiscussServiceImpl implements DiscussService {
 		return discussDao.selectListDiscuss_app();
 	}
 
+	@Override
+	public List<Discuss> selectListDiscussByUserId(int userId) {
+		// TODO Auto-generated method stub
+		return discussDao.selectListDiscussByUserId(userId);
+	}
+
 }
