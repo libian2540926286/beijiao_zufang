@@ -29,10 +29,6 @@ public class AdminController {
 	@Resource
 	private UserService userService;
 	
-	@RequestMapping("test")
-	public String test(){
-		return "admin/main";
-	}
 	
 	@RequestMapping("login")
 	public String Login(String adminName,String adminPassword,Model model){
