@@ -25,7 +25,7 @@ public class AffairController {
 		
 		AffairWork affair=affairService.selectWork(affWorkId);
 		model.addAttribute("affair", affair);
-		return "Webapp/";
+		return "guide-detail";
 	}
 	
 	

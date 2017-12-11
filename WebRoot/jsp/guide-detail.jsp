@@ -21,7 +21,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	
+	<link href="css/guide-detail.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/guide.js"></script>
+	<script type="text/javascript" src="js/banner1.js"></script>
 
   </head>
   
@@ -155,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <br/>
     </div>
 
-    <div id="condition">
+    <!-- <div id="condition">
       <span>办理条件</span>
       <ul>
         <li>1.无</li>
@@ -171,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         </ul>
         <br/>
-      </div>
+      </div> -->
     </c:if>
 	</div>
 	
