@@ -6,7 +6,14 @@
 </select>
 
 <select id="selectAllWork" parameterType="int" resultMap="selectAll">
-   select * from work,affair where work.affairId=affair.affairId
+   select * from work where  work.affairId=#{workid}
+</select>
+<select id="selectAllAffair" parameterType="java.util.Map" resultMap="selectAll">
+   select * from work order by affWorkId desc limit #{startPos},#{pageSize}
+</select>
+  <!-- 查询记录的条数 -->
+<select id="getRecordCount" resultType="int">
+ select  count(*) from work 
 </select>
 <resultMap type="com.beijiao.model.AffairWork" id="selectAll">
    <id property="affWorkId" column="affWorkId"/>
@@ -23,7 +30,8 @@
 </resultMap>
 
 <insert id="insertWork" parameterType="com.beijiao.model.AffairWork" >
-
+insert into work(affairId,workName,depart,departRange,legal,place,timeRange,phone,reference,link) values(
+                       #{affairId},#{workName},#{depart},#{departRange},#{legal},#{place},#{timeRange},#{phone},#{reference},#{link}) 
 </insert>
 <update id="updatetWork" parameterType="com.beijiao.model.AffairWork">
 
