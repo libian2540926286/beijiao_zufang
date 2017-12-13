@@ -47,15 +47,15 @@ public class AffairServiceImpl implements AffairService {
 	}
 
 	@Override
-	public List<AffairWork> selectAll(Map map) {
-		// TODO Auto-generated method stub
-		return affairDao.selectAll(map);
-	}
-
-	@Override
 	public int getRecordCount() {
 		// TODO Auto-generated method stub
 		return affairDao.getRecordCount();
+	}
+
+	@Override
+	public List<AffairWork> selectAllAffair(Map map) {
+		// TODO Auto-generated method stub
+		return affairDao.selectAllAffair(map);
 	}
 
 }

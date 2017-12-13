@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.beijiao.model.AffairWork;
+import com.beijiao.model.File;
+import com.beijiao.model.Notice;
 import com.beijiao.page.Page;
 import com.beijiao.service.AffairService;
 
@@ -47,39 +49,44 @@ public class AffairController {
 		mac.setViewName("guide");
 		return mac;
 	}
-	
-	/*
-	 * admin
-	 */
+
 	@RequestMapping("toAdminAffair")
-	public String getAdminAffairList(Model model,String pageNow){
+	public String selectAdminAffair(int affWorkId,Model model){
 		
+		AffairWork affair=affairService.selectWork(affWorkId);
+		model.addAttribute("affair", affair);
+		return "admin/guide_detail";
+	}
+	
+	@RequestMapping("toadminAffair")
+	public String toadminNotice(Model model,String pageNow){
 		List<AffairWork> affairs;
-		Page page=null;
+		Page page = null;
 		int totalCount=affairService.getRecordCount();
 		Map<String, Integer> map=new HashMap<String, Integer>();
 		if(pageNow==null){
-			page = new Page(1,totalCount);
+			page=new Page(1, totalCount);
 			map.put("startPos", page.getStartPos());
-			map.put("pageSize", page.getPageSize());
-			affairs=affairService.selectAll(map);
+    		map.put("pageSize", page.getPageSize());
+    		affairs=affairService.selectAllAffair(map);
 		}else{
-			page = new Page(Integer.parseInt(pageNow),totalCount);
+			page=new Page(Integer.parseInt(pageNow), totalCount);
 			map.put("startPos", page.getStartPos());
-			map.put("pageSize", page.getPageSize());
-			affairs=affairService.selectAll(map);
+    		map.put("pageSize", page.getPageSize());
+    		affairs=affairService.selectAllAffair(map);
 		}
-		model.addAttribute("affairs", affairs);
+		model.addAttribute("page", page);
+		model.addAttribute("affair", affairs);
 		return "admin/guide";
 	}
-	
+
 	@RequestMapping("addAffair")
 	public String addAffair(AffairWork affair,Model model){
 		int n=affairService.insertWork(affair);
 		if(n!=0){
-			return "forward:toAdminAffair";
+			return "forward:toadminAffair";
 		}else{
-			return "forward:toAdminAffair";
+			return "forward:toadminAffair:";
 		}	
 	}
 

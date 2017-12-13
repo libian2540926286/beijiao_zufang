@@ -62,6 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li><cite></cite><a href="polInterpre/allPolInterpre" target="rightFrame">政策解读管理</a><i></i></li>
        <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li> 
        <li><cite></cite><a href="notice/toadminNotice" target="rightFrame">通知公告</a><i></i></li> 
+       <li><cite></cite><a href="affair/toadminAffair" target="rightFrame">申报指南</a><i></i></li> 
        </ul>    
     </dd>
      

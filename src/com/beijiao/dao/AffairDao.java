@@ -12,7 +12,7 @@ public interface AffairDao {
 	public int insertWork(AffairWork Work);
 	public int updateWork(AffairWork Work);
 	public int deleteWork(int affWorkId);
-	public List<AffairWork> selectAll(Map map);
+	public List<AffairWork> selectAllAffair(Map map);	
 	public int getRecordCount();
-	
+
 }

@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post"  action="notice/addNotice">
+    <form method="post"  action="affair/addAffair">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -78,24 +78,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul class="forminfo">
      <li><label>申报类型<b>*</b></label>
      <div class="vocation">
-     <select name="guideType" class="dfinputList" placeholder="请选择申报类型"  style="width:518px;">
-     <option >设立登记</option>
-     <option >经营许可</option>
-     <option >年检年审</option>
-     <option >项目申报</option>
+     <select name="affairId" class="dfinputList" placeholder="请选择申报类型"  style="width:518px;">
+     <option value="1">设立登记</option>
+     <option value="2">经营许可</option>
+     <option value="3">年检年审</option>
+     <option value="4">项目申报</option>
      </div>
      </select>
     </li>
-    <li><label>申报名称<b>*</b></label>
-    <input name="guideTitle" type="text" class="dfinput" value="" placeholder="请填写申报标题"  style="width:518px;"/>
+    <li><label>事项名称<b>*</b></label>
+    <input name="workName" type="text" class="dfinput" value="" placeholder="请填写事项名称"  style="width:518px;"/>
+    </li>
+    <li><label>法定实施主体<b>*</b></label>
+    <input name="depart" type="text" class="dfinput" value="" placeholder="请填写法定实施主体"  style="width:518px;"/>
+    </li>
+    <li><label>主体范围<b>*</b></label>
+    <input name="departRange" type="text" class="dfinput" value="" placeholder="请填写主体范围"  style="width:518px;"/>
+    </li>
+    <li><label>办事依据<b>*</b></label>
+    <input name="legal" type="text" class="dfinput" value="" placeholder="请填写办事依据"  style="width:518px;"/>
+    </li>
+    <li><label>办理地点<b>*</b></label>
+    <input name="place" type="text" class="dfinput" value="" placeholder="请填写办理地点"  style="width:518px;"/>
     </li>
     <li>
-    <label>申报时间<b>*</b></label>    
-    <input name="guideTime" type="date" class="dfinput" value=""  style="width:518px;"/>
+    <label>办公时间<b>*</b></label>    
+    <input name="timeRange" type="date" class="dfinput" value=""  style="width:518px;"/>
     </li>
     <li>
-     <label>申报内容<b>*</b></label>
-     <textarea id="content7" name="guideContent" style="width:700px;height:250px;visibility:hidden;"></textarea>    
+    <label>咨询电话<b>*</b></label>    
+    <input name="phone" type="tel" class="dfinput" value="" placeholder="请填写咨询电话"  style="width:518px;"/>
+    </li>
+     <li>
+    <label>申报链接<b>*</b></label>    
+    <input name="link" type="text" class="dfinput" value="" placeholder="请填写申报链接" style="width:518px;"/>
+    </li>
+    <li>
+     <label>收费依据和标准</label>
+     <textarea id="content7" name="reference" style="width:700px;height:250px;visibility:hidden;"></textarea>    
      </li>
     <li>
     <label>&nbsp;</label>
@@ -129,20 +149,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
         <th>申报类型</th>  
-        <th>申报名称</th>      
-        <th>申报时间</th>
+        <th>事项名称</th>  
+        <th>法定实施主体</th>
+        <th>主体范围</th>
+        <th>办事依据</th>
+        <th>办理地点</th>
+        <th>办公时间</th>
+        <th>咨询电话</th>
+        <th>申报链接</th>
+        <th>收费依据和标准</th>    
         <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${guides}" var="guides">
+        <c:forEach items="${affair}" var="affair">
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
-        <td>${notices.noticeType}</td>
-        <td>${notices.noticeTitle}</td>
-        <td>${notices.noticeTime}</td>       
-        <td><a href="notice/toAdminno?noticeId=${notices.noticeId}" class="tablelink">查看</a>  
-           <a href="notice/deleteNotice?noticeId=${notices.noticeId}" class="tablelink">删除</a></td>
+        <td>${affair.affairId}</td>
+        <td>${affair.workName}</td>
+        <td>${affair.depart}</td>
+        <td>${affair.departRange}</td>
+        <td>${affair.legal}</td>
+        <td>${affair.place}</td>
+        <td>${affair.timeRange}</td>
+        <td>${affair.phone}</td>
+        <td>${affair.link}</td>
+        <td>${affair.reference}</td>       
+        <td><a href="affair/toAdminAffair?affWorkId=${affair.affairId}" class="tablelink">查看</a>  
+           <a href="affair/deleteAffair?affWorkId=${affair.affairId}" class="tablelink">删除</a></td>
         </tr> 
         </c:forEach>
     
@@ -157,59 +191,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="paginList">
         <c:choose>
 	      <c:when test="${page.pageNow - 1 > 0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
 	      </c:when>
 	      <c:when test="${page.pageNow - 1 <= 0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"></a></li>
 	      </c:when>
 	     </c:choose>
         
-        <li class="paginItem current"><a href="file/allFile?pageNow=1">1</a></li>
+        <li class="paginItem current"><a href="affair/toadminAffair?pageNow=1">1</a></li>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount < 2}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">2</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=2">2</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">3</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=3">3</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">4</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=4">4</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">10</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=10">10</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>           
 	     <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>
         
@@ -217,10 +251,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}">尾页</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
