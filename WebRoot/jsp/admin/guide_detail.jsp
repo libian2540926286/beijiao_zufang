@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
+<%-- <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%> --%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link href="css/guide-detail.css" type="text/css" rel="stylesheet" />
 	<link href="jsp/admin/css/style.css" rel="stylesheet" type="text/css" />
 
   </head>
@@ -35,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>
     </div>
     
-    <div class="detail">
+ <%--    <div class="detail">
     <c:if test="${notices no empty}">
       <div class="title">
 		<p>${notices.noticeTitle}</p>
@@ -47,7 +48,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </div>
 	  <br/><br/>
 	 </c:if>
-   </div>
+   </div> --%>
+   
+  <div id="content2">
+  <c:if test="${not empty affair}">
+    <div id="title2">
+      <span>${affair.workName}</span>
+      <table border="1">
+        <tr>
+          <th>办理地点：</th>
+          <td>${affair.place}</td>
+          <th>办理时间：</th>
+          <td>${affair.timeRange}</td>
+          <th>承诺期限：</th>
+          <td>${affair.timeRange}</td>
+          <th>咨询电话：</th>
+          <td>${affair.phone}</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="introduce2">
+      <span>事项介绍</span>
+      <ul>
+        <li><span class="title">事项名称：</span><span class="content">${affair.workName}</span></li>
+        <li><span class="title">法定实施主体：</span><span class="content">${affair.depart}</span></li>        
+        <li><span class="title">主体范围：</span><span class="content">${affair.departRange} </span></li>
+        <li><span class="title">办事依据：</span><span class="content">${affair.legal}</span></li>
+        <li><span class="title">办理地点：</span><span class="content">${affair.place}</span></li>
+        <li><span class="title">办公时间：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">咨询电话：</span><span class="content">${affair.phone}</span></li>
+        <li><span class="title">法定期限：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">承诺期限：</span><span class="content">${affair.timeRange}</span></li>
+        <li><span class="title">收费依据和标准：</span><span class="content">${affair.reference}</span></li>
+        <li><span class="title">有效期限：</span><span class="content">${affair.timeRange} </span></li>
+      </ul>
+    </div>
+    </c:if>
+	</div>
    
   </body>
 </html>
