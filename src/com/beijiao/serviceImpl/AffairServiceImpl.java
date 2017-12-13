@@ -1,6 +1,7 @@
 package com.beijiao.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -43,6 +44,18 @@ public class AffairServiceImpl implements AffairService {
 	public int deleteWork(int affWorkId) {
 		// TODO Auto-generated method stub
 		return affairDao.deleteWork(affWorkId);
+	}
+
+	@Override
+	public List<AffairWork> selectAll(Map map) {
+		// TODO Auto-generated method stub
+		return affairDao.selectAll(map);
+	}
+
+	@Override
+	public int getRecordCount() {
+		// TODO Auto-generated method stub
+		return affairDao.getRecordCount();
 	}
 
 }
