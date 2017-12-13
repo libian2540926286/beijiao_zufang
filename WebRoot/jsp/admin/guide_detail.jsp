@@ -35,25 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <li><a href="#">查看申报指南</a></li>
     </ul>
     </div>
-    
- <%--    <div class="detail">
-    <c:if test="${notices no empty}">
-      <div class="title">
-		<p>${notices.noticeTitle}</p>
-		<span id="source">申报时间：${notices.noticeTime}</span>
-		<hr>
-      </div>
-      <div class="content">
-		<p>${notices.noticeContent}</p>
-	  </div>
-	  <br/><br/>
-	 </c:if>
-   </div> --%>
+   
    
   <div id="content2">
   <c:if test="${not empty affair}">
     <div id="title2">
-      <span>${affair.workName}</span>
+      <%-- <span>${affair.workName}</span> --%>
+      <span></span>
       <table border="1">
         <tr>
           <th>办理地点：</th>
@@ -71,17 +59,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="introduce2">
       <span>事项介绍</span>
       <ul>
-        <li><span class="title">事项名称：</span><span class="content">${affair.workName}</span></li>
-        <li><span class="title">法定实施主体：</span><span class="content">${affair.depart}</span></li>        
-        <li><span class="title">主体范围：</span><span class="content">${affair.departRange} </span></li>
-        <li><span class="title">办事依据：</span><span class="content">${affair.legal}</span></li>
-        <li><span class="title">办理地点：</span><span class="content">${affair.place}</span></li>
-        <li><span class="title">办公时间：</span><span class="content">${affair.timeRange}</span></li>
-        <li><span class="title">咨询电话：</span><span class="content">${affair.phone}</span></li>
-        <li><span class="title">法定期限：</span><span class="content">${affair.timeRange}</span></li>
-        <li><span class="title">承诺期限：</span><span class="content">${affair.timeRange}</span></li>
-        <li><span class="title">收费依据和标准：</span><span class="content">${affair.reference}</span></li>
-        <li><span class="title">有效期限：</span><span class="content">${affair.timeRange} </span></li>
+        <li><span class="title">事项名称：${affair.workName}</span></li>
+        <li><span class="title">法定实施主体：${affair.depart}</span></li>        
+        <li><span class="title">主体范围：${affair.departRange} </span></li>
+        <li><span class="title">办事依据：${affair.legal}</span></li>
+        <li><span class="title">办理地点：${affair.place}</span></li>
+        <li><span class="title">办公时间：${affair.timeRange}</span></li>
+        <li><span class="title">咨询电话：${affair.phone}</span></li>
+        <li><span class="title">法定期限：${affair.timeRange}</span></li>
+        <li><span class="title">承诺期限：${affair.timeRange}</span></li>
+        <li><span class="title">收费依据和标准：${affair.reference}</span></li>
+        <li><span class="title">有效期限：${affair.timeRange} </span></li>
       </ul>
     </div>
     </c:if>
