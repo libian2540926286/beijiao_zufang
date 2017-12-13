@@ -1,6 +1,8 @@
 package com.beijiao.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.beijiao.model.AffairWork;
+import com.beijiao.model.File;
+import com.beijiao.model.Notice;
+import com.beijiao.page.Page;
 import com.beijiao.service.AffairService;
 
 @Controller
@@ -45,13 +50,42 @@ public class AffairController {
 		return mac;
 	}
 	
+	@RequestMapping("toAdminAffair")
+	public String selectAdminAffair(int affWorkId,Model model){
+		
+		AffairWork affair=affairService.selectWork(affWorkId);
+		model.addAttribute("affair", affair);
+		return "admin/guide_detail";
+	}
+	
+	@RequestMapping("toadminAffair")
+	public String toadminNotice(Model model,String pageNow){
+		List<AffairWork> affairs;
+		Page page = null;
+		int totalCount=affairService.getRecordCount();
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		if(pageNow==null){
+			page=new Page(1, totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		affairs=affairService.selectAllAffair(map);
+		}else{
+			page=new Page(Integer.parseInt(pageNow), totalCount);
+			map.put("startPos", page.getStartPos());
+    		map.put("pageSize", page.getPageSize());
+    		affairs=affairService.selectAllAffair(map);
+		}
+		model.addAttribute("page", page);
+		model.addAttribute("affair", affairs);
+		return "admin/guide";
+	}
 	@RequestMapping("addAffair")
 	public String addAffair(AffairWork affair,Model model){
 		int n=affairService.insertWork(affair);
 		if(n!=0){
-			return "forward:";
+			return "forward:toadminAffair";
 		}else{
-			return "login";
+			return "forward:toadminAffair:";
 		}	
 	}
 

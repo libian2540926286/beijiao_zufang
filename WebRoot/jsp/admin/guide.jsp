@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="formbody">
-    <form method="post"  action="notice/addNotice">
+    <form method="post"  action="affair/addAffair">
     
     <div id="usual1" class="usual">    
     <div class="itab">
@@ -79,10 +79,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <li><label>申报类型<b>*</b></label>
      <div class="vocation">
      <select name="affairId" class="dfinputList" placeholder="请选择申报类型"  style="width:518px;">
-     <option >设立登记</option>
-     <option >经营许可</option>
-     <option >年检年审</option>
-     <option >项目申报</option>
+     <option value="1">设立登记</option>
+     <option value="2">经营许可</option>
+     <option value="3">年检年审</option>
+     <option value="4">项目申报</option>
      </div>
      </select>
     </li>
@@ -175,8 +175,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${affair.phone}</td>
         <td>${affair.link}</td>
         <td>${affair.reference}</td>       
-        <td><a href="notice/toAdminno?noticeId=${notices.noticeId}" class="tablelink">查看</a>  
-           <a href="notice/deleteNotice?noticeId=${notices.noticeId}" class="tablelink">删除</a></td>
+        <td><a href="affair/toAdminAffair?affWorkId=${affair.affairId}" class="tablelink">查看</a>  
+           <a href="affair/deleteAffair?affWorkId=${affair.affairId}" class="tablelink">删除</a></td>
         </tr> 
         </c:forEach>
     
@@ -191,59 +191,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="paginList">
         <c:choose>
 	      <c:when test="${page.pageNow - 1 > 0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
 	      </c:when>
 	      <c:when test="${page.pageNow - 1 <= 0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"></a></li>
 	      </c:when>
 	     </c:choose>
         
-        <li class="paginItem current"><a href="file/allFile?pageNow=1">1</a></li>
+        <li class="paginItem current"><a href="affair/toadminAffair?pageNow=1">1</a></li>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount < 2}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">2</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=2">2</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">3</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=3">3</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">4</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=4">4</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=1">10</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=10">10</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>           
 	     <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>
         
@@ -251,10 +251,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageNow}"><span class="pagenxt">尾页</span></a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="file/allFile?pageNow=${page.pageTotalCount}">尾页</a></li>
+	      <li class="paginItem"><a href="affair/toadminAffair?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
