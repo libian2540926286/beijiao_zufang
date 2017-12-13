@@ -49,7 +49,7 @@ public class AffairController {
 		mac.setViewName("guide");
 		return mac;
 	}
-	
+
 	@RequestMapping("toAdminAffair")
 	public String selectAdminAffair(int affWorkId,Model model){
 		
@@ -79,6 +79,7 @@ public class AffairController {
 		model.addAttribute("affair", affairs);
 		return "admin/guide";
 	}
+
 	@RequestMapping("addAffair")
 	public String addAffair(AffairWork affair,Model model){
 		int n=affairService.insertWork(affair);
@@ -93,11 +94,12 @@ public class AffairController {
 	public String updateAffair(AffairWork affair,Model model){
 		int n=affairService.updateWork(affair);
 		if(n!=0){
-			return "forward:";
+			return "forward:toAdminAffair:";
 		}else{
-			return "login";
+			return "forward:toAdminAffair";
 		}	
 	}
+	
 	/** 
 	 * delete
 	 * */
@@ -105,9 +107,9 @@ public class AffairController {
 	public String deleteAffair(int affWorkId,Model model){
 		int n=affairService.deleteWork(affWorkId);
 		if(n!=0){
-			return "success";
+			return "forward:toAdminAffair";
 		}else{
-			return "login";
+			return "forward:toAdminAffair";
 		}	
 	}	
 	

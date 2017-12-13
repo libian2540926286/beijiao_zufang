@@ -14,4 +14,5 @@ public interface AffairDao {
 	public int deleteWork(int affWorkId);
 	public List<AffairWork> selectAllAffair(Map map);	
 	public int getRecordCount();
+
 }
