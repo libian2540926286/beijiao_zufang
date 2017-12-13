@@ -144,20 +144,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </ul>
     
     
-    <table class="tablelist">
+    <table class="tablelist" style={TABLE-LAYOUT:fixed}>
     	<thead>
-    	<tr>
+    	<tr >
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>申报类型</th>  
-        <th>事项名称</th>  
-        <th>法定实施主体</th>
-        <th>主体范围</th>
-        <th>办事依据</th>
-        <th>办理地点</th>
-        <th>办公时间</th>
-        <th>咨询电话</th>
-        <th>申报链接</th>
-        <th>收费依据和标准</th>    
+        <th width="8%">申报类型</th>  
+        <th width="8%">事项名称</th>  
+        <th width="8%">法定实施主体</th>
+        <th width="8%">主体范围</th>
+        <th width="8%">办事依据</th>
+        <th width="8%">办理地点</th>
+        <th width="8%">办公时间</th>
+        <th width="8%">咨询电话</th>
+        <th width="15%">申报链接</th>
+        <th width="10%">收费依据和标准</th>    
         <th>操作</th>
         </tr>
         </thead>
@@ -173,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <td>${affair.place}</td>
         <td>${affair.timeRange}</td>
         <td>${affair.phone}</td>
-        <td>${affair.link}</td>
+        <td class="link">${affair.link}</td>
         <td>${affair.reference}</td>       
         <td><a href="affair/toAdminAffair?affWorkId=${affair.affairId}" class="tablelink">查看</a>  
            <a href="affair/deleteAffair?affWorkId=${affair.affairId}" class="tablelink">删除</a></td>
