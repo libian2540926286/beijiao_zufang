@@ -19,6 +19,7 @@ import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.File;
@@ -149,20 +150,21 @@ public class FileController {
 	/*
 	 * webApp
 	 */
+	@ResponseBody
 	@RequestMapping("toallFile_app")
-	public String toAllFile(Model model){
+	public List<File> toAllFile(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<File> files=fileService.getAllFile_app();
-		model.addAttribute("files", files);
-		return "Webapp/";
+		return files;
 	}
 	
 
-	
+	@ResponseBody
 	@RequestMapping("tofile_app")
-	public String tofile_app(Model model,int fileId){
+	public File tofile_app(HttpServletRequest request, HttpServletResponse response,int fileId){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		File file=fileService.getFile(fileId);
-		model.addAttribute("file", file);
-		return "Webapp/";
+		return file;
 	}
 	
 }
