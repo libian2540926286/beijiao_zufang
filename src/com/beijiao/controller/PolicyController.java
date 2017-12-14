@@ -308,8 +308,10 @@ public class PolicyController {
 	@ResponseBody 
 	@RequestMapping("app_allPolicy")
 	public List<Policy> app_allPolicy(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("测试");
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<Policy> policys=policyService.selectAllPolicy_app();
+		System.out.println(policys);
 		return policys;
 	}
 	
