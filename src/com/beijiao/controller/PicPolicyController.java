@@ -6,11 +6,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.PicPolicy;
@@ -101,18 +103,25 @@ public class PicPolicyController {
 	/*
 	 * WebApp
 	 */	
+	/*
+	 * app页面图片政策
+	 */
+	@ResponseBody 
 	@RequestMapping("getPicPol_app")
-	public String getPicPol_app(int picPolId,Model model){
+	public PicPolicy getPicPol_app(int picPolId,HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
-		model.addAttribute("picPol", picPol);
-		return "Webapp/";
+		return picPol;
 	}
-	
+    /*
+     * 图片政策详细内容
+     */
+	@ResponseBody 
 	@RequestMapping("allpicPol_app")
-	public String getAllPicPol_app(Model model){
+	public List<PicPolicy>  getAllPicPol_app(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<PicPolicy> picPols=picPolicyService.getFive();
-		model.addAttribute("picPols", picPols);
-		return "Webapp/";
+		return picPols;
 	}
 	
 	

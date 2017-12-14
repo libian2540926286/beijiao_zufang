@@ -253,7 +253,8 @@ public class LoginController {
 			return mac;
 		}
 		
-	}*/
+	}*
+	/
 	/**
 	 * changePawd
 	 */
@@ -304,6 +305,7 @@ public class LoginController {
 		model.addAttribute("user", user);
 		return "personal";
 	}
+	
 	
 	
 }

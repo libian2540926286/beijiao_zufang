@@ -305,19 +305,21 @@ public class PolicyController {
 	/*
 	 * 所有政策
 	 */
+	@ResponseBody 
 	@RequestMapping("app_allPolicy")
-	public String app_allPolicy(Model model){
-		
+	public List<Policy> app_allPolicy(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<Policy> policys=policyService.selectAllPolicy_app();
-		model.addAttribute("policys", policys);
-		return "webapp/";
+		return policys;
 	}
 	
 	/*
 	 * 所有等级政策
 	 */
+	@ResponseBody 
 	@RequestMapping("app_dradePolicy")
-	public String app_dradePolicy(Model model,String polDrade){
+	public List<Policy> app_dradePolicy(HttpServletRequest request, HttpServletResponse response,String polDrade){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		String polDrade1=null;
 		try {
 			polDrade1 = new String(polDrade.getBytes("iso-8859-1"),"utf-8");
@@ -326,15 +328,16 @@ public class PolicyController {
 			e.printStackTrace();
 		}
 		List<Policy> policys=policyService.selectPolicyType_app(polDrade1);
-		model.addAttribute("policys", policys);
-		return "webapp/";
+		return policys;
 	}
 	
 	/*
 	 * 所有行业政策
 	 */
+	@ResponseBody 
 	@RequestMapping("app_IndustryPolicy")
-	public String app_IndustryPolicy(Model model,String pClassName){
+	public List<Policy> app_IndustryPolicy(HttpServletRequest request, HttpServletResponse response,String pClassName){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		String pClassName1=null;
 		try {
 			pClassName1 = new String(pClassName.getBytes("iso-8859-1"),"utf-8");
@@ -343,41 +346,57 @@ public class PolicyController {
 			e.printStackTrace();
 		}
 		List<Policy> policys=policyService.searchIndustryPlocy_app(pClassName1);
-		model.addAttribute("policys", policys);
-		return "webapp/";
+		return policys;
 	}
 	
 	/*
 	 * 政策查询
 	 */
+	@ResponseBody 
 	@RequestMapping("app_searchPolicy")
-	public String app_searchPolicy(Model model,String search){	
+	public List<Policy> app_searchPolicy(HttpServletRequest request, HttpServletResponse response,String search){	
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<Policy> policys=policyService.searchPolicy_app(search);
-		model.addAttribute("policys", policys);
-		return "webapp/";
+		return policys;
 	}
 	
 	/*
 	 * 最新政策
 	 */
+	@ResponseBody 
 	@RequestMapping("app_LatestPolicy")
-	public String app_LatestPolicy(Model model){
+	public List<Policy> app_LatestPolicy(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		Date date = new Date(); 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String polTime = dateFormat.format(date);
 		List<Policy> policys=policyService.getLatestPolicy_app(polTime);
-		model.addAttribute("policys", policys);
-		return "webapp/";
+		return policys;
 	}
 	
 	/*
-	 * 政策查询
+	 * 政策详细
 	 */
+	@ResponseBody 
 	@RequestMapping("app_toPolicy")
-	public String app_searchPolicy(Model model,int policyId){	
+	public Policy app_searchPolicy(HttpServletRequest request, HttpServletResponse response,int policyId){	
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		Policy policy=policyService.selectPolicy(policyId);
-		model.addAttribute("policy", policy);
-		return "webapp/";
+		return policy;
+	}
+	
+	/*
+	 * 推送用户关注的政策
+	 */
+	@ResponseBody 
+	@RequestMapping("app_userPolicy")
+	public List<Policy> app_userPolicy(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String polTime = dateFormat.format(date);
+		List<Policy> policys=policyService.getLatestPolicy_app(polTime);
+		return policys;
 	}
 	
 }

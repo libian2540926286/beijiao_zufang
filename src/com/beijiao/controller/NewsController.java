@@ -9,10 +9,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.News;
@@ -163,19 +165,19 @@ public class NewsController {
     /*
      * WebApp
      */
+    @ResponseBody 
     @RequestMapping("toAdminNews_app")
-    public String selecAppNews(int newsId,Model model){
-    	
+    public News selecAppNews(int newsId,HttpServletRequest request, HttpServletResponse response){
+    	response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
     	News news=newsService.selectNews(newsId);
-    	model.addAttribute("news",news);
-    	return "Webapp/";
+    	return news;
 	
     }
-    
+    @ResponseBody  
     @RequestMapping("appNews_app")
-    public String selectAppNews(Model model){
+    public List<News> selectAppNews(HttpServletRequest request, HttpServletResponse response){
+    	response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
        	List<News> news=newsService.selectListNews();	
-		model.addAttribute("news", news);
-       	return "Webapp/";	
+       	return news;	
        }
 }

@@ -6,11 +6,14 @@ package com.beijiao.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.beijiao.model.Discuss;
 import com.beijiao.model.Reply;
@@ -111,23 +114,35 @@ public class DiscussController {
 	/*
 	 * WebApp
 	 */
+	@ResponseBody
 	@RequestMapping("toDiscuss_app")
-	public String toDiscuss(Model model,int discussId){
+	public Discuss toDiscuss(HttpServletRequest request, HttpServletResponse response,int discussId){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		Discuss discuss=discussService.selectDiscuss(discussId);
-		model.addAttribute("discuss",discuss);
-		return "Webapp/-list";
+		return discuss;
 	}
 	
+	@ResponseBody
 	@RequestMapping("alldiscuss_app")
-	public String getAllDiscult(Model model){
+	public List<Discuss> getAllDiscult(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<Discuss> dis=discussService.selectListDiscuss_app();
-		model.addAttribute("dis", dis);
-		return "Webapp/";
+		return dis;
 	}
 	
+	@ResponseBody
+	@RequestMapping("userdiscuss_app")
+	public List<Discuss> getUserDiscult(String user,HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		int userId = Integer.parseInt(user);
+		List<Discuss> consults=discussService.selectListDiscussByUserId(userId);
+		return consults;
+	}
+	
+	@ResponseBody
 	@RequestMapping("addDis_app")
-	public String addDiscult(Discuss discuss){
-				
+	public String addDiscult(Discuss discuss,HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		int n=discussService.insertDiscuss(discuss);
 		if(n!=0){
 			return "redirect:/consult/alldiscuss";

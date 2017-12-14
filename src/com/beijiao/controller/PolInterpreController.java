@@ -9,10 +9,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.beijiao.model.File;
 import com.beijiao.model.PolInterpre;
@@ -152,21 +154,26 @@ public class PolInterpreController {
 	/*
 	 * WebApp
 	 */	
-	
+	/*
+	 * 政策解读详细
+	 */
+	@ResponseBody 
 	@RequestMapping("toAppPolInterpre")
-	public String selectAppPolInterpre(int polInterpreId,Model model){
-		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);
-		model.addAttribute("polInterpre", polInterpre);		
-		return "Webapp/";
+	public PolInterpre selectAppPolInterpre(int polInterpreId,HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);	
+		return polInterpre;
 		
 	}
 	
+	/*
+	 * 所有政策解读
+	 */
+	@ResponseBody 
 	@RequestMapping("allPolInterpreApp")
-	public String selectAllPolInterpreApp(Model model){
-		List<PolInterpre> polInterpres;
-		Map<String, Integer> map=new HashMap<String, Integer>();
-		polInterpres=polInterpreService.selectListPolInterpre();
-		model.addAttribute("polInterpres", polInterpres);		
-		return "Webapp/test2";
+	public List<PolInterpre> selectAllPolInterpreApp(HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		List<PolInterpre> polInterpres=polInterpreService.selectListPolInterpre();	
+		return polInterpres;
 	}
 }
