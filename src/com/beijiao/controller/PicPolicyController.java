@@ -108,9 +108,9 @@ public class PicPolicyController {
 	 */
 	@ResponseBody 
 	@RequestMapping("getPicPol_app")
-	public PicPolicy getPicPol_app(int picPolId,HttpServletRequest request, HttpServletResponse response){
+	public PicPolicy getPicPol_app(String picPolId,HttpServletRequest request, HttpServletResponse response){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
+		PicPolicy picPol=picPolicyService.getPicPolicy(Integer.parseInt(picPolId));
 		return picPol;
 	}
     /*

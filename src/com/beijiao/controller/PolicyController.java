@@ -311,7 +311,7 @@ public class PolicyController {
 		System.out.println("测试");
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		List<Policy> policys=policyService.selectAllPolicy_app();
-		System.out.println(policys);
+		//System.out.println(policys);
 		return policys;
 	}
 	
@@ -381,9 +381,10 @@ public class PolicyController {
 	 */
 	@ResponseBody 
 	@RequestMapping("app_toPolicy")
-	public Policy app_searchPolicy(HttpServletRequest request, HttpServletResponse response,int policyId){	
+	public Policy app_toPolicy(HttpServletRequest request, HttpServletResponse response,String policyId){	
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		Policy policy=policyService.selectPolicy(policyId);
+		Policy policy=policyService.selectPolicy(Integer.parseInt(policyId));
+		System.out.println("测试");
 		return policy;
 	}
 	
