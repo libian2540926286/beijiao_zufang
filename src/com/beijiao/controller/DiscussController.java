@@ -3,6 +3,8 @@
  */
 package com.beijiao.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -47,7 +49,11 @@ public class DiscussController {
 	
 	@RequestMapping("addConsult")
 	public String addDiscuss(Discuss discuss){
-				
+		
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String disTime = dateFormat.format(date);
+		discuss.setDisTime(disTime);
 		int n=discussService.insertDiscuss(discuss);
 		if(n!=0){
 			return "redirect:/consult/getallconsult";
@@ -143,11 +149,16 @@ public class DiscussController {
 	@RequestMapping("addDis_app")
 	public String addDiscult(Discuss discuss,HttpServletRequest request, HttpServletResponse response){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		System.out.println(discuss);
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String disTime = dateFormat.format(date);
+		discuss.setDisTime(disTime);
 		int n=discussService.insertDiscuss(discuss);
 		if(n!=0){
-			return "redirect:/consult/alldiscuss";
+			return "success";
 		}else{
-			return "login";
+			return "fail";
 		}	
 	}
 }
