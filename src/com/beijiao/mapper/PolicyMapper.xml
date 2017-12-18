@@ -78,7 +78,7 @@ select * from policy where pClassName=#{pClassName} order by policyId desc limit
 </select>
 
 <select id="getLatestPolicy" parameterType="String" resultMap="policyList">
-    select * from policy where polTime=#{polTime}
+    select * from policy where polTime=#{polTime} and pClassName=#{pClassName}
 </select>
 
 <!-- 添加政策 -->
@@ -125,9 +125,4 @@ select * from policy where pClassName=#{pClassName} order by policyId desc
             </if> 
             order by policyId desc 
 </select>
-
-<select id="getLatestPolicy_app" parameterType="String" resultMap="policyList">
-    select * from policy where polTime=#{polTime}
-</select>
-
 </mapper>

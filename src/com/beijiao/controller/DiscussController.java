@@ -136,14 +136,7 @@ public class DiscussController {
 		return dis;
 	}
 	
-	@ResponseBody
-	@RequestMapping("userdiscuss_app")
-	public List<Discuss> getUserDiscult(String user,HttpServletRequest request, HttpServletResponse response){
-		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		int userId = Integer.parseInt(user);
-		List<Discuss> consults=discussService.selectListDiscussByUserId(userId);
-		return consults;
-	}
+	
 	
 	@ResponseBody
 	@RequestMapping("addDis_app")

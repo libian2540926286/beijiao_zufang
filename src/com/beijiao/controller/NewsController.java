@@ -167,9 +167,9 @@ public class NewsController {
      */
     @ResponseBody 
     @RequestMapping("media_app")
-    public News selecAppNews(int newsId,HttpServletRequest request, HttpServletResponse response){
+    public News selecAppNews(String newsId,HttpServletRequest request, HttpServletResponse response){
     	response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-    	News news=newsService.selectNews(newsId);
+    	News news=newsService.selectNews(Integer.parseInt(newsId));
     	return news;
 	
     }

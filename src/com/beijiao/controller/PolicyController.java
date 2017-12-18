@@ -308,8 +308,8 @@ public class PolicyController {
 	@ResponseBody 
 	@RequestMapping("app_allPolicy")
 	public List<Policy> app_allPolicy(HttpServletRequest request, HttpServletResponse response){
-		System.out.println("测试");
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		System.out.println("测试");
 		List<Policy> policys=policyService.selectAllPolicy_app();
 		//System.out.println(policys);
 		return policys;
@@ -362,19 +362,6 @@ public class PolicyController {
 		return policys;
 	}
 	
-	/*
-	 * 最新政策
-	 */
-	@ResponseBody 
-	@RequestMapping("app_LatestPolicy")
-	public List<Policy> app_LatestPolicy(HttpServletRequest request, HttpServletResponse response){
-		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		Date date = new Date(); 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String polTime = dateFormat.format(date);
-		List<Policy> policys=policyService.getLatestPolicy_app(polTime);
-		return policys;
-	}
 	
 	/*
 	 * 政策详细
@@ -388,18 +375,5 @@ public class PolicyController {
 		return policy;
 	}
 	
-	/*
-	 * 推送用户关注的政策
-	 */
-	@ResponseBody 
-	@RequestMapping("app_userPolicy")
-	public List<Policy> app_userPolicy(HttpServletRequest request, HttpServletResponse response){
-		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		Date date = new Date(); 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String polTime = dateFormat.format(date);
-		List<Policy> policys=policyService.getLatestPolicy_app(polTime);
-		return policys;
-	}
 	
 }

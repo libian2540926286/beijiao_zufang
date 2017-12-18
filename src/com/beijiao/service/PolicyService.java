@@ -31,7 +31,7 @@ public interface PolicyService {
 	public List<Policy> searchIndustryPlocy(String  pClassName,Integer startPos,Integer pageSize);
 	public int getRecordCountIndustryPlocy(String pClassName);
 	public int getRecordCount();
-	public List<Policy> getLatestPolicy(String polTime);
+	public List<Policy> getLatestPolicy(String polTime,String pClassName);
 	/*
 	 * addPolicy
 	 */
@@ -52,5 +52,4 @@ public interface PolicyService {
 	public List<Policy> selectPolicyArea_app(String area);
 	public List<Policy> searchIndustryPlocy_app(String pClassName);
 	public List<Policy> searchPolicy_app(String search);
-	public List<Policy> getLatestPolicy_app(String polTime);
 }

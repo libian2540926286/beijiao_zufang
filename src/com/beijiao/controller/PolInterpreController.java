@@ -159,9 +159,10 @@ public class PolInterpreController {
 	 */
 	@ResponseBody 
 	@RequestMapping("toAppPolInterpre")
-	public PolInterpre selectAppPolInterpre(int polInterpreId,HttpServletRequest request, HttpServletResponse response){
+	public PolInterpre selectAppPolInterpre(String polInterpreId,HttpServletRequest request, HttpServletResponse response){
+		System.out.println(polInterpreId);
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		PolInterpre polInterpre=polInterpreService.selectPolInterpre(polInterpreId);	
+		PolInterpre polInterpre=polInterpreService.selectPolInterpre(Integer.parseInt(polInterpreId));	
 		return polInterpre;
 		
 	}

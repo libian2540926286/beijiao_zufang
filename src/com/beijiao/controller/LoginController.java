@@ -1,6 +1,4 @@
-
 package com.beijiao.controller;
-
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -297,7 +295,7 @@ public class LoginController {
 		String polTime = dateFormat.format(date); 
 		System.out.println(polTime+"当前时间");
 	
-		List<Policy> policys=policyService.getLatestPolicy(polTime);
+		List<Policy> policys=policyService.getLatestPolicy(polTime,user.getpClassName());
 		model.addAttribute("policys", policys);
 		List<Discuss> consults=discussService.selectListDiscussByUserId(user.getUserId());
 		model.addAttribute("consults", consults);
