@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(Map map) {
 		// TODO Auto-generated method stub
-		System.out.println(map+" UserServiceImpl");
+		//System.out.println(map+" UserServiceImpl");
 		return userMapper.checkUser(map);
 	}
 	/* (non-Javadoc)

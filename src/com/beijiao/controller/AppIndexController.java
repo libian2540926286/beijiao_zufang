@@ -1,18 +1,29 @@
+
+
 package com.beijiao.controller;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
+import javax.xml.ws.spi.http.HttpContext;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.beijiao.model.Discuss;
+import com.beijiao.model.Policy;
 import com.beijiao.model.User;
 import com.beijiao.service.DiscussService;
 import com.beijiao.service.FileService;
@@ -48,6 +59,7 @@ public class AppIndexController {
 	@Resource
 	private NoticeService noticeService;
 	
+	
 	@RequestMapping("toApp")
 	public String toIndex(Model model){
 		
@@ -69,18 +81,48 @@ public class AppIndexController {
 	 */
 	@ResponseBody 
 	@RequestMapping("app_login")
-	public String login(HttpSession session,User user,HttpServletRequest request, HttpServletResponse response){
-		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+	public User login(HttpSession sessions,User user,HttpServletRequest request, HttpServletResponse response){
+		response.setContentType("textml;charset=UTF-8");
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "0");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,userId,token");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("XDomainRequestAllowed","1");
+		System.out.println("test");
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("username1",user.getUsername());
 		map.put("password",user.getPassword());	
-		System.out.println(map);
 		User users=userService.login(map);
-		if(users!=null){	
-			session.setAttribute("session", users);
-			return "success";
+		System.out.println(users.getpClassName()+"test");
+		sessions.setAttribute("session_app", users);
+		//User test=(User)sessions.getAttribute("session_app");
+		//System.out.println(test.getpClassName()+"session成功");
+		return users;
+	}
+	
+	
+	@SuppressWarnings("unused")
+	@ResponseBody 
+	@RequestMapping("confirm_session")
+	public Map<String, String> confirm_session(HttpSession sessions,HttpServletRequest request, HttpServletResponse response){
+		response.setContentType("textml;charset=UTF-8");
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "0");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,userId,token");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("XDomainRequestAllowed","1");
+		User user;
+		user = (User) sessions.getAttribute("session_app");
+		System.out.println(user.getpClassName()+"测试1");
+		Map<String, String> map = new HashMap<String, String>();
+		if(user!=null){
+			map.put("user",String.valueOf(user.getUserId()));
+		    return map;
 		}else{
-			return "fail";
+			map.put("user", "confirm_session_fail");
+			return map;
 		}
 	}
 			
@@ -107,4 +149,37 @@ public class AppIndexController {
 			return "fail";
 		}
 	}
+	
+	/*
+	 * 推送用户关注的政策
+	 */
+	@ResponseBody 
+	@RequestMapping("app_userPolicy")
+	public List<Policy> app_userPolicy(HttpSession sessions,HttpServletRequest request, HttpServletResponse response){
+		response.setContentType("textml;charset=UTF-8");
+		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "0");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,userId,token");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("XDomainRequestAllowed","1");
+		Date date = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String polTime = dateFormat.format(date);
+		User user;                  
+		user = (User) sessions.getAttribute("session_app");
+		System.out.println(sessions.getAttribute("session_app"));
+		List<Policy> policys=policyService.getLatestPolicy(polTime,user.getpClassName());
+		return policys;
+	}
+	
+	@ResponseBody
+	@RequestMapping("userdiscuss_app")
+	public List<Discuss> getUserDiscult(String id,HttpServletRequest request, HttpServletResponse response){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		int userId = Integer.parseInt(id);
+		List<Discuss> consults=discussService.selectListDiscussByUserId(userId);
+		return consults;
+	}
+	
 }

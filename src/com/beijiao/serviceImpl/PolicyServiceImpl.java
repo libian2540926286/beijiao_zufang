@@ -141,7 +141,7 @@ public class PolicyServiceImpl implements PolicyService {
 	}
 
 	@Override
-	public List<Policy> getLatestPolicy(String polTime) {
+	public List<Policy> getLatestPolicy(String polTime,String pClassName) {
 		// TODO Auto-generated method stub
 		return policyMapper.getLatestPolicy(polTime);
 	}
@@ -179,12 +179,6 @@ public class PolicyServiceImpl implements PolicyService {
 	public List<Policy> searchPolicy_app(String search) {
 		// TODO Auto-generated method stub
 		return policyMapper.searchPolicy_app(search);
-	}
-
-	@Override
-	public List<Policy> getLatestPolicy_app(String polTime) {
-		// TODO Auto-generated method stub
-		return policyMapper.getLatestPolicy_app(polTime);
 	}
 
 
