@@ -122,11 +122,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     </div>
 	<!--header end-->
-    </div>
-  <div class="content">
+   
+   <div class="content" >
     <div class="list">
-			<div class="location">
-			
+			<div class="location">			
 				<span>位置 > 个人主页</span>
 			</div>
 
@@ -136,16 +135,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <li class="off">您的消息</li>
           <li class="off">咨询回复</li>
         </ul>
-        <hr>
+       <!--  <hr> -->
         <div id="firstPage" class="show">
             <ul>
-              <li>
+           <!--    <li>
                   <input id="changePassword" type="submit" value="修改密码" >           
-              </li>
+              </li> -->
               <li>
-                  <span>关注行业：</span><span>${sessionScope.get('session').pClassName}</span>
-                  <!-- <input id="changeIndustry" type="submit" value="修改行业"> -->
-                  
+                   <span>关注行业：</span><span>${sessionScope.get('session').pClassName}</span>
+                   <input id="changePassword" type="submit" value="修改密码" >
               </li>
             </ul>
             <script type="text/javascript">
@@ -172,17 +170,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form id="passwordChange" method="post" action="index/changepswd">
             <ul>
             <li>
-                <label>原始密码&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码" name="oldPassword" minlength="6" maxlength="12" required>
+                <label class="psw">原始密码</label>
+                <input class="pswTxt" type="text" size="50px" style="height:30px" placeholder="输入原始密码" name="oldPassword" minlength="6" maxlength="12" required>
                 <input type="hidden"  name="userId1" value=${sessionScope.get('session').userId}>
               </li>
               <li>
-                <label>新密码&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" size="50px" style="height:25px" placeholder="输入原始密码" name="checkpassword" minlength="6" maxlength="12" required>
+                <label class="psw">新密码</label>
+                <input class="pswTxt" type="text" size="50px" style="height:30px" placeholder="输入原始密码" name="checkpassword" minlength="6" maxlength="12" required>
               </li>
               <li>
-                <label>确认新密码</label>
-                <input type="text" size="50px" style="height:25px" name="password" minlength="6" maxlength="12" required>
+                <label class="psw">确认新密码</label>
+                <input class="pswTxt" type="text" size="50px" style="height:30px" name="password" minlength="6" maxlength="12" required>
               </li>    
               <li>
                 <input class="ensure" type="submit" value="确认修改" >
@@ -221,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </li>
             <li class="message">
               <span>您关注的行业有以下最新信息。。。。。。</span>
-              <a class="more" href="#">点击查看更多>></a>
+              <a class="more" href="#"><cite>点击查看更多>></cite></a>
             </li>
           </ul>
         </div>
@@ -257,7 +255,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
 
-		</div>
+		</div> 
 		
 		<div class="footer">
 				<!-- <hr> -->

@@ -104,18 +104,22 @@ img{border:none;}
   list-style: none;height: 50px;line-height: 50px;
 }
 #tab #options li{
-  background: #D32A2F;cursor: pointer;
-  /* float: left; */
+  /* background: #D32A2F; */cursor: pointer;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   height: 35px;line-height: 35px;
   padding: 0px 10px;
-  margin-top: 5px;
+  margin-top: 15px;
+  margin:20px;
+  border-radius:20px;
   border: 1px solid #BBB;
-  color:#EFEAEA;
+  /* color:#EFEAEA; */
+  color:#808080;
 }
 #tab #options li.on{
-  background: #ba0100;
+  
+  background: #de3237;
+  color:white;
   font-weight:bold;
 }
 #tab div{
@@ -123,13 +127,16 @@ img{border:none;}
   font-size: 16px;
   float: right;
   width: 854px;line-height: 40px;
+ 
 }
 #tab div ul {
   position: relative;
+  
 }
 #tab div ul li{
-  width:840px;float:left;
-  padding-left: 14px;
+  width:810px;float:left;
+  padding-left: 20px;
+  font-size: 16px;
 }
 #tab div li a:hover{
   color:#de3437;text-decoration:underline;
@@ -145,11 +152,18 @@ img{border:none;}
   display: none;
 }
 
+
 /* *******************************************第一页选项卡里面的内容********************************** */
+#firstPage{
+	margin-top:20px;
+	margin-right:0px;
+
+}
 #firstPage li{
-  font-size: 20px;
+  margin:0 auto;
+  font-size: 16px;
   line-height: 50px;
-  border: 1px solid #ebebeb;border-style:dotted;
+  border: 2px solid #ebebeb;border-style:dotted;
 }
 #firstPage .ensure {
 	float: left;
@@ -159,17 +173,17 @@ img{border:none;}
 	outline: none;
 	font-family: 'Raleway', sans-serif;
 	padding: 5px 0px;
-	width: 100px;
-	font-size: 15px;
+	width: 80px;
+	font-size: 14px;
 	background:#de3237;
 	border:2px solid #de3237;
-	border-radius: 0.5em;
-	-webkit-border-radius:0.5em;
+	border-radius: 1em;
+	-webkit-border-radius:1em;
 	-moz-border-radius:0.5em;
 	-o-border-radius:0.5em;
 	text-align: center;
 	position: relative;
-	margin: 10px 0px 0px 365px;
+	margin: 10px 0px 0px 400px;
 }
 #firstPage .ensure:hover {
 	background: #fff;
@@ -180,22 +194,23 @@ img{border:none;}
 #firstPage #changePassword {
   float: right;
   margin-top: 10px;
-  margin-right: 390px;
+  margin-right: 330px;
 	color: #fff;
 	cursor: pointer;
-	font-weight: 900;
+	font-weight: 500;
 	outline: none;
 	font-family: 'Raleway', sans-serif;
 	padding: 5px 0px;
-	width: 100px;
-	font-size: 16px;
+	width: 80px;
+	font-size: 14px;
 	background:#de3237;
 	border:2px solid #de3237;
-	border-radius: 0.5em;
-	-webkit-border-radius:0.5em;
+	border-radius: 1em;
+	-webkit-border-radius:1em;
 	-moz-border-radius:0.5em;
 	-o-border-radius:0.5em;
-	text-align: center;
+	
+	
 }
 #firstPage #changePassword:hover {
 	background: #fff;
@@ -205,9 +220,17 @@ img{border:none;}
 #firstPage #passwordChange{
   display: none;
 }
-#firstPage #passwordChange{
-  padding-left: 15px;
+.psw{
+	width:100px;
+	height:50px;
+	align:left;
+	float:left;
 }
+.pswTxt{
+    align:center;
+	margin-top:10px;
+	
+} 
 
 #firstPage #changeUsername {
   float: right;
@@ -228,6 +251,7 @@ img{border:none;}
 	-moz-border-radius:0.5em;
 	-o-border-radius:0.5em;
 	text-align: center;
+	
 }
 #firstPage #changeUsername:hover {
 	background: #fff;
@@ -272,9 +296,14 @@ img{border:none;}
 
 
 /* *******************************************第二页选项卡里面的内容********************************** */
+#secondPage{
+	margin-top:20px;
+	
+}
 #secondPage ul{
-  height: 120px;
-  border: 1px solid #ebebeb;border-style:dotted;
+  height:120px;
+  width:830px;
+  border: 2px solid #ebebeb;border-style:dotted;
 }
 #secondPage ul li{
   border: none;
@@ -292,14 +321,15 @@ img{border:none;}
 }
 #secondPage ul li .more {
   font-size: 14px;
+  padding-right:25px;
   height: 30px;
   float: right;
   color:#de3437;
 }
 
 /* *******************************************第三页选项卡里面的内容********************************** */
-#thirdPage{position: relative; font-size:16px; margin-top: 15px; line-height: 40px;}
-#thirdPage ul{position: relative;}
+#thirdPage{position: relative; font-size:16px; margin-top: 20px; line-height: 40px;}
+#thirdPage ul{position: relative; width:830px;border: 2px solid #ebebeb;border-style:dotted;}
 #thirdPage ul .consult-title {
   padding-left: 5px;
 }
