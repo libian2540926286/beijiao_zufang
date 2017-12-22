@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	         </ul>
 				<div class="submit">
 					<input type="submit" value="登录" >
-					<input id="exit" type="button" onclick="javascript:window.location.href='index/toindex'" value="取消" >
+					<input id="exit" type="button" onclick="javascript:window.location.href='/'" value="取消" >
 					<h4><a href="#">忘记密码?</a></h4>
 					<div class="clear">  </div>	
 				</div>

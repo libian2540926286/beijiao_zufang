@@ -31,4 +31,5 @@ public interface UserService {
    public List<User> getAllUser(Map map);
    public int getRecordCount();
    public User getUser(int userId);
+   public int changeFocus(int userId,String pClassName);
 }

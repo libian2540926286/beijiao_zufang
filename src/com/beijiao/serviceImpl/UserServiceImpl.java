@@ -77,5 +77,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.getRecordCount();
 	}
+	@Override
+	public int changeFocus(int userId, String pClassName) {
+		// TODO Auto-generated method stub
+		return userMapper.changeFocus(userId, pClassName);
+	}
 
 }

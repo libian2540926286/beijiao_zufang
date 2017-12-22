@@ -5,7 +5,9 @@ package com.beijiao.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -140,18 +142,21 @@ public class DiscussController {
 	
 	@ResponseBody
 	@RequestMapping("addDis_app")
-	public String addDiscult(Discuss discuss,HttpServletRequest request, HttpServletResponse response){
+	public Map<String,String> addDiscult(Discuss discuss,HttpServletRequest request, HttpServletResponse response){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
 		System.out.println(discuss);
 		Date date = new Date(); 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String disTime = dateFormat.format(date);
 		discuss.setDisTime(disTime);
+		Map<String,String> map=new HashMap<String, String>();
 		int n=discussService.insertDiscuss(discuss);
 		if(n!=0){
-			return "success";
-		}else{
-			return "fail";
-		}	
+        	map.put("result", "success");
+		    return map;
+	     }else{
+	    	 map.put("result", "fail");
+			 return map;
+	    }
 	}
 }
