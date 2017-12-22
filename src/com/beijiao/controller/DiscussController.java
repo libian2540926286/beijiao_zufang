@@ -49,6 +49,13 @@ public class DiscussController {
 		return "consult-list";
 	}
 	
+	@RequestMapping("toDiscuss")
+	public String toDiscuss(Model model,int discussId){
+		Discuss discuss=discussService.selectDiscuss(discussId);
+		model.addAttribute("discuss", discuss);
+		return "consult-list";
+	}
+	
 	@RequestMapping("addConsult")
 	public String addDiscuss(Discuss discuss){
 		
