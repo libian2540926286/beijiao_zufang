@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'picPolicy.jsp' starting page</title>
+    <title>My JSP 'picpolicy.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -59,11 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-       <form method="post" action="picpol/addpicPol" enctype="multipart/form-data">
+       <form method="post" action="picpol/addpicpol" enctype="multipart/form-data">
 		<ul class="forminfo">		  
 			<li>
 			<label>文章标题</label>
-			<input name="picPolTitle" type="text" class="dfinput" placeholder="请填写标题" />
+			<input name="picpolTitle" type="text" class="dfinput" placeholder="请填写标题" />
 			<i>标题不能超过30个字符</i>
 			</li>
 			<li>
@@ -77,14 +77,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 			<li>
 			<label>发布时间</label>
-			<input name="picPolTime" type="date"class="dfinput" />
+			<input name="picpolTime" type="date"class="dfinput" />
 			</li>
 			<li>
 			<label>来源</label>
-			<input name="picPolSource" type="text" class="dfinput" value="" placeholder="请填写来源" /></li>
+			<input name="picpolSource" type="text" class="dfinput" value="" placeholder="请填写来源" /></li>
 			<li>
             <label>文章内容<b>*</b></label>
-            <textarea id="content7" name="picPolContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
+            <textarea id="content7" name="picpolContent" style="width:700px;height:250px;visibility:hidden;"></textarea>   
             </li>
             <li>
 			<label>&nbsp;</label>

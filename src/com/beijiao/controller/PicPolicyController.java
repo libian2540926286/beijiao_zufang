@@ -19,7 +19,7 @@ import com.beijiao.model.PicPolicy;
 import com.beijiao.page.Page;
 import com.beijiao.service.PicPolicyService;
 
-@Controller
+@Controller       
 @RequestMapping("/picpol")
 public class PicPolicyController {
 
@@ -32,12 +32,12 @@ public class PicPolicyController {
 	 * all for user
 	 * 
 	 */
-	
+	                
 	@RequestMapping("topicPol")
 	public String getPicPol(int picPolId,Model model){
 		PicPolicy picPol=picPolicyService.getPicPolicy(picPolId);
 		model.addAttribute("picPol", picPol);
-		return "success";
+		return "picPolicy";
 	}
 	
 

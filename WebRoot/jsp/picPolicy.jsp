@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'consult-list.jsp' starting page</title>
+    <title>My JSP 'picPolicy.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,20 +21,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link href="css/consult-list.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="js/banner1.js"></script>
-	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	
-
+   <link href="css/content.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/banner1.js"></script>
   </head>
   
   <body>
-    	<div class="top">
+  <!-- <iframe style="width: 100%; height: 236px" scrolling="no" 
+  frameborder="0" src="header.html"></iframe> -->
+  <div class="top">
 		<div class="wrap">
 		<span class="fl">欢迎您来到<a href="/" title="" target="_blank">新政策网</a></span>		
 		<c:choose>  
         <c:when test="${not empty sessionScope.get('session')}">
-        <span class="fr"><a href="index/touser" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
+        <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
         </c:when>  
         <c:otherwise>  
             <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="#" title="" target="_blank">立即注册</a></span>  
@@ -59,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 					<div class="lain1_box" id="lain1">
 						<ul class="block">
-							<li><input type="text"  value="请输入政策名称" onFocus="if(this.value=='请输入政策名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入政策名称';}" class="sertxt" /><a href="search.html"><input type="button" value="搜索" name=""  class="serbtn"/></a></li>
+							<li><input type="text"  value="请输入政策名称" onFocus="if(this.value=='请输入政策名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入政策名称';}" class="sertxt" /><input type="button" value="搜索" name=""  class="serbtn"/></li>
 						</ul>
 						<ul>
 						  <li><input type="text"  value="请输入用户名称" onFocus="if(this.value=='请输入用户名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入用户名称';}" class="sertxt" /><input type="button" value="搜索" name=""  class="serbtn"/></li>
@@ -120,84 +119,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div> 
 	</div>
-    </div> 
-	<!--header end-->
+    </div>
 
   <div class="content">
-    <div class="list">
-			<div class="location">
-				<li>位置 > 咨询答疑</li>
-			</div>
-
-
-
-      <div class="file">
-          <c:forEach items="${dis}" var="dis">
-				<ul>
-			        <li class="consult-title"><span>用户咨询</span>${dis.disTitle }</li>
-			        <li class="consult-detail">${dis.disContent}</li>
-			        <li class="answer">
-						<span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
-						<br>
-						<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-						<div class="answer_detail"><c:out value="${dis.reply}" default="暂无回复"/></div>
-					</li>
-				</ul>
-		  </c:forEach>
-		  
-		   <c:if test="${not empty discuss}">
-		   		<ul>
-			        <li class="consult-title"><span>用户咨询</span>${discuss.disTitle }</li>
-			        <li class="consult-detail">${discuss.disContent}</li>
-			        <li class="answer">
-						<span class="time">[2017-11-1]</span><input class="switch_answer" type="button" value="查看回复">
-						<br>
-						<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-						<div class="answer_detail"><c:out value="${discuss.reply}" default="暂无回复"/></div>
-					</li>
-				</ul>
-		   </c:if>
-		 
- 		<script type="text/javascript">
-			$(".switch_answer").click(function(){
-				if($(this).val() == "查看回复"){
-					$(this).val("关闭回复");
-					$(this).nextAll().slideDown("fast", function(){
-
-					});
-				}else{
-					$(this).val("查看回复");
-					$(this).nextAll().slideUp("fast", function(){
-
-					});
-				}
-			})
-		</script>
+    <div class="detail">
+    <c:if test="${not empty picPol}">
+      <div class="title">
+		<p>${picPol.picPolTitle}</p>
+		<span id="source">发布时间：${picPol.picPolTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${picPol.picPolSource}</span>
+		<hr>
       </div>
-      
-	</div>
-		
+		<%-- <img src="upload/pic/${news.newsLink}" > --%>
+		<hr>
+		<p>${picPol.picPolContent}</p>
+	 </c:if>
+	<!--  </div> -->
 		<div class="footer">
-				<!-- <hr> -->
-				<ul>
-					<li class="li_left">
-						版权所有&nbsp;|&nbsp;
-						<span><a href="" title="">北焦科创高科技孵化器（北京）有限公司&nbsp;&nbsp;京ICP备123456号</a></span>
+			<ul>
+				<li class="li_left">
+					版权所有&nbsp;|&nbsp;
+					<span><a href="" title="">北焦科创高科技孵化器（北京）有限公司&nbsp;&nbsp;京ICP备123456号</a></span>
+				</li>
+				<li class="li_right">
+					地址&nbsp;|&nbsp;
+					<span><a href="" title="">北京市朝阳区化工路59号院4号楼4-5层</a></span>
+				<li class="li_left">
+					技术支持&nbsp;|&nbsp;
+					<span><a href="" title="">北焦科创</a></span>
 					</li>
-					<li class="li_right">
-						地址&nbsp;|&nbsp;
-						<span><a href="" title="">北京市朝阳区化工路59号院4号楼4-5层</a></span>
-					<li class="li_left">
-						技术支持&nbsp;|&nbsp;
-						<span><a href="" title="">北焦科创</a></span>
-						</li>
-					<li class="li_right">
-						邮政编码&nbsp;|&nbsp;
-						<span><a href="" title="">100020</a></span>
-					</li>
-				</ul>
+				<li class="li_right">
+					邮政编码&nbsp;|&nbsp;
+					<span><a href="" title="">100020</a></span>
+				</li>
+			</ul>
 		</div>
-		<!--footer end-->
-	</div>	<!--content end-->
-  </body>
+				<!--footer end-->
+	</div>
+</div>
+
+	
+		<!-- 左侧导航栏 -->
+		<!-- 左侧导航栏 -->
+	<div id="subnav">
+	<ul>
+		<li id="title"><span>导航栏</span></li>
+	</ul>
+		<ul id="subnav_tag">
+			<li><a href="policy/toPolicyType?polDrade='国家'">国家政策</a></li>
+			<li><a href="policy/toPolicyType?polDrade='市'">市级政策</a></li>
+			<li><a href="policy/toPolicyType?polDrade='区'">地方政策</a></li>
+			<li><a href="news/tolistNews" title="">媒体聚焦</a></li>
+			<li><a href="polInterpre/toAllPolInterpre" title="">政策解读</a></li>			
+			<li><a href="policy/toAllFile" title="">文件发布</a></li>		
+		</ul>
+	</div>
+</body>
 </html>

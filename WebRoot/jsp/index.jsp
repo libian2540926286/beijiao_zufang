@@ -131,21 +131,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="left_top">
 			<div class="left_top_zuo">
 				<div id="fader">
-					<ul>
+					<ul>                 
 					 <c:forEach items="${picPols}" var="picPols">
-					  <li>
-						<a href="picPol/topicPol?picPolId=${picPols.picPolId}" title="">
+					  <li>             
+						<a href="picpol/topicPol?picPolId=${picPols.picPolId}" title="">
 						<img src="${picPols.picPolFile}" width="640px" height="320px" alt="${picPols.picPolTitle}">
 						</a>
 						</li>	
 					 </c:forEach>		
-						<li>
-						<a href="content-img.html" title="">
-						<img src="images/01.jpg"width="640px" height="320px" alt="全国工商和市场监管工作座谈会举行">
-						</a>
-						</li>
-						<li><a href="content-img2.html" title=""><img src="images/02.jpg"
-								width="640px" height="320px" alt="张茅在世界地理标志大会上强调：推进地理标志工作助推“一带一路”建设"></a></li>
 					</ul>
 				</div>
 				<script type="text/javascript" src="js/banner2.js"></script>
