@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </ul>	
 			<div class="submit">
 				<input type="submit" value="确定注册" >
-				<input type="button" id="exit" onclick="javascript:window.location.href='index/toindex'" value="取消" >
+				<input type="button" id="exit" onclick="javascript:window.location.href='/'" value="取消" >
 				<div class="clear"> 
 		       </div>	
 		   </div>

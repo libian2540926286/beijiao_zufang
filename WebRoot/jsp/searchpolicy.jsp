@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<div class="top">
 		<div class="wrap">
-		<span class="fl">欢迎您来到<a href="index/toindex" title="" target="_blank">新政策网</a></span>		
+		<span class="fl">欢迎您来到<a href="/" title="" target="_blank">新政策网</a></span>		
 		<c:choose>  
         <c:when test="${not empty sessionScope.get('session')}">
         <span class="fr"><a href="#" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="nav">
 		<div class="wrap"> 
 			<ul class="nav_left">
-				<li><a href="index/toindex" title="">首页</a></li>
+				<li><a href="/" title="">首页</a></li>
 				<li><a href="#" title="">行业政策</a>
 					<ul class="second_nav">
 						<li>

@@ -115,7 +115,6 @@ public class AppIndexController {
         response.setHeader("XDomainRequestAllowed","1");
 		User user;
 		user = (User) sessions.getAttribute("session_app");
-		System.out.println(user.getpClassName()+"测试1");
 		Map<String, String> map = new HashMap<String, String>();
 		if(user!=null){
 			map.put("user",String.valueOf(user.getUserId()));
@@ -128,26 +127,54 @@ public class AppIndexController {
 			
 	@ResponseBody 
 	@RequestMapping("app_reg")
-	public String SignIn(User user,HttpServletRequest request, HttpServletResponse response){
+	public Map<String, String> SignIn(User user,HttpServletRequest request, HttpServletResponse response){
 		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
-		System.out.println(user.getpClassName());
-		String test;
-		try {
-			test = new String(user.getpClassName().getBytes("iso-8859-1"),"utf-8");
-			user.setpClassName(test);
-			System.out.println(test);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Map<String, String> map = new HashMap<String, String>();
 		int success=userService.userResigster(user);
 		if(success!=0){
-			return "success";
+			map.put("result", "success");
+			return map;
 		}else{
-			
-			return "fail";
+			map.put("result", "fail");
+			return map;
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("changepswd")
+	public Map<String,String> changePassword(HttpServletRequest request, HttpServletResponse response,User user){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		String oldPassword=userService.selectPawd(user.getUserId());
+		Map<String,String> map=new HashMap<String, String>();
+		if(user.getPassword()!=oldPassword){
+		     int success=userService.changepswd(user.getUserId(), user.getPassword(),oldPassword);
+             if(success!=0){
+            	map.put("result", "success");
+			    return map;
+		     }else{
+		    	 map.put("result", "fail");
+				 return map;
+		    }
+		}else{
+			map.put("result", "SamePswd");
+			return map;
+		}
+        
+	}
+	
+	@ResponseBody
+	@RequestMapping("changemyFocus")
+	public Map<String,String> changemyFocus(HttpServletRequest request, HttpServletResponse response,User user){
+		response.addHeader("Access-Control-Allow-Origin","*");//'*'表示允许所有域名访问，可以设置为指定域名访问，多个域名中间用','隔开
+		Map<String,String> map=new HashMap<String, String>();
+	     int success=userService.changeFocus(user.getUserId(), user.getpClassName());
+         if(success!=0){
+        	map.put("result", "success");
+		    return map;
+	     }else{
+	    	 map.put("result", "fail");
+			 return map;
+	    }  
 	}
 	
 	/*
