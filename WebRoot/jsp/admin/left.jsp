@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <li class="active"><cite></cite><a href="jsp/admin/index.jsp" target="rightFrame">管理员首页</a><i></i></li>
        <li><cite></cite><a href="policy/allPolicy" target="rightFrame">政策管理</a><i></i></li>
        <li><cite></cite><a href="polInterpre/allPolInterpre" target="rightFrame">政策解读管理</a><i></i></li>
-       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">热点关注</a><i></i></li> 
+       <li><cite></cite><a href="jsp/admin/picpolicy.jsp" target="rightFrame">热点关注</a><i></i></li> 
        <li><cite></cite><a href="notice/toadminNotice" target="rightFrame">通知公告</a><i></i></li> 
        <li><cite></cite><a href="affair/toadminAffair" target="rightFrame">申报指南</a><i></i></li> 
        </ul>    
@@ -71,8 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span><img src="jsp/admin/images/leftico01.png" /></span>首页图片政策管理
     </div>
    	<ul class="menuson">      
-       <li><cite></cite><a href="jsp/admin/picPolicy.jsp" target="rightFrame">首页图片政策上传</a><i></i></li>
-       <li><cite></cite><a href="picpol/allpicPol" target="rightFrame">所有首页图片政策</a><i></i></li>
+       <li><cite></cite><a href="jsp/admin/picpolicy.jsp" target="rightFrame">首页图片政策上传</a><i></i></li>
+       <li><cite></cite><a href="picpol/allpicpol" target="rightFrame">所有首页图片政策</a><i></i></li>
     </ul>    
     </dd>   
     

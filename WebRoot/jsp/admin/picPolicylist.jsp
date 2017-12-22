@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'picPolicylist.jsp' starting page</title>
+    <title>My JSP 'picpolicylist.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -93,15 +93,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </thead>
     
     <tbody>
-    <c:forEach items="${picPols}" var="picPols">
+    <c:forEach items="${picpols}" var="picpols">
     <tr>
-    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="${picPols.picPolFile}" /></td>
-    <td><a href="#">${picPols.picPolTitle}</a><p>发布时间：${picPols.picPolTime}</p></td>
-    <td><p>发布时间：${picPols.picPolTime}</p></td>
-    <td>${picPols.picPolSource}</td>
+    <td class="imgtd"><img style="width: 160px ; height: 90px;" src="${picpols.picpolFile}" /></td>
+    <td><a href="#">${picpols.picpolTitle}</a><p>发布时间：${picpols.picpolTime}</p></td>
+    <td><p>发布时间：${picpols.picpolTime}</p></td>
+    <td>${picpols.picpolSource}</td>
     <td>
-    <a href="picpol/toAdminpicPol?picPolId=${picPols.picPolId}">查看</a>
-    <a href="picpol/deletepicPol?picPolId=${picPols.picPolId}">删除</a>
+    <a href="picpol/toAdminpicpol?picpolId=${picpols.picpolId}">查看</a>
+    <a href="picpol/deletepicpol?picpolId=${picpols.picpolId}">删除</a>
     </td>
     </tr>
     </c:forEach>
@@ -118,10 +118,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="paginList">
         <c:choose>
 	      <c:when test="${pageNow-1>0}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageNow-1}"><span class="pagepre"></span></a></li>
 	      </c:when>
 	      <c:when test="${pageNow-1<=0}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageNow}"><span class="pagepre"></span></a></li>
 	      </c:when>
 	     </c:choose>
         
@@ -129,56 +129,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<2}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">2</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=1">2</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=2">2</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=2">2</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>
 	      <c:when test="${page.pageTotalCount<3}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">3</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=1">3</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=3">3</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=3">3</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<4}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">4</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=1">4</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=4">4</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=4">4</a></li>
 	      </c:otherwise>
 	     </c:choose>
         <li class="paginItem more"><a href="javascript:;">...</a></li>
         <c:choose>
 	      <c:when test="${page.pageTotalCount<10}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=1">10</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=1">10</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=10">10</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=10">10</a></li>
 	      </c:otherwise>
 	     </c:choose>
         
         <c:choose>           
 	     <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageNow}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1<page.pageTotalCount}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageNow+1}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	     <c:when test="${page.pageNow+1>=page.pageTotalCount}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageTotalCount}"><span class="pagenxt"></span></a></li>
 	     </c:when>
 	    </c:choose>               
         <c:choose>
 	      <c:when test="${page.pageTotalCount==0}">
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageNow}">尾页</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageNow}">尾页</a></li>
 	      </c:when>
 	      <c:otherwise>
-	      <li class="paginItem"><a href="picpol/allpicPol?pageNow=${page.pageTotalCount}">尾页</a></li>
+	      <li class="paginItem"><a href="picpol/allpicpol?pageNow=${page.pageTotalCount}">尾页</a></li>
 	      </c:otherwise>
 	     </c:choose>       
         </ul>

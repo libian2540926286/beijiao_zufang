@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'picPolicy_detail.jsp' starting page</title>
+    <title>My JSP 'picpolicy_detail.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -38,15 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="detail">
-     <c:if test="${not empty picPol}">
+     <c:if test="${not empty picpol}">
      <div class="title">   
-		<p>${picPol.picPolTitle}</p>
-		<span id="source">发布时间： ${picPol.picPolTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${picPol.picPolSource}</span>
+		<p>${picpol.picpolTitle}</p>
+		<span id="source">发布时间： ${picpol.picpolTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp信息来源：${picpol.picpolSource}</span>
 		<hr>
       </div>
       <div class="content">
-      <img src="${picPol.picPolFile}" width="1004px" height="480px">
-      <p>${picPol.picPolContent}</p>      
+      <img src="${picpol.picpolFile}" width="1004px" height="480px">
+      <p>${picpol.picpolContent}</p>      
       </div>
 	<br/><br/>
     </c:if>
