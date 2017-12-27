@@ -1,332 +1,520 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-   
-   <title>新政策网首页</title>
-   
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">    
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-<link rel="stylesheet" type="text/css" href="styles.css">
--->
-    <link href="css/style.css" type="text/css" rel="stylesheet" /> 
-    <script type="text/javascript" src="js/banner1.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cityselect.js"></script>
- </head>
- 
- <body>
-<!--top begin-->
-<div class="top">
-	<div class="wrap">
-		<span class="fl">欢迎您来到<a href="/" title="" target="_blank">新政策网</a></span>		
-		<c:choose>  
-        <c:when test="${not empty sessionScope.get('session')}">
-        <span class="fr"><a href="index/touser" title="">${sessionScope.get('session').username}</a>&nbsp;&nbsp;<a href="index/logout" title="" target="_blank">[退出]</a></span>  
-        </c:when>  
-        <c:otherwise>  
-            <span class="fr"><a href="jsp/login.jsp" title="">请登录</a>&nbsp;&nbsp;<a href="jsp/register.jsp" title="" target="_blank">立即注册</a></span>  
-        </c:otherwise>  
-        </c:choose>
-	</div>
-</div>
-<!--top end-->
 
-<!--header begin-->
-<div class="header">
-	<div class="wrap">
-		<!-- <a href="#" title="" target="_blank"><img src="images/ad1.jpg" width="1004" height="40" /></a> -->
-			<div class="search_box">
-				<a href="#" title="" target="_blank"><img src="images/logo.jpg" width="389" height="53"  alt="" class="fl"/></a>  
-				<div class="search" >
-					<div id="lenu1">
-						<ul>
-							<li class="hover" onmousemove="setTab(1,0)">政策<span>|</span></li>
-							<!-- (<li onmousemove="setTab(1,1)">用户<span>|</span></li>) -->
-						</ul>
-					</div>
-					<form action="policy/toSearch" method="post"> 
-				<div class="lain1_box" id="lain1">
-					<ul class="block">
-						<li><input type="text"  value="请输入政策名称" name="search" onFocus="if(this.value=='请输入政策名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入政策名称';}" class="sertxt" /><input type="submit" value="搜索" name=""  class="serbtn"/></a></li>
-					</ul>
-					<ul>
-					  <li><input type="text"  value="请输入用户名称" onFocus="if(this.value=='请输入用户名称'){this.value='';}" onBlur="if(this.value==''){this.value='请输入用户名称';}" class="sertxt" /><input type="button" value="搜索" name=""  class="serbtn"/></li>
-					</ul>
-				</div>
-				</form>
-			</div>
+<head>
+	<base href="<%=basePath%>">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <title>北焦科创租房管理系统</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><strong><i class="icon fa fa-home"></i> 北焦科创租房管理</strong></a>
+				
+		<div id="sideNav" href="">
+		<i class="fa fa-bars icon"></i> 
 		</div>
-	</div>
-		 
-	<div class="nav">
-		<div class="wrap"> 
-			<ul class="nav_left">
-				<li><a href="/" title="">首页</a></li>
-				<li><a href="#" title="">行业政策</a>
-					<ul class="second_nav">
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=机械化工">机械化工</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=交通汽车">交通汽车</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=房产建材">房产建材</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=服装纺织">服装纺织</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=IT互联网">IT互联网</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=文化传媒">文化传媒</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=医药">医药</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=食品">食品</a>
-						</li>
-						<li>
-						<a href="policy/toIndustryPolicy?pClassName=农林渔牧">农林渔牧</a>
-						</li>					
-					</ul>
-				</li>                    
-				<li><a href="polInterpre/tolistPolInterpre" title="">政策解读</a></li>
-				<li><a href="affair/toAllAffair" title="">申报指南</a></li>
-				<li><a href="notice/toNotices" title="">通知公告</a></li>
-				<li><a href="consult/getallconsult" title="">咨询答疑</a>
-				  <ul class="second_nav">
-				  <li>
-					<a href="consult/getallconsult">咨询答疑</a>
-					</li>
-					<li>
-					<a href="jsp/consult.jsp">我要咨询</a>
-					</li>
-				   </ul>
-				</li>
-			</ul>
-		</div> 
-	</div>
-    </div>
-<!--header end-->
+            </div>
 
-<div class="content">
-	<div class="content_left">
-		<div class="left_top">
-			<div class="left_top_zuo">
-				<div id="fader">
-					<ul>                 
-					 <c:forEach items="${picPols}" var="picPols">
-					  <li>             
-						<a href="picpol/topicPol?picPolId=${picPols.picPolId}" title="">
-						<img src="${picPols.picPolFile}" width="640px" height="320px" alt="${picPols.picPolTitle}">
-						</a>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Doe</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Today</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">28% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
+                                            <span class="sr-only">28% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">85% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                                            <span class="sr-only">85% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" href="#"><i class="fa fa-dashboard"></i> 总览</a>
+                    </li>
+                    <li>
+                        <a href="room/toRooms"><i class="fa fa-building-o"></i> 房间管理</a>
+                    </li> 
+                     <li>
+                        <a href="jsp/user.jsp"><i class="fa fa-user"></i> 业主管理</a>
+                    </li>
+					 
+					 <li>
+                        <a href="#"><i class="fa fa-table"></i> 报表中心<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="jsp/housesource.jsp">房源配置报表</a>
+                            </li>
+                            <li>
+                                <a href="jsp/userinfo.jsp">租客信息报表</a>
+                            </li>
+                            <li>
+                                <a href="jsp/rentinfo.jsp">出租信息报表</a>
+                            </li>
+                 
+							</ul>
 						</li>	
-					 </c:forEach>		
-					</ul>
-				</div>
-				<script type="text/javascript" src="js/banner2.js"></script>
-				<!--fader(banner) end-->
+					 <li>
+                        <a href="#"><i class="fa fa-cog"></i> 系统设置<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="jsp/accountinfo.jsp">账号管理</a>
+                            </li>
+                           <!--  <li>
+                                <a href="jsp/morris-chart.jsp">租客信息报表</a>
+                            </li>
+                            <li>
+                                <a href="jsp/morris-chart.jsp">出租信息报表</a>
+                            </li> -->
+                 
+							</ul>
+						</li>		
+                   
+                    
+                    
+                </ul>
 
-				<div id="tab">
-					<ul id="options">
-						<li class="on">国家政策</li>
-						<li class="off">市级政策</li>
-						<li class="off">地方政策</li>
-					</ul>
-					<div id="firstPage" class="show">
-						<ul>
-						<c:forEach items="${policy1}" var="policy1">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="policy/toPolicy?policyId=${policy1.policyId}" title="">${policy1.polTitle}</a>
-							<span class="time">[${policy1.polTime}]</span>
-						</li>
-						</c:forEach>
-					</ul>                                                            
-						<a class="more" href="policy/toPolicyType?polDrade=国家政策">更多>></a>
-					</div>
-					<div id="thirdPage" class="hide">
-						<ul>
-						<c:forEach items="${policy2}" var="policy2">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="policy/toPolicy?policyId=${policy2.policyId}" title="">${policy2.polTitle}</a>
-							<span class="time">[${policy2.polTime}]</span>
-						</li>
-						</c:forEach>			
-						</ul>
-						<a class="more" href="policy/toPolicyType?polDrade=市级政策">更多>></a>
-					</div>
-					<div id="forthPage" class="hide">
-						<ul>
-						<c:forEach items="${policy3}" var="policy3">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="policy/toPolicy?policyId=${policy3.policyId}" title="">${policy3.polTitle}</a>
-							<span class="time">[${policy3.polTime}]</span>
-						</li>
-						</c:forEach>													
-						</ul>
-						<a class="more" href="policy/toPolicyType?polDrade=地方政策">更多>></a>
-					</div>
-				</div>
+            </div>
 
-				<div id="tab2">
-					<ul id="options">
-						<li class="on">通知公告</li>
-						<li class="off">政策解读</li>
-						<!-- <li class="off">文件发布</li> -->
-					</ul>
-					<div id="firstPage" class="show">
-						<ul>
-						<c:forEach items="${notices}" var="notices">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="notice/toNotice?noticeId=${notices.noticeId}" title="">${notices.noticeTitle}</a>
-							<span class="time">[${notices.noticeTime}]</span>
-						</li>
-						</c:forEach>
-					</ul>
-						<a class="more" href="notice/toNotices">更多>></a>
-					</div>
-					<div id="secondPage" class="hide">
-						<ul>
-						<c:forEach items="${polInterpres}" var="polInterpres">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="polInterpre/toPolInterpre?polInterpreId=${polInterpres.polInterpreId}" title="">${polInterpres.polInterpreTitle}</a>
-							<span class="time">[${polInterpres.polInterpreTime}]</span>
-						</li>
-						</c:forEach>
-					</ul>
-						<a class="more" href="polInterpre/tolistPolInterpre">更多>></a>
-					</div>
-				</div>
-			</div>
+        </nav>
+        <!-- /. NAV SIDE  -->
+      
+		<div id="page-wrapper">
+		  <div class="header"> 
+                        <h1 class="page-header">
+                            总览 <small>Welcome Admin</small>
+                        </h1>
+						<ol class="breadcrumb">
+					  <li class="active">主页</a></li>
+					  <!-- <li><a href="#">Dashboard</a></li> -->
+					  <!-- <li class="active">Data</li> -->
+					</ol> 
+									
 		</div>
-	</div>
+            <div id="page-inner">
 
-	<div class="content_right">
-		<div class="rdgz">
-			<h1>热点关注</h1>
-			<div class="scroll1">
-				<ul>
-					<c:forEach items="${hots}" var="hots">
-						<li>
-							<img src="images/dian.png" width="5px" height="5px" alt="" />
-							<a href="news/toNews?newsId=${hots.newsId}" title="">${hots.newsTitle}</a>
-						</li>
-						</c:forEach>
-				</ul>
-			</div>
-		</div>
+                <!-- /. ROW  -->
+	
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="board">
+                        <div class="panel panel-primary">
+						<div class="number">
+							<h3>
+								<h3>12</h3>
+								<small>未缴费</small>
+							</h3> 
+						</div>
+						<div class="icon">
+						   <i class="fa fa-close fa-5x red"></i>
+						</div>
+		 
+                        </div>
+						</div>
+                    </div>
+					
+					       <div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="board">
+                        <div class="panel panel-primary">
+						<div class="number">
+							<h3>
+								<h3>10</h3>
+								<small>已缴费</small>
+							</h3> 
+						</div>
+						<div class="icon">
+						   <i class="fa fa-check fa-5x blue"></i>
+						</div>
+		 
+                        </div>
+						</div>
+                    </div>
+					
+					       <div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="board">
+                        <div class="panel panel-primary">
+						<div class="number">
+							<h3>
+								<h3>5</h3>
+								<small>未出租</small>
+							</h3> 
+						</div>
+						<div class="icon">
+						   <i class="fa fa-window-close-o fa-5x green"></i>
+						</div>
+		 
+                        </div>
+						</div>
+                    </div>
+					
+					       <div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="board">
+                        <div class="panel panel-primary">
+						<div class="number">
+							<h3>
+								<h3>0</h3>
+								<small>合同到期</small>
+							</h3> 
+						</div>
+						<div class="icon">
+						   <i class="fa fa-calendar-times-o fa-5x yellow"></i>
+						</div>
+		 
+                        </div>
+						</div>
+                    </div>
+				   
+               
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                剩余房间
+                            </div> 
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>房源名称</th>
+                                                <th>房源类型</th>
+                                                <th>房间配置</th>
+                                                <th>房间租金</th>
+                                                <th>房间面积</th>
+                                                <th>附加信息</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>501会议室</td>
+                                                <td>整间</td>
+                                                <td>1张桌子，6把椅子</td>
+                                                <td>10000</td>
+                                                <td>130</td>
+                                                <td>好</td>
+                                                <td>查看</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Kimsila</td>
+                                                <td>Marriye</td>
+                                                <td>Kim1425</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Rossye</td>
+                                                <td>Nermal</td>
+                                                <td>Rossy1245</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Richard</td>
+                                                <td>Orieal</td>
+                                                <td>Rich5685</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Jacob</td>
+                                                <td>Hielsar</td>
+                                                <td>Jac4587</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Wrapel</td>
+                                                <td>Dere</td>
+                                                <td>Wrap4585</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Wrapel</td>
+                                                <td>Dere</td>
+                                                <td>Wrap4585</td>
+                                                <td>name@site.com</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+			
 		
-		<!-- <div class="qyfc">
-			<h1>政策检索</h1>
+				<footer><p>Copyright &copy; 北焦科创</p>
+				
+        
+				</footer>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	 
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+	
+	
+	<script src="assets/js/easypiechart.js"></script>
+	<script src="assets/js/easypiechart-data.js"></script>
+	
+	 <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
 
-			<div id="city">
-				<select class="prov"></select>   
-				<select class="city" disabled="disabled"></select>  
-				<select class="dist" disabled="disabled"></select>
-				<button>确定</button>
-			</div>
+      
+    <!-- Chart Js -->
+    <script type="text/javascript" src="assets/js/Chart.min.js"></script>  
+    <script type="text/javascript" src="assets/js/chartjs.js"></script> 
 
-			<script type="text/javascript">
-				$("#city").citySelect({   
-					url:"js/city.min.js",   
-					prov:"北京市", //省份  
-					city:"朝阳区", //城市  
-					dist:"", //区县  
-					nodata:"none" //当子集无数据时，隐藏select  
-				});
-			</script>
-
-			<ul>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="content-qy.html" title="">东北三省简政放权增强市场活力</a><span class="time">[10-09]</span></li>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">厦门新版商事主体网上审批系统正式上线</a><span class="time">[10-09]</span></li>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">上海商标审查协作中心正式挂牌运行</a><span class="time">[10-09]</span></li>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">陕西“多证合一、一照一码”改革启动</a><span class="time">[10-09]</span></li>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">青岛营造优质环境全力激发民企活力</a><span class="time">[10-09]</span></li>
-				<li><img src="images/dian.png" width="5px" height="5px" alt="" /><a href="" title="">东北三省简政放权增强市场活力</a><span class="time">[10-09]</span></li>
-				<a class="more" href="search2.html">更多>></a>
-			</ul>
-		</div>
-		qyfc end -->
-		
-		<div class="cptg">
-			<h1>咨询答疑</h1>
-			<ul>
-            <c:forEach items="${discussion}" var="discussion">
-			<li>
-				<img src="images/dian.png" width="5px" height="5px" alt="" />
-				<a href="consult/toDiscuss?discussId=${discussion.discussId}">${discussion.disTitle}</a>
-				<span class="time">[${discussion.disTime}]</span>
-			</li>
-		    </c:forEach>		   
-			<a class="more" href="consult/getallconsult">更多>></a>
-			</ul>
-		</div>
-		
-	   <div class="cptg">
-       <h1>文件发布</h1>
-         <ul>
-            <c:forEach items="${files}" var="files">
-			<li>
-				<img src="images/dian.png" width="5px" height="5px" alt="" />
-				<a href="file/tofile?fileId=${files.fileId}">${files.filename}</a>
-				<span class="time">[${files.filetime}]</span>
-			</li>
-		    </c:forEach>
-			<a class="more" href="file/getAllfile">更多>></a>
-			</ul>
-		</div>
-		<!--cptg end-->
-	</div>
-
-		<div style="display: none">
-			<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540'
-				language='JavaScript' charset='gb2312'></script>
-		</div>
-
-		<div class="footer">
-			<hr>
-			<ul>
-				<li class="li_left">
-					版权所有&nbsp;|&nbsp;
-					<span><a href="" title="">北焦科创高科技孵化器（北京）有限公司&nbsp;&nbsp;京ICP备123456号</a></span>
-				</li>
-				<li class="li_right">
-					地址&nbsp;|&nbsp;
-					<span><a href="" title="">北京市朝阳区化工路59号院4号楼4-5层</a></span>
-				<li class="li_left">
-					技术支持&nbsp;|&nbsp;
-					<span><a href="" title="">北焦科创</a></span>
-					</li>
-				<li class="li_right">
-					邮政编码&nbsp;|&nbsp;
-					<span><a href="" title="">100020</a></span>
-				</li>
-			</ul>
-		</div>
-		<!--footer end-->
-	</div>
+</body>
 
 </html>

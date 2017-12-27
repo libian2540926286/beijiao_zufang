@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beijiao.model.File;
-import com.beijiao.model.Policy;
 import com.beijiao.page.Page;
 import com.beijiao.service.FileService;
 

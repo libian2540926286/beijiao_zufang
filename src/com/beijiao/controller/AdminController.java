@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.beijiao.model.Admin;
-import com.beijiao.model.PolInterpre;
 import com.beijiao.model.User;
 import com.beijiao.page.Page;
 import com.beijiao.service.AdminService;

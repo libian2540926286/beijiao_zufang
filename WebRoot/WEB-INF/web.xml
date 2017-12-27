@@ -41,7 +41,8 @@
        <url-pattern>*.pdf</url-pattern>
        <url-pattern>/assets/*"</url-pattern>    
        <url-pattern>/images/*</url-pattern>
-       <url-pattern>/admin/images/*</url-pattern>      
+       <url-pattern>/admin/images/*</url-pattern>    
+       <url-pattern>/assets/img/*</url-pattern>    
     </servlet-mapping>
 
 	<!-- Spring MVC servlet -->
@@ -83,12 +84,27 @@
         <url-pattern>*.js</url-pattern>  
     </servlet-mapping>
 	<welcome-file-list>
-	 <welcome-file>/</welcome-file>
-		<!-- <welcome-file>/index.jsp</welcome-file> -->
+	<!--  <welcome-file>/</welcome-file> -->
+	<welcome-file>/jsp/index.jsp</welcome-file> 
 	</welcome-file-list>
 	<!-- 配置SESSION超时，单位是分钟 -->
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>
-
+	<servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.woff</url-pattern>
+    </servlet-mapping>
+<servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.woff2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ttf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.svg</url-pattern>
+    </servlet-mapping>
 </web-app>
